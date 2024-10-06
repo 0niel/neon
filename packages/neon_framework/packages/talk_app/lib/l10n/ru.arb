@@ -1,0 +1,37 @@
+{
+  "@@locale": "ru",
+  "actorSelf": "Вы",
+  "actorGuest": "Гость",
+  "roomCreate": "Создать комнату",
+  "roomCreateUserName": "Имя пользователя",
+  "roomCreateGroupName": "Имя группы",
+  "roomCreateRoomName": "Имя комнаты",
+  "roomType": "{type, select, oneToOne{Личная} group{Группа} public{Общедоступная} other{}}",
+  "@roomType": {
+    "placeholders": {
+      "type": {}
+    }
+  },
+  "roomWriteMessage": "Напишите сообщение...",
+  "roomMessageAddEmoji": "Добавить эмодзи к сообщению",
+  "roomMessageSend": "Отправить сообщение",
+  "roomMessageReply": "Ответить",
+  "roomMessageReaction": "Добавить реакцию",
+  "roomMessageDelete": "Удалить",
+  "roomMessageEdit": "Редактировать",
+  "roomMessageEdited": "отредактировано",
+  "roomMessageLastEdited": "Последнее редактирование {name} в {time}",
+  "@roomMessageLastEdited": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reactionsAddNew": "Добавить новую реакцию",
+  "reactionsLoading": "Загрузка реакций",
+  "roomsCreateNew": "Создать новую комнату"
+}

@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'localizations_en.dart';
+import 'localizations_ru.dart';
 
 // ignore_for_file: type=lint
 
@@ -89,7 +90,7 @@ abstract class FilesLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('ru')];
 
   /// No description provided for @actionDelete.
   ///
@@ -359,7 +360,7 @@ class _FilesLocalizationsDelegate extends LocalizationsDelegate<FilesLocalizatio
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'ru'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_FilesLocalizationsDelegate old) => false;
@@ -370,6 +371,8 @@ FilesLocalizations lookupFilesLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
       return FilesLocalizationsEn();
+    case 'ru':
+      return FilesLocalizationsRu();
   }
 
   throw FlutterError('FilesLocalizations.delegate failed to load unsupported locale "$locale". This is likely '

@@ -1,0 +1,46 @@
+{
+  "@@locale": "ru",
+  "errorChangedOnServer": "Заметка была изменена на сервере. Пожалуйста, обновите и попробуйте снова.",
+  "general": "Общее",
+  "notes": "Заметки",
+  "note": "Заметка",
+  "noteCreate": "Создать заметку",
+  "noteTitle": "Заголовок",
+  "noteSetCategory": "Установить категорию",
+  "noteChangeCategory": "Изменить категорию заметки",
+  "noteShowEditor": "Редактировать заметку",
+  "noteShowPreview": "Предварительный просмотр заметки",
+  "noteStar": "Добавить в избранное",
+  "noteUnstar": "Убрать из избранного",
+  "noteDeleteConfirm": "Вы уверены, что хотите удалить заметку '{name}'?",
+  "@noteDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories": "Категории",
+  "category": "Категория",
+  "categoryNotesCount": "{count} заметок",
+  "@categoryNotesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryUncategorized": "Без категории",
+  "optionsDefaultCategory": "Категория по умолчанию",
+  "optionsDefaultNoteViewType": "Как показывать заметку",
+  "optionsDefaultNoteViewTypePreview": "Предварительный просмотр",
+  "optionsDefaultNoteViewTypeEdit": "Редактор",
+  "optionsNotesSortOrder": "Порядок сортировки заметок",
+  "optionsNotesSortProperty": "Как сортировать заметки",
+  "optionsNotesSortPropertyLastModified": "Последнее изменение",
+  "optionsNotesSortPropertyAlphabetical": "Алфавитно",
+  "optionsCategoriesSortOrder": "Порядок сортировки категорий",
+  "optionsCategoriesSortProperty": "Как сортировать категории",
+  "optionsCategoriesSortPropertyAlphabetical": "Алфавитно",
+  "optionsCategoriesSortPropertyNotesCount": "Количество заметок"
+}

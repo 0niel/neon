@@ -1,0 +1,14 @@
+{
+  "@@locale": "ru",
+  "noEntries": "Нет записей",
+  "setUserStatus": "Установить статус",
+  "weather": "{code, select, clearsky{ясное небо} cloudy{облачно} fair{хорошая погода} partlycloudy{переменная облачность} fog{туман} rain{дождь} lightrain{небольшой дождь} heavyrain{сильный дождь} rainshowers{дождевые дожди} lightrainshowers{небольшие дожди} heavyrainshowers{сильные дожди} other{}}",
+  "@weather": {
+    "placeholders": {
+      "code": {}
+    }
+  },
+  "locationSet": "Установить местоположение для погоды",
+  "address": "Адрес",
+  "openWidget": "Открыть виджет"
+}

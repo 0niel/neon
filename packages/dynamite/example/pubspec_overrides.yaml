@@ -3,6 +3,6 @@ dependency_overrides:
   dynamite:
     path: ..
   dynamite_runtime:
-    path: ../packages/dynamite_runtime
+    path: ..\\packages\\dynamite_runtime
   neon_lints:
-    path: ../../neon_lints
+    path: ..\\..\\neon_lints
