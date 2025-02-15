@@ -1,0 +1,307 @@
+{
+  "@@locale": "ru",
+  "nextcloud": "Nextcloud",
+  "nextcloudLogo": "Логотип Nextcloud",
+  "appImplementationName": "{app, select, nextcloud{Nextcloud} core{Сервер} dashboard{Панель управления} files{Файлы} news{Новости} notes{Заметки} notifications{Уведомления} spreed{Talk} talk{Talk} other{}}",
+  "@appImplementationName": {
+    "placeholders": {
+      "app": {}
+    }
+  },
+  "loginAgain": "Войти снова",
+  "loginOpenAgain": "Открыть снова",
+  "loginSwitchToBrowserWindow": "Пожалуйста, переключитесь на окно браузера, которое только что открылось, и продолжите там",
+  "loginWorksWith": "работает с",
+  "loginUsingQRcode": "Войти с помощью QR-кода",
+  "loginUsingServerAddress": "Войти с использованием адреса сервера",
+  "loginServerVersion": "Проверка версии сервера",
+  "@loginServerVersion": {
+    "description": "Когда версия сервера проверяется и ещё не известна"
+  },
+  "loginServerVersionSupported": "Поддерживаемая версия сервера: {version}",
+  "@loginServerVersionSupported": {
+    "description": "Когда версия сервера известна и поддерживается",
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "29.0.0"
+      }
+    }
+  },
+  "loginServerVersionUnsupported": "Неподдерживаемая версия сервера: {version}",
+  "@loginServerVersionUnsupported": {
+    "description": "Когда версия сервера известна, но не поддерживается",
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "29.0.0"
+      }
+    }
+  },
+  "loginMaintenanceMode": "Проверка режима обслуживания",
+  "@loginMaintenanceMode": {
+    "description": "Когда режим обслуживания загружается с сервера"
+  },
+  "loginMaintenanceModeEnabled": "Режим обслуживания включён",
+  "@loginMaintenanceModeEnabled": {
+    "description": "Когда режим обслуживания включён"
+  },
+  "loginMaintenanceModeDisabled": "Режим обслуживания отключён",
+  "@loginMaintenanceModeDisabled": {
+    "description": "Когда режим обслуживания отключён"
+  },
+  "loginCheckingAccount": "Проверка аккаунта",
+  "errorCredentialsForAccountNoLongerMatch": "Данные для этого аккаунта больше не совпадают",
+  "errorBruteforceThrottled": "Ваши запросы временно ограничены из-за защиты от перебора паролей",
+  "errorServerHadAProblemProcessingYourRequest": "На сервере возникла проблема при обработке вашего запроса. Попробуйте ещё раз",
+  "errorSomethingWentWrongTryAgainLater": "Что-то пошло не так. Попробуйте позже",
+  "errorUnableToReachServer": "Не удалось установить соединение с сервером",
+  "errorUnableToReachServerAt": "Не удалось установить соединение с сервером по адресу {url}",
+  "@errorUnableToReachServerAt": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "errorConnectionTimedOut": "Время соединения истекло",
+  "errorNoCompatibleNextcloudAppsFound": "Совместимые приложения Nextcloud не найдены.\nМы усердно работаем над тем, чтобы реализовать всё больше приложений!",
+  "errorServerInMaintenanceMode": "Сервер находится в режиме обслуживания. Попробуйте позже или свяжитесь с администратором сервера.",
+  "errorMissingPermission": "Отсутствует разрешение для {name}",
+  "@errorMissingPermission": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errorUnsupportedAppVersions": "К сожалению, версия следующих приложений на вашем экземпляре Nextcloud не поддерживается. \n {names} \n Пожалуйста, свяжитесь с администратором для решения проблемы.",
+  "@errorUnsupportedAppVersions": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "errorEmptyField": "Это поле не может быть пустым",
+  "errorInvalidURL": "Указан неверный URL",
+  "errorInvalidQRcode": "Указан неверный QR-код",
+  "errorRouteNotFound": "Маршрут не найден: {route}",
+  "@errorRouteNotFound": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "errorDialog": "Произошла ошибка",
+  "actionYes": "Да",
+  "actionNo": "Нет",
+  "actionClose": "Закрыть",
+  "actionRetry": "Повторить",
+  "actionShowSlashHide": "Показать/Скрыть",
+  "actionExit": "Выход",
+  "actionContinue": "Продолжить",
+  "actionCancel": "Отмена",
+  "actionDone": "Готово",
+  "actionOpen": "Открыть",
+  "firstLaunchGoToSettingsToEnablePushNotifications": "Перейдите в настройки, чтобы включить push-уведомления",
+  "nextPushSupported": "NextPush поддерживается!",
+  "nextPushSupportedText": "NextPush – это FOSS-решение для получения push-уведомлений с использованием протокола UnifiedPush через сервер Nextcloud.\nВы можете установить NextPush из магазина F-Droid.",
+  "nextPushSupportedInstall": "Установить NextPush",
+  "searchIn": "Искать в {app}",
+  "@searchIn": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "searchNoResults": "Ничего не найдено",
+  "searchGlobally": "Искать по всему",
+  "settings": "Настройки",
+  "settingsApps": "Приложения",
+  "settingsAccount": "Аккаунт",
+  "settingsExport": "Экспорт настроек",
+  "settingsImport": "Импорт настроек",
+  "settingsReset": "Сбросить настройки?",
+  "settingsImportWrongFileExtension": "Импорт настроек имеет неверное расширение файла (должно быть .json.base64)",
+  "settingsResetAll": "Сбросить все настройки",
+  "settingsResetAllConfirmation": "Вы действительно хотите сбросить все настройки?",
+  "settingsResetAllExplanation": "Это приведёт к сбросу всех предпочтений к значениям по умолчанию.",
+  "settingsResetFor": "Сбросить все настройки для {name}",
+  "@settingsResetFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsResetForExplanation": "Это сбросит настройки вашего аккаунта к значениям по умолчанию.",
+  "settingsResetForClientExplanation": "Это сбросит все настройки приложения к значениям по умолчанию.",
+  "settingsResetForConfirmation": "Вы действительно хотите сбросить все настройки для {name}?",
+  "@settingsResetForConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "optionsCategoryGeneral": "Общее",
+  "optionsCategoryTheme": "Тема",
+  "optionsCategoryPushNotifications": "Push-уведомления",
+  "optionsCategoryOther": "Прочее",
+  "optionsCategoryAccounts": "Аккаунты",
+  "optionsCategoryStartup": "Запуск",
+  "optionsCategoryNavigation": "Навигация",
+  "optionsSortOrderAscending": "По возрастанию",
+  "optionsSortOrderDescending": "По убыванию",
+  "globalOptionsThemeMode": "Режим темы",
+  "globalOptionsThemeModeLight": "Светлая",
+  "globalOptionsThemeModeDark": "Тёмная",
+  "globalOptionsThemeModeAutomatic": "Автоматически",
+  "globalOptionsThemeOLEDAsDark": "Использовать OLED-тему как тёмную",
+  "globalOptionsThemeUseNextcloudTheme": "Использовать тему Nextcloud",
+  "globalOptionsThemeCustomBackground": "Пользовательский фон",
+  "globalOptionsPushNotifications": "UnifiedPush",
+  "globalOptionsPushNotificationsDisabled": "Отключено",
+  "globalOptionsPushNotificationsDistributorGotifyUP": "Gotify-UP (FOSS)",
+  "globalOptionsPushNotificationsDistributorFirebaseEmbedded": "Firebase (проприетарное)",
+  "globalOptionsPushNotificationsDistributorNtfy": "ntfy (FOSS)",
+  "globalOptionsPushNotificationsDistributorFCMUP": "FCM-UP (проприетарное)",
+  "globalOptionsPushNotificationsDistributorNextPush": "NextPush (FOSS)",
+  "globalOptionsPushNotificationsDistributorNoProvider2Push": "NoProvider2Push (FOSS)",
+  "globalOptionsPushNotificationsDistributorConversations": "Conversations",
+  "globalOptionsStartupMinimized": "Запускать свернутым",
+  "globalOptionsStartupMinimizeInsteadOfExit": "Свернуть вместо выхода",
+  "globalOptionsAccountsRememberLastUsedAccount": "Запомнить последний использованный аккаунт",
+  "globalOptionsAccountsInitialAccount": "Начальный аккаунт",
+  "globalOptionsAccountsAdd": "Добавить аккаунт",
+  "globalOptionsNavigationMode": "Режим навигации",
+  "globalOptionsNavigationModeDrawer": "Боковая панель",
+  "globalOptionsNavigationModeDrawerAlwaysVisible": "Боковая панель всегда видна",
+  "accountOptionsDeleteOnServer": "Удалить аккаунт на сервере",
+  "accountOptionsRemove": "Удалить аккаунт",
+  "accountOptionsRemoveConfirm": "Вы уверены, что хотите удалить аккаунт {id}?",
+  "@accountOptionsRemoveConfirm": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsRemoveLocal": "Удалить аккаунт с устройства",
+  "accountOptionsRemoveRemote": "Запрос на удаление аккаунта на сервере",
+  "accountOptionsRemoveRemoteDelay": "Аккаунт будет удалён через {time}",
+  "@accountOptionsRemoveRemoteDelay": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsCategoryStorageInfo": "Информация о хранилище",
+  "accountOptionsQuotaUsedOf": "Использовано {used} из {total} ({relative}%)",
+  "@accountOptionsQuotaUsedOf": {
+    "placeholders": {
+      "used": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "relative": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsInitialApp": "Приложение для показа по умолчанию",
+  "accountOptionsAutomatic": "Автоматически",
+  "licenses": "Лицензии",
+  "sourceCode": "Исходный код",
+  "issueTracker": "Сообщить об ошибке или предложить функцию",
+  "relativeTimeNow": "сейчас",
+  "relativeTimePast": "{time} назад",
+  "@relativeTimePast": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeFuture": "через {time}",
+  "@relativeTimeFuture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeMinutes": "{time}{abbreviation,select, true{м} other{ {time,plural, =1{минута}other{минуты}}}}",
+  "@relativeTimeMinutes": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeHours": "{time}{abbreviation,select, true{ч} other{ {time,plural, =1{час}other{часа}}}}",
+  "@relativeTimeHours": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeDays": "{time}{abbreviation,select, true{д} other{ {time,plural, =1{день}other{дня}}}}",
+  "@relativeTimeDays": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeYears": "{time}{abbreviation,select, true{г} other{ {time,plural, =1{год}other{года}}}}",
+  "@relativeTimeYears": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
+      }
+    }
+  },
+  "userStatusSetStatus": "Установить статус",
+  "userStatusOnline": "Онлайн",
+  "userStatusAway": "Отошёл",
+  "userStatusDoNotDisturb": "Не беспокоить",
+  "userStatusDoNotDisturbDescription": "Отключить все уведомления",
+  "userStatusInvisible": "Невидимый",
+  "userStatusInvisibleDescription": "Показываться как офлайн",
+  "userStatusClearAfter": "Очистить статус через",
+  "userStatusClearAtDoNotClear": "Не очищать",
+  "userStatusClearAtToday": "Сегодня",
+  "userStatusClearAtThisWeek": "На этой неделе",
+  "userStatusActionClear": "Очистить статус",
+  "userStatusStatusMessage": "Сообщение статуса",
+  "userStatusOnlineStatus": "Статус онлайн",
+  "emojisCategorySmileysAndEmotions": "Смайлики и эмоции",
+  "emojisCategoryPeople": "Люди",
+  "emojisCategoryAnimalsAndNature": "Животные и природа",
+  "emojisCategoryFoodAndDrink": "Еда и напитки",
+  "emojisCategoryTravelAndPlaces": "Путешествия и места",
+  "emojisCategoryActivitiesAndEvents": "Активности и события",
+  "emojisCategoryObjects": "Объекты",
+  "emojisCategorySymbols": "Символы",
+  "emojisCategoryFlags": "Флаги"
+}
