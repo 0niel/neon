@@ -37,19 +37,11 @@ part 'spreed.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $AvatarClient avatar = $AvatarClient(this);
 
@@ -133,15 +125,13 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetAvatarApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -149,12 +139,13 @@ class $AvatarClient {
     __darkTheme ??= 0;
     _parameters['darkTheme'] = __darkTheme;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -163,12 +154,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -247,15 +236,13 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarUploadAvatarApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarUploadAvatarApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -263,7 +250,7 @@ class $AvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -272,12 +259,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -307,11 +292,7 @@ class $AvatarClient {
     AvatarUploadAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $uploadAvatar_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $uploadAvatar_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -353,15 +334,13 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarDeleteAvatarApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarDeleteAvatarApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -369,7 +348,7 @@ class $AvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -378,12 +357,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -412,11 +389,7 @@ class $AvatarClient {
     AvatarDeleteAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAvatar_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteAvatar_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -460,24 +433,23 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarEmojiAvatarApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarEmojiAvatarApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -486,12 +458,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -572,24 +542,23 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarDarkApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetAvatarDarkApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -598,12 +567,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -632,11 +599,7 @@ class $AvatarClient {
     AvatarGetAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getAvatarDark_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getAvatarDark_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -680,8 +643,10 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __size =
-        _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomSize));
+    final __size = _$jsonSerializers.serialize(
+      size,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomSize),
+    );
     _parameters['size'] = __size;
 
     final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
@@ -701,13 +666,13 @@ class $AvatarClient {
     __darkTheme ??= 0;
     _parameters['darkTheme'] = __darkTheme;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}{?cloudId*,darkTheme*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}{?cloudId*,darkTheme*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -716,14 +681,12 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -804,8 +767,10 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __size =
-        _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomSize));
+    final __size = _$jsonSerializers.serialize(
+      size,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomSize),
+    );
     _parameters['size'] = __size;
 
     final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
@@ -818,13 +783,13 @@ class $AvatarClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark{?cloudId*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark{?cloudId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -833,14 +798,12 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -923,11 +886,7 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarSize));
@@ -936,13 +895,17 @@ class $AvatarClient {
     final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
     _parameters['cloudId'] = __cloudId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    var __darkTheme =
-        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkTheme));
+    var __darkTheme = _$jsonSerializers.serialize(
+      darkTheme,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarDarkTheme),
+    );
     __darkTheme ??= 0;
     _parameters['darkTheme'] = __darkTheme;
 
@@ -952,7 +915,7 @@ class $AvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -961,12 +924,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1053,11 +1014,7 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkSize));
@@ -1066,18 +1023,20 @@ class $AvatarClient {
     final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
     _parameters['cloudId'] = __cloudId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarDarkApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark{?cloudId*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark{?cloudId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1086,12 +1045,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1173,18 +1130,10 @@ class $BanClient {
   ///  * [listBans] for a method executing this request and parsing the response.
   ///  * [$listBans_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listBans_Request({
-    required String token,
-    BanListBansApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listBans_Request({required String token, BanListBansApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BanListBansApiVersion));
@@ -1195,7 +1144,7 @@ class $BanClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1204,12 +1153,10 @@ class $BanClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1240,11 +1187,7 @@ class $BanClient {
     BanListBansApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listBans_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listBans_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1289,11 +1232,7 @@ class $BanClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BanBanActorApiVersion));
@@ -1304,7 +1243,7 @@ class $BanClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1313,19 +1252,18 @@ class $BanClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(BanBanActorRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(BanBanActorRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -1404,11 +1342,7 @@ class $BanClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __banId = _$jsonSerializers.serialize(banId, specifiedType: const FullType(int));
@@ -1422,7 +1356,7 @@ class $BanClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1431,12 +1365,10 @@ class $BanClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1515,18 +1447,10 @@ class $BotClient {
   ///  * [listBots] for a method executing this request and parsing the response.
   ///  * [$listBots_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listBots_Request({
-    required String token,
-    BotListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listBots_Request({required String token, BotListBotsApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
@@ -1537,7 +1461,7 @@ class $BotClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1546,14 +1470,12 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1582,11 +1504,7 @@ class $BotClient {
     BotListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listBots_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listBots_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1631,11 +1549,7 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1649,7 +1563,7 @@ class $BotClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1658,14 +1572,12 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1747,11 +1659,7 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1765,7 +1673,7 @@ class $BotClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1774,14 +1682,12 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1866,11 +1772,7 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
@@ -1881,7 +1783,7 @@ class $BotClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1890,12 +1792,10 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1987,11 +1887,7 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -2001,12 +1897,13 @@ class $BotClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2015,19 +1912,18 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body =
-        json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(BotReactRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(BotReactRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -2114,11 +2010,7 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -2127,18 +2019,20 @@ class $BotClient {
     final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = __reaction;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BotDeleteReactionApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2147,12 +2041,10 @@ class $BotClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2245,11 +2137,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -2259,12 +2147,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2273,14 +2162,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2328,8 +2215,9 @@ class $BreakoutRoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $configureBreakoutRooms_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeBreakoutRooms_Request].
@@ -2366,11 +2254,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -2380,12 +2264,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2394,14 +2279,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2430,17 +2313,14 @@ class $BreakoutRoomClient {
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $removeBreakoutRooms_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $removeBreakoutRooms_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeBreakoutRooms_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$broadcastChatMessage_Request].
@@ -2480,11 +2360,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -2494,12 +2370,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2508,14 +2385,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2564,8 +2439,9 @@ class $BreakoutRoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $broadcastChatMessage_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$applyAttendeeMap_Request].
@@ -2604,24 +2480,23 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2630,14 +2505,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2685,8 +2558,9 @@ class $BreakoutRoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $applyAttendeeMap_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$requestAssistance_Request].
@@ -2724,24 +2598,23 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2750,14 +2623,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2787,17 +2658,14 @@ class $BreakoutRoomClient {
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $requestAssistance_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $requestAssistance_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $requestAssistance_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$resetRequestForAssistance_Request].
@@ -2835,11 +2703,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -2849,12 +2713,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2863,14 +2728,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2910,8 +2773,9 @@ class $BreakoutRoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resetRequestForAssistance_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$startBreakoutRooms_Request].
@@ -2949,11 +2813,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -2963,12 +2823,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2977,14 +2838,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3014,17 +2873,14 @@ class $BreakoutRoomClient {
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $startBreakoutRooms_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $startBreakoutRooms_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $startBreakoutRooms_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$stopBreakoutRooms_Request].
@@ -3062,24 +2918,23 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3088,14 +2943,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3125,17 +2978,14 @@ class $BreakoutRoomClient {
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $stopBreakoutRooms_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $stopBreakoutRooms_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $stopBreakoutRooms_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$switchBreakoutRoom_Request].
@@ -3174,11 +3024,7 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -3188,12 +3034,13 @@ class $BreakoutRoomClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3202,14 +3049,12 @@ class $BreakoutRoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3257,8 +3102,9 @@ class $BreakoutRoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $switchBreakoutRoom_Serializer();
-    return _i1.ResponseConverter<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -3302,15 +3148,13 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallGetPeersForCallApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallGetPeersForCallApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -3318,7 +3162,7 @@ class $CallClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3327,12 +3171,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3361,11 +3203,7 @@ class $CallClient {
     CallGetPeersForCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getPeersForCall_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getPeersForCall_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3410,15 +3248,13 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateCallFlagsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallUpdateCallFlagsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -3426,7 +3262,7 @@ class $CallClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3435,12 +3271,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3525,11 +3359,7 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
@@ -3540,7 +3370,7 @@ class $CallClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3549,12 +3379,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3646,11 +3474,7 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
@@ -3665,7 +3489,7 @@ class $CallClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3674,12 +3498,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3711,17 +3533,243 @@ class $CallClient {
     CallLeaveCallAll? all,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $leaveCall_Request(
-      token: token,
-      apiVersion: apiVersion,
-      all: all,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $leaveCall_Request(token: token, apiVersion: apiVersion, all: all, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $leaveCall_Serializer();
     return _i1.ResponseConverter<CallLeaveCallResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$callNotificationState_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallNotificationStateResponseApplicationJson, void> $callNotificationState_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallNotificationStateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 201, 403, 404},
+      );
+
+  /// Check the expected state of a call notification.
+  ///
+  /// Required capability: `call-notification-state-api`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [callNotificationState] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token] Conversation token to check.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Notification should be kept alive
+  ///   * 201: Dismiss call notification and show "Missed call"-notification instead
+  ///   * 403: Not logged in, try again with auth data sent
+  ///   * 404: Dismiss call notification
+  ///
+  /// See:
+  ///  * [callNotificationState] for a method executing this request and parsing the response.
+  ///  * [$callNotificationState_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $callNotificationState_Request({
+    required String token,
+    CallNotificationStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallNotificationStateApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/notification-state',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Check the expected state of a call notification.
+  ///
+  /// Required capability: `call-notification-state-api`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token] Conversation token to check.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Notification should be kept alive
+  ///   * 201: Dismiss call notification and show "Missed call"-notification instead
+  ///   * 403: Not logged in, try again with auth data sent
+  ///   * 404: Dismiss call notification
+  ///
+  /// See:
+  ///  * [$callNotificationState_Request] for the request send by this method.
+  ///  * [$callNotificationState_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<CallNotificationStateResponseApplicationJson, void>> callNotificationState({
+    required String token,
+    CallNotificationStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $callNotificationState_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $callNotificationState_Serializer();
+    return _i1.ResponseConverter<CallNotificationStateResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$downloadParticipantsForCall_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<String, void> $downloadParticipantsForCall_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(String),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Download the list of current call participants.
+  ///
+  /// Required capability: `download-call-participants`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [downloadParticipantsForCall] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [format] Download format. Defaults to `"csv"`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: List of participants in the call downloaded in the requested format
+  ///   * 400: No call in progress
+  ///
+  /// See:
+  ///  * [downloadParticipantsForCall] for a method executing this request and parsing the response.
+  ///  * [$downloadParticipantsForCall_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $downloadParticipantsForCall_Request({
+    required String token,
+    CallDownloadParticipantsForCallApiVersion? apiVersion,
+    CallDownloadParticipantsForCallFormat? format,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallDownloadParticipantsForCallApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    var __format = _$jsonSerializers.serialize(
+      format,
+      specifiedType: const FullType(CallDownloadParticipantsForCallFormat),
+    );
+    __format ??= 'csv';
+    _parameters['format'] = __format;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/download{?format*}',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'text/csv';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Download the list of current call participants.
+  ///
+  /// Required capability: `download-call-participants`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [format] Download format. Defaults to `"csv"`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: List of participants in the call downloaded in the requested format
+  ///   * 400: No call in progress
+  ///
+  /// See:
+  ///  * [$downloadParticipantsForCall_Request] for the request send by this method.
+  ///  * [$downloadParticipantsForCall_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<String, void>> downloadParticipantsForCall({
+    required String token,
+    CallDownloadParticipantsForCallApiVersion? apiVersion,
+    CallDownloadParticipantsForCallFormat? format,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $downloadParticipantsForCall_Request(
+      token: token,
+      apiVersion: apiVersion,
+      format: format,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $downloadParticipantsForCall_Serializer();
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$updateFederatedCallFlags_Request].
@@ -3731,7 +3779,7 @@ class $CallClient {
             bodyType: const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
-            validStatuses: const {200, 400},
+            validStatuses: const {200, 400, 404},
           );
 
   /// Update the in-call flags on the host server using the session id of the federated user.
@@ -3761,24 +3809,23 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateFederatedCallFlagsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallUpdateFederatedCallFlagsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3787,12 +3834,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3841,8 +3886,9 @@ class $CallClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateFederatedCallFlags_Serializer();
-    return _i1.ResponseConverter<CallUpdateFederatedCallFlagsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CallUpdateFederatedCallFlagsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$joinFederatedCall_Request].
@@ -3852,7 +3898,7 @@ class $CallClient {
         bodyType: const FullType(CallJoinFederatedCallResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Join call on the host server using the session id of the federated user.
@@ -3867,8 +3913,8 @@ class $CallClient {
   ///
   /// Status codes:
   ///   * 200: Call joined successfully
-  ///   * 400: Conditions to join not met
   ///   * 404: Call not found
+  ///   * 400: Conditions to join not met
   ///
   /// See:
   ///  * [joinFederatedCall] for a method executing this request and parsing the response.
@@ -3882,24 +3928,23 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinFederatedCallApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallJoinFederatedCallApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3908,12 +3953,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3937,8 +3980,8 @@ class $CallClient {
   ///
   /// Status codes:
   ///   * 200: Call joined successfully
-  ///   * 400: Conditions to join not met
   ///   * 404: Call not found
+  ///   * 400: Conditions to join not met
   ///
   /// See:
   ///  * [$joinFederatedCall_Request] for the request send by this method.
@@ -3969,7 +4012,7 @@ class $CallClient {
         bodyType: const FullType(CallLeaveFederatedCallResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Leave a call on the host server using the session id of the federated user.
@@ -3999,27 +4042,26 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __sessionId = _$jsonSerializers.serialize(sessionId, specifiedType: const FullType(String));
     _parameters['sessionId'] = __sessionId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveFederatedCallApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallLeaveFederatedCallApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation{?sessionId*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation{?sessionId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4028,12 +4070,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4116,27 +4156,26 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = __attendeeId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallRingAttendeeApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CallRingAttendeeApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4145,12 +4184,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4203,7 +4240,7 @@ class $CallClient {
         bodyType: const FullType(CallSipDialOutResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {201, 400, 404, 501},
+        validStatuses: const {201, 400, 404},
       );
 
   /// Call a SIP dial-out attendee.
@@ -4235,11 +4272,7 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -4249,12 +4282,13 @@ class $CallClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4263,12 +4297,10 @@ class $CallClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4379,19 +4411,19 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    final __lookIntoFuture =
-        _$jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
+    final __lookIntoFuture = _$jsonSerializers.serialize(
+      lookIntoFuture,
+      specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture),
+    );
     _parameters['lookIntoFuture'] = __lookIntoFuture;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatReceiveMessagesApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -4401,34 +4433,23 @@ class $ChatClient {
 
     var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
     __lastKnownMessageId ??= 0;
-    _i4.checkNumber(
-      __lastKnownMessageId,
-      'lastKnownMessageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__lastKnownMessageId, 'lastKnownMessageId', minimum: 0);
     _parameters['lastKnownMessageId'] = __lastKnownMessageId;
 
     var __lastCommonReadId = _$jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
     __lastCommonReadId ??= 0;
-    _i4.checkNumber(
-      __lastCommonReadId,
-      'lastCommonReadId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__lastCommonReadId, 'lastCommonReadId', minimum: 0);
     _parameters['lastCommonReadId'] = __lastCommonReadId;
 
     var __timeout = _$jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
     __timeout ??= 30;
-    _i4.checkNumber(
-      __timeout,
-      'timeout',
-      maximum: 30,
-      minimum: 0,
-    );
+    _i4.checkNumber(__timeout, 'timeout', maximum: 30, minimum: 0);
     _parameters['timeout'] = __timeout;
 
-    var __setReadMarker =
-        _$jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
+    var __setReadMarker = _$jsonSerializers.serialize(
+      setReadMarker,
+      specifiedType: const FullType(ChatReceiveMessagesSetReadMarker),
+    );
     __setReadMarker ??= 1;
     _parameters['setReadMarker'] = __setReadMarker;
 
@@ -4439,8 +4460,10 @@ class $ChatClient {
     __includeLastKnown ??= 0;
     _parameters['includeLastKnown'] = __includeLastKnown;
 
-    var __noStatusUpdate =
-        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
+    var __noStatusUpdate = _$jsonSerializers.serialize(
+      noStatusUpdate,
+      specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate),
+    );
     __noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = __noStatusUpdate;
 
@@ -4457,7 +4480,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4466,12 +4489,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4588,15 +4609,13 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatSendMessageApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -4604,7 +4623,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4613,12 +4632,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4668,8 +4685,9 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $sendMessage_Serializer();
-    return _i1.ResponseConverter<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$clearHistory_Request].
@@ -4694,7 +4712,7 @@ class $ChatClient {
   ///
   /// Status codes:
   ///   * 200: History cleared successfully
-  ///   * 202: History cleared successfully, but Matterbridge is configured, so the information can be replicated elsewhere
+  ///   * 202: History cleared successfully, but Federation or Matterbridge is configured, so the information can be replicated elsewhere
   ///   * 403: Missing permissions to clear history
   ///
   /// See:
@@ -4708,15 +4726,13 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatClearHistoryApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -4724,7 +4740,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4733,14 +4749,12 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4760,7 +4774,7 @@ class $ChatClient {
   ///
   /// Status codes:
   ///   * 200: History cleared successfully
-  ///   * 202: History cleared successfully, but Matterbridge is configured, so the information can be replicated elsewhere
+  ///   * 202: History cleared successfully, but Federation or Matterbridge is configured, so the information can be replicated elsewhere
   ///   * 403: Missing permissions to clear history
   ///
   /// See:
@@ -4771,17 +4785,134 @@ class $ChatClient {
     ChatClearHistoryApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $clearHistory_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $clearHistory_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearHistory_Serializer();
-    return _i1.ResponseConverter<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
+      _serializer,
+    ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$summarizeChat_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSummarizeChatResponseApplicationJson, void> $summarizeChat_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatSummarizeChatResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {201},
+      );
+
+  /// Summarize the next bunch of chat messages from a given offset.
+  ///
+  /// Required capability: `chat-summary-api`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [summarizeChat] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: [OCS TaskProcessing API](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id). If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
+  ///   * 400: No AI provider available or summarizing failed
+  ///   * 204: No messages found to summarize
+  ///   * 500
+  ///
+  /// See:
+  ///  * [summarizeChat] for a method executing this request and parsing the response.
+  ///  * [$summarizeChat_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $summarizeChat_Request({
+    required String token,
+    required ChatSummarizeChatRequestApplicationJson $body,
+    ChatSummarizeChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatSummarizeChatApiVersion),
+    );
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/summarize',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ChatSummarizeChatRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Summarize the next bunch of chat messages from a given offset.
+  ///
+  /// Required capability: `chat-summary-api`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: [OCS TaskProcessing API](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id). If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
+  ///   * 400: No AI provider available or summarizing failed
+  ///   * 204: No messages found to summarize
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$summarizeChat_Request] for the request send by this method.
+  ///  * [$summarizeChat_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ChatSummarizeChatResponseApplicationJson, void>> summarizeChat({
+    required String token,
+    required ChatSummarizeChatRequestApplicationJson $body,
+    ChatSummarizeChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $summarizeChat_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $summarizeChat_Serializer();
+    return _i1.ResponseConverter<ChatSummarizeChatResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$editMessage_Request].
@@ -4827,32 +4958,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatEditMessageApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatEditMessageApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4861,12 +4987,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4919,8 +5043,9 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editMessage_Serializer();
-    return _i1.ResponseConverter<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteMessage_Request].
@@ -4964,32 +5089,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteMessageApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatDeleteMessageApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4998,12 +5118,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5049,8 +5167,9 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteMessage_Serializer();
-    return _i1.ResponseConverter<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getMessageContext_Request].
@@ -5092,42 +5211,32 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetMessageContextApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatGetMessageContextApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 50;
-    _i4.checkNumber(
-      __limit,
-      'limit',
-      maximum: 100,
-      minimum: 1,
-    );
+    _i4.checkNumber(__limit, 'limit', maximum: 100, minimum: 1);
     _parameters['limit'] = __limit;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5136,12 +5245,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5229,32 +5336,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatGetReminderApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5263,14 +5365,12 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5353,32 +5453,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatSetReminderApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5387,14 +5482,12 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5482,32 +5575,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteReminderApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatDeleteReminderApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5516,14 +5604,12 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5603,15 +5689,13 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatSetReadMarkerApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -5619,7 +5703,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5628,12 +5712,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5641,7 +5723,10 @@ class $ChatClient {
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson)),
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson),
+            ),
           )
         : json.encode(
             _$jsonSerializers.serialize(
@@ -5684,8 +5769,9 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setReadMarker_Serializer();
-    return _i1.ResponseConverter<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$markUnread_Request].
@@ -5715,18 +5801,10 @@ class $ChatClient {
   ///  * [markUnread] for a method executing this request and parsing the response.
   ///  * [$markUnread_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $markUnread_Request({
-    required String token,
-    ChatMarkUnreadApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $markUnread_Request({required String token, ChatMarkUnreadApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
@@ -5737,7 +5815,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5746,12 +5824,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5780,17 +5856,14 @@ class $ChatClient {
     ChatMarkUnreadApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $markUnread_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $markUnread_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markUnread_Serializer();
-    return _i1.ResponseConverter<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$mentions_Request].
@@ -5832,11 +5905,7 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
@@ -5850,8 +5919,10 @@ class $ChatClient {
     __limit ??= 20;
     _parameters['limit'] = __limit;
 
-    var __includeStatus =
-        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(ChatMentionsIncludeStatus));
+    var __includeStatus = _$jsonSerializers.serialize(
+      includeStatus,
+      specifiedType: const FullType(ChatMentionsIncludeStatus),
+    );
     __includeStatus ??= 0;
     _parameters['includeStatus'] = __includeStatus;
 
@@ -5861,7 +5932,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5870,12 +5941,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5965,38 +6034,27 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
     _parameters['objectType'] = __objectType;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
     var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
     __lastKnownMessageId ??= 0;
-    _i4.checkNumber(
-      __lastKnownMessageId,
-      'lastKnownMessageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__lastKnownMessageId, 'lastKnownMessageId', minimum: 0);
     _parameters['lastKnownMessageId'] = __lastKnownMessageId;
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 100;
-    _i4.checkNumber(
-      __limit,
-      'limit',
-      maximum: 200,
-      minimum: 1,
-    );
+    _i4.checkNumber(__limit, 'limit', maximum: 200, minimum: 1);
     _parameters['limit'] = __limit;
 
     final _path = _i5.UriTemplate(
@@ -6005,7 +6063,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6014,12 +6072,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6112,15 +6168,13 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatShareObjectToChatApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatShareObjectToChatApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -6128,7 +6182,7 @@ class $ChatClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6137,12 +6191,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6233,11 +6285,7 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -6249,20 +6297,16 @@ class $ChatClient {
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 7;
-    _i4.checkNumber(
-      __limit,
-      'limit',
-      maximum: 20,
-      minimum: 1,
-    );
+    _i4.checkNumber(__limit, 'limit', maximum: 20, minimum: 1);
     _parameters['limit'] = __limit;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6271,12 +6315,10 @@ class $ChatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6318,8 +6360,9 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getObjectsSharedInRoomOverview_Serializer();
-    return _i1.ResponseConverter<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -6364,8 +6407,10 @@ class $ExternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingGetSettingsApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -6373,12 +6418,13 @@ class $ExternalSignalingClient {
     __token ??= '';
     _parameters['token'] = __token;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6387,12 +6433,10 @@ class $ExternalSignalingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6423,11 +6467,7 @@ class $ExternalSignalingClient {
     String? token,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $signalingGetSettings_Request(
-      apiVersion: apiVersion,
-      token: token,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $signalingGetSettings_Request(apiVersion: apiVersion, token: token, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6467,8 +6507,8 @@ class $FederationClient {
   /// Status codes:
   ///   * 200: Invite accepted successfully
   ///   * 400: Invite can not be accepted (maybe it was accepted already)
-  ///   * 410: Remote server could not be reached to notify about the acceptance
   ///   * 404: Invite can not be found
+  ///   * 410: Remote server could not be reached to notify about the acceptance
   ///
   /// See:
   ///  * [acceptShare] for a method executing this request and parsing the response.
@@ -6481,24 +6521,23 @@ class $FederationClient {
   }) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __id,
-      'id',
-      minimum: 0,
-    );
+    _i4.checkNumber(__id, 'id', minimum: 0);
     _parameters['id'] = __id;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationAcceptShareApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(FederationAcceptShareApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6507,14 +6546,12 @@ class $FederationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6537,8 +6574,8 @@ class $FederationClient {
   /// Status codes:
   ///   * 200: Invite accepted successfully
   ///   * 400: Invite can not be accepted (maybe it was accepted already)
-  ///   * 410: Remote server could not be reached to notify about the acceptance
   ///   * 404: Invite can not be found
+  ///   * 410: Remote server could not be reached to notify about the acceptance
   ///
   /// See:
   ///  * [$acceptShare_Request] for the request send by this method.
@@ -6548,11 +6585,7 @@ class $FederationClient {
     FederationAcceptShareApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $acceptShare_Request(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $acceptShare_Request(id: id, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6598,24 +6631,23 @@ class $FederationClient {
   }) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __id,
-      'id',
-      minimum: 0,
-    );
+    _i4.checkNumber(__id, 'id', minimum: 0);
     _parameters['id'] = __id;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationRejectShareApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(FederationRejectShareApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6624,14 +6656,12 @@ class $FederationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6664,11 +6694,7 @@ class $FederationClient {
     FederationRejectShareApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $rejectShare_Request(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $rejectShare_Request(id: id, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6704,13 +6730,12 @@ class $FederationClient {
   ///  * [getShares] for a method executing this request and parsing the response.
   ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getShares_Request({
-    FederationGetSharesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getShares_Request({FederationGetSharesApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationGetSharesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(FederationGetSharesApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -6718,7 +6743,7 @@ class $FederationClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6727,14 +6752,12 @@ class $FederationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6763,10 +6786,7 @@ class $FederationClient {
     FederationGetSharesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getShares_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getShares_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6795,7 +6815,7 @@ class $FilesIntegrationClient {
   ///
   /// This is the counterpart of self::getRoomByShareToken() for file ids instead of share tokens, although both return the same room token if the given file id and share token refer to the same file.
   /// If there is no room associated to the given file id a new room is created; the new room is a public room associated with a "file" object with the given file id. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).
-  /// In any case, to create or even get the token of the room, the file must be shared and the user must be the owner of a public share of the file (like a link share, for example) or have direct access to that file; an error is returned otherwise. A user has direct access to a file if she has access to it (or to an ancestor) through a user, group, circle or room share (but not through a link share, for example), or if she is the owner of such a file.
+  /// In any case, to create or even get the token of the room, the file must be shared and the user must be the owner of a public share of the file (like a link share, for example) or have direct access to that file; an error is returned otherwise. A user has direct access to a file if they have access to it (or to an ancestor) through a user, group, circle or room share (but not through a link share, for example), or if they are the owner of such a file.
   ///
   /// Returns a `DynamiteRequest` backing the [getRoomByFileId] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -6821,11 +6841,7 @@ class $FilesIntegrationClient {
   }) {
     final _parameters = <String, Object?>{};
     final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
-    _i4.checkString(
-      __fileId,
-      'fileId',
-      pattern: RegExp(r'^.+$'),
-    );
+    _i4.checkString(__fileId, 'fileId', pattern: RegExp(r'^.+$'));
     _parameters['fileId'] = __fileId;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -6839,7 +6855,7 @@ class $FilesIntegrationClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6848,14 +6864,12 @@ class $FilesIntegrationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6867,7 +6881,7 @@ class $FilesIntegrationClient {
   ///
   /// This is the counterpart of self::getRoomByShareToken() for file ids instead of share tokens, although both return the same room token if the given file id and share token refer to the same file.
   /// If there is no room associated to the given file id a new room is created; the new room is a public room associated with a "file" object with the given file id. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).
-  /// In any case, to create or even get the token of the room, the file must be shared and the user must be the owner of a public share of the file (like a link share, for example) or have direct access to that file; an error is returned otherwise. A user has direct access to a file if she has access to it (or to an ancestor) through a user, group, circle or room share (but not through a link share, for example), or if she is the owner of such a file.
+  /// In any case, to create or even get the token of the room, the file must be shared and the user must be the owner of a public share of the file (like a link share, for example) or have direct access to that file; an error is returned otherwise. A user has direct access to a file if they have access to it (or to an ancestor) through a user, group, circle or room share (but not through a link share, for example), or if they are the owner of such a file.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -6890,17 +6904,14 @@ class $FilesIntegrationClient {
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getRoomByFileId_Request(
-      fileId: fileId,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getRoomByFileId_Request(fileId: fileId, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getRoomByFileId_Serializer();
-    return _i1.ResponseConverter<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getRoomByShareToken_Request].
@@ -6944,11 +6955,7 @@ class $FilesIntegrationClient {
   }) {
     final _parameters = <String, Object?>{};
     final __shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    _i4.checkString(
-      __shareToken,
-      'shareToken',
-      pattern: RegExp(r'^.+$'),
-    );
+    _i4.checkString(__shareToken, 'shareToken', pattern: RegExp(r'^.+$'));
     _parameters['shareToken'] = __shareToken;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -6958,12 +6965,13 @@ class $FilesIntegrationClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6972,12 +6980,10 @@ class $FilesIntegrationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7022,8 +7028,9 @@ class $FilesIntegrationClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getRoomByShareToken_Serializer();
-    return _i1.ResponseConverter<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$publicShareAuthCreateRoom_Request].
@@ -7062,8 +7069,10 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7071,7 +7080,7 @@ class $FilesIntegrationClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7080,12 +7089,10 @@ class $FilesIntegrationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7133,8 +7140,9 @@ class $FilesIntegrationClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $publicShareAuthCreateRoom_Serializer();
-    return _i1.ResponseConverter<PublicShareAuthCreateRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<PublicShareAuthCreateRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -7181,15 +7189,13 @@ class $GuestClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(GuestSetDisplayNameApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(GuestSetDisplayNameApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7197,7 +7203,7 @@ class $GuestClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7206,12 +7212,10 @@ class $GuestClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7310,12 +7314,13 @@ class $HostedSignalingServerClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7324,14 +7329,12 @@ class $HostedSignalingServerClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7370,17 +7373,14 @@ class $HostedSignalingServerClient {
     HostedSignalingServerRequestTrialApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $requestTrial_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $requestTrial_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $requestTrial_Serializer();
-    return _i1.ResponseConverter<HostedSignalingServerRequestTrialResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteAccount_Request].
@@ -7412,10 +7412,7 @@ class $HostedSignalingServerClient {
   ///  * [deleteAccount] for a method executing this request and parsing the response.
   ///  * [$deleteAccount_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteAccount_Request({
-    HostedSignalingServerDeleteAccountApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteAccount_Request({HostedSignalingServerDeleteAccountApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
@@ -7424,11 +7421,12 @@ class $HostedSignalingServerClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7437,14 +7435,12 @@ class $HostedSignalingServerClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7475,10 +7471,7 @@ class $HostedSignalingServerClient {
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAccount_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteAccount_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -7528,8 +7521,10 @@ class $InternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingGetSettingsApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7537,12 +7532,13 @@ class $InternalSignalingClient {
     __token ??= '';
     _parameters['token'] = __token;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7551,12 +7547,10 @@ class $InternalSignalingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7587,11 +7581,7 @@ class $InternalSignalingClient {
     String? token,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $signalingGetSettings_Request(
-      apiVersion: apiVersion,
-      token: token,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $signalingGetSettings_Request(apiVersion: apiVersion, token: token, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -7636,15 +7626,13 @@ class $InternalSignalingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingPullMessagesApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7652,7 +7640,7 @@ class $InternalSignalingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7661,12 +7649,10 @@ class $InternalSignalingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7698,11 +7684,7 @@ class $InternalSignalingClient {
     SignalingPullMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $signalingPullMessages_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $signalingPullMessages_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -7746,15 +7728,13 @@ class $InternalSignalingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingSendMessagesApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7762,7 +7742,7 @@ class $InternalSignalingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7771,12 +7751,10 @@ class $InternalSignalingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7865,15 +7843,13 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7881,7 +7857,7 @@ class $MatterbridgeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7890,14 +7866,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7926,17 +7900,14 @@ class $MatterbridgeClient {
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getBridgeOfRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getBridgeOfRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBridgeOfRoom_Serializer();
-    return _i1.ResponseConverter<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$editBridgeOfRoom_Request].
@@ -7975,15 +7946,13 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -7991,7 +7960,7 @@ class $MatterbridgeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8000,14 +7969,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8055,8 +8022,9 @@ class $MatterbridgeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editBridgeOfRoom_Serializer();
-    return _i1.ResponseConverter<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteBridgeOfRoom_Request].
@@ -8094,11 +8062,7 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -8112,7 +8076,7 @@ class $MatterbridgeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8121,14 +8085,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8158,17 +8120,14 @@ class $MatterbridgeClient {
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteBridgeOfRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteBridgeOfRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteBridgeOfRoom_Serializer();
-    return _i1.ResponseConverter<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getBridgeProcessState_Request].
@@ -8205,11 +8164,7 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -8219,12 +8174,13 @@ class $MatterbridgeClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8233,14 +8189,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8269,17 +8223,14 @@ class $MatterbridgeClient {
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getBridgeProcessState_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getBridgeProcessState_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBridgeProcessState_Serializer();
-    return _i1.ResponseConverter<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$matterbridgeSettingsStopAllBridges_Request].
@@ -8327,7 +8278,7 @@ class $MatterbridgeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8336,14 +8287,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8374,16 +8323,14 @@ class $MatterbridgeClient {
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $matterbridgeSettingsStopAllBridges_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $matterbridgeSettingsStopAllBridges_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $matterbridgeSettingsStopAllBridges_Serializer();
-    return _i1.ResponseConverter<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$matterbridgeSettingsGetMatterbridgeVersion_Request].
@@ -8431,7 +8378,7 @@ class $MatterbridgeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8440,14 +8387,12 @@ class $MatterbridgeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8486,8 +8431,9 @@ class $MatterbridgeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $matterbridgeSettingsGetMatterbridgeVersion_Serializer();
-    return _i1.ResponseConverter<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -8504,7 +8450,7 @@ class $PollClient {
         bodyType: const FullType(PollCreatePollResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {201},
+        validStatuses: const {200},
       );
 
   /// Create a poll.
@@ -8518,6 +8464,7 @@ class $PollClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
+  ///   * 200: Draft created successfully
   ///   * 201: Poll created successfully
   ///   * 400: Creating poll is not possible
   ///
@@ -8533,11 +8480,7 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
@@ -8548,7 +8491,7 @@ class $PollClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8557,12 +8500,10 @@ class $PollClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8585,6 +8526,7 @@ class $PollClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
+  ///   * 200: Draft created successfully
   ///   * 201: Poll created successfully
   ///   * 400: Creating poll is not possible
   ///
@@ -8608,6 +8550,239 @@ class $PollClient {
 
     final _serializer = $createPoll_Serializer();
     return _i1.ResponseConverter<PollCreatePollResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$updateDraftPoll_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollUpdateDraftPollResponseApplicationJson, void> $updateDraftPoll_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PollUpdateDraftPollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Modify a draft poll.
+  ///
+  /// Required capability: `edit-draft-poll`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [updateDraftPoll] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [pollId] The poll id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Draft modified successfully
+  ///   * 400: Modifying poll is not possible
+  ///   * 403: No permission to modify this poll
+  ///   * 404: No draft poll exists
+  ///
+  /// See:
+  ///  * [updateDraftPoll] for a method executing this request and parsing the response.
+  ///  * [$updateDraftPoll_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $updateDraftPoll_Request({
+    required String token,
+    required int pollId,
+    required PollUpdateDraftPollRequestApplicationJson $body,
+    PollUpdateDraftPollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    _parameters['pollId'] = __pollId;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(PollUpdateDraftPollApiVersion),
+    );
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/draft/{pollId}',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(PollUpdateDraftPollRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Modify a draft poll.
+  ///
+  /// Required capability: `edit-draft-poll`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [pollId] The poll id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Draft modified successfully
+  ///   * 400: Modifying poll is not possible
+  ///   * 403: No permission to modify this poll
+  ///   * 404: No draft poll exists
+  ///
+  /// See:
+  ///  * [$updateDraftPoll_Request] for the request send by this method.
+  ///  * [$updateDraftPoll_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<PollUpdateDraftPollResponseApplicationJson, void>> updateDraftPoll({
+    required String token,
+    required int pollId,
+    required PollUpdateDraftPollRequestApplicationJson $body,
+    PollUpdateDraftPollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $updateDraftPoll_Request(
+      token: token,
+      pollId: pollId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $updateDraftPoll_Serializer();
+    return _i1.ResponseConverter<PollUpdateDraftPollResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getAllDraftPolls_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollGetAllDraftPollsResponseApplicationJson, void> $getAllDraftPolls_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PollGetAllDraftPollsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get all drafted polls.
+  ///
+  /// Required capability: `talk-polls-drafts`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getAllDraftPolls] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Poll returned
+  ///   * 403: User is not a moderator
+  ///   * 404: Poll not found
+  ///
+  /// See:
+  ///  * [getAllDraftPolls] for a method executing this request and parsing the response.
+  ///  * [$getAllDraftPolls_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getAllDraftPolls_Request({
+    required String token,
+    PollGetAllDraftPollsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(PollGetAllDraftPollsApiVersion),
+    );
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/drafts').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get all drafted polls.
+  ///
+  /// Required capability: `talk-polls-drafts`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Poll returned
+  ///   * 403: User is not a moderator
+  ///   * 404: Poll not found
+  ///
+  /// See:
+  ///  * [$getAllDraftPolls_Request] for the request send by this method.
+  ///  * [$getAllDraftPolls_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<PollGetAllDraftPollsResponseApplicationJson, void>> getAllDraftPolls({
+    required String token,
+    PollGetAllDraftPollsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getAllDraftPolls_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getAllDraftPolls_Serializer();
+    return _i1.ResponseConverter<PollGetAllDraftPollsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$showPoll_Request].
@@ -8646,19 +8821,11 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __pollId,
-      'pollId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__pollId, 'pollId', minimum: 0);
     _parameters['pollId'] = __pollId;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
@@ -8669,7 +8836,7 @@ class $PollClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8678,12 +8845,10 @@ class $PollClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8766,19 +8931,11 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __pollId,
-      'pollId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__pollId, 'pollId', minimum: 0);
     _parameters['pollId'] = __pollId;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
@@ -8789,7 +8946,7 @@ class $PollClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8798,12 +8955,10 @@ class $PollClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8884,10 +9039,10 @@ class $PollClient {
   ///
   /// Status codes:
   ///   * 200: Poll closed successfully
+  ///   * 202: Poll draft was deleted successfully
   ///   * 400: Poll already closed
   ///   * 403: Missing permissions to close poll
   ///   * 404: Poll not found
-  ///   * 500
   ///
   /// See:
   ///  * [closePoll] for a method executing this request and parsing the response.
@@ -8901,19 +9056,11 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __pollId,
-      'pollId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__pollId, 'pollId', minimum: 0);
     _parameters['pollId'] = __pollId;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
@@ -8924,7 +9071,7 @@ class $PollClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -8933,12 +9080,10 @@ class $PollClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -8959,10 +9104,10 @@ class $PollClient {
   ///
   /// Status codes:
   ///   * 200: Poll closed successfully
+  ///   * 202: Poll draft was deleted successfully
   ///   * 400: Poll already closed
   ///   * 403: Missing permissions to close poll
   ///   * 404: Poll not found
-  ///   * 500
   ///
   /// See:
   ///  * [$closePoll_Request] for the request send by this method.
@@ -9032,35 +9177,30 @@ class $ReactionClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionGetReactionsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ReactionGetReactionsApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
     final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = __reaction;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9069,12 +9209,10 @@ class $ReactionClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9161,31 +9299,24 @@ class $ReactionClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9194,19 +9325,18 @@ class $ReactionClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ReactionReactRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ReactionReactRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -9290,19 +9420,11 @@ class $ReactionClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __messageId,
-      'messageId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__messageId, 'messageId', minimum: 0);
     _parameters['messageId'] = __messageId;
 
     final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
@@ -9312,12 +9434,13 @@ class $ReactionClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9326,12 +9449,10 @@ class $ReactionClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9422,11 +9543,7 @@ class $RecordingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
@@ -9437,7 +9554,7 @@ class $RecordingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9446,14 +9563,12 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9488,12 +9603,7 @@ class $RecordingClient {
     RecordingStartApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $start_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $start_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -9528,18 +9638,10 @@ class $RecordingClient {
   ///  * [stop] for a method executing this request and parsing the response.
   ///  * [$stop_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $stop_Request({
-    required String token,
-    RecordingStopApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $stop_Request({required String token, RecordingStopApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
@@ -9550,7 +9652,7 @@ class $RecordingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9559,14 +9661,12 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9596,11 +9696,7 @@ class $RecordingClient {
     RecordingStopApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $stop_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $stop_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -9645,33 +9741,27 @@ class $RecordingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __timestamp,
-      'timestamp',
-      minimum: 0,
-    );
+    _i4.checkNumber(__timestamp, 'timestamp', minimum: 0);
     _parameters['timestamp'] = __timestamp;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RecordingNotificationDismissApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9680,14 +9770,12 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9729,8 +9817,9 @@ class $RecordingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $notificationDismiss_Serializer();
-    return _i1.ResponseConverter<RecordingNotificationDismissResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RecordingNotificationDismissResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$shareToChat_Request].
@@ -9769,24 +9858,23 @@ class $RecordingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingShareToChatApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RecordingShareToChatApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9795,14 +9883,12 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9878,13 +9964,12 @@ class $RecordingClient {
   ///  * [backend] for a method executing this request and parsing the response.
   ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $backend_Request({
-    RecordingBackendApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $backend_Request({RecordingBackendApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingBackendApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RecordingBackendApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -9892,7 +9977,7 @@ class $RecordingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -9901,12 +9986,10 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -9936,10 +10019,7 @@ class $RecordingClient {
     RecordingBackendApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $backend_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $backend_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -9983,23 +10063,20 @@ class $RecordingClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10008,12 +10085,10 @@ class $RecordingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10056,12 +10131,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
     RecordingStoreRequestApplicationJson? $body,
   }) async {
-    final _request = $store_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $store_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -10096,6 +10166,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
+  ///   * [includeLastMessage] Include the last message, clients should opt-out when only rendering a compact list. Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10110,6 +10181,7 @@ class $RoomClient {
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
+    RoomGetRoomsIncludeLastMessage? includeLastMessage,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -10117,32 +10189,39 @@ class $RoomClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    var __noStatusUpdate =
-        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
+    var __noStatusUpdate = _$jsonSerializers.serialize(
+      noStatusUpdate,
+      specifiedType: const FullType(RoomGetRoomsNoStatusUpdate),
+    );
     __noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = __noStatusUpdate;
 
-    var __includeStatus =
-        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetRoomsIncludeStatus));
+    var __includeStatus = _$jsonSerializers.serialize(
+      includeStatus,
+      specifiedType: const FullType(RoomGetRoomsIncludeStatus),
+    );
     __includeStatus ??= 0;
     _parameters['includeStatus'] = __includeStatus;
 
     var __modifiedSince = _$jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
     __modifiedSince ??= 0;
-    _i4.checkNumber(
-      __modifiedSince,
-      'modifiedSince',
-      minimum: 0,
-    );
+    _i4.checkNumber(__modifiedSince, 'modifiedSince', minimum: 0);
     _parameters['modifiedSince'] = __modifiedSince;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
-            .expand(_parameters);
+    var __includeLastMessage = _$jsonSerializers.serialize(
+      includeLastMessage,
+      specifiedType: const FullType(RoomGetRoomsIncludeLastMessage),
+    );
+    __includeLastMessage ??= 1;
+    _parameters['includeLastMessage'] = __includeLastMessage;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*,includeLastMessage*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10151,14 +10230,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10176,6 +10253,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
+  ///   * [includeLastMessage] Include the last message, clients should opt-out when only rendering a compact list. Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10189,6 +10267,7 @@ class $RoomClient {
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
+    RoomGetRoomsIncludeLastMessage? includeLastMessage,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getRooms_Request(
@@ -10196,14 +10275,16 @@ class $RoomClient {
       noStatusUpdate: noStatusUpdate,
       includeStatus: includeStatus,
       modifiedSince: modifiedSince,
+      includeLastMessage: includeLastMessage,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getRooms_Serializer();
-    return _i1.ResponseConverter<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createRoom_Request].
@@ -10228,7 +10309,7 @@ class $RoomClient {
   /// Status codes:
   ///   * 200: Room already existed
   ///   * 201: Room created successfully
-  ///   * 400: Room type invalid
+  ///   * 400: Room type invalid or missing or invalid password
   ///   * 403: Missing permissions to create room
   ///   * 404: User, group or other target to invite was not found
   ///
@@ -10250,7 +10331,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10259,14 +10340,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10290,7 +10369,7 @@ class $RoomClient {
   /// Status codes:
   ///   * 200: Room already existed
   ///   * 201: Room created successfully
-  ///   * 400: Room type invalid
+  ///   * 400: Room type invalid or missing or invalid password
   ///   * 403: Missing permissions to create room
   ///   * 404: User, group or other target to invite was not found
   ///
@@ -10302,11 +10381,7 @@ class $RoomClient {
     RoomCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createRoom_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createRoom_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -10347,8 +10422,10 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetListedRoomsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetListedRoomsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -10356,12 +10433,13 @@ class $RoomClient {
     __searchTerm ??= '';
     _parameters['searchTerm'] = __searchTerm;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10370,14 +10448,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10451,8 +10527,10 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -10460,7 +10538,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10469,14 +10547,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10507,10 +10583,7 @@ class $RoomClient {
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getNoteToSelfConversation_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getNoteToSelfConversation_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -10556,15 +10629,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetSingleRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -10572,7 +10643,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10581,12 +10652,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10617,17 +10686,213 @@ class $RoomClient {
     RoomGetSingleRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getSingleRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getSingleRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSingleRoom_Serializer();
-    return _i1.ResponseConverter<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
+      _serializer,
+    ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$renameRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRenameRoomResponseApplicationJson, void> $renameRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Rename a room.
+  ///
+  /// Returns a `DynamiteRequest` backing the [renameRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room renamed successfully
+  ///   * 400: Renaming room is not possible
+  ///
+  /// See:
+  ///  * [renameRoom] for a method executing this request and parsing the response.
+  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $renameRoom_Request({
+    required String token,
+    required RoomRenameRoomRequestApplicationJson $body,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomRenameRoomRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Rename a room.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room renamed successfully
+  ///   * 400: Renaming room is not possible
+  ///
+  /// See:
+  ///  * [$renameRoom_Request] for the request send by this method.
+  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
+    required String token,
+    required RoomRenameRoomRequestApplicationJson $body,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $renameRoom_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $renameRoom_Serializer();
+    return _i1.ResponseConverter<RoomRenameRoomResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDeleteRoomResponseApplicationJson, void> $deleteRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
+      );
+
+  /// Delete a room.
+  ///
+  /// Returns a `DynamiteRequest` backing the [deleteRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room successfully deleted
+  ///   * 400: Deleting room is not possible
+  ///
+  /// See:
+  ///  * [deleteRoom] for a method executing this request and parsing the response.
+  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteRoom_Request({required String token, RoomDeleteRoomApiVersion? apiVersion, bool? oCSAPIRequest}) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Delete a room.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room successfully deleted
+  ///   * 400: Deleting room is not possible
+  ///
+  /// See:
+  ///  * [$deleteRoom_Request] for the request send by this method.
+  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
+    required String token,
+    RoomDeleteRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $deleteRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $deleteRoom_Serializer();
+    return _i1.ResponseConverter<RoomDeleteRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getBreakoutRooms_Request].
@@ -10667,24 +10932,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10693,14 +10957,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10732,11 +10994,7 @@ class $RoomClient {
     RoomGetBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getBreakoutRooms_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getBreakoutRooms_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -10755,6 +11013,8 @@ class $RoomClient {
       );
 
   /// Allowed guests to join conversation.
+  ///
+  /// Required capability: `conversation-creation-password` for `string $password` parameter.
   ///
   /// Returns a `DynamiteRequest` backing the [makePublic] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -10776,14 +11036,11 @@ class $RoomClient {
     required String token,
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
+    RoomMakePublicRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
@@ -10794,7 +11051,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10803,22 +11060,33 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomMakePublicRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              RoomMakePublicRequestApplicationJson(),
+              specifiedType: const FullType(RoomMakePublicRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
   /// Allowed guests to join conversation.
+  ///
+  /// Required capability: `conversation-creation-password` for `string $password` parameter.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -10839,11 +11107,13 @@ class $RoomClient {
     required String token,
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
+    RoomMakePublicRequestApplicationJson? $body,
   }) async {
     final _request = $makePublic_Request(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -10887,15 +11157,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomMakePrivateApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -10903,7 +11171,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -10912,14 +11180,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -10949,11 +11215,7 @@ class $RoomClient {
     RoomMakePrivateApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $makePrivate_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $makePrivate_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -10997,24 +11259,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetDescriptionApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetDescriptionApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11023,12 +11284,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11112,24 +11371,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetReadOnlyApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11138,14 +11396,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11229,15 +11485,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetListableApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -11245,7 +11499,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11254,14 +11508,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11345,15 +11597,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetPasswordApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -11361,7 +11611,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11370,12 +11620,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11461,32 +11709,27 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
-    _i4.checkString(
-      __mode,
-      'mode',
-      pattern: RegExp(r'^(call|default)$'),
-    );
+    _i4.checkString(__mode, 'mode', pattern: RegExp(r'^(call|default)$'));
     _parameters['mode'] = __mode;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPermissionsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetPermissionsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11495,12 +11738,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11588,29 +11829,30 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetParticipantsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetParticipantsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    var __includeStatus =
-        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetParticipantsIncludeStatus));
+    var __includeStatus = _$jsonSerializers.serialize(
+      includeStatus,
+      specifiedType: const FullType(RoomGetParticipantsIncludeStatus),
+    );
     __includeStatus ??= 0;
     _parameters['includeStatus'] = __includeStatus;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11619,12 +11861,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11694,9 +11934,9 @@ class $RoomClient {
   ///
   /// Status codes:
   ///   * 200: Participant successfully added
+  ///   * 400: Adding participant is not possible, e.g. when the user is banned (check error attribute of response for detail key)
   ///   * 404: User, group or other target to invite was not found
   ///   * 501: SIP dial-out is not configured
-  ///   * 400: Adding participant is not possible, e.g. when the user is banned (check error attribute of response for detail key)
   ///
   /// See:
   ///  * [addParticipantToRoom] for a method executing this request and parsing the response.
@@ -11710,24 +11950,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddParticipantToRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomAddParticipantToRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11736,24 +11975,19 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomAddParticipantToRoomRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomAddParticipantToRoomRequestApplicationJson)),
     );
     return _request;
   }
@@ -11770,9 +12004,9 @@ class $RoomClient {
   ///
   /// Status codes:
   ///   * 200: Participant successfully added
+  ///   * 400: Adding participant is not possible, e.g. when the user is banned (check error attribute of response for detail key)
   ///   * 404: User, group or other target to invite was not found
   ///   * 501: SIP dial-out is not configured
-  ///   * 400: Adding participant is not possible, e.g. when the user is banned (check error attribute of response for detail key)
   ///
   /// See:
   ///  * [$addParticipantToRoom_Request] for the request send by this method.
@@ -11835,11 +12069,7 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -11862,7 +12092,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11871,12 +12101,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -11933,7 +12161,7 @@ class $RoomClient {
         bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200, 400, 404},
+        validStatuses: const {200},
       );
 
   /// Remove the current user from a room.
@@ -11962,24 +12190,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -11988,14 +12215,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12026,11 +12251,7 @@ class $RoomClient {
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $removeSelfFromRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $removeSelfFromRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -12045,7 +12266,7 @@ class $RoomClient {
             bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
-            validStatuses: const {200, 400, 403, 404},
+            validStatuses: const {200},
           );
 
   /// Remove an attendee from a room.
@@ -12077,32 +12298,27 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__attendeeId, 'attendeeId', minimum: 0);
     _parameters['attendeeId'] = __attendeeId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12111,12 +12327,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12160,18 +12374,19 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeAttendeeFromRoom_Serializer();
-    return _i1.ResponseConverter<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setAttendeePermissions_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<RoomSetAttendeePermissionsResponseApplicationJson, void>
+  _i1.DynamiteSerializer<RoomSetAttendeePermissionsResponseApplicationJson, RoomRoomSetAttendeePermissionsHeaders>
       $setAttendeePermissions_Serializer() => _i1.DynamiteSerializer(
             bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
-            headersType: null,
+            headersType: const FullType(RoomRoomSetAttendeePermissionsHeaders),
             serializers: _$jsonSerializers,
-            validStatuses: const {200, 400, 403, 404},
+            validStatuses: const {200},
           );
 
   /// Update the permissions of an attendee.
@@ -12202,24 +12417,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12228,12 +12442,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12267,7 +12479,8 @@ class $RoomClient {
   /// See:
   ///  * [$setAttendeePermissions_Request] for the request send by this method.
   ///  * [$setAttendeePermissions_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
+  Future<_i1.DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, RoomRoomSetAttendeePermissionsHeaders>>
+      setAttendeePermissions({
     required String token,
     required RoomSetAttendeePermissionsRequestApplicationJson $body,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
@@ -12283,7 +12496,8 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setAttendeePermissions_Serializer();
-    return _i1.ResponseConverter<RoomSetAttendeePermissionsResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<RoomSetAttendeePermissionsResponseApplicationJson,
+            RoomRoomSetAttendeePermissionsHeaders>(_serializer)
         .convert(_response);
   }
 
@@ -12325,11 +12539,7 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(
@@ -12339,12 +12549,13 @@ class $RoomClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12353,12 +12564,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12407,8 +12616,9 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setAllAttendeesPermissions_Serializer();
-    return _i1.ResponseConverter<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$joinRoom_Request].
@@ -12449,23 +12659,20 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12474,12 +12681,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12533,8 +12738,9 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $joinRoom_Serializer();
-    return _i1.ResponseConverter<RoomJoinRoomResponseApplicationJson, RoomRoomJoinRoomHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomJoinRoomResponseApplicationJson, RoomRoomJoinRoomHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$leaveRoom_Request].
@@ -12563,30 +12769,23 @@ class $RoomClient {
   ///  * [leaveRoom] for a method executing this request and parsing the response.
   ///  * [$leaveRoom_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $leaveRoom_Request({
-    required String token,
-    RoomLeaveRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $leaveRoom_Request({required String token, RoomLeaveRoomApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12595,12 +12794,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12629,11 +12826,7 @@ class $RoomClient {
     RoomLeaveRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $leaveRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $leaveRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -12677,25 +12870,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomResendInvitationsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomResendInvitationsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12704,14 +12895,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12806,24 +12995,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetSessionStateApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetSessionStateApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12832,12 +13020,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -12924,24 +13110,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomPromoteModeratorApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomPromoteModeratorApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -12950,12 +13135,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -13044,32 +13227,27 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__attendeeId, 'attendeeId', minimum: 0);
     _parameters['attendeeId'] = __attendeeId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomDemoteModeratorApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13078,12 +13256,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -13164,15 +13340,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddToFavoritesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomAddToFavoritesApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -13180,7 +13354,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13189,14 +13363,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -13225,11 +13397,7 @@ class $RoomClient {
     RoomAddToFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $addToFavorites_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $addToFavorites_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -13271,15 +13439,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -13287,7 +13453,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13296,14 +13462,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -13332,11 +13496,7 @@ class $RoomClient {
     RoomRemoveFromFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $removeFromFavorites_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $removeFromFavorites_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -13351,7 +13511,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200, 400},
+        validStatuses: const {200},
       );
 
   /// Update the notification level for a room.
@@ -13380,15 +13540,13 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationLevelApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetNotificationLevelApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -13396,7 +13554,7 @@ class $RoomClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13405,24 +13563,19 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomSetNotificationLevelRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetNotificationLevelRequestApplicationJson)),
     );
     return _request;
   }
@@ -13470,7 +13623,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200, 400},
+        validStatuses: const {200},
       );
 
   /// Update call notifications.
@@ -13499,24 +13652,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationCallsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetNotificationCallsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13525,24 +13677,19 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomSetNotificationCallsRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetNotificationCallsRequestApplicationJson)),
     );
     return _request;
   }
@@ -13618,23 +13765,20 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13643,21 +13787,20 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetLobbyRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetLobbyRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -13736,24 +13879,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetsipEnabledApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13762,14 +13904,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -13857,24 +13997,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetRecordingConsentApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetRecordingConsentApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -13883,24 +14022,19 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomSetRecordingConsentRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetRecordingConsentRequestApplicationJson)),
     );
     return _request;
   }
@@ -13978,24 +14112,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMessageExpirationApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetMessageExpirationApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14004,22 +14137,17 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomSetMessageExpirationRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomSetMessageExpirationRequestApplicationJson)),
     );
     return _request;
   }
@@ -14096,24 +14224,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetCapabilitiesApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetCapabilitiesApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/capabilities').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/capabilities',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14122,12 +14249,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14154,16 +14279,8 @@ class $RoomClient {
   ///  * [$getCapabilities_Request] for the request send by this method.
   ///  * [$getCapabilities_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>>
-      getCapabilities({
-    required String token,
-    RoomGetCapabilitiesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $getCapabilities_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+      getCapabilities({required String token, RoomGetCapabilitiesApiVersion? apiVersion, bool? oCSAPIRequest}) async {
+    final _request = $getCapabilities_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -14209,24 +14326,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMentionPermissionsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetMentionPermissionsApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/mention-permissions')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/mention-permissions',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14235,14 +14351,12 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14290,8 +14404,465 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setMentionPermissions_Serializer();
-    return _i1.ResponseConverter<RoomSetMentionPermissionsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomSetMentionPermissionsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$archiveConversation_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomArchiveConversationResponseApplicationJson, void> $archiveConversation_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomArchiveConversationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Archive a conversation.
+  ///
+  /// Required capability: `archived-conversations-v2`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [archiveConversation] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Conversation was archived
+  ///
+  /// See:
+  ///  * [archiveConversation] for a method executing this request and parsing the response.
+  ///  * [$archiveConversation_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $archiveConversation_Request({
+    required String token,
+    RoomArchiveConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomArchiveConversationApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/archive').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Archive a conversation.
+  ///
+  /// Required capability: `archived-conversations-v2`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Conversation was archived
+  ///
+  /// See:
+  ///  * [$archiveConversation_Request] for the request send by this method.
+  ///  * [$archiveConversation_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomArchiveConversationResponseApplicationJson, void>> archiveConversation({
+    required String token,
+    RoomArchiveConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $archiveConversation_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $archiveConversation_Serializer();
+    return _i1.ResponseConverter<RoomArchiveConversationResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$unarchiveConversation_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomUnarchiveConversationResponseApplicationJson, void> $unarchiveConversation_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomUnarchiveConversationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Unarchive a conversation.
+  ///
+  /// Required capability: `archived-conversations-v2`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [unarchiveConversation] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Conversation was unarchived
+  ///
+  /// See:
+  ///  * [unarchiveConversation] for a method executing this request and parsing the response.
+  ///  * [$unarchiveConversation_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unarchiveConversation_Request({
+    required String token,
+    RoomUnarchiveConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomUnarchiveConversationApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/archive').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Unarchive a conversation.
+  ///
+  /// Required capability: `archived-conversations-v2`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Conversation was unarchived
+  ///
+  /// See:
+  ///  * [$unarchiveConversation_Request] for the request send by this method.
+  ///  * [$unarchiveConversation_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomUnarchiveConversationResponseApplicationJson, void>> unarchiveConversation({
+    required String token,
+    RoomUnarchiveConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $unarchiveConversation_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $unarchiveConversation_Serializer();
+    return _i1.ResponseConverter<RoomUnarchiveConversationResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$importEmailsAsParticipants_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomImportEmailsAsParticipantsResponseApplicationJson, void>
+      $importEmailsAsParticipants_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Import a list of email attendees.
+  ///
+  /// Content format is comma separated values: - Header line is required and must match `"email","name"` or `"email"` - One entry per line (e.g. `"John Doe","john@example.tld"`).
+  /// Required capability: `email-csv-import`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [importEmailsAsParticipants] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: All entries imported successfully
+  ///   * 400: Import was not successful. When message is provided the string is in user language and should be displayed as an error.
+  ///
+  /// See:
+  ///  * [importEmailsAsParticipants] for a method executing this request and parsing the response.
+  ///  * [$importEmailsAsParticipants_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $importEmailsAsParticipants_Request({
+    required String token,
+    RoomImportEmailsAsParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+    RoomImportEmailsAsParticipantsRequestApplicationJson? $body,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomImportEmailsAsParticipantsApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/import-emails',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              RoomImportEmailsAsParticipantsRequestApplicationJson(),
+              specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+            ),
+          );
+    return _request;
+  }
+
+  /// Import a list of email attendees.
+  ///
+  /// Content format is comma separated values: - Header line is required and must match `"email","name"` or `"email"` - One entry per line (e.g. `"John Doe","john@example.tld"`).
+  /// Required capability: `email-csv-import`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: All entries imported successfully
+  ///   * 400: Import was not successful. When message is provided the string is in user language and should be displayed as an error.
+  ///
+  /// See:
+  ///  * [$importEmailsAsParticipants_Request] for the request send by this method.
+  ///  * [$importEmailsAsParticipants_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomImportEmailsAsParticipantsResponseApplicationJson, void>> importEmailsAsParticipants({
+    required String token,
+    RoomImportEmailsAsParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+    RoomImportEmailsAsParticipantsRequestApplicationJson? $body,
+  }) async {
+    final _request = $importEmailsAsParticipants_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $importEmailsAsParticipants_Serializer();
+    return _i1.ResponseConverter<RoomImportEmailsAsParticipantsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$scheduleMeeting_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomScheduleMeetingResponseApplicationJson, void> $scheduleMeeting_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomScheduleMeetingResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Schedule a meeting for a conversation.
+  ///
+  /// Required capability: `schedule-meeting`.
+  ///
+  /// Returns a `DynamiteRequest` backing the [scheduleMeeting] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Meeting scheduled
+  ///   * 400: Meeting could not be created successfully
+  ///
+  /// See:
+  ///  * [scheduleMeeting] for a method executing this request and parsing the response.
+  ///  * [$scheduleMeeting_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $scheduleMeeting_Request({
+    required String token,
+    required RoomScheduleMeetingRequestApplicationJson $body,
+    RoomScheduleMeetingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomScheduleMeetingApiVersion),
+    );
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/meeting').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomScheduleMeetingRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Schedule a meeting for a conversation.
+  ///
+  /// Required capability: `schedule-meeting`.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Meeting scheduled
+  ///   * 400: Meeting could not be created successfully
+  ///
+  /// See:
+  ///  * [$scheduleMeeting_Request] for the request send by this method.
+  ///  * [$scheduleMeeting_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomScheduleMeetingResponseApplicationJson, void>> scheduleMeeting({
+    required String token,
+    required RoomScheduleMeetingRequestApplicationJson $body,
+    RoomScheduleMeetingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $scheduleMeeting_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $scheduleMeeting_Serializer();
+    return _i1.ResponseConverter<RoomScheduleMeetingResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$joinFederatedRoom_Request].
@@ -14332,24 +14903,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinFederatedRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomJoinFederatedRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14358,12 +14928,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14433,7 +15001,7 @@ class $RoomClient {
         bodyType: const FullType(RoomLeaveFederatedRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Leave room on the host server using the session id of the federated user.
@@ -14463,28 +15031,26 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __sessionId = _$jsonSerializers.serialize(sessionId, specifiedType: const FullType(String));
     _parameters['sessionId'] = __sessionId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveFederatedRoomApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomLeaveFederatedRoomApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active{?sessionId*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active{?sessionId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14493,12 +15059,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14582,32 +15146,27 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
-    _i4.checkString(
-      __pin,
-      'pin',
-      pattern: RegExp(r'^\d{7,32}$'),
-    );
+    _i4.checkString(__pin, 'pin', pattern: RegExp(r'^\d{7,32}$'));
     _parameters['pin'] = __pin;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinDeprecatedApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomVerifyDialInPinDeprecatedApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/pin/{pin}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/pin/{pin}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14616,12 +15175,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14665,8 +15222,9 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $verifyDialInPinDeprecated_Serializer();
-    return _i1.ResponseConverter<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$verifyDialInPin_Request].
@@ -14707,24 +15265,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomVerifyDialInPinApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialin').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialin',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14733,12 +15290,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -14827,24 +15382,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialOutNumberApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomVerifyDialOutNumberApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialout').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialout',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14853,22 +15407,17 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomVerifyDialOutNumberRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomVerifyDialOutNumberRequestApplicationJson)),
     );
     return _request;
   }
@@ -14948,24 +15497,23 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateGuestByDialInApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomCreateGuestByDialInApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/open-dial-in').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/open-dial-in',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -14974,12 +15522,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15010,11 +15556,7 @@ class $RoomClient {
     RoomCreateGuestByDialInApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createGuestByDialIn_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $createGuestByDialIn_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -15064,31 +15606,29 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkString(
-      __token,
-      'token',
-      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
-    );
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
     _parameters['token'] = __token;
 
     final __callId = _$jsonSerializers.serialize(callId, specifiedType: const FullType(String));
     _parameters['callId'] = __callId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRejectedDialOutRequestApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomRejectedDialOutRequestApiVersion),
+    );
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
     final __options = _$jsonSerializers.serialize(options, specifiedType: const FullType(String));
     _parameters['options'] = __options;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout{?callId*,options*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout{?callId*,options*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15097,12 +15637,10 @@ class $RoomClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15150,8 +15688,9 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $rejectedDialOutRequest_Serializer();
-    return _i1.ResponseConverter<RoomRejectedDialOutRequestResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RoomRejectedDialOutRequestResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -15194,8 +15733,10 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SettingsSetUserSettingApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -15203,7 +15744,7 @@ class $SettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15212,24 +15753,19 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(SettingsSetUserSettingRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(SettingsSetUserSettingRequestApplicationJson)),
     );
     return _request;
   }
@@ -15255,11 +15791,7 @@ class $SettingsClient {
     SettingsSetUserSettingApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setUserSetting_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setUserSetting_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -15295,13 +15827,12 @@ class $SettingsClient {
   ///  * [botAdminListBots] for a method executing this request and parsing the response.
   ///  * [$botAdminListBots_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $botAdminListBots_Request({
-    BotAdminListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $botAdminListBots_Request({BotAdminListBotsApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BotAdminListBotsApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -15309,7 +15840,7 @@ class $SettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15318,14 +15849,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15354,10 +15883,7 @@ class $SettingsClient {
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $botAdminListBots_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $botAdminListBots_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -15411,12 +15937,13 @@ class $SettingsClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15425,14 +15952,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15474,8 +15999,9 @@ class $SettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $certificateGetCertificateExpiration_Serializer();
-    return _i1.ResponseConverter<CertificateGetCertificateExpirationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CertificateGetCertificateExpirationResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$recordingGetWelcomeMessage_Request].
@@ -15516,24 +16042,23 @@ class $SettingsClient {
   }) {
     final _parameters = <String, Object?>{};
     final __serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __serverId,
-      'serverId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__serverId, 'serverId', minimum: 0);
     _parameters['serverId'] = __serverId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15542,14 +16067,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15591,8 +16114,9 @@ class $SettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $recordingGetWelcomeMessage_Serializer();
-    return _i1.ResponseConverter<RecordingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<RecordingGetWelcomeMessageResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setsipSettings_Request].
@@ -15629,8 +16153,10 @@ class $SettingsClient {
     SettingsSetsipSettingsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetsipSettingsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SettingsSetsipSettingsApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -15638,7 +16164,7 @@ class $SettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15647,14 +16173,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15698,11 +16222,7 @@ class $SettingsClient {
     bool? oCSAPIRequest,
     SettingsSetsipSettingsRequestApplicationJson? $body,
   }) async {
-    final _request = $setsipSettings_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setsipSettings_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -15749,24 +16269,23 @@ class $SettingsClient {
   }) {
     final _parameters = <String, Object?>{};
     final __serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
-    _i4.checkNumber(
-      __serverId,
-      'serverId',
-      minimum: 0,
-    );
+    _i4.checkNumber(__serverId, 'serverId', minimum: 0);
     _parameters['serverId'] = __serverId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15775,14 +16294,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15825,8 +16342,9 @@ class $SettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $signalingGetWelcomeMessage_Serializer();
-    return _i1.ResponseConverter<SignalingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<SignalingGetWelcomeMessageResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -15863,13 +16381,12 @@ class $SignalingClient {
   ///  * [backend] for a method executing this request and parsing the response.
   ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $backend_Request({
-    SignalingBackendApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $backend_Request({SignalingBackendApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingBackendApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SignalingBackendApiVersion),
+    );
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -15877,7 +16394,7 @@ class $SignalingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15886,12 +16403,10 @@ class $SignalingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -15920,10 +16435,7 @@ class $SignalingClient {
     SignalingBackendApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $backend_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $backend_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -15969,7 +16481,7 @@ class $UserAvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -15978,14 +16490,12 @@ class $UserAvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -16011,9 +16521,7 @@ class $UserAvatarClient {
   Future<_i1.DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> tempAvatarPostAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $tempAvatarPostAvatar_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $tempAvatarPostAvatar_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -16028,7 +16536,7 @@ class $UserAvatarClient {
         bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200, 400},
+        validStatuses: const {200},
       );
 
   /// Delete your avatar as a user.
@@ -16052,7 +16560,7 @@ class $UserAvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -16061,14 +16569,12 @@ class $UserAvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -16094,9 +16600,7 @@ class $UserAvatarClient {
   Future<_i1.DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> tempAvatarDeleteAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $tempAvatarDeleteAvatar_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $tempAvatarDeleteAvatar_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -16340,100 +16844,92 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   }
 }
 
-class ActorType extends EnumClass {
-  const ActorType._(super.name);
+class ActorTypes extends EnumClass {
+  const ActorTypes._(super.name);
 
   /// `users`
-  static const ActorType users = _$actorTypeUsers;
+  static const ActorTypes users = _$actorTypesUsers;
 
   /// `groups`
-  static const ActorType groups = _$actorTypeGroups;
+  static const ActorTypes groups = _$actorTypesGroups;
 
   /// `guests`
-  static const ActorType guests = _$actorTypeGuests;
+  static const ActorTypes guests = _$actorTypesGuests;
 
   /// `emails`
-  static const ActorType emails = _$actorTypeEmails;
+  static const ActorTypes emails = _$actorTypesEmails;
 
   /// `circles`
-  static const ActorType circles = _$actorTypeCircles;
+  static const ActorTypes circles = _$actorTypesCircles;
 
   /// `bridged`
-  static const ActorType bridged = _$actorTypeBridged;
+  static const ActorTypes bridged = _$actorTypesBridged;
 
   /// `bots`
-  static const ActorType bots = _$actorTypeBots;
+  static const ActorTypes bots = _$actorTypesBots;
 
   /// `federated_users`
   @BuiltValueEnumConst(wireName: 'federated_users')
-  static const ActorType federatedUsers = _$actorTypeFederatedUsers;
+  static const ActorTypes federatedUsers = _$actorTypesFederatedUsers;
 
   /// `phones`
-  static const ActorType phones = _$actorTypePhones;
+  static const ActorTypes phones = _$actorTypesPhones;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<ActorType> get values => _$actorTypeValues;
+  static BuiltSet<ActorTypes> get values => _$actorTypesValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static ActorType valueOf(String name) => _$valueOfActorType(name);
+  static ActorTypes valueOf(String name) => _$valueOfActorTypes(name);
 
   /// Returns the serialized value of this enum value.
   String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
-  /// Serializer for ActorType.
+  /// Serializer for ActorTypes.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ActorType> get serializer => const _$ActorTypeSerializer();
+  static Serializer<ActorTypes> get serializer => const _$ActorTypesSerializer();
 }
 
-class _$ActorTypeSerializer implements PrimitiveSerializer<ActorType> {
-  const _$ActorTypeSerializer();
+class _$ActorTypesSerializer implements PrimitiveSerializer<ActorTypes> {
+  const _$ActorTypesSerializer();
 
-  static const Map<ActorType, Object> _toWire = <ActorType, Object>{
-    ActorType.users: 'users',
-    ActorType.groups: 'groups',
-    ActorType.guests: 'guests',
-    ActorType.emails: 'emails',
-    ActorType.circles: 'circles',
-    ActorType.bridged: 'bridged',
-    ActorType.bots: 'bots',
-    ActorType.federatedUsers: 'federated_users',
-    ActorType.phones: 'phones',
+  static const Map<ActorTypes, Object> _toWire = <ActorTypes, Object>{
+    ActorTypes.users: 'users',
+    ActorTypes.groups: 'groups',
+    ActorTypes.guests: 'guests',
+    ActorTypes.emails: 'emails',
+    ActorTypes.circles: 'circles',
+    ActorTypes.bridged: 'bridged',
+    ActorTypes.bots: 'bots',
+    ActorTypes.federatedUsers: 'federated_users',
+    ActorTypes.phones: 'phones',
   };
 
-  static const Map<Object, ActorType> _fromWire = <Object, ActorType>{
-    'users': ActorType.users,
-    'groups': ActorType.groups,
-    'guests': ActorType.guests,
-    'emails': ActorType.emails,
-    'circles': ActorType.circles,
-    'bridged': ActorType.bridged,
-    'bots': ActorType.bots,
-    'federated_users': ActorType.federatedUsers,
-    'phones': ActorType.phones,
+  static const Map<Object, ActorTypes> _fromWire = <Object, ActorTypes>{
+    'users': ActorTypes.users,
+    'groups': ActorTypes.groups,
+    'guests': ActorTypes.guests,
+    'emails': ActorTypes.emails,
+    'circles': ActorTypes.circles,
+    'bridged': ActorTypes.bridged,
+    'bots': ActorTypes.bots,
+    'federated_users': ActorTypes.federatedUsers,
+    'phones': ActorTypes.phones,
   };
 
   @override
-  Iterable<Type> get types => const [ActorType];
+  Iterable<Type> get types => const [ActorTypes];
 
   @override
-  String get wireName => 'ActorType';
+  String get wireName => 'ActorTypes';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    ActorType object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, ActorTypes object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
-  ActorType deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  ActorTypes deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
       _fromWire[serialized]!;
 }
 
@@ -16528,11 +17024,7 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
   String get wireName => 'MessageType';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    MessageType object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, MessageType object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -16548,7 +17040,7 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
 sealed class $BaseMessageInterface {
   String get actorDisplayName;
   String get actorId;
-  ActorType get actorType;
+  ActorTypes get actorType;
   int get expirationTimestamp;
   String get message;
   BuiltMap<String, BuiltMap<String, JsonObject>> get messageParameters;
@@ -16675,7 +17167,7 @@ sealed class $ChatMessageInterface implements $BaseMessageInterface {
   String get token;
   String? get lastEditActorDisplayName;
   String? get lastEditActorId;
-  ActorType? get lastEditActorType;
+  ActorTypes? get lastEditActorType;
   int? get lastEditTimestamp;
   bool? get silent;
 
@@ -16736,13 +17228,13 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
   }
 }
 
-typedef RoomLastMessage = ({BaseMessage? baseMessage, ChatMessage? chatMessage});
-typedef Room_LastMessage = ({BaseMessage? baseMessage, BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+typedef RoomLastMessage = ({BaseMessage? baseMessage, BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 @BuiltValue(instantiable: false)
 sealed class $RoomInterface {
   String get actorId;
-  ActorType get actorType;
+  String? get invitedActorId;
+  ActorTypes get actorType;
   int get attendeeId;
   int get attendeePermissions;
   String? get attendeePin;
@@ -16767,7 +17259,7 @@ sealed class $RoomInterface {
   bool get isFavorite;
   int get lastActivity;
   int get lastCommonReadMessage;
-  Room_LastMessage get lastMessage;
+  RoomLastMessage? get lastMessage;
   int get lastPing;
   int get lastReadMessage;
   int get listable;
@@ -16798,6 +17290,7 @@ sealed class $RoomInterface {
   bool get unreadMention;
   bool get unreadMentionDirect;
   int get unreadMessages;
+  bool? get isArchived;
 
   /// Rebuilds the instance.
   ///
@@ -17565,14 +18058,10 @@ class _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer
   const _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer();
 
   static const Map<AvatarGetUserProxyAvatarWithoutRoomApiVersion, Object> _toWire =
-      <AvatarGetUserProxyAvatarWithoutRoomApiVersion, Object>{
-    AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1: 'v1',
-  };
+      <AvatarGetUserProxyAvatarWithoutRoomApiVersion, Object>{AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomApiVersion> _fromWire =
-      <Object, AvatarGetUserProxyAvatarWithoutRoomApiVersion>{
-    'v1': AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1,
-  };
+      <Object, AvatarGetUserProxyAvatarWithoutRoomApiVersion>{'v1': AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomApiVersion];
@@ -18076,14 +18565,10 @@ class _$AvatarGetUserProxyAvatarDarkApiVersionSerializer
   const _$AvatarGetUserProxyAvatarDarkApiVersionSerializer();
 
   static const Map<AvatarGetUserProxyAvatarDarkApiVersion, Object> _toWire =
-      <AvatarGetUserProxyAvatarDarkApiVersion, Object>{
-    AvatarGetUserProxyAvatarDarkApiVersion.v1: 'v1',
-  };
+      <AvatarGetUserProxyAvatarDarkApiVersion, Object>{AvatarGetUserProxyAvatarDarkApiVersion.v1: 'v1'};
 
   static const Map<Object, AvatarGetUserProxyAvatarDarkApiVersion> _fromWire =
-      <Object, AvatarGetUserProxyAvatarDarkApiVersion>{
-    'v1': AvatarGetUserProxyAvatarDarkApiVersion.v1,
-  };
+      <Object, AvatarGetUserProxyAvatarDarkApiVersion>{'v1': AvatarGetUserProxyAvatarDarkApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkApiVersion];
@@ -18417,6 +18902,9 @@ class BanBanActorRequestApplicationJson_ActorType extends EnumClass {
   /// `guests`
   static const BanBanActorRequestApplicationJson_ActorType guests = _$banBanActorRequestApplicationJsonActorTypeGuests;
 
+  /// `emails`
+  static const BanBanActorRequestApplicationJson_ActorType emails = _$banBanActorRequestApplicationJsonActorTypeEmails;
+
   /// `ip`
   static const BanBanActorRequestApplicationJson_ActorType ip = _$banBanActorRequestApplicationJsonActorTypeIp;
 
@@ -18447,6 +18935,7 @@ class _$BanBanActorRequestApplicationJson_ActorTypeSerializer
       <BanBanActorRequestApplicationJson_ActorType, Object>{
     BanBanActorRequestApplicationJson_ActorType.users: 'users',
     BanBanActorRequestApplicationJson_ActorType.guests: 'guests',
+    BanBanActorRequestApplicationJson_ActorType.emails: 'emails',
     BanBanActorRequestApplicationJson_ActorType.ip: 'ip',
   };
 
@@ -18454,6 +18943,7 @@ class _$BanBanActorRequestApplicationJson_ActorTypeSerializer
       <Object, BanBanActorRequestApplicationJson_ActorType>{
     'users': BanBanActorRequestApplicationJson_ActorType.users,
     'guests': BanBanActorRequestApplicationJson_ActorType.guests,
+    'emails': BanBanActorRequestApplicationJson_ActorType.emails,
     'ip': BanBanActorRequestApplicationJson_ActorType.ip,
   };
 
@@ -18482,10 +18972,7 @@ class _$BanBanActorRequestApplicationJson_ActorTypeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $BanBanActorRequestApplicationJsonInterface {
-  static final _$internalNote = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$internalNote = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Type of actor to ban, or `ip` when banning a clients remote address.
   BanBanActorRequestApplicationJson_ActorType get actorType;
@@ -18740,7 +19227,7 @@ class _$BanUnbanActorApiVersionSerializer implements PrimitiveSerializer<BanUnba
 @BuiltValue(instantiable: false)
 sealed class $BanUnbanActorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -19522,20 +20009,11 @@ class _$BotSendMessageApiVersionSerializer implements PrimitiveSerializer<BotSen
 
 @BuiltValue(instantiable: false)
 sealed class $BotSendMessageRequestApplicationJsonInterface {
-  static final _$referenceId = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$referenceId = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$replyTo = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$replyTo = _$jsonSerializers.deserialize(0, specifiedType: const FullType(int))! as int;
 
-  static final _$silent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$silent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   /// The message to send.
   String get message;
@@ -19615,7 +20093,7 @@ abstract class BotSendMessageRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $BotSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -19763,13 +20241,9 @@ class BotReactApiVersion extends EnumClass {
 class _$BotReactApiVersionSerializer implements PrimitiveSerializer<BotReactApiVersion> {
   const _$BotReactApiVersionSerializer();
 
-  static const Map<BotReactApiVersion, Object> _toWire = <BotReactApiVersion, Object>{
-    BotReactApiVersion.v1: 'v1',
-  };
+  static const Map<BotReactApiVersion, Object> _toWire = <BotReactApiVersion, Object>{BotReactApiVersion.v1: 'v1'};
 
-  static const Map<Object, BotReactApiVersion> _fromWire = <Object, BotReactApiVersion>{
-    'v1': BotReactApiVersion.v1,
-  };
+  static const Map<Object, BotReactApiVersion> _fromWire = <Object, BotReactApiVersion>{'v1': BotReactApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BotReactApiVersion];
@@ -19859,7 +20333,7 @@ abstract class BotReactRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $BotReactResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -20039,7 +20513,7 @@ class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<Bot
 @BuiltValue(instantiable: false)
 sealed class $BotDeleteReactionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -20193,14 +20667,10 @@ class _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer
   const _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer();
 
   static const Map<BreakoutRoomConfigureBreakoutRoomsApiVersion, Object> _toWire =
-      <BreakoutRoomConfigureBreakoutRoomsApiVersion, Object>{
-    BreakoutRoomConfigureBreakoutRoomsApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomConfigureBreakoutRoomsApiVersion, Object>{BreakoutRoomConfigureBreakoutRoomsApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomConfigureBreakoutRoomsApiVersion> _fromWire =
-      <Object, BreakoutRoomConfigureBreakoutRoomsApiVersion>{
-    'v1': BreakoutRoomConfigureBreakoutRoomsApiVersion.v1,
-  };
+      <Object, BreakoutRoomConfigureBreakoutRoomsApiVersion>{'v1': BreakoutRoomConfigureBreakoutRoomsApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomConfigureBreakoutRoomsApiVersion];
@@ -20313,10 +20783,7 @@ class _$BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_ModeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonInterface {
-  static final _$attendeeMap = _$jsonSerializers.deserialize(
-    '[]',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$attendeeMap = _$jsonSerializers.deserialize('[]', specifiedType: const FullType(String))! as String;
 
   /// Mode of the breakout rooms.
   BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode get mode;
@@ -20344,12 +20811,7 @@ sealed class $BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonInterface 
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.amount,
-      'amount',
-      maximum: 20,
-      minimum: 1,
-    );
+    _i4.checkNumber(b.amount, 'amount', maximum: 20, minimum: 1);
   }
 }
 
@@ -20556,14 +21018,10 @@ class _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer
   const _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer();
 
   static const Map<BreakoutRoomRemoveBreakoutRoomsApiVersion, Object> _toWire =
-      <BreakoutRoomRemoveBreakoutRoomsApiVersion, Object>{
-    BreakoutRoomRemoveBreakoutRoomsApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomRemoveBreakoutRoomsApiVersion, Object>{BreakoutRoomRemoveBreakoutRoomsApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomRemoveBreakoutRoomsApiVersion> _fromWire =
-      <Object, BreakoutRoomRemoveBreakoutRoomsApiVersion>{
-    'v1': BreakoutRoomRemoveBreakoutRoomsApiVersion.v1,
-  };
+      <Object, BreakoutRoomRemoveBreakoutRoomsApiVersion>{'v1': BreakoutRoomRemoveBreakoutRoomsApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomRemoveBreakoutRoomsApiVersion];
@@ -20747,14 +21205,10 @@ class _$BreakoutRoomBroadcastChatMessageApiVersionSerializer
   const _$BreakoutRoomBroadcastChatMessageApiVersionSerializer();
 
   static const Map<BreakoutRoomBroadcastChatMessageApiVersion, Object> _toWire =
-      <BreakoutRoomBroadcastChatMessageApiVersion, Object>{
-    BreakoutRoomBroadcastChatMessageApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomBroadcastChatMessageApiVersion, Object>{BreakoutRoomBroadcastChatMessageApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomBroadcastChatMessageApiVersion> _fromWire =
-      <Object, BreakoutRoomBroadcastChatMessageApiVersion>{
-    'v1': BreakoutRoomBroadcastChatMessageApiVersion.v1,
-  };
+      <Object, BreakoutRoomBroadcastChatMessageApiVersion>{'v1': BreakoutRoomBroadcastChatMessageApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomBroadcastChatMessageApiVersion];
@@ -21002,14 +21456,10 @@ class _$BreakoutRoomApplyAttendeeMapApiVersionSerializer
   const _$BreakoutRoomApplyAttendeeMapApiVersionSerializer();
 
   static const Map<BreakoutRoomApplyAttendeeMapApiVersion, Object> _toWire =
-      <BreakoutRoomApplyAttendeeMapApiVersion, Object>{
-    BreakoutRoomApplyAttendeeMapApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomApplyAttendeeMapApiVersion, Object>{BreakoutRoomApplyAttendeeMapApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomApplyAttendeeMapApiVersion> _fromWire =
-      <Object, BreakoutRoomApplyAttendeeMapApiVersion>{
-    'v1': BreakoutRoomApplyAttendeeMapApiVersion.v1,
-  };
+      <Object, BreakoutRoomApplyAttendeeMapApiVersion>{'v1': BreakoutRoomApplyAttendeeMapApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomApplyAttendeeMapApiVersion];
@@ -21258,14 +21708,10 @@ class _$BreakoutRoomRequestAssistanceApiVersionSerializer
   const _$BreakoutRoomRequestAssistanceApiVersionSerializer();
 
   static const Map<BreakoutRoomRequestAssistanceApiVersion, Object> _toWire =
-      <BreakoutRoomRequestAssistanceApiVersion, Object>{
-    BreakoutRoomRequestAssistanceApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomRequestAssistanceApiVersion, Object>{BreakoutRoomRequestAssistanceApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomRequestAssistanceApiVersion> _fromWire =
-      <Object, BreakoutRoomRequestAssistanceApiVersion>{
-    'v1': BreakoutRoomRequestAssistanceApiVersion.v1,
-  };
+      <Object, BreakoutRoomRequestAssistanceApiVersion>{'v1': BreakoutRoomRequestAssistanceApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomRequestAssistanceApiVersion];
@@ -21640,14 +22086,10 @@ class _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer
   const _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer();
 
   static const Map<BreakoutRoomStartBreakoutRoomsApiVersion, Object> _toWire =
-      <BreakoutRoomStartBreakoutRoomsApiVersion, Object>{
-    BreakoutRoomStartBreakoutRoomsApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomStartBreakoutRoomsApiVersion, Object>{BreakoutRoomStartBreakoutRoomsApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomStartBreakoutRoomsApiVersion> _fromWire =
-      <Object, BreakoutRoomStartBreakoutRoomsApiVersion>{
-    'v1': BreakoutRoomStartBreakoutRoomsApiVersion.v1,
-  };
+      <Object, BreakoutRoomStartBreakoutRoomsApiVersion>{'v1': BreakoutRoomStartBreakoutRoomsApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomStartBreakoutRoomsApiVersion];
@@ -21831,14 +22273,10 @@ class _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer
   const _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer();
 
   static const Map<BreakoutRoomStopBreakoutRoomsApiVersion, Object> _toWire =
-      <BreakoutRoomStopBreakoutRoomsApiVersion, Object>{
-    BreakoutRoomStopBreakoutRoomsApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomStopBreakoutRoomsApiVersion, Object>{BreakoutRoomStopBreakoutRoomsApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomStopBreakoutRoomsApiVersion> _fromWire =
-      <Object, BreakoutRoomStopBreakoutRoomsApiVersion>{
-    'v1': BreakoutRoomStopBreakoutRoomsApiVersion.v1,
-  };
+      <Object, BreakoutRoomStopBreakoutRoomsApiVersion>{'v1': BreakoutRoomStopBreakoutRoomsApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomStopBreakoutRoomsApiVersion];
@@ -22022,14 +22460,10 @@ class _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer
   const _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer();
 
   static const Map<BreakoutRoomSwitchBreakoutRoomApiVersion, Object> _toWire =
-      <BreakoutRoomSwitchBreakoutRoomApiVersion, Object>{
-    BreakoutRoomSwitchBreakoutRoomApiVersion.v1: 'v1',
-  };
+      <BreakoutRoomSwitchBreakoutRoomApiVersion, Object>{BreakoutRoomSwitchBreakoutRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, BreakoutRoomSwitchBreakoutRoomApiVersion> _fromWire =
-      <Object, BreakoutRoomSwitchBreakoutRoomApiVersion>{
-    'v1': BreakoutRoomSwitchBreakoutRoomApiVersion.v1,
-  };
+      <Object, BreakoutRoomSwitchBreakoutRoomApiVersion>{'v1': BreakoutRoomSwitchBreakoutRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [BreakoutRoomSwitchBreakoutRoomApiVersion];
@@ -22307,7 +22741,7 @@ class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<C
 @BuiltValue(instantiable: false)
 sealed class $CallPeerInterface {
   String get actorId;
-  ActorType get actorType;
+  ActorTypes get actorType;
   String get displayName;
   int get lastPing;
   String get sessionId;
@@ -22565,12 +22999,7 @@ sealed class $CallUpdateCallFlagsRequestApplicationJsonInterface {
   static void _defaults($CallUpdateCallFlagsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($CallUpdateCallFlagsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.flags,
-      'flags',
-      maximum: 15,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.flags, 'flags', maximum: 15, minimum: 0);
   }
 }
 
@@ -22620,7 +23049,7 @@ abstract class CallUpdateCallFlagsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $CallUpdateCallFlagsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -22802,15 +23231,9 @@ class _$CallJoinCallApiVersionSerializer implements PrimitiveSerializer<CallJoin
 
 @BuiltValue(instantiable: false)
 sealed class $CallJoinCallRequestApplicationJsonInterface {
-  static final _$silent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$silent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$recordingConsent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$recordingConsent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   /// In-Call flags.
   int? get flags;
@@ -22839,12 +23262,7 @@ sealed class $CallJoinCallRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($CallJoinCallRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.flags,
-      'flags',
-      maximum: 15,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.flags, 'flags', maximum: 15, minimum: 0);
   }
 }
 
@@ -22893,7 +23311,7 @@ abstract class CallJoinCallRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $CallJoinCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -23118,11 +23536,7 @@ class _$CallLeaveCallAllSerializer implements PrimitiveSerializer<CallLeaveCallA
   String get wireName => 'CallLeaveCallAll';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    CallLeaveCallAll object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, CallLeaveCallAll object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -23137,7 +23551,7 @@ class _$CallLeaveCallAllSerializer implements PrimitiveSerializer<CallLeaveCallA
 @BuiltValue(instantiable: false)
 sealed class $CallLeaveCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -23260,6 +23674,306 @@ abstract class CallLeaveCallResponseApplicationJson
   }
 }
 
+class CallNotificationStateApiVersion extends EnumClass {
+  const CallNotificationStateApiVersion._(super.name);
+
+  /// `v4`
+  static const CallNotificationStateApiVersion v4 = _$callNotificationStateApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallNotificationStateApiVersion> get values => _$callNotificationStateApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallNotificationStateApiVersion valueOf(String name) => _$valueOfCallNotificationStateApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for CallNotificationStateApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallNotificationStateApiVersion> get serializer =>
+      const _$CallNotificationStateApiVersionSerializer();
+}
+
+class _$CallNotificationStateApiVersionSerializer implements PrimitiveSerializer<CallNotificationStateApiVersion> {
+  const _$CallNotificationStateApiVersionSerializer();
+
+  static const Map<CallNotificationStateApiVersion, Object> _toWire = <CallNotificationStateApiVersion, Object>{
+    CallNotificationStateApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallNotificationStateApiVersion> _fromWire = <Object, CallNotificationStateApiVersion>{
+    'v4': CallNotificationStateApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallNotificationStateApiVersion];
+
+  @override
+  String get wireName => 'CallNotificationStateApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallNotificationStateApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallNotificationStateApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $CallNotificationStateResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder].
+  $CallNotificationStateResponseApplicationJson_OcsInterface rebuild(
+    void Function($CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder].
+  $CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CallNotificationStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class CallNotificationStateResponseApplicationJson_Ocs
+    implements
+        $CallNotificationStateResponseApplicationJson_OcsInterface,
+        Built<CallNotificationStateResponseApplicationJson_Ocs,
+            CallNotificationStateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallNotificationStateResponseApplicationJson_Ocs object using the builder pattern.
+  factory CallNotificationStateResponseApplicationJson_Ocs([
+    void Function(CallNotificationStateResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CallNotificationStateResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const CallNotificationStateResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CallNotificationStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CallNotificationStateResponseApplicationJson_Ocs.
+  static Serializer<CallNotificationStateResponseApplicationJson_Ocs> get serializer =>
+      _$callNotificationStateResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CallNotificationStateResponseApplicationJson_OcsBuilder b) {
+    $CallNotificationStateResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CallNotificationStateResponseApplicationJson_OcsBuilder b) {
+    $CallNotificationStateResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $CallNotificationStateResponseApplicationJsonInterface {
+  CallNotificationStateResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CallNotificationStateResponseApplicationJsonInterfaceBuilder].
+  $CallNotificationStateResponseApplicationJsonInterface rebuild(
+    void Function($CallNotificationStateResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$CallNotificationStateResponseApplicationJsonInterfaceBuilder].
+  $CallNotificationStateResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CallNotificationStateResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CallNotificationStateResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class CallNotificationStateResponseApplicationJson
+    implements
+        $CallNotificationStateResponseApplicationJsonInterface,
+        Built<CallNotificationStateResponseApplicationJson, CallNotificationStateResponseApplicationJsonBuilder> {
+  /// Creates a new CallNotificationStateResponseApplicationJson object using the builder pattern.
+  factory CallNotificationStateResponseApplicationJson([
+    void Function(CallNotificationStateResponseApplicationJsonBuilder)? b,
+  ]) = _$CallNotificationStateResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CallNotificationStateResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CallNotificationStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CallNotificationStateResponseApplicationJson.
+  static Serializer<CallNotificationStateResponseApplicationJson> get serializer =>
+      _$callNotificationStateResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CallNotificationStateResponseApplicationJsonBuilder b) {
+    $CallNotificationStateResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CallNotificationStateResponseApplicationJsonBuilder b) {
+    $CallNotificationStateResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class CallDownloadParticipantsForCallApiVersion extends EnumClass {
+  const CallDownloadParticipantsForCallApiVersion._(super.name);
+
+  /// `v4`
+  static const CallDownloadParticipantsForCallApiVersion v4 = _$callDownloadParticipantsForCallApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallDownloadParticipantsForCallApiVersion> get values =>
+      _$callDownloadParticipantsForCallApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallDownloadParticipantsForCallApiVersion valueOf(String name) =>
+      _$valueOfCallDownloadParticipantsForCallApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for CallDownloadParticipantsForCallApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallDownloadParticipantsForCallApiVersion> get serializer =>
+      const _$CallDownloadParticipantsForCallApiVersionSerializer();
+}
+
+class _$CallDownloadParticipantsForCallApiVersionSerializer
+    implements PrimitiveSerializer<CallDownloadParticipantsForCallApiVersion> {
+  const _$CallDownloadParticipantsForCallApiVersionSerializer();
+
+  static const Map<CallDownloadParticipantsForCallApiVersion, Object> _toWire =
+      <CallDownloadParticipantsForCallApiVersion, Object>{CallDownloadParticipantsForCallApiVersion.v4: 'v4'};
+
+  static const Map<Object, CallDownloadParticipantsForCallApiVersion> _fromWire =
+      <Object, CallDownloadParticipantsForCallApiVersion>{'v4': CallDownloadParticipantsForCallApiVersion.v4};
+
+  @override
+  Iterable<Type> get types => const [CallDownloadParticipantsForCallApiVersion];
+
+  @override
+  String get wireName => 'CallDownloadParticipantsForCallApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallDownloadParticipantsForCallApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallDownloadParticipantsForCallApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class CallDownloadParticipantsForCallFormat extends EnumClass {
+  const CallDownloadParticipantsForCallFormat._(super.name);
+
+  /// `csv`
+  static const CallDownloadParticipantsForCallFormat csv = _$callDownloadParticipantsForCallFormatCsv;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallDownloadParticipantsForCallFormat> get values => _$callDownloadParticipantsForCallFormatValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallDownloadParticipantsForCallFormat valueOf(String name) =>
+      _$valueOfCallDownloadParticipantsForCallFormat(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for CallDownloadParticipantsForCallFormat.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallDownloadParticipantsForCallFormat> get serializer =>
+      const _$CallDownloadParticipantsForCallFormatSerializer();
+}
+
+class _$CallDownloadParticipantsForCallFormatSerializer
+    implements PrimitiveSerializer<CallDownloadParticipantsForCallFormat> {
+  const _$CallDownloadParticipantsForCallFormatSerializer();
+
+  static const Map<CallDownloadParticipantsForCallFormat, Object> _toWire =
+      <CallDownloadParticipantsForCallFormat, Object>{CallDownloadParticipantsForCallFormat.csv: 'csv'};
+
+  static const Map<Object, CallDownloadParticipantsForCallFormat> _fromWire =
+      <Object, CallDownloadParticipantsForCallFormat>{'csv': CallDownloadParticipantsForCallFormat.csv};
+
+  @override
+  Iterable<Type> get types => const [CallDownloadParticipantsForCallFormat];
+
+  @override
+  String get wireName => 'CallDownloadParticipantsForCallFormat';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallDownloadParticipantsForCallFormat object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallDownloadParticipantsForCallFormat deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class CallUpdateFederatedCallFlagsApiVersion extends EnumClass {
   const CallUpdateFederatedCallFlagsApiVersion._(super.name);
 
@@ -23289,14 +24003,10 @@ class _$CallUpdateFederatedCallFlagsApiVersionSerializer
   const _$CallUpdateFederatedCallFlagsApiVersionSerializer();
 
   static const Map<CallUpdateFederatedCallFlagsApiVersion, Object> _toWire =
-      <CallUpdateFederatedCallFlagsApiVersion, Object>{
-    CallUpdateFederatedCallFlagsApiVersion.v4: 'v4',
-  };
+      <CallUpdateFederatedCallFlagsApiVersion, Object>{CallUpdateFederatedCallFlagsApiVersion.v4: 'v4'};
 
   static const Map<Object, CallUpdateFederatedCallFlagsApiVersion> _fromWire =
-      <Object, CallUpdateFederatedCallFlagsApiVersion>{
-    'v4': CallUpdateFederatedCallFlagsApiVersion.v4,
-  };
+      <Object, CallUpdateFederatedCallFlagsApiVersion>{'v4': CallUpdateFederatedCallFlagsApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [CallUpdateFederatedCallFlagsApiVersion];
@@ -23343,12 +24053,7 @@ sealed class $CallUpdateFederatedCallFlagsRequestApplicationJsonInterface {
   static void _defaults($CallUpdateFederatedCallFlagsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($CallUpdateFederatedCallFlagsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.flags,
-      'flags',
-      maximum: 15,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.flags, 'flags', maximum: 15, minimum: 0);
   }
 }
 
@@ -23399,7 +24104,7 @@ abstract class CallUpdateFederatedCallFlagsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $CallUpdateFederatedCallFlagsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -23584,15 +24289,9 @@ class _$CallJoinFederatedCallApiVersionSerializer implements PrimitiveSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $CallJoinFederatedCallRequestApplicationJsonInterface {
-  static final _$silent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$silent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$recordingConsent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$recordingConsent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   /// Federated session id to join with.
   String get sessionId;
@@ -23624,12 +24323,7 @@ sealed class $CallJoinFederatedCallRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($CallJoinFederatedCallRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.flags,
-      'flags',
-      maximum: 15,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.flags, 'flags', maximum: 15, minimum: 0);
   }
 }
 
@@ -23679,7 +24373,7 @@ abstract class CallJoinFederatedCallRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $CallJoinFederatedCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -23864,7 +24558,7 @@ class _$CallLeaveFederatedCallApiVersionSerializer implements PrimitiveSerialize
 @BuiltValue(instantiable: false)
 sealed class $CallLeaveFederatedCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -24048,7 +24742,7 @@ class _$CallRingAttendeeApiVersionSerializer implements PrimitiveSerializer<Call
 @BuiltValue(instantiable: false)
 sealed class $CallRingAttendeeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -24228,73 +24922,9 @@ class _$CallSipDialOutApiVersionSerializer implements PrimitiveSerializer<CallSi
 }
 
 @BuiltValue(instantiable: false)
-sealed class $CallSipDialOutResponseApplicationJson_Ocs_DataInterface {
-  String? get error;
-  String? get message;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder].
-  $CallSipDialOutResponseApplicationJson_Ocs_DataInterface rebuild(
-    void Function($CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder].
-  $CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CallSipDialOutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-}
-
-abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
-    implements
-        $CallSipDialOutResponseApplicationJson_Ocs_DataInterface,
-        Built<CallSipDialOutResponseApplicationJson_Ocs_Data, CallSipDialOutResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new CallSipDialOutResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory CallSipDialOutResponseApplicationJson_Ocs_Data([
-    void Function(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CallSipDialOutResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const CallSipDialOutResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CallSipDialOutResponseApplicationJson_Ocs_Data.
-  static Serializer<CallSipDialOutResponseApplicationJson_Ocs_Data> get serializer =>
-      _$callSipDialOutResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder b) {
-    $CallSipDialOutResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder b) {
-    $CallSipDialOutResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $CallSipDialOutResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  CallSipDialOutResponseApplicationJson_Ocs_Data get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -25229,25 +25859,13 @@ class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatS
 
 @BuiltValue(instantiable: false)
 sealed class $ChatSendMessageRequestApplicationJsonInterface {
-  static final _$actorDisplayName = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$actorDisplayName = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$referenceId = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$referenceId = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$replyTo = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$replyTo = _$jsonSerializers.deserialize(0, specifiedType: const FullType(int))! as int;
 
-  static final _$silent = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$silent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   /// the message to send.
   String get message;
@@ -25284,11 +25902,7 @@ sealed class $ChatSendMessageRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ChatSendMessageRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.replyTo,
-      'replyTo',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.replyTo, 'replyTo', minimum: 0);
   }
 }
 
@@ -25759,6 +26373,319 @@ abstract class ChatChatClearHistoryHeaders
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ChatChatClearHistoryHeadersBuilder b) {
     $ChatChatClearHistoryHeadersInterface._validate(b);
+  }
+}
+
+class ChatSummarizeChatApiVersion extends EnumClass {
+  const ChatSummarizeChatApiVersion._(super.name);
+
+  /// `v1`
+  static const ChatSummarizeChatApiVersion v1 = _$chatSummarizeChatApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatSummarizeChatApiVersion> get values => _$chatSummarizeChatApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatSummarizeChatApiVersion valueOf(String name) => _$valueOfChatSummarizeChatApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ChatSummarizeChatApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatSummarizeChatApiVersion> get serializer => const _$ChatSummarizeChatApiVersionSerializer();
+}
+
+class _$ChatSummarizeChatApiVersionSerializer implements PrimitiveSerializer<ChatSummarizeChatApiVersion> {
+  const _$ChatSummarizeChatApiVersionSerializer();
+
+  static const Map<ChatSummarizeChatApiVersion, Object> _toWire = <ChatSummarizeChatApiVersion, Object>{
+    ChatSummarizeChatApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatSummarizeChatApiVersion> _fromWire = <Object, ChatSummarizeChatApiVersion>{
+    'v1': ChatSummarizeChatApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatSummarizeChatApiVersion];
+
+  @override
+  String get wireName => 'ChatSummarizeChatApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatSummarizeChatApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatSummarizeChatApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ChatSummarizeChatRequestApplicationJsonInterface {
+  /// Offset from where on the summary should be generated.
+  int get fromMessageId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ChatSummarizeChatRequestApplicationJsonInterfaceBuilder].
+  $ChatSummarizeChatRequestApplicationJsonInterface rebuild(
+    void Function($ChatSummarizeChatRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ChatSummarizeChatRequestApplicationJsonInterfaceBuilder].
+  $ChatSummarizeChatRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatSummarizeChatRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatSummarizeChatRequestApplicationJsonInterfaceBuilder b) {
+    _i4.checkNumber(b.fromMessageId, 'fromMessageId', minimum: 1);
+  }
+}
+
+abstract class ChatSummarizeChatRequestApplicationJson
+    implements
+        $ChatSummarizeChatRequestApplicationJsonInterface,
+        Built<ChatSummarizeChatRequestApplicationJson, ChatSummarizeChatRequestApplicationJsonBuilder> {
+  /// Creates a new ChatSummarizeChatRequestApplicationJson object using the builder pattern.
+  factory ChatSummarizeChatRequestApplicationJson([void Function(ChatSummarizeChatRequestApplicationJsonBuilder)? b]) =
+      _$ChatSummarizeChatRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ChatSummarizeChatRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatSummarizeChatRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatSummarizeChatRequestApplicationJson.
+  static Serializer<ChatSummarizeChatRequestApplicationJson> get serializer =>
+      _$chatSummarizeChatRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatSummarizeChatRequestApplicationJsonBuilder b) {
+    $ChatSummarizeChatRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatSummarizeChatRequestApplicationJsonBuilder b) {
+    $ChatSummarizeChatRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface {
+  int get taskId;
+  int? get nextOffset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatSummarizeChatResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ChatSummarizeChatResponseApplicationJson_Ocs_Data
+    implements
+        $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface,
+        Built<ChatSummarizeChatResponseApplicationJson_Ocs_Data,
+            ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ChatSummarizeChatResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ChatSummarizeChatResponseApplicationJson_Ocs_Data([
+    void Function(ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ChatSummarizeChatResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ChatSummarizeChatResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatSummarizeChatResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatSummarizeChatResponseApplicationJson_Ocs_Data.
+  static Serializer<ChatSummarizeChatResponseApplicationJson_Ocs_Data> get serializer =>
+      _$chatSummarizeChatResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder b) {
+    $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder b) {
+    $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ChatSummarizeChatResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ChatSummarizeChatResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJson_OcsInterface rebuild(
+    void Function($ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatSummarizeChatResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ChatSummarizeChatResponseApplicationJson_Ocs
+    implements
+        $ChatSummarizeChatResponseApplicationJson_OcsInterface,
+        Built<ChatSummarizeChatResponseApplicationJson_Ocs, ChatSummarizeChatResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatSummarizeChatResponseApplicationJson_Ocs object using the builder pattern.
+  factory ChatSummarizeChatResponseApplicationJson_Ocs([
+    void Function(ChatSummarizeChatResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ChatSummarizeChatResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ChatSummarizeChatResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatSummarizeChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatSummarizeChatResponseApplicationJson_Ocs.
+  static Serializer<ChatSummarizeChatResponseApplicationJson_Ocs> get serializer =>
+      _$chatSummarizeChatResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatSummarizeChatResponseApplicationJson_OcsBuilder b) {
+    $ChatSummarizeChatResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatSummarizeChatResponseApplicationJson_OcsBuilder b) {
+    $ChatSummarizeChatResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ChatSummarizeChatResponseApplicationJsonInterface {
+  ChatSummarizeChatResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ChatSummarizeChatResponseApplicationJsonInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJsonInterface rebuild(
+    void Function($ChatSummarizeChatResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ChatSummarizeChatResponseApplicationJsonInterfaceBuilder].
+  $ChatSummarizeChatResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatSummarizeChatResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatSummarizeChatResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ChatSummarizeChatResponseApplicationJson
+    implements
+        $ChatSummarizeChatResponseApplicationJsonInterface,
+        Built<ChatSummarizeChatResponseApplicationJson, ChatSummarizeChatResponseApplicationJsonBuilder> {
+  /// Creates a new ChatSummarizeChatResponseApplicationJson object using the builder pattern.
+  factory ChatSummarizeChatResponseApplicationJson([
+    void Function(ChatSummarizeChatResponseApplicationJsonBuilder)? b,
+  ]) = _$ChatSummarizeChatResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ChatSummarizeChatResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatSummarizeChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatSummarizeChatResponseApplicationJson.
+  static Serializer<ChatSummarizeChatResponseApplicationJson> get serializer =>
+      _$chatSummarizeChatResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatSummarizeChatResponseApplicationJsonBuilder b) {
+    $ChatSummarizeChatResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatSummarizeChatResponseApplicationJsonBuilder b) {
+    $ChatSummarizeChatResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -26873,11 +27800,7 @@ sealed class $ChatSetReminderRequestApplicationJsonInterface {
   static void _defaults($ChatSetReminderRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ChatSetReminderRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.timestamp,
-      'timestamp',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.timestamp, 'timestamp', minimum: 0);
   }
 }
 
@@ -27371,11 +28294,7 @@ sealed class $ChatSetReadMarkerRequestApplicationJsonInterface {
   static void _defaults($ChatSetReadMarkerRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ChatSetReadMarkerRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.lastReadMessage,
-      'lastReadMessage',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.lastReadMessage, 'lastReadMessage', minimum: -2);
   }
 }
 
@@ -27971,7 +28890,7 @@ sealed class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
-  String? get mentionId;
+  String get mentionId;
   String? get details;
   String? get status;
   int? get statusClearAt;
@@ -28184,14 +29103,10 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
   const _$ChatGetObjectsSharedInRoomApiVersionSerializer();
 
   static const Map<ChatGetObjectsSharedInRoomApiVersion, Object> _toWire =
-      <ChatGetObjectsSharedInRoomApiVersion, Object>{
-    ChatGetObjectsSharedInRoomApiVersion.v1: 'v1',
-  };
+      <ChatGetObjectsSharedInRoomApiVersion, Object>{ChatGetObjectsSharedInRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, ChatGetObjectsSharedInRoomApiVersion> _fromWire =
-      <Object, ChatGetObjectsSharedInRoomApiVersion>{
-    'v1': ChatGetObjectsSharedInRoomApiVersion.v1,
-  };
+      <Object, ChatGetObjectsSharedInRoomApiVersion>{'v1': ChatGetObjectsSharedInRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [ChatGetObjectsSharedInRoomApiVersion];
@@ -28219,7 +29134,7 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
 @BuiltValue(instantiable: false)
 sealed class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  BuiltList<ChatMessage> get data;
+  BuiltMap<String, ChatMessage> get data;
 
   /// Rebuilds the instance.
   ///
@@ -28467,20 +29382,11 @@ class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $ChatShareObjectToChatRequestApplicationJsonInterface {
-  static final _$metaData = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$metaData = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$actorDisplayName = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$actorDisplayName = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$referenceId = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$referenceId = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Type of the object.
   String get objectType;
@@ -28781,14 +29687,10 @@ class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
   const _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer();
 
   static const Map<ChatGetObjectsSharedInRoomOverviewApiVersion, Object> _toWire =
-      <ChatGetObjectsSharedInRoomOverviewApiVersion, Object>{
-    ChatGetObjectsSharedInRoomOverviewApiVersion.v1: 'v1',
-  };
+      <ChatGetObjectsSharedInRoomOverviewApiVersion, Object>{ChatGetObjectsSharedInRoomOverviewApiVersion.v1: 'v1'};
 
   static const Map<Object, ChatGetObjectsSharedInRoomOverviewApiVersion> _fromWire =
-      <Object, ChatGetObjectsSharedInRoomOverviewApiVersion>{
-    'v1': ChatGetObjectsSharedInRoomOverviewApiVersion.v1,
-  };
+      <Object, ChatGetObjectsSharedInRoomOverviewApiVersion>{'v1': ChatGetObjectsSharedInRoomOverviewApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [ChatGetObjectsSharedInRoomOverviewApiVersion];
@@ -29000,43 +29902,43 @@ class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SignalingSettings_Federation0_HelloAuthParamsInterface {
+sealed class $SignalingFederationSettings_HelloAuthParamsInterface {
   String get token;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder].
-  $SignalingSettings_Federation0_HelloAuthParamsInterface rebuild(
-    void Function($SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SignalingFederationSettings_HelloAuthParamsInterfaceBuilder].
+  $SignalingFederationSettings_HelloAuthParamsInterface rebuild(
+    void Function($SignalingFederationSettings_HelloAuthParamsInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder].
-  $SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SignalingFederationSettings_HelloAuthParamsInterfaceBuilder].
+  $SignalingFederationSettings_HelloAuthParamsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder b) {}
+  static void _defaults($SignalingFederationSettings_HelloAuthParamsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_Federation0_HelloAuthParamsInterfaceBuilder b) {}
+  static void _validate($SignalingFederationSettings_HelloAuthParamsInterfaceBuilder b) {}
 }
 
-abstract class SignalingSettings_Federation0_HelloAuthParams
+abstract class SignalingFederationSettings_HelloAuthParams
     implements
-        $SignalingSettings_Federation0_HelloAuthParamsInterface,
-        Built<SignalingSettings_Federation0_HelloAuthParams, SignalingSettings_Federation0_HelloAuthParamsBuilder> {
-  /// Creates a new SignalingSettings_Federation0_HelloAuthParams object using the builder pattern.
-  factory SignalingSettings_Federation0_HelloAuthParams([
-    void Function(SignalingSettings_Federation0_HelloAuthParamsBuilder)? b,
-  ]) = _$SignalingSettings_Federation0_HelloAuthParams;
+        $SignalingFederationSettings_HelloAuthParamsInterface,
+        Built<SignalingFederationSettings_HelloAuthParams, SignalingFederationSettings_HelloAuthParamsBuilder> {
+  /// Creates a new SignalingFederationSettings_HelloAuthParams object using the builder pattern.
+  factory SignalingFederationSettings_HelloAuthParams([
+    void Function(SignalingFederationSettings_HelloAuthParamsBuilder)? b,
+  ]) = _$SignalingFederationSettings_HelloAuthParams;
 
   // coverage:ignore-start
-  const SignalingSettings_Federation0_HelloAuthParams._();
+  const SignalingFederationSettings_HelloAuthParams._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_Federation0_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
+  factory SignalingFederationSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -29047,61 +29949,59 @@ abstract class SignalingSettings_Federation0_HelloAuthParams
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SignalingSettings_Federation0_HelloAuthParams.
-  static Serializer<SignalingSettings_Federation0_HelloAuthParams> get serializer =>
-      _$signalingSettingsFederation0HelloAuthParamsSerializer;
+  /// Serializer for SignalingFederationSettings_HelloAuthParams.
+  static Serializer<SignalingFederationSettings_HelloAuthParams> get serializer =>
+      _$signalingFederationSettingsHelloAuthParamsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_Federation0_HelloAuthParamsBuilder b) {
-    $SignalingSettings_Federation0_HelloAuthParamsInterface._defaults(b);
+  static void _defaults(SignalingFederationSettings_HelloAuthParamsBuilder b) {
+    $SignalingFederationSettings_HelloAuthParamsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_Federation0_HelloAuthParamsBuilder b) {
-    $SignalingSettings_Federation0_HelloAuthParamsInterface._validate(b);
+  static void _validate(SignalingFederationSettings_HelloAuthParamsBuilder b) {
+    $SignalingFederationSettings_HelloAuthParamsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SignalingSettings_Federation0Interface {
+sealed class $SignalingFederationSettingsInterface {
   String get server;
   String get nextcloudServer;
-  SignalingSettings_Federation0_HelloAuthParams get helloAuthParams;
+  SignalingFederationSettings_HelloAuthParams get helloAuthParams;
   String get roomId;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SignalingSettings_Federation0InterfaceBuilder].
-  $SignalingSettings_Federation0Interface rebuild(
-    void Function($SignalingSettings_Federation0InterfaceBuilder) updates,
-  );
+  /// [updates] is a function that takes a builder [$SignalingFederationSettingsInterfaceBuilder].
+  $SignalingFederationSettingsInterface rebuild(void Function($SignalingFederationSettingsInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SignalingSettings_Federation0InterfaceBuilder].
-  $SignalingSettings_Federation0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SignalingFederationSettingsInterfaceBuilder].
+  $SignalingFederationSettingsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_Federation0InterfaceBuilder b) {}
+  static void _defaults($SignalingFederationSettingsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_Federation0InterfaceBuilder b) {}
+  static void _validate($SignalingFederationSettingsInterfaceBuilder b) {}
 }
 
-abstract class SignalingSettings_Federation0
+abstract class SignalingFederationSettings
     implements
-        $SignalingSettings_Federation0Interface,
-        Built<SignalingSettings_Federation0, SignalingSettings_Federation0Builder> {
-  /// Creates a new SignalingSettings_Federation0 object using the builder pattern.
-  factory SignalingSettings_Federation0([void Function(SignalingSettings_Federation0Builder)? b]) =
-      _$SignalingSettings_Federation0;
+        $SignalingFederationSettingsInterface,
+        Built<SignalingFederationSettings, SignalingFederationSettingsBuilder> {
+  /// Creates a new SignalingFederationSettings object using the builder pattern.
+  factory SignalingFederationSettings([void Function(SignalingFederationSettingsBuilder)? b]) =
+      _$SignalingFederationSettings;
 
   // coverage:ignore-start
-  const SignalingSettings_Federation0._();
+  const SignalingFederationSettings._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_Federation0.fromJson(Map<String, dynamic> json) =>
+  factory SignalingFederationSettings.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -29112,23 +30012,23 @@ abstract class SignalingSettings_Federation0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SignalingSettings_Federation0.
-  static Serializer<SignalingSettings_Federation0> get serializer => _$signalingSettingsFederation0Serializer;
+  /// Serializer for SignalingFederationSettings.
+  static Serializer<SignalingFederationSettings> get serializer => _$signalingFederationSettingsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_Federation0Builder b) {
-    $SignalingSettings_Federation0Interface._defaults(b);
+  static void _defaults(SignalingFederationSettingsBuilder b) {
+    $SignalingFederationSettingsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_Federation0Builder b) {
-    $SignalingSettings_Federation0Interface._validate(b);
+  static void _validate(SignalingFederationSettingsBuilder b) {
+    $SignalingFederationSettingsInterface._validate(b);
   }
 }
 
 typedef SignalingSettings_Federation = ({
   BuiltList<Never>? builtListNever,
-  SignalingSettings_Federation0? signalingSettingsFederation0
+  SignalingFederationSettings? signalingFederationSettings
 });
 
 @BuiltValue(instantiable: false)
@@ -29469,7 +30369,7 @@ sealed class $SignalingSettingsInterface {
   static void _defaults($SignalingSettingsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($SignalingSettingsInterfaceBuilder b) {
-    b.federation?.validateOneOf();
+    b.federation?.validateAnyOf();
   }
 }
 
@@ -29882,7 +30782,7 @@ class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer
 @BuiltValue(instantiable: false)
 sealed class $FederationRejectShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -30285,14 +31185,10 @@ class _$FilesIntegrationGetRoomByFileIdApiVersionSerializer
   const _$FilesIntegrationGetRoomByFileIdApiVersionSerializer();
 
   static const Map<FilesIntegrationGetRoomByFileIdApiVersion, Object> _toWire =
-      <FilesIntegrationGetRoomByFileIdApiVersion, Object>{
-    FilesIntegrationGetRoomByFileIdApiVersion.v1: 'v1',
-  };
+      <FilesIntegrationGetRoomByFileIdApiVersion, Object>{FilesIntegrationGetRoomByFileIdApiVersion.v1: 'v1'};
 
   static const Map<Object, FilesIntegrationGetRoomByFileIdApiVersion> _fromWire =
-      <Object, FilesIntegrationGetRoomByFileIdApiVersion>{
-    'v1': FilesIntegrationGetRoomByFileIdApiVersion.v1,
-  };
+      <Object, FilesIntegrationGetRoomByFileIdApiVersion>{'v1': FilesIntegrationGetRoomByFileIdApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [FilesIntegrationGetRoomByFileIdApiVersion];
@@ -30540,14 +31436,10 @@ class _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer
   const _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer();
 
   static const Map<FilesIntegrationGetRoomByShareTokenApiVersion, Object> _toWire =
-      <FilesIntegrationGetRoomByShareTokenApiVersion, Object>{
-    FilesIntegrationGetRoomByShareTokenApiVersion.v1: 'v1',
-  };
+      <FilesIntegrationGetRoomByShareTokenApiVersion, Object>{FilesIntegrationGetRoomByShareTokenApiVersion.v1: 'v1'};
 
   static const Map<Object, FilesIntegrationGetRoomByShareTokenApiVersion> _fromWire =
-      <Object, FilesIntegrationGetRoomByShareTokenApiVersion>{
-    'v1': FilesIntegrationGetRoomByShareTokenApiVersion.v1,
-  };
+      <Object, FilesIntegrationGetRoomByShareTokenApiVersion>{'v1': FilesIntegrationGetRoomByShareTokenApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [FilesIntegrationGetRoomByShareTokenApiVersion];
@@ -30799,9 +31691,7 @@ class _$PublicShareAuthCreateRoomApiVersionSerializer
   };
 
   static const Map<Object, PublicShareAuthCreateRoomApiVersion> _fromWire =
-      <Object, PublicShareAuthCreateRoomApiVersion>{
-    'v1': PublicShareAuthCreateRoomApiVersion.v1,
-  };
+      <Object, PublicShareAuthCreateRoomApiVersion>{'v1': PublicShareAuthCreateRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [PublicShareAuthCreateRoomApiVersion];
@@ -31208,7 +32098,7 @@ abstract class GuestSetDisplayNameRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $GuestSetDisplayNameResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -31362,14 +32252,10 @@ class _$HostedSignalingServerRequestTrialApiVersionSerializer
   const _$HostedSignalingServerRequestTrialApiVersionSerializer();
 
   static const Map<HostedSignalingServerRequestTrialApiVersion, Object> _toWire =
-      <HostedSignalingServerRequestTrialApiVersion, Object>{
-    HostedSignalingServerRequestTrialApiVersion.v1: 'v1',
-  };
+      <HostedSignalingServerRequestTrialApiVersion, Object>{HostedSignalingServerRequestTrialApiVersion.v1: 'v1'};
 
   static const Map<Object, HostedSignalingServerRequestTrialApiVersion> _fromWire =
-      <Object, HostedSignalingServerRequestTrialApiVersion>{
-    'v1': HostedSignalingServerRequestTrialApiVersion.v1,
-  };
+      <Object, HostedSignalingServerRequestTrialApiVersion>{'v1': HostedSignalingServerRequestTrialApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [HostedSignalingServerRequestTrialApiVersion];
@@ -31630,14 +32516,10 @@ class _$HostedSignalingServerDeleteAccountApiVersionSerializer
   const _$HostedSignalingServerDeleteAccountApiVersionSerializer();
 
   static const Map<HostedSignalingServerDeleteAccountApiVersion, Object> _toWire =
-      <HostedSignalingServerDeleteAccountApiVersion, Object>{
-    HostedSignalingServerDeleteAccountApiVersion.v1: 'v1',
-  };
+      <HostedSignalingServerDeleteAccountApiVersion, Object>{HostedSignalingServerDeleteAccountApiVersion.v1: 'v1'};
 
   static const Map<Object, HostedSignalingServerDeleteAccountApiVersion> _fromWire =
-      <Object, HostedSignalingServerDeleteAccountApiVersion>{
-    'v1': HostedSignalingServerDeleteAccountApiVersion.v1,
-  };
+      <Object, HostedSignalingServerDeleteAccountApiVersion>{'v1': HostedSignalingServerDeleteAccountApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [HostedSignalingServerDeleteAccountApiVersion];
@@ -31722,7 +32604,7 @@ class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer
 @BuiltValue(instantiable: false)
 sealed class $SignalingSessionInterface {
   String? get actorId;
-  ActorType? get actorType;
+  ActorTypes? get actorType;
   int get inCall;
   int get lastPing;
   int get participantPermissions;
@@ -32105,7 +32987,7 @@ abstract class SignalingSendMessagesRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -32259,14 +33141,10 @@ class _$MatterbridgeGetBridgeOfRoomApiVersionSerializer
   const _$MatterbridgeGetBridgeOfRoomApiVersionSerializer();
 
   static const Map<MatterbridgeGetBridgeOfRoomApiVersion, Object> _toWire =
-      <MatterbridgeGetBridgeOfRoomApiVersion, Object>{
-    MatterbridgeGetBridgeOfRoomApiVersion.v1: 'v1',
-  };
+      <MatterbridgeGetBridgeOfRoomApiVersion, Object>{MatterbridgeGetBridgeOfRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, MatterbridgeGetBridgeOfRoomApiVersion> _fromWire =
-      <Object, MatterbridgeGetBridgeOfRoomApiVersion>{
-    'v1': MatterbridgeGetBridgeOfRoomApiVersion.v1,
-  };
+      <Object, MatterbridgeGetBridgeOfRoomApiVersion>{'v1': MatterbridgeGetBridgeOfRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [MatterbridgeGetBridgeOfRoomApiVersion];
@@ -32627,14 +33505,10 @@ class _$MatterbridgeEditBridgeOfRoomApiVersionSerializer
   const _$MatterbridgeEditBridgeOfRoomApiVersionSerializer();
 
   static const Map<MatterbridgeEditBridgeOfRoomApiVersion, Object> _toWire =
-      <MatterbridgeEditBridgeOfRoomApiVersion, Object>{
-    MatterbridgeEditBridgeOfRoomApiVersion.v1: 'v1',
-  };
+      <MatterbridgeEditBridgeOfRoomApiVersion, Object>{MatterbridgeEditBridgeOfRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, MatterbridgeEditBridgeOfRoomApiVersion> _fromWire =
-      <Object, MatterbridgeEditBridgeOfRoomApiVersion>{
-    'v1': MatterbridgeEditBridgeOfRoomApiVersion.v1,
-  };
+      <Object, MatterbridgeEditBridgeOfRoomApiVersion>{'v1': MatterbridgeEditBridgeOfRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [MatterbridgeEditBridgeOfRoomApiVersion];
@@ -32896,14 +33770,10 @@ class _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer
   const _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer();
 
   static const Map<MatterbridgeDeleteBridgeOfRoomApiVersion, Object> _toWire =
-      <MatterbridgeDeleteBridgeOfRoomApiVersion, Object>{
-    MatterbridgeDeleteBridgeOfRoomApiVersion.v1: 'v1',
-  };
+      <MatterbridgeDeleteBridgeOfRoomApiVersion, Object>{MatterbridgeDeleteBridgeOfRoomApiVersion.v1: 'v1'};
 
   static const Map<Object, MatterbridgeDeleteBridgeOfRoomApiVersion> _fromWire =
-      <Object, MatterbridgeDeleteBridgeOfRoomApiVersion>{
-    'v1': MatterbridgeDeleteBridgeOfRoomApiVersion.v1,
-  };
+      <Object, MatterbridgeDeleteBridgeOfRoomApiVersion>{'v1': MatterbridgeDeleteBridgeOfRoomApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [MatterbridgeDeleteBridgeOfRoomApiVersion];
@@ -33087,14 +33957,10 @@ class _$MatterbridgeGetBridgeProcessStateApiVersionSerializer
   const _$MatterbridgeGetBridgeProcessStateApiVersionSerializer();
 
   static const Map<MatterbridgeGetBridgeProcessStateApiVersion, Object> _toWire =
-      <MatterbridgeGetBridgeProcessStateApiVersion, Object>{
-    MatterbridgeGetBridgeProcessStateApiVersion.v1: 'v1',
-  };
+      <MatterbridgeGetBridgeProcessStateApiVersion, Object>{MatterbridgeGetBridgeProcessStateApiVersion.v1: 'v1'};
 
   static const Map<Object, MatterbridgeGetBridgeProcessStateApiVersion> _fromWire =
-      <Object, MatterbridgeGetBridgeProcessStateApiVersion>{
-    'v1': MatterbridgeGetBridgeProcessStateApiVersion.v1,
-  };
+      <Object, MatterbridgeGetBridgeProcessStateApiVersion>{'v1': MatterbridgeGetBridgeProcessStateApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [MatterbridgeGetBridgeProcessStateApiVersion];
@@ -33278,14 +34144,10 @@ class _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer
   const _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer();
 
   static const Map<MatterbridgeSettingsStopAllBridgesApiVersion, Object> _toWire =
-      <MatterbridgeSettingsStopAllBridgesApiVersion, Object>{
-    MatterbridgeSettingsStopAllBridgesApiVersion.v1: 'v1',
-  };
+      <MatterbridgeSettingsStopAllBridgesApiVersion, Object>{MatterbridgeSettingsStopAllBridgesApiVersion.v1: 'v1'};
 
   static const Map<Object, MatterbridgeSettingsStopAllBridgesApiVersion> _fromWire =
-      <Object, MatterbridgeSettingsStopAllBridgesApiVersion>{
-    'v1': MatterbridgeSettingsStopAllBridgesApiVersion.v1,
-  };
+      <Object, MatterbridgeSettingsStopAllBridgesApiVersion>{'v1': MatterbridgeSettingsStopAllBridgesApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [MatterbridgeSettingsStopAllBridgesApiVersion];
@@ -33829,6 +34691,8 @@ class _$PollCreatePollRequestApplicationJson_ResultModeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $PollCreatePollRequestApplicationJsonInterface {
+  static final _$draft = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
+
   /// Question of the poll.
   String get question;
 
@@ -33841,6 +34705,9 @@ sealed class $PollCreatePollRequestApplicationJsonInterface {
   /// Number of maximum votes per voter.
   int get maxVotes;
 
+  /// Whether the poll should be saved as a draft (only allowed for moderators and with `talk-polls-drafts` capability).
+  bool get draft;
+
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
@@ -33852,7 +34719,10 @@ sealed class $PollCreatePollRequestApplicationJsonInterface {
   /// Converts the instance to a builder [$PollCreatePollRequestApplicationJsonInterfaceBuilder].
   $PollCreatePollRequestApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PollCreatePollRequestApplicationJsonInterfaceBuilder b) {}
+  static void _defaults($PollCreatePollRequestApplicationJsonInterfaceBuilder b) {
+    b.draft = _$draft;
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($PollCreatePollRequestApplicationJsonInterfaceBuilder b) {}
 }
@@ -33899,106 +34769,178 @@ abstract class PollCreatePollRequestApplicationJson
   }
 }
 
-@BuiltValue(instantiable: false)
-sealed class $PollVoteInterface {
-  String get actorDisplayName;
-  String get actorId;
-  ActorType get actorType;
-  int get optionId;
+class PollDraft_ResultMode extends EnumClass {
+  const PollDraft_ResultMode._(super.name);
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$PollVoteInterfaceBuilder].
-  $PollVoteInterface rebuild(void Function($PollVoteInterfaceBuilder) updates);
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PollDraft_ResultMode $0 = _$pollDraftResultMode$0;
 
-  /// Converts the instance to a builder [$PollVoteInterfaceBuilder].
-  $PollVoteInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PollVoteInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PollVoteInterfaceBuilder b) {}
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PollDraft_ResultMode $1 = _$pollDraftResultMode$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PollDraft_ResultMode> get values => _$pollDraftResultModeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PollDraft_ResultMode valueOf(String name) => _$valueOfPollDraft_ResultMode(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PollDraft_ResultMode.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollDraft_ResultMode> get serializer => const _$PollDraft_ResultModeSerializer();
 }
 
-abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteBuilder> {
-  /// Creates a new PollVote object using the builder pattern.
-  factory PollVote([void Function(PollVoteBuilder)? b]) = _$PollVote;
+class _$PollDraft_ResultModeSerializer implements PrimitiveSerializer<PollDraft_ResultMode> {
+  const _$PollDraft_ResultModeSerializer();
 
+  static const Map<PollDraft_ResultMode, Object> _toWire = <PollDraft_ResultMode, Object>{
+    PollDraft_ResultMode.$0: 0,
+    PollDraft_ResultMode.$1: 1,
+  };
+
+  static const Map<Object, PollDraft_ResultMode> _fromWire = <Object, PollDraft_ResultMode>{
+    0: PollDraft_ResultMode.$0,
+    1: PollDraft_ResultMode.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollDraft_ResultMode];
+
+  @override
+  String get wireName => 'PollDraft_ResultMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollDraft_ResultMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollDraft_ResultMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PollDraft_Status extends EnumClass {
+  const PollDraft_Status._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PollDraft_Status $0 = _$pollDraftStatus$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PollDraft_Status $1 = _$pollDraftStatus$1;
+
+  /// `2`
+  @BuiltValueEnumConst(wireName: '2')
+  static const PollDraft_Status $2 = _$pollDraftStatus$2;
+
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  const PollVote._();
+  static BuiltSet<PollDraft_Status> get values => _$pollDraftStatusValues;
   // coverage:ignore-end
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PollVote.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  /// Returns the enum value associated to the [name].
+  static PollDraft_Status valueOf(String name) => _$valueOfPollDraft_Status(name);
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for PollVote.
-  static Serializer<PollVote> get serializer => _$pollVoteSerializer;
+  /// Serializer for PollDraft_Status.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollDraft_Status> get serializer => const _$PollDraft_StatusSerializer();
+}
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PollVoteBuilder b) {
-    $PollVoteInterface._defaults(b);
-  }
+class _$PollDraft_StatusSerializer implements PrimitiveSerializer<PollDraft_Status> {
+  const _$PollDraft_StatusSerializer();
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PollVoteBuilder b) {
-    $PollVoteInterface._validate(b);
-  }
+  static const Map<PollDraft_Status, Object> _toWire = <PollDraft_Status, Object>{
+    PollDraft_Status.$0: 0,
+    PollDraft_Status.$1: 1,
+    PollDraft_Status.$2: 2,
+  };
+
+  static const Map<Object, PollDraft_Status> _fromWire = <Object, PollDraft_Status>{
+    0: PollDraft_Status.$0,
+    1: PollDraft_Status.$1,
+    2: PollDraft_Status.$2,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollDraft_Status];
+
+  @override
+  String get wireName => 'PollDraft_Status';
+
+  @override
+  Object serialize(Serializers serializers, PollDraft_Status object, {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object]!;
+
+  @override
+  PollDraft_Status deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
-sealed class $PollInterface {
+sealed class $PollDraftInterface {
   String get actorDisplayName;
   String get actorId;
-  ActorType get actorType;
-  BuiltList<PollVote>? get details;
+  ActorTypes get actorType;
   int get id;
   int get maxVotes;
-  int? get numVoters;
   BuiltList<String> get options;
   String get question;
-  int get resultMode;
-  int get status;
-  BuiltList<int>? get votedSelf;
-  BuiltMap<String, int>? get votes;
+  PollDraft_ResultMode get resultMode;
+  PollDraft_Status get status;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$PollInterfaceBuilder].
-  $PollInterface rebuild(void Function($PollInterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$PollDraftInterfaceBuilder].
+  $PollDraftInterface rebuild(void Function($PollDraftInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$PollInterfaceBuilder].
-  $PollInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$PollDraftInterfaceBuilder].
+  $PollDraftInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PollInterfaceBuilder b) {}
+  static void _defaults($PollDraftInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PollInterfaceBuilder b) {}
+  static void _validate($PollDraftInterfaceBuilder b) {
+    _i4.checkString(b.actorId, 'actorId', minLength: 1);
+    _i4.checkNumber(b.id, 'id', minimum: 1);
+    _i4.checkNumber(b.maxVotes, 'maxVotes', minimum: 0);
+    _i4.checkString(b.question, 'question', minLength: 1);
+  }
 }
 
-abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
-  /// Creates a new Poll object using the builder pattern.
-  factory Poll([void Function(PollBuilder)? b]) = _$Poll;
+abstract class PollDraft implements $PollDraftInterface, Built<PollDraft, PollDraftBuilder> {
+  /// Creates a new PollDraft object using the builder pattern.
+  factory PollDraft([void Function(PollDraftBuilder)? b]) = _$PollDraft;
 
   // coverage:ignore-start
-  const Poll._();
+  const PollDraft._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Poll.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PollDraft.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -34008,24 +34950,24 @@ abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Poll.
-  static Serializer<Poll> get serializer => _$pollSerializer;
+  /// Serializer for PollDraft.
+  static Serializer<PollDraft> get serializer => _$pollDraftSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PollBuilder b) {
-    $PollInterface._defaults(b);
+  static void _defaults(PollDraftBuilder b) {
+    $PollDraftInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PollBuilder b) {
-    $PollInterface._validate(b);
+  static void _validate(PollDraftBuilder b) {
+    $PollDraftInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
 sealed class $PollCreatePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  Poll get data;
+  PollDraft get data;
 
   /// Rebuilds the instance.
   ///
@@ -34148,6 +35090,518 @@ abstract class PollCreatePollResponseApplicationJson
   }
 }
 
+class PollUpdateDraftPollApiVersion extends EnumClass {
+  const PollUpdateDraftPollApiVersion._(super.name);
+
+  /// `v1`
+  static const PollUpdateDraftPollApiVersion v1 = _$pollUpdateDraftPollApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PollUpdateDraftPollApiVersion> get values => _$pollUpdateDraftPollApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PollUpdateDraftPollApiVersion valueOf(String name) => _$valueOfPollUpdateDraftPollApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for PollUpdateDraftPollApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollUpdateDraftPollApiVersion> get serializer => const _$PollUpdateDraftPollApiVersionSerializer();
+}
+
+class _$PollUpdateDraftPollApiVersionSerializer implements PrimitiveSerializer<PollUpdateDraftPollApiVersion> {
+  const _$PollUpdateDraftPollApiVersionSerializer();
+
+  static const Map<PollUpdateDraftPollApiVersion, Object> _toWire = <PollUpdateDraftPollApiVersion, Object>{
+    PollUpdateDraftPollApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollUpdateDraftPollApiVersion> _fromWire = <Object, PollUpdateDraftPollApiVersion>{
+    'v1': PollUpdateDraftPollApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollUpdateDraftPollApiVersion];
+
+  @override
+  String get wireName => 'PollUpdateDraftPollApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollUpdateDraftPollApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollUpdateDraftPollApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+/// Mode how the results will be shown.
+class PollUpdateDraftPollRequestApplicationJson_ResultMode extends EnumClass {
+  const PollUpdateDraftPollRequestApplicationJson_ResultMode._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PollUpdateDraftPollRequestApplicationJson_ResultMode $0 =
+      _$pollUpdateDraftPollRequestApplicationJsonResultMode$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PollUpdateDraftPollRequestApplicationJson_ResultMode $1 =
+      _$pollUpdateDraftPollRequestApplicationJsonResultMode$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PollUpdateDraftPollRequestApplicationJson_ResultMode> get values =>
+      _$pollUpdateDraftPollRequestApplicationJsonResultModeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PollUpdateDraftPollRequestApplicationJson_ResultMode valueOf(String name) =>
+      _$valueOfPollUpdateDraftPollRequestApplicationJson_ResultMode(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PollUpdateDraftPollRequestApplicationJson_ResultMode.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollUpdateDraftPollRequestApplicationJson_ResultMode> get serializer =>
+      const _$PollUpdateDraftPollRequestApplicationJson_ResultModeSerializer();
+}
+
+class _$PollUpdateDraftPollRequestApplicationJson_ResultModeSerializer
+    implements PrimitiveSerializer<PollUpdateDraftPollRequestApplicationJson_ResultMode> {
+  const _$PollUpdateDraftPollRequestApplicationJson_ResultModeSerializer();
+
+  static const Map<PollUpdateDraftPollRequestApplicationJson_ResultMode, Object> _toWire =
+      <PollUpdateDraftPollRequestApplicationJson_ResultMode, Object>{
+    PollUpdateDraftPollRequestApplicationJson_ResultMode.$0: 0,
+    PollUpdateDraftPollRequestApplicationJson_ResultMode.$1: 1,
+  };
+
+  static const Map<Object, PollUpdateDraftPollRequestApplicationJson_ResultMode> _fromWire =
+      <Object, PollUpdateDraftPollRequestApplicationJson_ResultMode>{
+    0: PollUpdateDraftPollRequestApplicationJson_ResultMode.$0,
+    1: PollUpdateDraftPollRequestApplicationJson_ResultMode.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollUpdateDraftPollRequestApplicationJson_ResultMode];
+
+  @override
+  String get wireName => 'PollUpdateDraftPollRequestApplicationJson_ResultMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollUpdateDraftPollRequestApplicationJson_ResultMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollUpdateDraftPollRequestApplicationJson_ResultMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollUpdateDraftPollRequestApplicationJsonInterface {
+  /// Question of the poll.
+  String get question;
+
+  /// Options of the poll.
+  BuiltList<String> get options;
+
+  /// Mode how the results will be shown.
+  PollUpdateDraftPollRequestApplicationJson_ResultMode get resultMode;
+
+  /// Number of maximum votes per voter.
+  int get maxVotes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder].
+  $PollUpdateDraftPollRequestApplicationJsonInterface rebuild(
+    void Function($PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder].
+  $PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollUpdateDraftPollRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PollUpdateDraftPollRequestApplicationJson
+    implements
+        $PollUpdateDraftPollRequestApplicationJsonInterface,
+        Built<PollUpdateDraftPollRequestApplicationJson, PollUpdateDraftPollRequestApplicationJsonBuilder> {
+  /// Creates a new PollUpdateDraftPollRequestApplicationJson object using the builder pattern.
+  factory PollUpdateDraftPollRequestApplicationJson([
+    void Function(PollUpdateDraftPollRequestApplicationJsonBuilder)? b,
+  ]) = _$PollUpdateDraftPollRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PollUpdateDraftPollRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollUpdateDraftPollRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollUpdateDraftPollRequestApplicationJson.
+  static Serializer<PollUpdateDraftPollRequestApplicationJson> get serializer =>
+      _$pollUpdateDraftPollRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollUpdateDraftPollRequestApplicationJsonBuilder b) {
+    $PollUpdateDraftPollRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollUpdateDraftPollRequestApplicationJsonBuilder b) {
+    $PollUpdateDraftPollRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollUpdateDraftPollResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  PollDraft get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder].
+  $PollUpdateDraftPollResponseApplicationJson_OcsInterface rebuild(
+    void Function($PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder].
+  $PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollUpdateDraftPollResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class PollUpdateDraftPollResponseApplicationJson_Ocs
+    implements
+        $PollUpdateDraftPollResponseApplicationJson_OcsInterface,
+        Built<PollUpdateDraftPollResponseApplicationJson_Ocs, PollUpdateDraftPollResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollUpdateDraftPollResponseApplicationJson_Ocs object using the builder pattern.
+  factory PollUpdateDraftPollResponseApplicationJson_Ocs([
+    void Function(PollUpdateDraftPollResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$PollUpdateDraftPollResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const PollUpdateDraftPollResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollUpdateDraftPollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollUpdateDraftPollResponseApplicationJson_Ocs.
+  static Serializer<PollUpdateDraftPollResponseApplicationJson_Ocs> get serializer =>
+      _$pollUpdateDraftPollResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollUpdateDraftPollResponseApplicationJson_OcsBuilder b) {
+    $PollUpdateDraftPollResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollUpdateDraftPollResponseApplicationJson_OcsBuilder b) {
+    $PollUpdateDraftPollResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollUpdateDraftPollResponseApplicationJsonInterface {
+  PollUpdateDraftPollResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder].
+  $PollUpdateDraftPollResponseApplicationJsonInterface rebuild(
+    void Function($PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder].
+  $PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollUpdateDraftPollResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PollUpdateDraftPollResponseApplicationJson
+    implements
+        $PollUpdateDraftPollResponseApplicationJsonInterface,
+        Built<PollUpdateDraftPollResponseApplicationJson, PollUpdateDraftPollResponseApplicationJsonBuilder> {
+  /// Creates a new PollUpdateDraftPollResponseApplicationJson object using the builder pattern.
+  factory PollUpdateDraftPollResponseApplicationJson([
+    void Function(PollUpdateDraftPollResponseApplicationJsonBuilder)? b,
+  ]) = _$PollUpdateDraftPollResponseApplicationJson;
+
+  // coverage:ignore-start
+  const PollUpdateDraftPollResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollUpdateDraftPollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollUpdateDraftPollResponseApplicationJson.
+  static Serializer<PollUpdateDraftPollResponseApplicationJson> get serializer =>
+      _$pollUpdateDraftPollResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollUpdateDraftPollResponseApplicationJsonBuilder b) {
+    $PollUpdateDraftPollResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollUpdateDraftPollResponseApplicationJsonBuilder b) {
+    $PollUpdateDraftPollResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class PollGetAllDraftPollsApiVersion extends EnumClass {
+  const PollGetAllDraftPollsApiVersion._(super.name);
+
+  /// `v1`
+  static const PollGetAllDraftPollsApiVersion v1 = _$pollGetAllDraftPollsApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PollGetAllDraftPollsApiVersion> get values => _$pollGetAllDraftPollsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PollGetAllDraftPollsApiVersion valueOf(String name) => _$valueOfPollGetAllDraftPollsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for PollGetAllDraftPollsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollGetAllDraftPollsApiVersion> get serializer =>
+      const _$PollGetAllDraftPollsApiVersionSerializer();
+}
+
+class _$PollGetAllDraftPollsApiVersionSerializer implements PrimitiveSerializer<PollGetAllDraftPollsApiVersion> {
+  const _$PollGetAllDraftPollsApiVersionSerializer();
+
+  static const Map<PollGetAllDraftPollsApiVersion, Object> _toWire = <PollGetAllDraftPollsApiVersion, Object>{
+    PollGetAllDraftPollsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollGetAllDraftPollsApiVersion> _fromWire = <Object, PollGetAllDraftPollsApiVersion>{
+    'v1': PollGetAllDraftPollsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollGetAllDraftPollsApiVersion];
+
+  @override
+  String get wireName => 'PollGetAllDraftPollsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollGetAllDraftPollsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollGetAllDraftPollsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollGetAllDraftPollsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<PollDraft> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder].
+  $PollGetAllDraftPollsResponseApplicationJson_OcsInterface rebuild(
+    void Function($PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder].
+  $PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollGetAllDraftPollsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class PollGetAllDraftPollsResponseApplicationJson_Ocs
+    implements
+        $PollGetAllDraftPollsResponseApplicationJson_OcsInterface,
+        Built<PollGetAllDraftPollsResponseApplicationJson_Ocs, PollGetAllDraftPollsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollGetAllDraftPollsResponseApplicationJson_Ocs object using the builder pattern.
+  factory PollGetAllDraftPollsResponseApplicationJson_Ocs([
+    void Function(PollGetAllDraftPollsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$PollGetAllDraftPollsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const PollGetAllDraftPollsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollGetAllDraftPollsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollGetAllDraftPollsResponseApplicationJson_Ocs.
+  static Serializer<PollGetAllDraftPollsResponseApplicationJson_Ocs> get serializer =>
+      _$pollGetAllDraftPollsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollGetAllDraftPollsResponseApplicationJson_OcsBuilder b) {
+    $PollGetAllDraftPollsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollGetAllDraftPollsResponseApplicationJson_OcsBuilder b) {
+    $PollGetAllDraftPollsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollGetAllDraftPollsResponseApplicationJsonInterface {
+  PollGetAllDraftPollsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder].
+  $PollGetAllDraftPollsResponseApplicationJsonInterface rebuild(
+    void Function($PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder].
+  $PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollGetAllDraftPollsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PollGetAllDraftPollsResponseApplicationJson
+    implements
+        $PollGetAllDraftPollsResponseApplicationJsonInterface,
+        Built<PollGetAllDraftPollsResponseApplicationJson, PollGetAllDraftPollsResponseApplicationJsonBuilder> {
+  /// Creates a new PollGetAllDraftPollsResponseApplicationJson object using the builder pattern.
+  factory PollGetAllDraftPollsResponseApplicationJson([
+    void Function(PollGetAllDraftPollsResponseApplicationJsonBuilder)? b,
+  ]) = _$PollGetAllDraftPollsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const PollGetAllDraftPollsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollGetAllDraftPollsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollGetAllDraftPollsResponseApplicationJson.
+  static Serializer<PollGetAllDraftPollsResponseApplicationJson> get serializer =>
+      _$pollGetAllDraftPollsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollGetAllDraftPollsResponseApplicationJsonBuilder b) {
+    $PollGetAllDraftPollsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollGetAllDraftPollsResponseApplicationJsonBuilder b) {
+    $PollGetAllDraftPollsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class PollShowPollApiVersion extends EnumClass {
   const PollShowPollApiVersion._(super.name);
 
@@ -34202,6 +35656,128 @@ class _$PollShowPollApiVersionSerializer implements PrimitiveSerializer<PollShow
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollVoteInterface {
+  String get actorDisplayName;
+  String get actorId;
+  ActorTypes get actorType;
+  int get optionId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollVoteInterfaceBuilder].
+  $PollVoteInterface rebuild(void Function($PollVoteInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PollVoteInterfaceBuilder].
+  $PollVoteInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollVoteInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollVoteInterfaceBuilder b) {}
+}
+
+abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteBuilder> {
+  /// Creates a new PollVote object using the builder pattern.
+  factory PollVote([void Function(PollVoteBuilder)? b]) = _$PollVote;
+
+  // coverage:ignore-start
+  const PollVote._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PollVote.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PollVote.
+  static Serializer<PollVote> get serializer => _$pollVoteSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollVoteBuilder b) {
+    $PollVoteInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollVoteBuilder b) {
+    $PollVoteInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PollInterface implements $PollDraftInterface {
+  BuiltList<PollVote>? get details;
+  int? get numVoters;
+  BuiltList<int>? get votedSelf;
+  BuiltMap<String, int>? get votes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PollInterfaceBuilder].
+  @override
+  $PollInterface rebuild(void Function($PollInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PollInterfaceBuilder].
+  @override
+  $PollInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PollInterfaceBuilder b) {
+    $PollDraftInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PollInterfaceBuilder b) {
+    $PollDraftInterface._validate(b);
+    _i4.checkNumber(b.numVoters, 'numVoters', minimum: 0);
+  }
+}
+
+abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
+  /// Creates a new Poll object using the builder pattern.
+  factory Poll([void Function(PollBuilder)? b]) = _$Poll;
+
+  // coverage:ignore-start
+  const Poll._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Poll.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Poll.
+  static Serializer<Poll> get serializer => _$pollSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PollBuilder b) {
+    $PollInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PollBuilder b) {
+    $PollInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -34387,10 +35963,8 @@ class _$PollVotePollApiVersionSerializer implements PrimitiveSerializer<PollVote
 
 @BuiltValue(instantiable: false)
 sealed class $PollVotePollRequestApplicationJsonInterface {
-  static final _$optionIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$optionIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
   /// IDs of the selected options.
   BuiltList<int> get optionIds;
@@ -34824,7 +36398,7 @@ class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<
 sealed class $ReactionInterface {
   String get actorDisplayName;
   String get actorId;
-  ActorType get actorType;
+  ActorTypes get actorType;
   int get timestamp;
 
   /// Rebuilds the instance.
@@ -35553,7 +37127,7 @@ abstract class RecordingStartRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RecordingStartResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -35735,7 +37309,7 @@ class _$RecordingStopApiVersionSerializer implements PrimitiveSerializer<Recordi
 @BuiltValue(instantiable: false)
 sealed class $RecordingStopResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -35887,14 +37461,10 @@ class _$RecordingNotificationDismissApiVersionSerializer
   const _$RecordingNotificationDismissApiVersionSerializer();
 
   static const Map<RecordingNotificationDismissApiVersion, Object> _toWire =
-      <RecordingNotificationDismissApiVersion, Object>{
-    RecordingNotificationDismissApiVersion.v1: 'v1',
-  };
+      <RecordingNotificationDismissApiVersion, Object>{RecordingNotificationDismissApiVersion.v1: 'v1'};
 
   static const Map<Object, RecordingNotificationDismissApiVersion> _fromWire =
-      <Object, RecordingNotificationDismissApiVersion>{
-    'v1': RecordingNotificationDismissApiVersion.v1,
-  };
+      <Object, RecordingNotificationDismissApiVersion>{'v1': RecordingNotificationDismissApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [RecordingNotificationDismissApiVersion];
@@ -35922,7 +37492,7 @@ class _$RecordingNotificationDismissApiVersionSerializer
 @BuiltValue(instantiable: false)
 sealed class $RecordingNotificationDismissResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -36127,16 +37697,8 @@ sealed class $RecordingShareToChatRequestApplicationJsonInterface {
   static void _defaults($RecordingShareToChatRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RecordingShareToChatRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.fileId,
-      'fileId',
-      minimum: 0,
-    );
-    _i4.checkNumber(
-      b.timestamp,
-      'timestamp',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.fileId, 'fileId', minimum: 0);
+    _i4.checkNumber(b.timestamp, 'timestamp', minimum: 0);
   }
 }
 
@@ -36186,7 +37748,7 @@ abstract class RecordingShareToChatRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RecordingShareToChatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -36369,7 +37931,7 @@ class _$RecordingBackendApiVersionSerializer implements PrimitiveSerializer<Reco
 @BuiltValue(instantiable: false)
 sealed class $RecordingBackendResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -36614,7 +38176,7 @@ abstract class RecordingStoreRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RecordingStoreResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -36919,6 +38481,70 @@ class _$RoomGetRoomsIncludeStatusSerializer implements PrimitiveSerializer<RoomG
       _fromWire[serialized]!;
 }
 
+class RoomGetRoomsIncludeLastMessage extends EnumClass {
+  const RoomGetRoomsIncludeLastMessage._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetRoomsIncludeLastMessage $0 = _$roomGetRoomsIncludeLastMessage$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetRoomsIncludeLastMessage $1 = _$roomGetRoomsIncludeLastMessage$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetRoomsIncludeLastMessage> get values => _$roomGetRoomsIncludeLastMessageValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetRoomsIncludeLastMessage valueOf(String name) => _$valueOfRoomGetRoomsIncludeLastMessage(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetRoomsIncludeLastMessage.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsIncludeLastMessage> get serializer =>
+      const _$RoomGetRoomsIncludeLastMessageSerializer();
+}
+
+class _$RoomGetRoomsIncludeLastMessageSerializer implements PrimitiveSerializer<RoomGetRoomsIncludeLastMessage> {
+  const _$RoomGetRoomsIncludeLastMessageSerializer();
+
+  static const Map<RoomGetRoomsIncludeLastMessage, Object> _toWire = <RoomGetRoomsIncludeLastMessage, Object>{
+    RoomGetRoomsIncludeLastMessage.$0: 0,
+    RoomGetRoomsIncludeLastMessage.$1: 1,
+  };
+
+  static const Map<Object, RoomGetRoomsIncludeLastMessage> _fromWire = <Object, RoomGetRoomsIncludeLastMessage>{
+    0: RoomGetRoomsIncludeLastMessage.$0,
+    1: RoomGetRoomsIncludeLastMessage.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsIncludeLastMessage];
+
+  @override
+  String get wireName => 'RoomGetRoomsIncludeLastMessage';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsIncludeLastMessage object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetRoomsIncludeLastMessage deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $RoomGetRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -37163,30 +38789,17 @@ class _$RoomCreateRoomApiVersionSerializer implements PrimitiveSerializer<RoomCr
 
 @BuiltValue(instantiable: false)
 sealed class $RoomCreateRoomRequestApplicationJsonInterface {
-  static final _$invite = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$invite = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$roomName = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$roomName = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$source = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$source = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$objectType = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$objectType = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$objectId = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$objectId = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
+
+  static final _$password = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Type of the room.
   int get roomType;
@@ -37206,6 +38819,9 @@ sealed class $RoomCreateRoomRequestApplicationJsonInterface {
   /// ID of the object.
   String get objectId;
 
+  /// The room password (only available with `conversation-creation-password` capability).
+  String get password;
+
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
@@ -37223,6 +38839,7 @@ sealed class $RoomCreateRoomRequestApplicationJsonInterface {
     b.source = _$source;
     b.objectType = _$objectType;
     b.objectId = _$objectId;
+    b.password = _$password;
   }
 
   @BuiltValueHook(finalizeBuilder: true)
@@ -37610,14 +39227,10 @@ class _$RoomGetNoteToSelfConversationApiVersionSerializer
   const _$RoomGetNoteToSelfConversationApiVersionSerializer();
 
   static const Map<RoomGetNoteToSelfConversationApiVersion, Object> _toWire =
-      <RoomGetNoteToSelfConversationApiVersion, Object>{
-    RoomGetNoteToSelfConversationApiVersion.v4: 'v4',
-  };
+      <RoomGetNoteToSelfConversationApiVersion, Object>{RoomGetNoteToSelfConversationApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomGetNoteToSelfConversationApiVersion> _fromWire =
-      <Object, RoomGetNoteToSelfConversationApiVersion>{
-    'v4': RoomGetNoteToSelfConversationApiVersion.v4,
-  };
+      <Object, RoomGetNoteToSelfConversationApiVersion>{'v4': RoomGetNoteToSelfConversationApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomGetNoteToSelfConversationApiVersion];
@@ -38078,6 +39691,433 @@ abstract class RoomRoomGetSingleRoomHeaders
   }
 }
 
+class RoomRenameRoomApiVersion extends EnumClass {
+  const RoomRenameRoomApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomRenameRoomApiVersion v4 = _$roomRenameRoomApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomRenameRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRenameRoomApiVersion> get serializer => const _$RoomRenameRoomApiVersionSerializer();
+}
+
+class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRenameRoomApiVersion> {
+  const _$RoomRenameRoomApiVersionSerializer();
+
+  static const Map<RoomRenameRoomApiVersion, Object> _toWire = <RoomRenameRoomApiVersion, Object>{
+    RoomRenameRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRenameRoomApiVersion> _fromWire = <Object, RoomRenameRoomApiVersion>{
+    'v4': RoomRenameRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRenameRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomRenameRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRenameRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRenameRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomRequestApplicationJsonInterface {
+  /// New name.
+  String get roomName;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomRequestApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomRequestApplicationJsonInterface rebuild(
+    void Function($RoomRenameRoomRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomRequestApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomRequestApplicationJson
+    implements
+        $RoomRenameRoomRequestApplicationJsonInterface,
+        Built<RoomRenameRoomRequestApplicationJson, RoomRenameRoomRequestApplicationJsonBuilder> {
+  /// Creates a new RoomRenameRoomRequestApplicationJson object using the builder pattern.
+  factory RoomRenameRoomRequestApplicationJson([void Function(RoomRenameRoomRequestApplicationJsonBuilder)? b]) =
+      _$RoomRenameRoomRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RoomRenameRoomRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomRequestApplicationJson.
+  static Serializer<RoomRenameRoomRequestApplicationJson> get serializer =>
+      _$roomRenameRoomRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomRequestApplicationJsonBuilder b) {
+    $RoomRenameRoomRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomRequestApplicationJsonBuilder b) {
+    $RoomRenameRoomRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomResponseApplicationJson_Ocs
+    implements
+        $RoomRenameRoomResponseApplicationJson_OcsInterface,
+        Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomRenameRoomResponseApplicationJson_Ocs([
+    void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomRenameRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomRenameRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomResponseApplicationJson_Ocs.
+  static Serializer<RoomRenameRoomResponseApplicationJson_Ocs> get serializer =>
+      _$roomRenameRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomRenameRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomRenameRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomResponseApplicationJsonInterface {
+  RoomRenameRoomResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJsonInterface rebuild(
+    void Function($RoomRenameRoomResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomResponseApplicationJson
+    implements
+        $RoomRenameRoomResponseApplicationJsonInterface,
+        Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson object using the builder pattern.
+  factory RoomRenameRoomResponseApplicationJson([void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomRenameRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomRenameRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomResponseApplicationJson.
+  static Serializer<RoomRenameRoomResponseApplicationJson> get serializer =>
+      _$roomRenameRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomResponseApplicationJsonBuilder b) {
+    $RoomRenameRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomResponseApplicationJsonBuilder b) {
+    $RoomRenameRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomDeleteRoomApiVersion extends EnumClass {
+  const RoomDeleteRoomApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomDeleteRoomApiVersion v4 = _$roomDeleteRoomApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomDeleteRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomDeleteRoomApiVersion> get serializer => const _$RoomDeleteRoomApiVersionSerializer();
+}
+
+class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDeleteRoomApiVersion> {
+  const _$RoomDeleteRoomApiVersionSerializer();
+
+  static const Map<RoomDeleteRoomApiVersion, Object> _toWire = <RoomDeleteRoomApiVersion, Object>{
+    RoomDeleteRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomDeleteRoomApiVersion> _fromWire = <Object, RoomDeleteRoomApiVersion>{
+    'v4': RoomDeleteRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomDeleteRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomDeleteRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomDeleteRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomDeleteRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomDeleteRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomDeleteRoomResponseApplicationJson_Ocs
+    implements
+        $RoomDeleteRoomResponseApplicationJson_OcsInterface,
+        Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomDeleteRoomResponseApplicationJson_Ocs([
+    void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomDeleteRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomDeleteRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomDeleteRoomResponseApplicationJson_Ocs.
+  static Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> get serializer =>
+      _$roomDeleteRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomDeleteRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomDeleteRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomDeleteRoomResponseApplicationJsonInterface {
+  RoomDeleteRoomResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomDeleteRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJsonInterface rebuild(
+    void Function($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomDeleteRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomDeleteRoomResponseApplicationJson
+    implements
+        $RoomDeleteRoomResponseApplicationJsonInterface,
+        Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson object using the builder pattern.
+  factory RoomDeleteRoomResponseApplicationJson([void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomDeleteRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomDeleteRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomDeleteRoomResponseApplicationJson.
+  static Serializer<RoomDeleteRoomResponseApplicationJson> get serializer =>
+      _$roomDeleteRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomDeleteRoomResponseApplicationJsonBuilder b) {
+    $RoomDeleteRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomDeleteRoomResponseApplicationJsonBuilder b) {
+    $RoomDeleteRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class RoomGetBreakoutRoomsApiVersion extends EnumClass {
   const RoomGetBreakoutRoomsApiVersion._(super.name);
 
@@ -38319,9 +40359,77 @@ class _$RoomMakePublicApiVersionSerializer implements PrimitiveSerializer<RoomMa
 }
 
 @BuiltValue(instantiable: false)
+sealed class $RoomMakePublicRequestApplicationJsonInterface {
+  static final _$password = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
+
+  /// New password (only available with `conversation-creation-password` capability).
+  String get password;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomMakePublicRequestApplicationJsonInterfaceBuilder].
+  $RoomMakePublicRequestApplicationJsonInterface rebuild(
+    void Function($RoomMakePublicRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomMakePublicRequestApplicationJsonInterfaceBuilder].
+  $RoomMakePublicRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomMakePublicRequestApplicationJsonInterfaceBuilder b) {
+    b.password = _$password;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomMakePublicRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomMakePublicRequestApplicationJson
+    implements
+        $RoomMakePublicRequestApplicationJsonInterface,
+        Built<RoomMakePublicRequestApplicationJson, RoomMakePublicRequestApplicationJsonBuilder> {
+  /// Creates a new RoomMakePublicRequestApplicationJson object using the builder pattern.
+  factory RoomMakePublicRequestApplicationJson([void Function(RoomMakePublicRequestApplicationJsonBuilder)? b]) =
+      _$RoomMakePublicRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RoomMakePublicRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomMakePublicRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomMakePublicRequestApplicationJson.
+  static Serializer<RoomMakePublicRequestApplicationJson> get serializer =>
+      _$roomMakePublicRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomMakePublicRequestApplicationJsonBuilder b) {
+    $RoomMakePublicRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomMakePublicRequestApplicationJsonBuilder b) {
+    $RoomMakePublicRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $RoomMakePublicResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -38503,7 +40611,7 @@ class _$RoomMakePrivateApiVersionSerializer implements PrimitiveSerializer<RoomM
 @BuiltValue(instantiable: false)
 sealed class $RoomMakePrivateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -38684,7 +40792,7 @@ class _$RoomSetDescriptionApiVersionSerializer implements PrimitiveSerializer<Ro
 
 @BuiltValue(instantiable: false)
 sealed class $RoomSetDescriptionRequestApplicationJsonInterface {
-  /// New description.
+  /// New description for the conversation (limited to 2.000 characters, was 500 before Talk 21).
   String get description;
 
   /// Rebuilds the instance.
@@ -38749,7 +40857,7 @@ abstract class RoomSetDescriptionRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetDescriptionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -39065,7 +41173,7 @@ abstract class RoomSetReadOnlyRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetReadOnlyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -39386,7 +41494,7 @@ abstract class RoomSetListableRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetListableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -39631,7 +41739,7 @@ abstract class RoomSetPasswordRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -39891,12 +41999,7 @@ sealed class $RoomSetPermissionsRequestApplicationJsonInterface {
   static void _defaults($RoomSetPermissionsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomSetPermissionsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.permissions,
-      'permissions',
-      maximum: 255,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.permissions, 'permissions', maximum: 255, minimum: 0);
   }
 }
 
@@ -40193,7 +42296,8 @@ class _$RoomGetParticipantsIncludeStatusSerializer implements PrimitiveSerialize
 @BuiltValue(instantiable: false)
 sealed class $ParticipantInterface {
   String get actorId;
-  ActorType get actorType;
+  String? get invitedActorId;
+  ActorTypes get actorType;
   int get attendeeId;
   int get attendeePermissions;
   String get attendeePin;
@@ -40537,6 +42641,10 @@ class RoomAddParticipantToRoomRequestApplicationJson_Source extends EnumClass {
   static const RoomAddParticipantToRoomRequestApplicationJson_Source phones =
       _$roomAddParticipantToRoomRequestApplicationJsonSourcePhones;
 
+  /// `teams`
+  static const RoomAddParticipantToRoomRequestApplicationJson_Source teams =
+      _$roomAddParticipantToRoomRequestApplicationJsonSourceTeams;
+
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddParticipantToRoomRequestApplicationJson_Source> get values =>
@@ -40568,6 +42676,7 @@ class _$RoomAddParticipantToRoomRequestApplicationJson_SourceSerializer
     RoomAddParticipantToRoomRequestApplicationJson_Source.emails: 'emails',
     RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers: 'federated_users',
     RoomAddParticipantToRoomRequestApplicationJson_Source.phones: 'phones',
+    RoomAddParticipantToRoomRequestApplicationJson_Source.teams: 'teams',
   };
 
   static const Map<Object, RoomAddParticipantToRoomRequestApplicationJson_Source> _fromWire =
@@ -40578,6 +42687,7 @@ class _$RoomAddParticipantToRoomRequestApplicationJson_SourceSerializer
     'emails': RoomAddParticipantToRoomRequestApplicationJson_Source.emails,
     'federated_users': RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers,
     'phones': RoomAddParticipantToRoomRequestApplicationJson_Source.phones,
+    'teams': RoomAddParticipantToRoomRequestApplicationJson_Source.teams,
   };
 
   @override
@@ -40679,44 +42789,44 @@ abstract class RoomAddParticipantToRoomRequestApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface {
-  int get type;
+sealed class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface {
+  int? get type;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder].
-  $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface rebuild(
-    void Function($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder].
-  $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder b) {}
+  static void _defaults($RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder b) {}
+  static void _validate($RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
-abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
+abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
     implements
-        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface,
-        Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
-            RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder> {
-  /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 object using the builder pattern.
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0([
-    void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder)? b,
-  ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
+        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface,
+        Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
+            RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data([
+    void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0._();
+  const RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -40727,25 +42837,20 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.
-  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> get serializer =>
-      _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer;
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
+      _$roomAddParticipantToRoomResponseApplicationJsonOcsDataSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder b) {
-    $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface._defaults(b);
+  static void _defaults(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder b) {
+    $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder b) {
-    $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface._validate(b);
+  static void _validate(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder b) {
+    $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface._validate(b);
   }
 }
-
-typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
-  BuiltList<Never>? builtListNever,
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
-});
 
 @BuiltValue(instantiable: false)
 sealed class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
@@ -40765,9 +42870,7 @@ sealed class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomAddParticipantToRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomAddParticipantToRoomResponseApplicationJson_OcsInterfaceBuilder b) {
-    b.data?.validateOneOf();
-  }
+  static void _validate($RoomAddParticipantToRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
@@ -40907,14 +43010,10 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
   const _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
 
   static const Map<RoomGetBreakoutRoomParticipantsApiVersion, Object> _toWire =
-      <RoomGetBreakoutRoomParticipantsApiVersion, Object>{
-    RoomGetBreakoutRoomParticipantsApiVersion.v4: 'v4',
-  };
+      <RoomGetBreakoutRoomParticipantsApiVersion, Object>{RoomGetBreakoutRoomParticipantsApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomGetBreakoutRoomParticipantsApiVersion> _fromWire =
-      <Object, RoomGetBreakoutRoomParticipantsApiVersion>{
-    'v4': RoomGetBreakoutRoomParticipantsApiVersion.v4,
-  };
+      <Object, RoomGetBreakoutRoomParticipantsApiVersion>{'v4': RoomGetBreakoutRoomParticipantsApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomGetBreakoutRoomParticipantsApiVersion];
@@ -41261,7 +43360,7 @@ class _$RoomRemoveSelfFromRoomApiVersionSerializer implements PrimitiveSerialize
 @BuiltValue(instantiable: false)
 sealed class $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -41415,14 +43514,10 @@ class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
   const _$RoomRemoveAttendeeFromRoomApiVersionSerializer();
 
   static const Map<RoomRemoveAttendeeFromRoomApiVersion, Object> _toWire =
-      <RoomRemoveAttendeeFromRoomApiVersion, Object>{
-    RoomRemoveAttendeeFromRoomApiVersion.v4: 'v4',
-  };
+      <RoomRemoveAttendeeFromRoomApiVersion, Object>{RoomRemoveAttendeeFromRoomApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomRemoveAttendeeFromRoomApiVersion> _fromWire =
-      <Object, RoomRemoveAttendeeFromRoomApiVersion>{
-    'v4': RoomRemoveAttendeeFromRoomApiVersion.v4,
-  };
+      <Object, RoomRemoveAttendeeFromRoomApiVersion>{'v4': RoomRemoveAttendeeFromRoomApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomRemoveAttendeeFromRoomApiVersion];
@@ -41450,7 +43545,7 @@ class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
 @BuiltValue(instantiable: false)
 sealed class $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -41605,14 +43700,10 @@ class _$RoomSetAttendeePermissionsApiVersionSerializer
   const _$RoomSetAttendeePermissionsApiVersionSerializer();
 
   static const Map<RoomSetAttendeePermissionsApiVersion, Object> _toWire =
-      <RoomSetAttendeePermissionsApiVersion, Object>{
-    RoomSetAttendeePermissionsApiVersion.v4: 'v4',
-  };
+      <RoomSetAttendeePermissionsApiVersion, Object>{RoomSetAttendeePermissionsApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomSetAttendeePermissionsApiVersion> _fromWire =
-      <Object, RoomSetAttendeePermissionsApiVersion>{
-    'v4': RoomSetAttendeePermissionsApiVersion.v4,
-  };
+      <Object, RoomSetAttendeePermissionsApiVersion>{'v4': RoomSetAttendeePermissionsApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomSetAttendeePermissionsApiVersion];
@@ -41739,17 +43830,8 @@ sealed class $RoomSetAttendeePermissionsRequestApplicationJsonInterface {
   static void _defaults($RoomSetAttendeePermissionsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomSetAttendeePermissionsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
-    _i4.checkNumber(
-      b.permissions,
-      'permissions',
-      maximum: 255,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.attendeeId, 'attendeeId', minimum: 0);
+    _i4.checkNumber(b.permissions, 'permissions', maximum: 255, minimum: 0);
   }
 }
 
@@ -41800,7 +43882,7 @@ abstract class RoomSetAttendeePermissionsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  BuiltList<Participant> get data;
 
   /// Rebuilds the instance.
   ///
@@ -41926,6 +44008,133 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   }
 }
 
+class RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses extends EnumClass {
+  const RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses $true =
+      _$roomRoomSetAttendeePermissionsHeadersXNextcloudHasUserStatuses$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses> get values =>
+      _$roomRoomSetAttendeePermissionsHeadersXNextcloudHasUserStatusesValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses valueOf(String name) =>
+      _$valueOfRoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses> get serializer =>
+      const _$RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatusesSerializer();
+}
+
+class _$RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatusesSerializer
+    implements PrimitiveSerializer<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses> {
+  const _$RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatusesSerializer();
+
+  static const Map<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses, Object> _toWire =
+      <RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses, Object>{
+    RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true: true,
+  };
+
+  static const Map<Object, RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses> _fromWire =
+      <Object, RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses>{
+    true: RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses];
+
+  @override
+  String get wireName => 'RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRoomSetAttendeePermissionsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
+  Header<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses?>? get xNextcloudHasUserStatuses;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder].
+  $RoomRoomSetAttendeePermissionsHeadersInterface rebuild(
+    void Function($RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder].
+  $RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRoomSetAttendeePermissionsHeadersInterfaceBuilder b) {}
+}
+
+abstract class RoomRoomSetAttendeePermissionsHeaders
+    implements
+        $RoomRoomSetAttendeePermissionsHeadersInterface,
+        Built<RoomRoomSetAttendeePermissionsHeaders, RoomRoomSetAttendeePermissionsHeadersBuilder> {
+  /// Creates a new RoomRoomSetAttendeePermissionsHeaders object using the builder pattern.
+  factory RoomRoomSetAttendeePermissionsHeaders([void Function(RoomRoomSetAttendeePermissionsHeadersBuilder)? b]) =
+      _$RoomRoomSetAttendeePermissionsHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomSetAttendeePermissionsHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomSetAttendeePermissionsHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomSetAttendeePermissionsHeaders.
+  static Serializer<RoomRoomSetAttendeePermissionsHeaders> get serializer =>
+      _$roomRoomSetAttendeePermissionsHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRoomSetAttendeePermissionsHeadersBuilder b) {
+    $RoomRoomSetAttendeePermissionsHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRoomSetAttendeePermissionsHeadersBuilder b) {
+    $RoomRoomSetAttendeePermissionsHeadersInterface._validate(b);
+  }
+}
+
 class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
   const RoomSetAllAttendeesPermissionsApiVersion._(super.name);
 
@@ -41956,14 +44165,10 @@ class _$RoomSetAllAttendeesPermissionsApiVersionSerializer
   const _$RoomSetAllAttendeesPermissionsApiVersionSerializer();
 
   static const Map<RoomSetAllAttendeesPermissionsApiVersion, Object> _toWire =
-      <RoomSetAllAttendeesPermissionsApiVersion, Object>{
-    RoomSetAllAttendeesPermissionsApiVersion.v4: 'v4',
-  };
+      <RoomSetAllAttendeesPermissionsApiVersion, Object>{RoomSetAllAttendeesPermissionsApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomSetAllAttendeesPermissionsApiVersion> _fromWire =
-      <Object, RoomSetAllAttendeesPermissionsApiVersion>{
-    'v4': RoomSetAllAttendeesPermissionsApiVersion.v4,
-  };
+      <Object, RoomSetAllAttendeesPermissionsApiVersion>{'v4': RoomSetAllAttendeesPermissionsApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsApiVersion];
@@ -42087,12 +44292,7 @@ sealed class $RoomSetAllAttendeesPermissionsRequestApplicationJsonInterface {
   static void _defaults($RoomSetAllAttendeesPermissionsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomSetAllAttendeesPermissionsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.permissions,
-      'permissions',
-      maximum: 255,
-      minimum: 0,
-    );
+    _i4.checkNumber(b.permissions, 'permissions', maximum: 255, minimum: 0);
   }
 }
 
@@ -42327,15 +44527,9 @@ class _$RoomJoinRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoin
 
 @BuiltValue(instantiable: false)
 sealed class $RoomJoinRoomRequestApplicationJsonInterface {
-  static final _$password = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$password = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$force = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$force = _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))! as bool;
 
   /// Password of the room.
   String get password;
@@ -42646,7 +44840,7 @@ class _$RoomLeaveRoomApiVersionSerializer implements PrimitiveSerializer<RoomLea
 @BuiltValue(instantiable: false)
 sealed class $RoomLeaveRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -42845,11 +45039,7 @@ sealed class $RoomResendInvitationsRequestApplicationJsonInterface {
   static void _defaults($RoomResendInvitationsRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomResendInvitationsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.attendeeId, 'attendeeId', minimum: 0);
   }
 }
 
@@ -42899,7 +45089,7 @@ abstract class RoomResendInvitationsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomResendInvitationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -43417,11 +45607,7 @@ sealed class $RoomPromoteModeratorRequestApplicationJsonInterface {
   static void _defaults($RoomPromoteModeratorRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomPromoteModeratorRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.attendeeId, 'attendeeId', minimum: 0);
   }
 }
 
@@ -43471,7 +45657,7 @@ abstract class RoomPromoteModeratorRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomPromoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -43654,7 +45840,7 @@ class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<R
 @BuiltValue(instantiable: false)
 sealed class $RoomDemoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -43837,7 +46023,7 @@ class _$RoomAddToFavoritesApiVersionSerializer implements PrimitiveSerializer<Ro
 @BuiltValue(instantiable: false)
 sealed class $RoomAddToFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -44021,7 +46207,7 @@ class _$RoomRemoveFromFavoritesApiVersionSerializer implements PrimitiveSerializ
 @BuiltValue(instantiable: false)
 sealed class $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -44271,7 +46457,7 @@ abstract class RoomSetNotificationLevelRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -44521,7 +46707,7 @@ abstract class RoomSetNotificationCallsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
 
   /// Rebuilds the instance.
   ///
@@ -44724,11 +46910,7 @@ sealed class $RoomSetLobbyRequestApplicationJsonInterface {
   static void _defaults($RoomSetLobbyRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomSetLobbyRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.timer,
-      'timer',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.timer, 'timer', minimum: 0);
   }
 }
 
@@ -45547,11 +47729,7 @@ sealed class $RoomSetMessageExpirationRequestApplicationJsonInterface {
   static void _defaults($RoomSetMessageExpirationRequestApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomSetMessageExpirationRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.seconds,
-      'seconds',
-      minimum: 0,
-    );
+    _i4.checkNumber(b.seconds, 'seconds', minimum: 0);
   }
 }
 
@@ -45598,10 +47776,12 @@ abstract class RoomSetMessageExpirationRequestApplicationJson
   }
 }
 
+typedef RoomSetMessageExpirationResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Room? room});
+
 @BuiltValue(instantiable: false)
 sealed class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  RoomSetMessageExpirationResponseApplicationJson_Ocs_Data get data;
 
   /// Rebuilds the instance.
   ///
@@ -45616,7 +47796,9 @@ sealed class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetMessageExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomSetMessageExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _validate($RoomSetMessageExpirationResponseApplicationJson_OcsInterfaceBuilder b) {
+    b.data?.validateOneOf();
+  }
 }
 
 abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
@@ -45864,6 +48046,14 @@ sealed class $Capabilities_Config_CallInterface {
   bool get sipDialoutEnabled;
   @BuiltValueField(wireName: 'can-enable-sip')
   bool get canEnableSip;
+  @BuiltValueField(wireName: 'start-without-media')
+  bool? get startWithoutMedia;
+  @BuiltValueField(wireName: 'max-duration')
+  int? get maxDuration;
+  @BuiltValueField(wireName: 'blur-virtual-background')
+  bool? get blurVirtualBackground;
+  @BuiltValueField(wireName: 'end-to-end-encryption')
+  bool? get endToEndEncryption;
 
   /// Rebuilds the instance.
   ///
@@ -45925,8 +48115,12 @@ sealed class $Capabilities_Config_ChatInterface {
   int get readPrivacy;
   @BuiltValueField(wireName: 'has-translation-providers')
   bool get hasTranslationProviders;
+  @BuiltValueField(wireName: 'has-translation-task-providers')
+  bool? get hasTranslationTaskProviders;
   @BuiltValueField(wireName: 'typing-privacy')
   int get typingPrivacy;
+  @BuiltValueField(wireName: 'summary-threshold')
+  int? get summaryThreshold;
 
   /// Rebuilds the instance.
   ///
@@ -45939,7 +48133,9 @@ sealed class $Capabilities_Config_ChatInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities_Config_ChatInterfaceBuilder b) {}
+  static void _validate($Capabilities_Config_ChatInterfaceBuilder b) {
+    _i4.checkNumber(b.summaryThreshold, 'summaryThreshold', minimum: 1);
+  }
 }
 
 abstract class Capabilities_Config_Chat
@@ -45980,10 +48176,85 @@ abstract class Capabilities_Config_Chat
   }
 }
 
+class Capabilities_Config_Conversations_ListStyle extends EnumClass {
+  const Capabilities_Config_Conversations_ListStyle._(super.name);
+
+  /// `two-lines`
+  @BuiltValueEnumConst(wireName: 'two-lines')
+  static const Capabilities_Config_Conversations_ListStyle twoLines =
+      _$capabilitiesConfigConversationsListStyleTwoLines;
+
+  /// `compact`
+  static const Capabilities_Config_Conversations_ListStyle compact = _$capabilitiesConfigConversationsListStyleCompact;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<Capabilities_Config_Conversations_ListStyle> get values =>
+      _$capabilitiesConfigConversationsListStyleValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static Capabilities_Config_Conversations_ListStyle valueOf(String name) =>
+      _$valueOfCapabilities_Config_Conversations_ListStyle(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for Capabilities_Config_Conversations_ListStyle.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Capabilities_Config_Conversations_ListStyle> get serializer =>
+      const _$Capabilities_Config_Conversations_ListStyleSerializer();
+}
+
+class _$Capabilities_Config_Conversations_ListStyleSerializer
+    implements PrimitiveSerializer<Capabilities_Config_Conversations_ListStyle> {
+  const _$Capabilities_Config_Conversations_ListStyleSerializer();
+
+  static const Map<Capabilities_Config_Conversations_ListStyle, Object> _toWire =
+      <Capabilities_Config_Conversations_ListStyle, Object>{
+    Capabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+    Capabilities_Config_Conversations_ListStyle.compact: 'compact',
+  };
+
+  static const Map<Object, Capabilities_Config_Conversations_ListStyle> _fromWire =
+      <Object, Capabilities_Config_Conversations_ListStyle>{
+    'two-lines': Capabilities_Config_Conversations_ListStyle.twoLines,
+    'compact': Capabilities_Config_Conversations_ListStyle.compact,
+  };
+
+  @override
+  Iterable<Type> get types => const [Capabilities_Config_Conversations_ListStyle];
+
+  @override
+  String get wireName => 'Capabilities_Config_Conversations_ListStyle';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Capabilities_Config_Conversations_ListStyle object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Capabilities_Config_Conversations_ListStyle deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
+  @BuiltValueField(wireName: 'force-passwords')
+  bool? get forcePasswords;
+  @BuiltValueField(wireName: 'list-style')
+  Capabilities_Config_Conversations_ListStyle? get listStyle;
+  @BuiltValueField(wireName: 'description-length')
+  int? get descriptionLength;
 
   /// Rebuilds the instance.
   ///
@@ -45998,7 +48269,9 @@ sealed class $Capabilities_Config_ConversationsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_Config_ConversationsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities_Config_ConversationsInterfaceBuilder b) {}
+  static void _validate($Capabilities_Config_ConversationsInterfaceBuilder b) {
+    _i4.checkNumber(b.descriptionLength, 'descriptionLength', minimum: 1);
+  }
 }
 
 abstract class Capabilities_Config_Conversations
@@ -46239,7 +48512,7 @@ sealed class $Capabilities_ConfigInterface {
   Capabilities_Config_Call get call;
   Capabilities_Config_Chat get chat;
   Capabilities_Config_Conversations get conversations;
-  Capabilities_Config_Federation? get federation;
+  Capabilities_Config_Federation get federation;
   Capabilities_Config_Previews get previews;
   Capabilities_Config_Signaling get signaling;
 
@@ -46356,7 +48629,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data = ({
-  BuiltList<Never>? builtListNever,
+  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
   Capabilities? capabilities
 });
 
@@ -46585,9 +48858,7 @@ class _$RoomSetMentionPermissionsApiVersionSerializer
   };
 
   static const Map<Object, RoomSetMentionPermissionsApiVersion> _fromWire =
-      <Object, RoomSetMentionPermissionsApiVersion>{
-    'v4': RoomSetMentionPermissionsApiVersion.v4,
-  };
+      <Object, RoomSetMentionPermissionsApiVersion>{'v4': RoomSetMentionPermissionsApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomSetMentionPermissionsApiVersion];
@@ -46874,6 +49145,969 @@ abstract class RoomSetMentionPermissionsResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(RoomSetMentionPermissionsResponseApplicationJsonBuilder b) {
     $RoomSetMentionPermissionsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomArchiveConversationApiVersion extends EnumClass {
+  const RoomArchiveConversationApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomArchiveConversationApiVersion v4 = _$roomArchiveConversationApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomArchiveConversationApiVersion> get values => _$roomArchiveConversationApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomArchiveConversationApiVersion valueOf(String name) => _$valueOfRoomArchiveConversationApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomArchiveConversationApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomArchiveConversationApiVersion> get serializer =>
+      const _$RoomArchiveConversationApiVersionSerializer();
+}
+
+class _$RoomArchiveConversationApiVersionSerializer implements PrimitiveSerializer<RoomArchiveConversationApiVersion> {
+  const _$RoomArchiveConversationApiVersionSerializer();
+
+  static const Map<RoomArchiveConversationApiVersion, Object> _toWire = <RoomArchiveConversationApiVersion, Object>{
+    RoomArchiveConversationApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomArchiveConversationApiVersion> _fromWire = <Object, RoomArchiveConversationApiVersion>{
+    'v4': RoomArchiveConversationApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomArchiveConversationApiVersion];
+
+  @override
+  String get wireName => 'RoomArchiveConversationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomArchiveConversationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomArchiveConversationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomArchiveConversationResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomArchiveConversationResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomArchiveConversationResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomArchiveConversationResponseApplicationJson_Ocs
+    implements
+        $RoomArchiveConversationResponseApplicationJson_OcsInterface,
+        Built<RoomArchiveConversationResponseApplicationJson_Ocs,
+            RoomArchiveConversationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomArchiveConversationResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomArchiveConversationResponseApplicationJson_Ocs([
+    void Function(RoomArchiveConversationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomArchiveConversationResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomArchiveConversationResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomArchiveConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomArchiveConversationResponseApplicationJson_Ocs.
+  static Serializer<RoomArchiveConversationResponseApplicationJson_Ocs> get serializer =>
+      _$roomArchiveConversationResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomArchiveConversationResponseApplicationJson_OcsBuilder b) {
+    $RoomArchiveConversationResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomArchiveConversationResponseApplicationJson_OcsBuilder b) {
+    $RoomArchiveConversationResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomArchiveConversationResponseApplicationJsonInterface {
+  RoomArchiveConversationResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomArchiveConversationResponseApplicationJsonInterfaceBuilder].
+  $RoomArchiveConversationResponseApplicationJsonInterface rebuild(
+    void Function($RoomArchiveConversationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomArchiveConversationResponseApplicationJsonInterfaceBuilder].
+  $RoomArchiveConversationResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomArchiveConversationResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomArchiveConversationResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomArchiveConversationResponseApplicationJson
+    implements
+        $RoomArchiveConversationResponseApplicationJsonInterface,
+        Built<RoomArchiveConversationResponseApplicationJson, RoomArchiveConversationResponseApplicationJsonBuilder> {
+  /// Creates a new RoomArchiveConversationResponseApplicationJson object using the builder pattern.
+  factory RoomArchiveConversationResponseApplicationJson([
+    void Function(RoomArchiveConversationResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomArchiveConversationResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomArchiveConversationResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomArchiveConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomArchiveConversationResponseApplicationJson.
+  static Serializer<RoomArchiveConversationResponseApplicationJson> get serializer =>
+      _$roomArchiveConversationResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomArchiveConversationResponseApplicationJsonBuilder b) {
+    $RoomArchiveConversationResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomArchiveConversationResponseApplicationJsonBuilder b) {
+    $RoomArchiveConversationResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomUnarchiveConversationApiVersion extends EnumClass {
+  const RoomUnarchiveConversationApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomUnarchiveConversationApiVersion v4 = _$roomUnarchiveConversationApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomUnarchiveConversationApiVersion> get values => _$roomUnarchiveConversationApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomUnarchiveConversationApiVersion valueOf(String name) => _$valueOfRoomUnarchiveConversationApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomUnarchiveConversationApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomUnarchiveConversationApiVersion> get serializer =>
+      const _$RoomUnarchiveConversationApiVersionSerializer();
+}
+
+class _$RoomUnarchiveConversationApiVersionSerializer
+    implements PrimitiveSerializer<RoomUnarchiveConversationApiVersion> {
+  const _$RoomUnarchiveConversationApiVersionSerializer();
+
+  static const Map<RoomUnarchiveConversationApiVersion, Object> _toWire = <RoomUnarchiveConversationApiVersion, Object>{
+    RoomUnarchiveConversationApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomUnarchiveConversationApiVersion> _fromWire =
+      <Object, RoomUnarchiveConversationApiVersion>{'v4': RoomUnarchiveConversationApiVersion.v4};
+
+  @override
+  Iterable<Type> get types => const [RoomUnarchiveConversationApiVersion];
+
+  @override
+  String get wireName => 'RoomUnarchiveConversationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomUnarchiveConversationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomUnarchiveConversationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomUnarchiveConversationResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomUnarchiveConversationResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomUnarchiveConversationResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomUnarchiveConversationResponseApplicationJson_Ocs
+    implements
+        $RoomUnarchiveConversationResponseApplicationJson_OcsInterface,
+        Built<RoomUnarchiveConversationResponseApplicationJson_Ocs,
+            RoomUnarchiveConversationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomUnarchiveConversationResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomUnarchiveConversationResponseApplicationJson_Ocs([
+    void Function(RoomUnarchiveConversationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomUnarchiveConversationResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomUnarchiveConversationResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomUnarchiveConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomUnarchiveConversationResponseApplicationJson_Ocs.
+  static Serializer<RoomUnarchiveConversationResponseApplicationJson_Ocs> get serializer =>
+      _$roomUnarchiveConversationResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomUnarchiveConversationResponseApplicationJson_OcsBuilder b) {
+    $RoomUnarchiveConversationResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomUnarchiveConversationResponseApplicationJson_OcsBuilder b) {
+    $RoomUnarchiveConversationResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomUnarchiveConversationResponseApplicationJsonInterface {
+  RoomUnarchiveConversationResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder].
+  $RoomUnarchiveConversationResponseApplicationJsonInterface rebuild(
+    void Function($RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder].
+  $RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomUnarchiveConversationResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomUnarchiveConversationResponseApplicationJson
+    implements
+        $RoomUnarchiveConversationResponseApplicationJsonInterface,
+        Built<RoomUnarchiveConversationResponseApplicationJson,
+            RoomUnarchiveConversationResponseApplicationJsonBuilder> {
+  /// Creates a new RoomUnarchiveConversationResponseApplicationJson object using the builder pattern.
+  factory RoomUnarchiveConversationResponseApplicationJson([
+    void Function(RoomUnarchiveConversationResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomUnarchiveConversationResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomUnarchiveConversationResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomUnarchiveConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomUnarchiveConversationResponseApplicationJson.
+  static Serializer<RoomUnarchiveConversationResponseApplicationJson> get serializer =>
+      _$roomUnarchiveConversationResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomUnarchiveConversationResponseApplicationJsonBuilder b) {
+    $RoomUnarchiveConversationResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomUnarchiveConversationResponseApplicationJsonBuilder b) {
+    $RoomUnarchiveConversationResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomImportEmailsAsParticipantsApiVersion extends EnumClass {
+  const RoomImportEmailsAsParticipantsApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomImportEmailsAsParticipantsApiVersion v4 = _$roomImportEmailsAsParticipantsApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomImportEmailsAsParticipantsApiVersion> get values =>
+      _$roomImportEmailsAsParticipantsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomImportEmailsAsParticipantsApiVersion valueOf(String name) =>
+      _$valueOfRoomImportEmailsAsParticipantsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomImportEmailsAsParticipantsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomImportEmailsAsParticipantsApiVersion> get serializer =>
+      const _$RoomImportEmailsAsParticipantsApiVersionSerializer();
+}
+
+class _$RoomImportEmailsAsParticipantsApiVersionSerializer
+    implements PrimitiveSerializer<RoomImportEmailsAsParticipantsApiVersion> {
+  const _$RoomImportEmailsAsParticipantsApiVersionSerializer();
+
+  static const Map<RoomImportEmailsAsParticipantsApiVersion, Object> _toWire =
+      <RoomImportEmailsAsParticipantsApiVersion, Object>{RoomImportEmailsAsParticipantsApiVersion.v4: 'v4'};
+
+  static const Map<Object, RoomImportEmailsAsParticipantsApiVersion> _fromWire =
+      <Object, RoomImportEmailsAsParticipantsApiVersion>{'v4': RoomImportEmailsAsParticipantsApiVersion.v4};
+
+  @override
+  Iterable<Type> get types => const [RoomImportEmailsAsParticipantsApiVersion];
+
+  @override
+  String get wireName => 'RoomImportEmailsAsParticipantsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomImportEmailsAsParticipantsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomImportEmailsAsParticipantsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface {
+  static final _$testRun = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
+
+  /// When set to true, the file is validated and no email is actually sent nor any participant added to the conversation.
+  bool get testRun;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface rebuild(
+    void Function($RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder b) {
+    b.testRun = _$testRun;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomImportEmailsAsParticipantsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomImportEmailsAsParticipantsRequestApplicationJson
+    implements
+        $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface,
+        Built<RoomImportEmailsAsParticipantsRequestApplicationJson,
+            RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder> {
+  /// Creates a new RoomImportEmailsAsParticipantsRequestApplicationJson object using the builder pattern.
+  factory RoomImportEmailsAsParticipantsRequestApplicationJson([
+    void Function(RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder)? b,
+  ]) = _$RoomImportEmailsAsParticipantsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RoomImportEmailsAsParticipantsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomImportEmailsAsParticipantsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomImportEmailsAsParticipantsRequestApplicationJson.
+  static Serializer<RoomImportEmailsAsParticipantsRequestApplicationJson> get serializer =>
+      _$roomImportEmailsAsParticipantsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder b) {
+    $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder b) {
+    $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface {
+  int get invites;
+  int get duplicates;
+  int? get invalid;
+  BuiltList<int>? get invalidLines;
+  int? get type;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {
+    _i4.checkNumber(b.invites, 'invites', minimum: 0);
+    _i4.checkNumber(b.duplicates, 'duplicates', minimum: 0);
+    _i4.checkNumber(b.invalid, 'invalid', minimum: 0);
+    _i4.checkNumber(b.type, 'type', maximum: 6, minimum: -1);
+  }
+}
+
+abstract class RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data
+    implements
+        $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface,
+        Built<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data,
+            RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data([
+    void Function(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data.
+  static Serializer<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data> get serializer =>
+      _$roomImportEmailsAsParticipantsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs
+    implements
+        $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface,
+        Built<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs,
+            RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs([
+    void Function(RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs.
+  static Serializer<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs> get serializer =>
+      _$roomImportEmailsAsParticipantsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface {
+  RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface rebuild(
+    void Function($RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder].
+  $RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomImportEmailsAsParticipantsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomImportEmailsAsParticipantsResponseApplicationJson
+    implements
+        $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface,
+        Built<RoomImportEmailsAsParticipantsResponseApplicationJson,
+            RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson object using the builder pattern.
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson([
+    void Function(RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomImportEmailsAsParticipantsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomImportEmailsAsParticipantsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomImportEmailsAsParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomImportEmailsAsParticipantsResponseApplicationJson.
+  static Serializer<RoomImportEmailsAsParticipantsResponseApplicationJson> get serializer =>
+      _$roomImportEmailsAsParticipantsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder b) {
+    $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomScheduleMeetingApiVersion extends EnumClass {
+  const RoomScheduleMeetingApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomScheduleMeetingApiVersion v4 = _$roomScheduleMeetingApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomScheduleMeetingApiVersion> get values => _$roomScheduleMeetingApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomScheduleMeetingApiVersion valueOf(String name) => _$valueOfRoomScheduleMeetingApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomScheduleMeetingApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomScheduleMeetingApiVersion> get serializer => const _$RoomScheduleMeetingApiVersionSerializer();
+}
+
+class _$RoomScheduleMeetingApiVersionSerializer implements PrimitiveSerializer<RoomScheduleMeetingApiVersion> {
+  const _$RoomScheduleMeetingApiVersionSerializer();
+
+  static const Map<RoomScheduleMeetingApiVersion, Object> _toWire = <RoomScheduleMeetingApiVersion, Object>{
+    RoomScheduleMeetingApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomScheduleMeetingApiVersion> _fromWire = <Object, RoomScheduleMeetingApiVersion>{
+    'v4': RoomScheduleMeetingApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomScheduleMeetingApiVersion];
+
+  @override
+  String get wireName => 'RoomScheduleMeetingApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomScheduleMeetingApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomScheduleMeetingApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomScheduleMeetingRequestApplicationJsonInterface {
+  /// Last part of the calendar URI as seen by the participant e.g. 'personal' or 'company_shared_by_other_user'.
+  String get calendarUri;
+
+  /// Unix timestamp when the meeting starts.
+  int get start;
+
+  /// List of attendee ids to invite, if null everyone will be invited, if empty array only the actor will receive the event.
+  BuiltList<int>? get attendeeIds;
+
+  /// Unix timestamp when the meeting ends, falls back to 60 minutes after start.
+  int? get end;
+
+  /// Title or summary of the event, falling back to the conversation name if none is given.
+  String? get title;
+
+  /// Description of the event, falling back to the conversation description if none is given.
+  String? get description;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder].
+  $RoomScheduleMeetingRequestApplicationJsonInterface rebuild(
+    void Function($RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder].
+  $RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomScheduleMeetingRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomScheduleMeetingRequestApplicationJson
+    implements
+        $RoomScheduleMeetingRequestApplicationJsonInterface,
+        Built<RoomScheduleMeetingRequestApplicationJson, RoomScheduleMeetingRequestApplicationJsonBuilder> {
+  /// Creates a new RoomScheduleMeetingRequestApplicationJson object using the builder pattern.
+  factory RoomScheduleMeetingRequestApplicationJson([
+    void Function(RoomScheduleMeetingRequestApplicationJsonBuilder)? b,
+  ]) = _$RoomScheduleMeetingRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RoomScheduleMeetingRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomScheduleMeetingRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomScheduleMeetingRequestApplicationJson.
+  static Serializer<RoomScheduleMeetingRequestApplicationJson> get serializer =>
+      _$roomScheduleMeetingRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomScheduleMeetingRequestApplicationJsonBuilder b) {
+    $RoomScheduleMeetingRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomScheduleMeetingRequestApplicationJsonBuilder b) {
+    $RoomScheduleMeetingRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomScheduleMeetingResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomScheduleMeetingResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomScheduleMeetingResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomScheduleMeetingResponseApplicationJson_Ocs
+    implements
+        $RoomScheduleMeetingResponseApplicationJson_OcsInterface,
+        Built<RoomScheduleMeetingResponseApplicationJson_Ocs, RoomScheduleMeetingResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomScheduleMeetingResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomScheduleMeetingResponseApplicationJson_Ocs([
+    void Function(RoomScheduleMeetingResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomScheduleMeetingResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomScheduleMeetingResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomScheduleMeetingResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomScheduleMeetingResponseApplicationJson_Ocs.
+  static Serializer<RoomScheduleMeetingResponseApplicationJson_Ocs> get serializer =>
+      _$roomScheduleMeetingResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomScheduleMeetingResponseApplicationJson_OcsBuilder b) {
+    $RoomScheduleMeetingResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomScheduleMeetingResponseApplicationJson_OcsBuilder b) {
+    $RoomScheduleMeetingResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomScheduleMeetingResponseApplicationJsonInterface {
+  RoomScheduleMeetingResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder].
+  $RoomScheduleMeetingResponseApplicationJsonInterface rebuild(
+    void Function($RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder].
+  $RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomScheduleMeetingResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomScheduleMeetingResponseApplicationJson
+    implements
+        $RoomScheduleMeetingResponseApplicationJsonInterface,
+        Built<RoomScheduleMeetingResponseApplicationJson, RoomScheduleMeetingResponseApplicationJsonBuilder> {
+  /// Creates a new RoomScheduleMeetingResponseApplicationJson object using the builder pattern.
+  factory RoomScheduleMeetingResponseApplicationJson([
+    void Function(RoomScheduleMeetingResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomScheduleMeetingResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomScheduleMeetingResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomScheduleMeetingResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomScheduleMeetingResponseApplicationJson.
+  static Serializer<RoomScheduleMeetingResponseApplicationJson> get serializer =>
+      _$roomScheduleMeetingResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomScheduleMeetingResponseApplicationJsonBuilder b) {
+    $RoomScheduleMeetingResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomScheduleMeetingResponseApplicationJsonBuilder b) {
+    $RoomScheduleMeetingResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -47248,7 +50482,7 @@ class _$RoomLeaveFederatedRoomApiVersionSerializer implements PrimitiveSerialize
 @BuiltValue(instantiable: false)
 sealed class $RoomLeaveFederatedRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -47403,14 +50637,10 @@ class _$RoomVerifyDialInPinDeprecatedApiVersionSerializer
   const _$RoomVerifyDialInPinDeprecatedApiVersionSerializer();
 
   static const Map<RoomVerifyDialInPinDeprecatedApiVersion, Object> _toWire =
-      <RoomVerifyDialInPinDeprecatedApiVersion, Object>{
-    RoomVerifyDialInPinDeprecatedApiVersion.v4: 'v4',
-  };
+      <RoomVerifyDialInPinDeprecatedApiVersion, Object>{RoomVerifyDialInPinDeprecatedApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomVerifyDialInPinDeprecatedApiVersion> _fromWire =
-      <Object, RoomVerifyDialInPinDeprecatedApiVersion>{
-    'v4': RoomVerifyDialInPinDeprecatedApiVersion.v4,
-  };
+      <Object, RoomVerifyDialInPinDeprecatedApiVersion>{'v4': RoomVerifyDialInPinDeprecatedApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomVerifyDialInPinDeprecatedApiVersion];
@@ -47872,7 +51102,7 @@ class _$RoomVerifyDialOutNumberApiVersionSerializer implements PrimitiveSerializ
 @BuiltValue(instantiable: false)
 sealed class $RoomVerifyDialOutNumberRequestApplicationJson_OptionsInterface {
   String? get actorId;
-  ActorType? get actorType;
+  ActorTypes? get actorType;
   int? get attendeeId;
 
   /// Rebuilds the instance.
@@ -48353,14 +51583,10 @@ class _$RoomRejectedDialOutRequestApiVersionSerializer
   const _$RoomRejectedDialOutRequestApiVersionSerializer();
 
   static const Map<RoomRejectedDialOutRequestApiVersion, Object> _toWire =
-      <RoomRejectedDialOutRequestApiVersion, Object>{
-    RoomRejectedDialOutRequestApiVersion.v4: 'v4',
-  };
+      <RoomRejectedDialOutRequestApiVersion, Object>{RoomRejectedDialOutRequestApiVersion.v4: 'v4'};
 
   static const Map<Object, RoomRejectedDialOutRequestApiVersion> _fromWire =
-      <Object, RoomRejectedDialOutRequestApiVersion>{
-    'v4': RoomRejectedDialOutRequestApiVersion.v4,
-  };
+      <Object, RoomRejectedDialOutRequestApiVersion>{'v4': RoomRejectedDialOutRequestApiVersion.v4};
 
   @override
   Iterable<Type> get types => const [RoomRejectedDialOutRequestApiVersion];
@@ -48388,7 +51614,7 @@ class _$RoomRejectedDialOutRequestApiVersionSerializer
 @BuiltValue(instantiable: false)
 sealed class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -48732,7 +51958,7 @@ abstract class SettingsSetUserSettingRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $SettingsSetUserSettingResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -49139,14 +52365,10 @@ class _$CertificateGetCertificateExpirationApiVersionSerializer
   const _$CertificateGetCertificateExpirationApiVersionSerializer();
 
   static const Map<CertificateGetCertificateExpirationApiVersion, Object> _toWire =
-      <CertificateGetCertificateExpirationApiVersion, Object>{
-    CertificateGetCertificateExpirationApiVersion.v1: 'v1',
-  };
+      <CertificateGetCertificateExpirationApiVersion, Object>{CertificateGetCertificateExpirationApiVersion.v1: 'v1'};
 
   static const Map<Object, CertificateGetCertificateExpirationApiVersion> _fromWire =
-      <Object, CertificateGetCertificateExpirationApiVersion>{
-    'v1': CertificateGetCertificateExpirationApiVersion.v1,
-  };
+      <Object, CertificateGetCertificateExpirationApiVersion>{'v1': CertificateGetCertificateExpirationApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [CertificateGetCertificateExpirationApiVersion];
@@ -49394,14 +52616,10 @@ class _$RecordingGetWelcomeMessageApiVersionSerializer
   const _$RecordingGetWelcomeMessageApiVersionSerializer();
 
   static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
-      <RecordingGetWelcomeMessageApiVersion, Object>{
-    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
-  };
+      <RecordingGetWelcomeMessageApiVersion, Object>{RecordingGetWelcomeMessageApiVersion.v1: 'v1'};
 
   static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
-      <Object, RecordingGetWelcomeMessageApiVersion>{
-    'v1': RecordingGetWelcomeMessageApiVersion.v1,
-  };
+      <Object, RecordingGetWelcomeMessageApiVersion>{'v1': RecordingGetWelcomeMessageApiVersion.v1};
 
   @override
   Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
@@ -49678,20 +52896,12 @@ class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerialize
 
 @BuiltValue(instantiable: false)
 sealed class $SettingsSetsipSettingsRequestApplicationJsonInterface {
-  static final _$sipGroups = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(String)]),
-  )! as BuiltList<String>;
+  static final _$sipGroups = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
 
-  static final _$dialInInfo = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$dialInInfo = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$sharedSecret = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$sharedSecret = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// New SIP groups.
   BuiltList<String> get sipGroups;
@@ -49769,7 +52979,7 @@ abstract class SettingsSetsipSettingsRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -49923,14 +53133,10 @@ class _$SignalingGetWelcomeMessageApiVersionSerializer
   const _$SignalingGetWelcomeMessageApiVersionSerializer();
 
   static const Map<SignalingGetWelcomeMessageApiVersion, Object> _toWire =
-      <SignalingGetWelcomeMessageApiVersion, Object>{
-    SignalingGetWelcomeMessageApiVersion.v3: 'v3',
-  };
+      <SignalingGetWelcomeMessageApiVersion, Object>{SignalingGetWelcomeMessageApiVersion.v3: 'v3'};
 
   static const Map<Object, SignalingGetWelcomeMessageApiVersion> _fromWire =
-      <Object, SignalingGetWelcomeMessageApiVersion>{
-    'v3': SignalingGetWelcomeMessageApiVersion.v3,
-  };
+      <Object, SignalingGetWelcomeMessageApiVersion>{'v3': SignalingGetWelcomeMessageApiVersion.v3};
 
   @override
   Iterable<Type> get types => const [SignalingGetWelcomeMessageApiVersion];
@@ -50535,7 +53741,7 @@ abstract class SignalingBackendResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $TempAvatarPostAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -50662,7 +53868,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  JsonObject? get data;
 
   /// Rebuilds the instance.
   ///
@@ -50788,44 +53994,37 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $BotWithDetailsAndSecretInterface implements $BotWithDetailsInterface {
-  String get secret;
+sealed class $PublicCapabilitiesInterface {
+  Capabilities? get spreed;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$BotWithDetailsAndSecretInterfaceBuilder].
-  @override
-  $BotWithDetailsAndSecretInterface rebuild(void Function($BotWithDetailsAndSecretInterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$PublicCapabilitiesInterfaceBuilder].
+  $PublicCapabilitiesInterface rebuild(void Function($PublicCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$BotWithDetailsAndSecretInterfaceBuilder].
-  @override
-  $BotWithDetailsAndSecretInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$PublicCapabilitiesInterfaceBuilder].
+  $PublicCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotWithDetailsAndSecretInterfaceBuilder b) {
-    $BotWithDetailsInterface._defaults(b);
-  }
-
+  static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotWithDetailsAndSecretInterfaceBuilder b) {
-    $BotWithDetailsInterface._validate(b);
-  }
+  static void _validate($PublicCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class BotWithDetailsAndSecret
-    implements $BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {
-  /// Creates a new BotWithDetailsAndSecret object using the builder pattern.
-  factory BotWithDetailsAndSecret([void Function(BotWithDetailsAndSecretBuilder)? b]) = _$BotWithDetailsAndSecret;
+abstract class PublicCapabilities
+    implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
+  /// Creates a new PublicCapabilities object using the builder pattern.
+  factory PublicCapabilities([void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
 
   // coverage:ignore-start
-  const BotWithDetailsAndSecret._();
+  const PublicCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotWithDetailsAndSecret.fromJson(Map<String, dynamic> json) =>
+  factory PublicCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -50836,100 +54035,30 @@ abstract class BotWithDetailsAndSecret
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for BotWithDetailsAndSecret.
-  static Serializer<BotWithDetailsAndSecret> get serializer => _$botWithDetailsAndSecretSerializer;
+  /// Serializer for PublicCapabilities.
+  static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotWithDetailsAndSecretBuilder b) {
-    $BotWithDetailsAndSecretInterface._defaults(b);
+  static void _defaults(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotWithDetailsAndSecretBuilder b) {
-    $BotWithDetailsAndSecretInterface._validate(b);
+  static void _validate(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._validate(b);
   }
 }
-
-@BuiltValue(instantiable: false)
-sealed class $PublicCapabilities0Interface {
-  Capabilities get spreed;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$PublicCapabilities0InterfaceBuilder].
-  $PublicCapabilities0Interface rebuild(void Function($PublicCapabilities0InterfaceBuilder) updates);
-
-  /// Converts the instance to a builder [$PublicCapabilities0InterfaceBuilder].
-  $PublicCapabilities0InterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0InterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0InterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0
-    implements $PublicCapabilities0Interface, Built<PublicCapabilities0, PublicCapabilities0Builder> {
-  /// Creates a new PublicCapabilities0 object using the builder pattern.
-  factory PublicCapabilities0([void Function(PublicCapabilities0Builder)? b]) = _$PublicCapabilities0;
-
-  // coverage:ignore-start
-  const PublicCapabilities0._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0.
-  static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0Builder b) {
-    $PublicCapabilities0Interface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0Builder b) {
-    $PublicCapabilities0Interface._validate(b);
-  }
-}
-
-typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
 /// Serialization extension for `RoomLastMessage`.
 extension $RoomLastMessageExtension on RoomLastMessage {
   /// Serializer for RoomLastMessage.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RoomLastMessage> get serializer => $4b3c240037cf48d36f81308e641eef98Extension._serializer;
+  static Serializer<RoomLastMessage> get serializer => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static RoomLastMessage fromJson(Object? json) => $4b3c240037cf48d36f81308e641eef98Extension._fromJson(json);
-}
-
-/// Serialization extension for `Room_LastMessage`.
-extension $Room_LastMessageExtension on Room_LastMessage {
-  /// Serializer for Room_LastMessage.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Room_LastMessage> get serializer => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static Room_LastMessage fromJson(Object? json) => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._fromJson(json);
+  static RoomLastMessage fromJson(Object? json) => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._fromJson(json);
 }
 
 /// Serialization extension for `ChatMessageWithParent_Parent`.
@@ -50951,13 +54080,13 @@ extension $SignalingSettings_FederationExtension on SignalingSettings_Federation
   /// Serializer for SignalingSettings_Federation.
   @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSettings_Federation> get serializer =>
-      $1a94bcbd080d6f9b0aa00b7ca498a08cExtension._serializer;
+      $4f2be900e5f7182901d856e06271b0e6Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static SignalingSettings_Federation fromJson(Object? json) =>
-      $1a94bcbd080d6f9b0aa00b7ca498a08cExtension._fromJson(json);
+      $4f2be900e5f7182901d856e06271b0e6Extension._fromJson(json);
 }
 
 /// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
@@ -50975,19 +54104,19 @@ extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
       $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
 }
 
-/// Serialization extension for `RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data`.
-extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
-    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
-  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+/// Serialization extension for `RoomSetMessageExpirationResponseApplicationJson_Ocs_Data`.
+extension $RoomSetMessageExpirationResponseApplicationJson_Ocs_DataExtension
+    on RoomSetMessageExpirationResponseApplicationJson_Ocs_Data {
+  /// Serializer for RoomSetMessageExpirationResponseApplicationJson_Ocs_Data.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+  static Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs_Data> get serializer =>
+      $f281c16bc584cda0adb1f4b8d534ee07Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
-      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
+  static RoomSetMessageExpirationResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $f281c16bc584cda0adb1f4b8d534ee07Extension._fromJson(json);
 }
 
 /// Serialization extension for `RoomGetCapabilitiesResponseApplicationJson_Ocs_Data`.
@@ -50996,13 +54125,13 @@ extension $RoomGetCapabilitiesResponseApplicationJson_Ocs_DataExtension
   /// Serializer for RoomGetCapabilitiesResponseApplicationJson_Ocs_Data.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
-      $973dc40faeda3fa3aa7e7b9895ee7a34Extension._serializer;
+      $eded9c5615e6be3b25806a949699f91fExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static RoomGetCapabilitiesResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
-      $973dc40faeda3fa3aa7e7b9895ee7a34Extension._fromJson(json);
+      $eded9c5615e6be3b25806a949699f91fExtension._fromJson(json);
 }
 
 /// Serialization extension for `SettingsSetUserSettingRequestApplicationJson_Value`.
@@ -51020,100 +54149,6 @@ extension $SettingsSetUserSettingRequestApplicationJson_ValueExtension
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `PublicCapabilities`.
-extension $PublicCapabilitiesExtension on PublicCapabilities {
-  /// Serializer for PublicCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicCapabilities> get serializer => $bc4aac45771b11649d372f39a92b1cf3Extension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static PublicCapabilities fromJson(Object? json) => $bc4aac45771b11649d372f39a92b1cf3Extension._fromJson(json);
-}
-
-typedef _$4b3c240037cf48d36f81308e641eef98 = ({BaseMessage? baseMessage, ChatMessage? chatMessage});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $4b3c240037cf48d36f81308e641eef98Extension on _$4b3c240037cf48d36f81308e641eef98 {
-  List<dynamic> get _values => [baseMessage, chatMessage];
-  List<String> get _names => const ['baseMessage', 'chatMessage'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$4b3c240037cf48d36f81308e641eef98> get _serializer =>
-      const _$4b3c240037cf48d36f81308e641eef98Serializer();
-  static _$4b3c240037cf48d36f81308e641eef98 _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$4b3c240037cf48d36f81308e641eef98Serializer implements PrimitiveSerializer<_$4b3c240037cf48d36f81308e641eef98> {
-  const _$4b3c240037cf48d36f81308e641eef98Serializer();
-
-  @override
-  Iterable<Type> get types => const [_$4b3c240037cf48d36f81308e641eef98];
-
-  @override
-  String get wireName => r'_$4b3c240037cf48d36f81308e641eef98';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$4b3c240037cf48d36f81308e641eef98 object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.baseMessage;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BaseMessage))!;
-    }
-    value = object.chatMessage;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$4b3c240037cf48d36f81308e641eef98 deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BaseMessage? baseMessage;
-    try {
-      baseMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BaseMessage),
-      )! as BaseMessage;
-    } catch (_) {}
-    ChatMessage? chatMessage;
-    try {
-      chatMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ChatMessage),
-      )! as ChatMessage;
-    } catch (_) {}
-    return (baseMessage: baseMessage, chatMessage: chatMessage);
-  }
-}
-
 typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 = ({
   BaseMessage? baseMessage,
   BuiltList<Never>? builtListNever,
@@ -51127,16 +54162,10 @@ extension $bed8482b7c93ae2974fa4be6ae42b9b1Extension on _$bed8482b7c93ae2974fa4b
   List<String> get _names => const ['baseMessage', 'builtListNever', 'chatMessage'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
   static Serializer<_$bed8482b7c93ae2974fa4be6ae42b9b1> get _serializer =>
       const _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer();
   static _$bed8482b7c93ae2974fa4be6ae42b9b1 _fromJson(Object? json) =>
@@ -51176,7 +54205,7 @@ class _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -51188,24 +54217,16 @@ class _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer implements PrimitiveSerialize
   }) {
     BaseMessage? baseMessage;
     try {
-      baseMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BaseMessage),
-      )! as BaseMessage;
+      baseMessage = serializers.deserialize(data, specifiedType: const FullType(BaseMessage))! as BaseMessage;
     } catch (_) {}
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     ChatMessage? chatMessage;
     try {
-      chatMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ChatMessage),
-      )! as ChatMessage;
+      chatMessage = serializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
     } catch (_) {}
     return (baseMessage: baseMessage, builtListNever: builtListNever, chatMessage: chatMessage);
   }
@@ -51220,16 +54241,10 @@ extension $eef5a337590648ee15c9b8f9dd9d6a36Extension on _$eef5a337590648ee15c9b8
   List<String> get _names => const ['chatMessage', 'deletedChatMessage'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
   static Serializer<_$eef5a337590648ee15c9b8f9dd9d6a36> get _serializer =>
       const _$eef5a337590648ee15c9b8f9dd9d6a36Serializer();
   static _$eef5a337590648ee15c9b8f9dd9d6a36 _fromJson(Object? json) =>
@@ -51265,7 +54280,7 @@ class _$eef5a337590648ee15c9b8f9dd9d6a36Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(DeletedChatMessage))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -51277,47 +54292,36 @@ class _$eef5a337590648ee15c9b8f9dd9d6a36Serializer implements PrimitiveSerialize
   }) {
     ChatMessage? chatMessage;
     try {
-      chatMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ChatMessage),
-      )! as ChatMessage;
+      chatMessage = serializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
     } catch (_) {}
     DeletedChatMessage? deletedChatMessage;
     try {
-      deletedChatMessage = serializers.deserialize(
-        data,
-        specifiedType: const FullType(DeletedChatMessage),
-      )! as DeletedChatMessage;
+      deletedChatMessage =
+          serializers.deserialize(data, specifiedType: const FullType(DeletedChatMessage))! as DeletedChatMessage;
     } catch (_) {}
     return (chatMessage: chatMessage, deletedChatMessage: deletedChatMessage);
   }
 }
 
-typedef _$1a94bcbd080d6f9b0aa00b7ca498a08c = ({
+typedef _$4f2be900e5f7182901d856e06271b0e6 = ({
   BuiltList<Never>? builtListNever,
-  SignalingSettings_Federation0? signalingSettingsFederation0
+  SignalingFederationSettings? signalingFederationSettings
 });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $1a94bcbd080d6f9b0aa00b7ca498a08cExtension on _$1a94bcbd080d6f9b0aa00b7ca498a08c {
-  List<dynamic> get _values => [builtListNever, signalingSettingsFederation0];
-  List<String> get _names => const ['builtListNever', 'signalingSettingsFederation0'];
+extension $4f2be900e5f7182901d856e06271b0e6Extension on _$4f2be900e5f7182901d856e06271b0e6 {
+  List<dynamic> get _values => [builtListNever, signalingFederationSettings];
+  List<String> get _names => const ['builtListNever', 'signalingFederationSettings'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$1a94bcbd080d6f9b0aa00b7ca498a08c> get _serializer =>
-      const _$1a94bcbd080d6f9b0aa00b7ca498a08cSerializer();
-  static _$1a94bcbd080d6f9b0aa00b7ca498a08c _fromJson(Object? json) =>
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+  static Serializer<_$4f2be900e5f7182901d856e06271b0e6> get _serializer =>
+      const _$4f2be900e5f7182901d856e06271b0e6Serializer();
+  static _$4f2be900e5f7182901d856e06271b0e6 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -51326,19 +54330,19 @@ extension $1a94bcbd080d6f9b0aa00b7ca498a08cExtension on _$1a94bcbd080d6f9b0aa00b
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$1a94bcbd080d6f9b0aa00b7ca498a08cSerializer implements PrimitiveSerializer<_$1a94bcbd080d6f9b0aa00b7ca498a08c> {
-  const _$1a94bcbd080d6f9b0aa00b7ca498a08cSerializer();
+class _$4f2be900e5f7182901d856e06271b0e6Serializer implements PrimitiveSerializer<_$4f2be900e5f7182901d856e06271b0e6> {
+  const _$4f2be900e5f7182901d856e06271b0e6Serializer();
 
   @override
-  Iterable<Type> get types => const [_$1a94bcbd080d6f9b0aa00b7ca498a08c];
+  Iterable<Type> get types => const [_$4f2be900e5f7182901d856e06271b0e6];
 
   @override
-  String get wireName => r'_$1a94bcbd080d6f9b0aa00b7ca498a08c';
+  String get wireName => r'_$4f2be900e5f7182901d856e06271b0e6';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$1a94bcbd080d6f9b0aa00b7ca498a08c object, {
+    _$4f2be900e5f7182901d856e06271b0e6 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -51346,35 +54350,33 @@ class _$1a94bcbd080d6f9b0aa00b7ca498a08cSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
-    value = object.signalingSettingsFederation0;
+    value = object.signalingFederationSettings;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SignalingSettings_Federation0))!;
+      return serializers.serialize(value, specifiedType: const FullType(SignalingFederationSettings))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$1a94bcbd080d6f9b0aa00b7ca498a08c deserialize(
+  _$4f2be900e5f7182901d856e06271b0e6 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
-    SignalingSettings_Federation0? signalingSettingsFederation0;
+    SignalingFederationSettings? signalingFederationSettings;
     try {
-      signalingSettingsFederation0 = serializers.deserialize(
+      signalingFederationSettings = serializers.deserialize(
         data,
-        specifiedType: const FullType(SignalingSettings_Federation0),
-      )! as SignalingSettings_Federation0;
+        specifiedType: const FullType(SignalingFederationSettings),
+      )! as SignalingFederationSettings;
     } catch (_) {}
-    return (builtListNever: builtListNever, signalingSettingsFederation0: signalingSettingsFederation0);
+    return (builtListNever: builtListNever, signalingFederationSettings: signalingFederationSettings);
   }
 }
 
@@ -51387,16 +54389,10 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
   List<String> get _names => const ['builtListSignalingSession', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
@@ -51432,7 +54428,7 @@ class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -51451,40 +54447,28 @@ class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerialize
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (builtListSignalingSession: builtListSignalingSession, string: string);
   }
 }
 
-typedef _$bd993fb3f40af33e8594d0d698208560 = ({
-  BuiltList<Never>? builtListNever,
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
-});
+typedef _$f281c16bc584cda0adb1f4b8d534ee07 = ({BuiltList<Never>? builtListNever, Room? room});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0d698208560 {
-  List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
-  List<String> get _names => const ['builtListNever', 'roomAddParticipantToRoomResponseApplicationJsonOcsData0'];
+extension $f281c16bc584cda0adb1f4b8d534ee07Extension on _$f281c16bc584cda0adb1f4b8d534ee07 {
+  List<dynamic> get _values => [builtListNever, room];
+  List<String> get _names => const ['builtListNever', 'room'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
-      const _$bd993fb3f40af33e8594d0d698208560Serializer();
-  static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+  static Serializer<_$f281c16bc584cda0adb1f4b8d534ee07> get _serializer =>
+      const _$f281c16bc584cda0adb1f4b8d534ee07Serializer();
+  static _$f281c16bc584cda0adb1f4b8d534ee07 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -51493,19 +54477,19 @@ extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$bd993fb3f40af33e8594d0d698208560Serializer implements PrimitiveSerializer<_$bd993fb3f40af33e8594d0d698208560> {
-  const _$bd993fb3f40af33e8594d0d698208560Serializer();
+class _$f281c16bc584cda0adb1f4b8d534ee07Serializer implements PrimitiveSerializer<_$f281c16bc584cda0adb1f4b8d534ee07> {
+  const _$f281c16bc584cda0adb1f4b8d534ee07Serializer();
 
   @override
-  Iterable<Type> get types => const [_$bd993fb3f40af33e8594d0d698208560];
+  Iterable<Type> get types => const [_$f281c16bc584cda0adb1f4b8d534ee07];
 
   @override
-  String get wireName => r'_$bd993fb3f40af33e8594d0d698208560';
+  String get wireName => r'_$f281c16bc584cda0adb1f4b8d534ee07';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$bd993fb3f40af33e8594d0d698208560 object, {
+    _$f281c16bc584cda0adb1f4b8d534ee07 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -51513,66 +54497,52 @@ class _$bd993fb3f40af33e8594d0d698208560Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
-    value = object.roomAddParticipantToRoomResponseApplicationJsonOcsData0;
+    value = object.room;
     if (value != null) {
-      return serializers.serialize(
-        value,
-        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
-      )!;
+      return serializers.serialize(value, specifiedType: const FullType(Room))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$bd993fb3f40af33e8594d0d698208560 deserialize(
+  _$f281c16bc584cda0adb1f4b8d534ee07 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
-    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0;
+    Room? room;
     try {
-      roomAddParticipantToRoomResponseApplicationJsonOcsData0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
-      )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
+      room = serializers.deserialize(data, specifiedType: const FullType(Room))! as Room;
     } catch (_) {}
-    return (
-      builtListNever: builtListNever,
-      roomAddParticipantToRoomResponseApplicationJsonOcsData0: roomAddParticipantToRoomResponseApplicationJsonOcsData0
-    );
+    return (builtListNever: builtListNever, room: room);
   }
 }
 
-typedef _$973dc40faeda3fa3aa7e7b9895ee7a34 = ({BuiltList<Never>? builtListNever, Capabilities? capabilities});
+typedef _$eded9c5615e6be3b25806a949699f91f = ({
+  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
+  Capabilities? capabilities
+});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $973dc40faeda3fa3aa7e7b9895ee7a34Extension on _$973dc40faeda3fa3aa7e7b9895ee7a34 {
-  List<dynamic> get _values => [builtListNever, capabilities];
-  List<String> get _names => const ['builtListNever', 'capabilities'];
+extension $eded9c5615e6be3b25806a949699f91fExtension on _$eded9c5615e6be3b25806a949699f91f {
+  List<dynamic> get _values => [builtMapStringJsonObject, capabilities];
+  List<String> get _names => const ['builtMapStringJsonObject', 'capabilities'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$973dc40faeda3fa3aa7e7b9895ee7a34> get _serializer =>
-      const _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer();
-  static _$973dc40faeda3fa3aa7e7b9895ee7a34 _fromJson(Object? json) =>
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+  static Serializer<_$eded9c5615e6be3b25806a949699f91f> get _serializer =>
+      const _$eded9c5615e6be3b25806a949699f91fSerializer();
+  static _$eded9c5615e6be3b25806a949699f91f _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -51581,55 +54551,55 @@ extension $973dc40faeda3fa3aa7e7b9895ee7a34Extension on _$973dc40faeda3fa3aa7e7b
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer implements PrimitiveSerializer<_$973dc40faeda3fa3aa7e7b9895ee7a34> {
-  const _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer();
+class _$eded9c5615e6be3b25806a949699f91fSerializer implements PrimitiveSerializer<_$eded9c5615e6be3b25806a949699f91f> {
+  const _$eded9c5615e6be3b25806a949699f91fSerializer();
 
   @override
-  Iterable<Type> get types => const [_$973dc40faeda3fa3aa7e7b9895ee7a34];
+  Iterable<Type> get types => const [_$eded9c5615e6be3b25806a949699f91f];
 
   @override
-  String get wireName => r'_$973dc40faeda3fa3aa7e7b9895ee7a34';
+  String get wireName => r'_$eded9c5615e6be3b25806a949699f91f';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$973dc40faeda3fa3aa7e7b9895ee7a34 object, {
+    _$eded9c5615e6be3b25806a949699f91f object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListNever;
+    value = object.builtMapStringJsonObject;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
+      return serializers.serialize(
+        value,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      )!;
     }
     value = object.capabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(Capabilities))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$973dc40faeda3fa3aa7e7b9895ee7a34 deserialize(
+  _$eded9c5615e6be3b25806a949699f91f deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<Never>? builtListNever;
+    BuiltMap<String, JsonObject>? builtMapStringJsonObject;
     try {
-      builtListNever = serializers.deserialize(
+      builtMapStringJsonObject = serializers.deserialize(
         data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      )! as BuiltMap<String, JsonObject>;
     } catch (_) {}
     Capabilities? capabilities;
     try {
-      capabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Capabilities),
-      )! as Capabilities;
+      capabilities = serializers.deserialize(data, specifiedType: const FullType(Capabilities))! as Capabilities;
     } catch (_) {}
-    return (builtListNever: builtListNever, capabilities: capabilities);
+    return (builtMapStringJsonObject: builtMapStringJsonObject, capabilities: capabilities);
   }
 }
 
@@ -51642,16 +54612,10 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
@@ -51687,7 +54651,7 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -51699,104 +54663,13 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
   }) {
     int? $int;
     try {
-      $int = serializers.deserialize(
-        data,
-        specifiedType: const FullType(int),
-      )! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($int: $int, string: string);
-  }
-}
-
-typedef _$bc4aac45771b11649d372f39a92b1cf3 = ({
-  BuiltList<Never>? builtListNever,
-  PublicCapabilities0? publicCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f39a92b1cf3 {
-  List<dynamic> get _values => [builtListNever, publicCapabilities0];
-  List<String> get _names => const ['builtListNever', 'publicCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
-      const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
-  static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerializer<_$bc4aac45771b11649d372f39a92b1cf3> {
-  const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
-
-  @override
-  Iterable<Type> get types => const [_$bc4aac45771b11649d372f39a92b1cf3];
-
-  @override
-  String get wireName => r'_$bc4aac45771b11649d372f39a92b1cf3';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$bc4aac45771b11649d372f39a92b1cf3 object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.publicCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(PublicCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$bc4aac45771b11649d372f39a92b1cf3 deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    PublicCapabilities0? publicCapabilities0;
-    try {
-      publicCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(PublicCapabilities0),
-      )! as PublicCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, publicCapabilities0: publicCapabilities0);
   }
 }
 
@@ -51825,7 +54698,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
       ..add(Room.serializer)
-      ..add(ActorType.serializer)
+      ..add(ActorTypes.serializer)
       ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
       ..addBuilderFactory(const FullType(BaseMessage), BaseMessageBuilder.new)
@@ -51845,7 +54718,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatMessage_Deleted.serializer)
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..add($4b3c240037cf48d36f81308e641eef98Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer)
       ..add(AvatarDeleteAvatarApiVersion.serializer)
@@ -51983,7 +54855,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(BotReactApiVersion.serializer)
       ..addBuilderFactory(const FullType(BotReactRequestApplicationJson), BotReactRequestApplicationJsonBuilder.new)
       ..add(BotReactRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson), BotReactResponseApplicationJsonBuilder.new)
+      ..addBuilderFactory(
+        const FullType(BotReactResponseApplicationJson),
+        BotReactResponseApplicationJsonBuilder.new,
+      )
       ..add(BotReactResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotReactResponseApplicationJson_Ocs),
@@ -52180,6 +55055,19 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallLeaveCallResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallLeaveCallResponseApplicationJson_Ocs.serializer)
+      ..add(CallNotificationStateApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(CallNotificationStateResponseApplicationJson),
+        CallNotificationStateResponseApplicationJsonBuilder.new,
+      )
+      ..add(CallNotificationStateResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CallNotificationStateResponseApplicationJson_Ocs),
+        CallNotificationStateResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(CallNotificationStateResponseApplicationJson_Ocs.serializer)
+      ..add(CallDownloadParticipantsForCallApiVersion.serializer)
+      ..add(CallDownloadParticipantsForCallFormat.serializer)
       ..add(CallUpdateFederatedCallFlagsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallUpdateFederatedCallFlagsRequestApplicationJson),
@@ -52245,11 +55133,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallSipDialOutResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CallSipDialOutResponseApplicationJson_Ocs_Data),
-        CallSipDialOutResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(CallSipDialOutResponseApplicationJson_Ocs_Data.serializer)
       ..add(ChatReceiveMessagesLookIntoFuture.serializer)
       ..add(ChatReceiveMessagesApiVersion.serializer)
       ..add(ChatReceiveMessagesSetReadMarker.serializer)
@@ -52309,6 +55192,27 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
       ..add(ChatChatClearHistoryHeaders.serializer)
+      ..add(ChatSummarizeChatApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatSummarizeChatRequestApplicationJson),
+        ChatSummarizeChatRequestApplicationJsonBuilder.new,
+      )
+      ..add(ChatSummarizeChatRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatSummarizeChatResponseApplicationJson),
+        ChatSummarizeChatResponseApplicationJsonBuilder.new,
+      )
+      ..add(ChatSummarizeChatResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatSummarizeChatResponseApplicationJson_Ocs),
+        ChatSummarizeChatResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ChatSummarizeChatResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatSummarizeChatResponseApplicationJson_Ocs_Data),
+        ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ChatSummarizeChatResponseApplicationJson_Ocs_Data.serializer)
       ..add(ChatEditMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatEditMessageRequestApplicationJson),
@@ -52351,7 +55255,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatGetMessageContextResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetMessageContextResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatGetMessageContextHeaders), ChatChatGetMessageContextHeadersBuilder.new)
+      ..addBuilderFactory(
+        const FullType(ChatChatGetMessageContextHeaders),
+        ChatChatGetMessageContextHeadersBuilder.new,
+      )
       ..add(ChatChatGetMessageContextHeaders.serializer)
       ..add(ChatGetReminderApiVersion.serializer)
       ..addBuilderFactory(
@@ -52458,7 +55365,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(ChatMessage)]),
+        MapBuilder<String, ChatMessage>.new,
+      )
       ..addBuilderFactory(
         const FullType(ChatChatGetObjectsSharedInRoomHeaders),
         ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
@@ -52480,7 +55390,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatShareObjectToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatShareObjectToChatResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatShareObjectToChatHeaders), ChatChatShareObjectToChatHeadersBuilder.new)
+      ..addBuilderFactory(
+        const FullType(ChatChatShareObjectToChatHeaders),
+        ChatChatShareObjectToChatHeadersBuilder.new,
+      )
       ..add(ChatChatShareObjectToChatHeaders.serializer)
       ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
       ..addBuilderFactory(
@@ -52493,6 +55406,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
@@ -52513,14 +55427,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
       ..add(SignalingSettings.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings_Federation0), SignalingSettings_Federation0Builder.new)
-      ..add(SignalingSettings_Federation0.serializer)
+      ..addBuilderFactory(const FullType(SignalingFederationSettings), SignalingFederationSettingsBuilder.new)
+      ..add(SignalingFederationSettings.serializer)
       ..addBuilderFactory(
-        const FullType(SignalingSettings_Federation0_HelloAuthParams),
-        SignalingSettings_Federation0_HelloAuthParamsBuilder.new,
+        const FullType(SignalingFederationSettings_HelloAuthParams),
+        SignalingFederationSettings_HelloAuthParamsBuilder.new,
       )
-      ..add(SignalingSettings_Federation0_HelloAuthParams.serializer)
-      ..add($1a94bcbd080d6f9b0aa00b7ca498a08cExtension._serializer)
+      ..add(SignalingFederationSettings_HelloAuthParams.serializer)
+      ..add($4f2be900e5f7182901d856e06271b0e6Extension._serializer)
       ..addBuilderFactory(
         const FullType(SignalingSettings_HelloAuthParams),
         SignalingSettings_HelloAuthParamsBuilder.new,
@@ -52583,7 +55497,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
       ..add(FederationInvite.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(FederationInvite)]), ListBuilder<FederationInvite>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(FederationInvite)]),
+        ListBuilder<FederationInvite>.new,
+      )
       ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
@@ -52688,7 +55605,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
       ..add(SignalingSession.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SignalingSession)]),
+        ListBuilder<SignalingSession>.new,
+      )
       ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
@@ -52815,12 +55735,39 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PollCreatePollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollCreatePollResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Poll), PollBuilder.new)
-      ..add(Poll.serializer)
-      ..addBuilderFactory(const FullType(PollVote), PollVoteBuilder.new)
-      ..add(PollVote.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(PollVote)]), ListBuilder<PollVote>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(PollDraft), PollDraftBuilder.new)
+      ..add(PollDraft.serializer)
+      ..add(PollDraft_ResultMode.serializer)
+      ..add(PollDraft_Status.serializer)
+      ..add(PollUpdateDraftPollApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(PollUpdateDraftPollRequestApplicationJson),
+        PollUpdateDraftPollRequestApplicationJsonBuilder.new,
+      )
+      ..add(PollUpdateDraftPollRequestApplicationJson.serializer)
+      ..add(PollUpdateDraftPollRequestApplicationJson_ResultMode.serializer)
+      ..addBuilderFactory(
+        const FullType(PollUpdateDraftPollResponseApplicationJson),
+        PollUpdateDraftPollResponseApplicationJsonBuilder.new,
+      )
+      ..add(PollUpdateDraftPollResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(PollUpdateDraftPollResponseApplicationJson_Ocs),
+        PollUpdateDraftPollResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(PollUpdateDraftPollResponseApplicationJson_Ocs.serializer)
+      ..add(PollGetAllDraftPollsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(PollGetAllDraftPollsResponseApplicationJson),
+        PollGetAllDraftPollsResponseApplicationJsonBuilder.new,
+      )
+      ..add(PollGetAllDraftPollsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(PollGetAllDraftPollsResponseApplicationJson_Ocs),
+        PollGetAllDraftPollsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(PollGetAllDraftPollsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(PollDraft)]), ListBuilder<PollDraft>.new)
       ..add(PollShowPollApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PollShowPollResponseApplicationJson),
@@ -52832,6 +55779,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PollShowPollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollShowPollResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Poll), PollBuilder.new)
+      ..add(Poll.serializer)
+      ..addBuilderFactory(const FullType(PollVote), PollVoteBuilder.new)
+      ..add(PollVote.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(PollVote)]), ListBuilder<PollVote>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add(PollVotePollApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PollVotePollRequestApplicationJson),
@@ -52991,6 +55944,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetRoomsApiVersion.serializer)
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsIncludeStatus.serializer)
+      ..add(RoomGetRoomsIncludeLastMessage.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetRoomsResponseApplicationJson),
         RoomGetRoomsResponseApplicationJsonBuilder.new,
@@ -53059,6 +56013,33 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
       ..add(RoomRoomGetSingleRoomHeaders.serializer)
+      ..add(RoomRenameRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomRequestApplicationJson),
+        RoomRenameRoomRequestApplicationJsonBuilder.new,
+      )
+      ..add(RoomRenameRoomRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomResponseApplicationJson),
+        RoomRenameRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomRenameRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
+        RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
+      ..add(RoomDeleteRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomDeleteRoomResponseApplicationJson),
+        RoomDeleteRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomDeleteRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
+        RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
@@ -53071,6 +56052,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomGetBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..add(RoomMakePublicApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomMakePublicRequestApplicationJson),
+        RoomMakePublicRequestApplicationJsonBuilder.new,
+      )
+      ..add(RoomMakePublicRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomMakePublicResponseApplicationJson),
         RoomMakePublicResponseApplicationJsonBuilder.new,
@@ -53212,11 +56198,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder.new,
+        const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
+        RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder.new,
       )
-      ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
-      ..add($bd993fb3f40af33e8594d0d698208560Extension._serializer)
+      ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
       ..addBuilderFactory(
@@ -53273,6 +56258,18 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRoomSetAttendeePermissionsHeaders),
+        RoomRoomSetAttendeePermissionsHeadersBuilder.new,
+      )
+      ..add(RoomRoomSetAttendeePermissionsHeaders.serializer)
+      ..add(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.serializer)
+      ..addBuilderFactory(
+        const FullType(Header, [
+          FullType.nullable(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses),
+        ]),
+        HeaderBuilder<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses?>.new,
+      )
       ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAllAttendeesPermissionsRequestApplicationJson),
@@ -53498,6 +56495,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
+      ..add($f281c16bc584cda0adb1f4b8d534ee07Extension._serializer)
       ..add(RoomGetCapabilitiesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetCapabilitiesResponseApplicationJson),
@@ -53513,7 +56511,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Config), Capabilities_ConfigBuilder.new)
       ..add(Capabilities_Config.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Attachments), Capabilities_Config_AttachmentsBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Capabilities_Config_Attachments),
+        Capabilities_Config_AttachmentsBuilder.new,
+      )
       ..add(Capabilities_Config_Attachments.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Config_Call), Capabilities_Config_CallBuilder.new)
       ..add(Capabilities_Config_Call.serializer)
@@ -53524,6 +56525,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Capabilities_Config_ConversationsBuilder.new,
       )
       ..add(Capabilities_Config_Conversations.serializer)
+      ..add(Capabilities_Config_Conversations_ListStyle.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Config_Federation), Capabilities_Config_FederationBuilder.new)
       ..add(Capabilities_Config_Federation.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Config_Previews), Capabilities_Config_PreviewsBuilder.new)
@@ -53537,7 +56539,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<String>>.new,
       )
-      ..add($973dc40faeda3fa3aa7e7b9895ee7a34Extension._serializer)
+      ..add($eded9c5615e6be3b25806a949699f91fExtension._serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetCapabilitiesHeaders), RoomRoomGetCapabilitiesHeadersBuilder.new)
       ..add(RoomRoomGetCapabilitiesHeaders.serializer)
       ..add(RoomSetMentionPermissionsApiVersion.serializer)
@@ -53557,6 +56559,65 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetMentionPermissionsResponseApplicationJson_Ocs.serializer)
+      ..add(RoomArchiveConversationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomArchiveConversationResponseApplicationJson),
+        RoomArchiveConversationResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomArchiveConversationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomArchiveConversationResponseApplicationJson_Ocs),
+        RoomArchiveConversationResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomArchiveConversationResponseApplicationJson_Ocs.serializer)
+      ..add(RoomUnarchiveConversationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomUnarchiveConversationResponseApplicationJson),
+        RoomUnarchiveConversationResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomUnarchiveConversationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomUnarchiveConversationResponseApplicationJson_Ocs),
+        RoomUnarchiveConversationResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomUnarchiveConversationResponseApplicationJson_Ocs.serializer)
+      ..add(RoomImportEmailsAsParticipantsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+        RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder.new,
+      )
+      ..add(RoomImportEmailsAsParticipantsRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
+        RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs),
+        RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data),
+        RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data.serializer)
+      ..add(RoomScheduleMeetingApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomScheduleMeetingRequestApplicationJson),
+        RoomScheduleMeetingRequestApplicationJsonBuilder.new,
+      )
+      ..add(RoomScheduleMeetingRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomScheduleMeetingResponseApplicationJson),
+        RoomScheduleMeetingResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomScheduleMeetingResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomScheduleMeetingResponseApplicationJson_Ocs),
+        RoomScheduleMeetingResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomScheduleMeetingResponseApplicationJson_Ocs.serializer)
       ..add(RoomJoinFederatedRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomJoinFederatedRoomRequestApplicationJson),
@@ -53573,7 +56634,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomJoinFederatedRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomJoinFederatedRoomHeaders), RoomRoomJoinFederatedRoomHeadersBuilder.new)
+      ..addBuilderFactory(
+        const FullType(RoomRoomJoinFederatedRoomHeaders),
+        RoomRoomJoinFederatedRoomHeadersBuilder.new,
+      )
       ..add(RoomRoomJoinFederatedRoomHeaders.serializer)
       ..add(RoomLeaveFederatedRoomApiVersion.serializer)
       ..addBuilderFactory(
@@ -53798,11 +56862,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecretBuilder.new)
-      ..add(BotWithDetailsAndSecret.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0Builder.new)
-      ..add(PublicCapabilities0.serializer)
-      ..add($bc4aac45771b11649d372f39a92b1cf3Extension._serializer))
+      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+      ..add(PublicCapabilities.serializer))
     .build();
 
 /// Serializer for all values in this library.
@@ -53816,15 +56877,13 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..addPlugin(
         _i8.StandardJsonPlugin(
           typesToLeaveAsList: const {
-            _$4b3c240037cf48d36f81308e641eef98,
             _$bed8482b7c93ae2974fa4be6ae42b9b1,
             _$eef5a337590648ee15c9b8f9dd9d6a36,
-            _$1a94bcbd080d6f9b0aa00b7ca498a08c,
+            _$4f2be900e5f7182901d856e06271b0e6,
             _$1df642f5035aea3b22543ab331c3fb01,
-            _$bd993fb3f40af33e8594d0d698208560,
-            _$973dc40faeda3fa3aa7e7b9895ee7a34,
+            _$f281c16bc584cda0adb1f4b8d534ee07,
+            _$eded9c5615e6be3b25806a949699f91f,
             _$b2c4857c0136baea42828d89c87c757d,
-            _$bc4aac45771b11649d372f39a92b1cf3,
           },
         ),
       )

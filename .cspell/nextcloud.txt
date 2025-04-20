@@ -18,6 +18,7 @@ displayname
 etag
 federatedfilesharing
 fediverse
+fileowner
 groupid
 heavyrain
 heavyrainshowers
@@ -42,6 +43,7 @@ nextcloud's
 nids
 organisation
 partlycloudy
+polartwilight
 pollinterval
 productname
 rainshowers
@@ -59,6 +61,9 @@ shareapi
 sharebymail
 sharee
 shareesapi
+snowandthunder
+snowshowers
+snowshowersandthunder
 stackname
 statuscancelled
 statuscode

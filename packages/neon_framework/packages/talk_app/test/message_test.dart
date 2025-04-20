@@ -61,15 +61,13 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.S
           filesVersionsCapabilities: null,
           notesCapabilities: null,
           notificationsCapabilities: null,
+          passwordPolicyCapabilities: null,
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
           spreedCapabilities: null,
-          spreedPublicCapabilities: (
-            builtListNever: null,
-            spreedPublicCapabilities0: core.SpreedPublicCapabilities0(
-              (b) => b.spreed.replace(spreedCapabilities),
-            ),
-          ) as core.SpreedPublicCapabilities,
+          spreedPublicCapabilities: core.SpreedPublicCapabilities(
+            (b) => b.spreed.replace(spreedCapabilities),
+          ),
           systemtagsCapabilities: null,
           tablesCapabilities: null,
           themingPublicCapabilities: null,
@@ -79,6 +77,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.S
     );
 
 void main() {
+  late Account account;
   late spreed.Room room;
   late ReferencesBloc referencesBloc;
   late CapabilitiesBloc capabilitiesBloc;
@@ -94,6 +93,8 @@ void main() {
   });
 
   setUp(() {
+    account = MockAccount();
+
     room = MockRoom();
     when(() => room.readOnly).thenReturn(0);
     when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
@@ -132,6 +133,13 @@ void main() {
             ..conversations.update(
               (b) => b.canCreate = false,
             )
+            ..federation.update(
+              (b) => b
+                ..enabled = false
+                ..incomingEnabled = false
+                ..outgoingEnabled = false
+                ..onlyTrustedServers = false,
+            )
             ..previews.update(
               (b) => b..maxGifSize = 0,
             )
@@ -158,7 +166,7 @@ void main() {
     test('Guest without name', () {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.actorDisplayName).thenReturn('');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.guests);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.guests);
 
       expect(getActorDisplayName(localizations, chatMessage), localizations.actorGuest);
     });
@@ -181,6 +189,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'test',
             roomType: spreed.RoomType.group,
@@ -201,6 +212,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.group,
@@ -220,6 +234,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'test',
             roomType: spreed.RoomType.oneToOne,
@@ -239,6 +256,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.oneToOne,
@@ -258,6 +278,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.group,
@@ -277,6 +300,9 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.oneToOne,
@@ -295,9 +321,13 @@ void main() {
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.markdown).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkMessage(
             room: room,
             chatMessage: chatMessage,
@@ -309,18 +339,17 @@ void main() {
     });
 
     testWidgets('Comment', (tester) async {
-      final account = MockAccount();
-
       final chatMessage = MockChatMessage();
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('');
       when(() => chatMessage.message).thenReturn('');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -350,9 +379,13 @@ void main() {
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('test');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.markdown).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkSystemMessage(
             chatMessage: chatMessage,
             previousChatMessage: null,
@@ -372,9 +405,13 @@ void main() {
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('test');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.markdown).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkSystemMessage(
             chatMessage: chatMessage,
             previousChatMessage: previousChatMessage,
@@ -391,17 +428,16 @@ void main() {
   });
 
   testWidgets('TalkParentMessage', (tester) async {
-    final account = MockAccount();
-
     final chatMessage = MockChatMessage();
     when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage.timestamp).thenReturn(0);
     when(() => chatMessage.actorId).thenReturn('test');
-    when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+    when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('abc');
     when(() => chatMessage.reactions).thenReturn(BuiltMap());
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage.markdown).thenReturn(false);
 
     await tester.pumpWidgetWithAccessibility(
       wrapWidget(
@@ -432,7 +468,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -440,6 +476,7 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -474,8 +511,6 @@ void main() {
     });
 
     testWidgets('Other', (tester) async {
-      final account = MockAccount();
-
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -484,7 +519,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -492,6 +527,7 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -526,8 +562,6 @@ void main() {
     });
 
     testWidgets('Deleted', (tester) async {
-      final account = MockAccount();
-
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -536,13 +570,14 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.commentDeleted);
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
@@ -569,8 +604,6 @@ void main() {
     });
 
     testWidgets('As parent', (tester) async {
-      final account = MockAccount();
-
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
@@ -578,6 +611,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.markdown).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
@@ -606,8 +640,6 @@ void main() {
     });
 
     testWidgets('With parent', (tester) async {
-      final account = MockAccount();
-
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -620,11 +652,12 @@ void main() {
       when(() => parentChatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => parentChatMessage.message).thenReturn('abc');
       when(() => parentChatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => parentChatMessage.markdown).thenReturn(false);
 
       final chatMessage = MockChatMessageWithParent();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -632,6 +665,7 @@ void main() {
       when(() => chatMessage.parent).thenReturn((chatMessage: parentChatMessage, deletedChatMessage: null));
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -689,19 +723,18 @@ void main() {
         ),
       );
 
-      final account = MockAccount();
-
       final chatMessage = MockChatMessageWithParent();
       when(() => chatMessage.id).thenReturn(0);
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('a b c');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -748,10 +781,53 @@ void main() {
       );
     });
 
+    testWidgets('With markdown', (tester) async {
+      final chatMessage = MockChatMessageWithParent();
+      when(() => chatMessage.id).thenReturn(0);
+      when(() => chatMessage.timestamp).thenReturn(0);
+      when(() => chatMessage.actorId).thenReturn('test');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+      when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.message).thenReturn('''
+# abc
+
+def
+''');
+      when(() => chatMessage.reactions).thenReturn(BuiltMap());
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(true);
+
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
+      await tester.pumpWidgetWithAccessibility(
+        wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+            NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
+          ],
+          child: TalkCommentMessage(
+            room: room,
+            chatMessage: chatMessage,
+            lastCommonRead: null,
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      await expectLater(
+        find.byType(TalkCommentMessage).first,
+        matchesGoldenFile('goldens/message_comment_message_with_markdown.png'),
+      );
+    });
+
     group('Separate messages', () {
       testWidgets('Actor', (tester) async {
-        final account = MockAccount();
-
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -760,13 +836,14 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.isReplyable).thenReturn(true);
+        when(() => chatMessage.markdown).thenReturn(false);
 
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -800,8 +877,6 @@ void main() {
       });
 
       testWidgets('Time', (tester) async {
-        final account = MockAccount();
-
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -810,13 +885,14 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(300);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.isReplyable).thenReturn(true);
+        when(() => chatMessage.markdown).thenReturn(false);
 
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -849,8 +925,6 @@ void main() {
       });
 
       testWidgets('System message', (tester) async {
-        final account = MockAccount();
-
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.system);
         when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -859,13 +933,14 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.isReplyable).thenReturn(true);
+        when(() => chatMessage.markdown).thenReturn(false);
 
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -899,8 +974,6 @@ void main() {
       });
 
       testWidgets('Edited', (tester) async {
-        final account = MockAccount();
-
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => previousChatMessage.timestamp).thenReturn(0);
@@ -909,7 +982,7 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -918,6 +991,7 @@ void main() {
         when(() => chatMessage.lastEditTimestamp).thenReturn(0);
         when(() => chatMessage.lastEditActorDisplayName).thenReturn('test');
         when(() => chatMessage.isReplyable).thenReturn(true);
+        when(() => chatMessage.markdown).thenReturn(false);
 
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -964,7 +1038,7 @@ void main() {
         chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -972,6 +1046,7 @@ void main() {
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.id).thenReturn(0);
         when(() => chatMessage.isReplyable).thenReturn(true);
+        when(() => chatMessage.markdown).thenReturn(false);
 
         roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));

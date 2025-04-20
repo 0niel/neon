@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eux
 
-./occ app:enable cookbook "$@"
+./occ app:enable cookbook "$@" --force
 ./occ app:enable news "$@"
 ./occ app:enable notes "$@"
 ./occ app:enable uppush "$@"

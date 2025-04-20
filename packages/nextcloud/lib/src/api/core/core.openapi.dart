@@ -37,19 +37,11 @@ part 'core.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $AppPasswordClient appPassword = $AppPasswordClient(this);
 
@@ -95,6 +87,8 @@ class $Client extends _i1.DynamiteClient {
   late final $TextToImageApiClient textToImageApi = $TextToImageApiClient(this);
 
   late final $TranslationApiClient translationApi = $TranslationApiClient(this);
+
+  late final $TwoFactorApiClient twoFactorApi = $TwoFactorApiClient(this);
 
   late final $UnifiedSearchClient unifiedSearch = $UnifiedSearchClient(this);
 
@@ -187,7 +181,7 @@ class $AppPasswordClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -196,14 +190,12 @@ class $AppPasswordClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -231,15 +223,14 @@ class $AppPasswordClient {
   Future<_i1.DynamiteResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getAppPassword_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getAppPassword_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppPassword_Serializer();
-    return _i1.ResponseConverter<AppPasswordGetAppPasswordResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<AppPasswordGetAppPasswordResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteAppPassword_Request].
@@ -273,7 +264,7 @@ class $AppPasswordClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -282,14 +273,12 @@ class $AppPasswordClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -315,15 +304,14 @@ class $AppPasswordClient {
   Future<_i1.DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAppPassword_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteAppPassword_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteAppPassword_Serializer();
-    return _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$rotateAppPassword_Request].
@@ -357,7 +345,7 @@ class $AppPasswordClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -366,14 +354,12 @@ class $AppPasswordClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -399,15 +385,14 @@ class $AppPasswordClient {
   Future<_i1.DynamiteResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $rotateAppPassword_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $rotateAppPassword_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $rotateAppPassword_Serializer();
-    return _i1.ResponseConverter<AppPasswordRotateAppPasswordResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$confirmUserPassword_Request].
@@ -444,7 +429,7 @@ class $AppPasswordClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -453,14 +438,12 @@ class $AppPasswordClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -494,16 +477,14 @@ class $AppPasswordClient {
     required AppPasswordConfirmUserPasswordRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $confirmUserPassword_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $confirmUserPassword_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmUserPassword_Serializer();
-    return _i1.ResponseConverter<AppPasswordConfirmUserPasswordResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<AppPasswordConfirmUserPasswordResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -565,8 +546,10 @@ class $AutoCompleteClient {
     final __sorter = _$jsonSerializers.serialize(sorter, specifiedType: const FullType(String));
     _parameters['sorter'] = __sorter;
 
-    var __shareTypes =
-        _$jsonSerializers.serialize(shareTypes, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    var __shareTypes = _$jsonSerializers.serialize(
+      shareTypes,
+      specifiedType: const FullType(BuiltList, [FullType(int)]),
+    );
     __shareTypes ??= const [];
     _parameters['shareTypes%5B%5D'] = __shareTypes;
 
@@ -580,7 +563,7 @@ class $AutoCompleteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -589,14 +572,12 @@ class $AutoCompleteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -699,8 +680,10 @@ class $AvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetAvatarDarkSize));
     _parameters['size'] = __size;
 
-    var __guestFallback =
-        _$jsonSerializers.serialize(guestFallback, specifiedType: const FullType(AvatarGetAvatarDarkGuestFallback));
+    var __guestFallback = _$jsonSerializers.serialize(
+      guestFallback,
+      specifiedType: const FullType(AvatarGetAvatarDarkGuestFallback),
+    );
     __guestFallback ??= 0;
     _parameters['guestFallback'] = __guestFallback;
 
@@ -708,7 +691,7 @@ class $AvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -717,12 +700,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -750,11 +731,7 @@ class $AvatarClient {
     required AvatarGetAvatarDarkSize size,
     AvatarGetAvatarDarkGuestFallback? guestFallback,
   }) async {
-    final _request = $getAvatarDark_Request(
-      userId: userId,
-      size: size,
-      guestFallback: guestFallback,
-    );
+    final _request = $getAvatarDark_Request(userId: userId, size: size, guestFallback: guestFallback);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -803,8 +780,10 @@ class $AvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetAvatarSize));
     _parameters['size'] = __size;
 
-    var __guestFallback =
-        _$jsonSerializers.serialize(guestFallback, specifiedType: const FullType(AvatarGetAvatarGuestFallback));
+    var __guestFallback = _$jsonSerializers.serialize(
+      guestFallback,
+      specifiedType: const FullType(AvatarGetAvatarGuestFallback),
+    );
     __guestFallback ??= 0;
     _parameters['guestFallback'] = __guestFallback;
 
@@ -812,7 +791,7 @@ class $AvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -821,12 +800,10 @@ class $AvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -854,11 +831,7 @@ class $AvatarClient {
     required AvatarGetAvatarSize size,
     AvatarGetAvatarGuestFallback? guestFallback,
   }) async {
-    final _request = $getAvatar_Request(
-      userId: userId,
-      size: size,
-      guestFallback: guestFallback,
-    );
+    final _request = $getAvatar_Request(userId: userId, size: size, guestFallback: guestFallback);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -900,7 +873,7 @@ class $ClientFlowLoginV2Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -909,12 +882,10 @@ class $ClientFlowLoginV2Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(ClientFlowLoginV2PollRequestApplicationJson)),
@@ -937,9 +908,7 @@ class $ClientFlowLoginV2Client {
   Future<_i1.DynamiteResponse<LoginFlowV2Credentials, void>> poll({
     required ClientFlowLoginV2PollRequestApplicationJson $body,
   }) async {
-    final _request = $poll_Request(
-      $body: $body,
-    );
+    final _request = $poll_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -973,7 +942,7 @@ class $ClientFlowLoginV2Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -982,12 +951,10 @@ class $ClientFlowLoginV2Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1046,10 +1013,7 @@ class $CollaborationResourcesClient {
   ///  * [listCollection] for a method executing this request and parsing the response.
   ///  * [$listCollection_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listCollection_Request({
-    required int collectionId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listCollection_Request({required int collectionId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __collectionId = _$jsonSerializers.serialize(collectionId, specifiedType: const FullType(int));
     _parameters['collectionId'] = __collectionId;
@@ -1058,7 +1022,7 @@ class $CollaborationResourcesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1067,14 +1031,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1103,16 +1065,14 @@ class $CollaborationResourcesClient {
     required int collectionId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listCollection_Request(
-      collectionId: collectionId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listCollection_Request(collectionId: collectionId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listCollection_Serializer();
-    return _i1.ResponseConverter<CollaborationResourcesListCollectionResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CollaborationResourcesListCollectionResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$renameCollection_Request].
@@ -1156,7 +1116,7 @@ class $CollaborationResourcesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1165,14 +1125,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1209,17 +1167,14 @@ class $CollaborationResourcesClient {
     required CollaborationResourcesRenameCollectionRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $renameCollection_Request(
-      collectionId: collectionId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $renameCollection_Request(collectionId: collectionId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $renameCollection_Serializer();
-    return _i1.ResponseConverter<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addResource_Request].
@@ -1263,7 +1218,7 @@ class $CollaborationResourcesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1272,14 +1227,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1316,17 +1269,14 @@ class $CollaborationResourcesClient {
     required CollaborationResourcesAddResourceRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $addResource_Request(
-      collectionId: collectionId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $addResource_Request(collectionId: collectionId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addResource_Serializer();
-    return _i1.ResponseConverter<CollaborationResourcesAddResourceResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CollaborationResourcesAddResourceResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeResource_Request].
@@ -1375,13 +1325,13 @@ class $CollaborationResourcesClient {
     final __resourceId = _$jsonSerializers.serialize(resourceId, specifiedType: const FullType(String));
     _parameters['resourceId'] = __resourceId;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
-            .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1390,14 +1340,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1440,8 +1388,9 @@ class $CollaborationResourcesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeResource_Serializer();
-    return _i1.ResponseConverter<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$searchCollections_Request].
@@ -1471,20 +1420,18 @@ class $CollaborationResourcesClient {
   ///  * [searchCollections] for a method executing this request and parsing the response.
   ///  * [$searchCollections_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $searchCollections_Request({
-    required String filter,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $searchCollections_Request({required String filter, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
     _parameters['filter'] = __filter;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/collaboration/resources/collections/search/{filter}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1493,14 +1440,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1528,16 +1473,14 @@ class $CollaborationResourcesClient {
     required String filter,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $searchCollections_Request(
-      filter: filter,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $searchCollections_Request(filter: filter, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $searchCollections_Serializer();
-    return _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getCollectionsByResource_Request].
@@ -1580,12 +1523,13 @@ class $CollaborationResourcesClient {
     final __resourceId = _$jsonSerializers.serialize(resourceId, specifiedType: const FullType(String));
     _parameters['resourceId'] = __resourceId;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1594,14 +1538,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1627,11 +1569,7 @@ class $CollaborationResourcesClient {
   ///  * [$getCollectionsByResource_Request] for the request send by this method.
   ///  * [$getCollectionsByResource_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
-      getCollectionsByResource({
-    required String resourceType,
-    required String resourceId,
-    bool? oCSAPIRequest,
-  }) async {
+      getCollectionsByResource({required String resourceType, required String resourceId, bool? oCSAPIRequest}) async {
     final _request = $getCollectionsByResource_Request(
       resourceType: resourceType,
       resourceId: resourceId,
@@ -1689,12 +1627,13 @@ class $CollaborationResourcesClient {
     final __baseResourceId = _$jsonSerializers.serialize(baseResourceId, specifiedType: const FullType(String));
     _parameters['baseResourceId'] = __baseResourceId;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1703,14 +1642,12 @@ class $CollaborationResourcesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1800,7 +1737,7 @@ class $CsrfTokenClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1809,12 +1746,10 @@ class $CsrfTokenClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1888,8 +1823,10 @@ class $GuestAvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(GuestAvatarGetAvatarSize));
     _parameters['size'] = __size;
 
-    var __darkTheme =
-        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(GuestAvatarGetAvatarDarkTheme));
+    var __darkTheme = _$jsonSerializers.serialize(
+      darkTheme,
+      specifiedType: const FullType(GuestAvatarGetAvatarDarkTheme),
+    );
     __darkTheme ??= 0;
     _parameters['darkTheme'] = __darkTheme;
 
@@ -1897,7 +1834,7 @@ class $GuestAvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1906,12 +1843,10 @@ class $GuestAvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1938,11 +1873,7 @@ class $GuestAvatarClient {
     required GuestAvatarGetAvatarSize size,
     GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) async {
-    final _request = $getAvatar_Request(
-      guestName: guestName,
-      size: size,
-      darkTheme: darkTheme,
-    );
+    final _request = $getAvatar_Request(guestName: guestName, size: size, darkTheme: darkTheme);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1978,10 +1909,7 @@ class $GuestAvatarClient {
   ///  * [getAvatarDark] for a method executing this request and parsing the response.
   ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getAvatarDark_Request({
-    required String guestName,
-    required GuestAvatarGetAvatarDarkSize size,
-  }) {
+  _i3.Request $getAvatarDark_Request({required String guestName, required GuestAvatarGetAvatarDarkSize size}) {
     final _parameters = <String, Object?>{};
     final __guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
     _parameters['guestName'] = __guestName;
@@ -1993,7 +1921,7 @@ class $GuestAvatarClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2002,12 +1930,10 @@ class $GuestAvatarClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2032,10 +1958,7 @@ class $GuestAvatarClient {
     required String guestName,
     required GuestAvatarGetAvatarDarkSize size,
   }) async {
-    final _request = $getAvatarDark_Request(
-      guestName: guestName,
-      size: size,
-    );
+    final _request = $getAvatarDark_Request(guestName: guestName, size: size);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2076,10 +1999,7 @@ class $HoverCardClient {
   ///  * [getUser] for a method executing this request and parsing the response.
   ///  * [$getUser_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getUser_Request({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getUser_Request({required String userId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
@@ -2088,7 +2008,7 @@ class $HoverCardClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2097,14 +2017,12 @@ class $HoverCardClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2132,10 +2050,7 @@ class $HoverCardClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getUser_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getUser_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2178,7 +2093,7 @@ class $LoginClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2187,14 +2102,12 @@ class $LoginClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(LoginConfirmPasswordRequestApplicationJson)),
@@ -2217,9 +2130,7 @@ class $LoginClient {
   Future<_i1.DynamiteResponse<LoginConfirmPasswordResponseApplicationJson, void>> confirmPassword({
     required LoginConfirmPasswordRequestApplicationJson $body,
   }) async {
-    final _request = $confirmPassword_Request(
-      $body: $body,
-    );
+    final _request = $confirmPassword_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2261,13 +2172,12 @@ class $NavigationClient {
   ///  * [getAppsNavigation] for a method executing this request and parsing the response.
   ///  * [$getAppsNavigation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getAppsNavigation_Request({
-    NavigationGetAppsNavigationAbsolute? absolute,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getAppsNavigation_Request({NavigationGetAppsNavigationAbsolute? absolute, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __absolute =
-        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetAppsNavigationAbsolute));
+    var __absolute = _$jsonSerializers.serialize(
+      absolute,
+      specifiedType: const FullType(NavigationGetAppsNavigationAbsolute),
+    );
     __absolute ??= 0;
     _parameters['absolute'] = __absolute;
 
@@ -2275,7 +2185,7 @@ class $NavigationClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2284,14 +2194,12 @@ class $NavigationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2319,16 +2227,14 @@ class $NavigationClient {
     NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getAppsNavigation_Request(
-      absolute: absolute,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getAppsNavigation_Request(absolute: absolute, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppsNavigation_Serializer();
-    return _i1.ResponseConverter<NavigationGetAppsNavigationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<NavigationGetAppsNavigationResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getSettingsNavigation_Request].
@@ -2358,13 +2264,12 @@ class $NavigationClient {
   ///  * [getSettingsNavigation] for a method executing this request and parsing the response.
   ///  * [$getSettingsNavigation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getSettingsNavigation_Request({
-    NavigationGetSettingsNavigationAbsolute? absolute,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getSettingsNavigation_Request({NavigationGetSettingsNavigationAbsolute? absolute, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __absolute =
-        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetSettingsNavigationAbsolute));
+    var __absolute = _$jsonSerializers.serialize(
+      absolute,
+      specifiedType: const FullType(NavigationGetSettingsNavigationAbsolute),
+    );
     __absolute ??= 0;
     _parameters['absolute'] = __absolute;
 
@@ -2372,7 +2277,7 @@ class $NavigationClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2381,14 +2286,12 @@ class $NavigationClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2416,16 +2319,14 @@ class $NavigationClient {
     NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getSettingsNavigation_Request(
-      absolute: absolute,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getSettingsNavigation_Request(absolute: absolute, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSettingsNavigation_Serializer();
-    return _i1.ResponseConverter<NavigationGetSettingsNavigationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<NavigationGetSettingsNavigationResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -2464,7 +2365,7 @@ class $OcmClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2473,12 +2374,10 @@ class $OcmClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2500,8 +2399,9 @@ class $OcmClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $discovery_Serializer();
-    return _i1.ResponseConverter<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -2541,7 +2441,7 @@ class $OcsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2550,12 +2450,10 @@ class $OcsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2580,9 +2478,7 @@ class $OcsClient {
   Future<_i1.DynamiteResponse<OcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getCapabilities_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getCapabilities_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2665,17 +2561,20 @@ class $PreviewClient {
     __mode ??= 'fill';
     _parameters['mode'] = __mode;
 
-    var __mimeFallback =
-        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewMimeFallback));
+    var __mimeFallback = _$jsonSerializers.serialize(
+      mimeFallback,
+      specifiedType: const FullType(PreviewGetPreviewMimeFallback),
+    );
     __mimeFallback ??= 0;
     _parameters['mimeFallback'] = __mimeFallback;
 
-    final _path = _i6.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
-        .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2684,14 +2583,12 @@ class $PreviewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2804,8 +2701,10 @@ class $PreviewClient {
     __a ??= 0;
     _parameters['a'] = __a;
 
-    var __forceIcon =
-        _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewByFileIdForceIcon));
+    var __forceIcon = _$jsonSerializers.serialize(
+      forceIcon,
+      specifiedType: const FullType(PreviewGetPreviewByFileIdForceIcon),
+    );
     __forceIcon ??= 1;
     _parameters['forceIcon'] = __forceIcon;
 
@@ -2813,17 +2712,20 @@ class $PreviewClient {
     __mode ??= 'fill';
     _parameters['mode'] = __mode;
 
-    var __mimeFallback =
-        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewByFileIdMimeFallback));
+    var __mimeFallback = _$jsonSerializers.serialize(
+      mimeFallback,
+      specifiedType: const FullType(PreviewGetPreviewByFileIdMimeFallback),
+    );
     __mimeFallback ??= 0;
     _parameters['mimeFallback'] = __mimeFallback;
 
-    final _path = _i6.UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
-        .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2832,14 +2734,12 @@ class $PreviewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2890,6 +2790,79 @@ class $PreviewClient {
 
     final _serializer = $getPreviewByFileId_Serializer();
     return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getMimeIconUrl_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, PreviewPreviewGetMimeIconUrlHeaders> $getMimeIconUrl_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: const FullType(PreviewPreviewGetMimeIconUrlHeaders),
+        serializers: _$jsonSerializers,
+        validStatuses: const {303},
+      );
+
+  /// Get a preview by mime.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getMimeIconUrl] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mime] Mime type. Defaults to `"application/octet-stream"`.
+  ///
+  /// Status codes:
+  ///   * 303: The mime icon url
+  ///
+  /// See:
+  ///  * [getMimeIconUrl] for a method executing this request and parsing the response.
+  ///  * [$getMimeIconUrl_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getMimeIconUrl_Request({String? mime}) {
+    final _parameters = <String, Object?>{};
+    var __mime = _$jsonSerializers.serialize(mime, specifiedType: const FullType(String));
+    __mime ??= 'application/octet-stream';
+    _parameters['mime'] = __mime;
+
+    final _path = _i6.UriTemplate('/index.php/core/mimeicon{?mime*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a preview by mime.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mime] Mime type. Defaults to `"application/octet-stream"`.
+  ///
+  /// Status codes:
+  ///   * 303: The mime icon url
+  ///
+  /// See:
+  ///  * [$getMimeIconUrl_Request] for the request send by this method.
+  ///  * [$getMimeIconUrl_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, PreviewPreviewGetMimeIconUrlHeaders>> getMimeIconUrl({String? mime}) async {
+    final _request = $getMimeIconUrl_Request(mime: mime);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getMimeIconUrl_Serializer();
+    return _i1.ResponseConverter<void, PreviewPreviewGetMimeIconUrlHeaders>(_serializer).convert(_response);
   }
 }
 
@@ -2943,7 +2916,7 @@ class $ProfileApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2952,24 +2925,19 @@ class $ProfileApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(ProfileApiSetVisibilityRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ProfileApiSetVisibilityRequestApplicationJson)),
     );
     return _request;
   }
@@ -2999,11 +2967,7 @@ class $ProfileApiClient {
     required ProfileApiSetVisibilityRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setVisibility_Request(
-      targetUserId: targetUserId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setVisibility_Request(targetUserId: targetUserId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3052,7 +3016,7 @@ class $ReferenceClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3061,12 +3025,10 @@ class $ReferenceClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -3086,9 +3048,7 @@ class $ReferenceClient {
   ///  * [$preview_Request] for the request send by this method.
   ///  * [$preview_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> preview({required String referenceId}) async {
-    final _request = $preview_Request(
-      referenceId: referenceId,
-    );
+    final _request = $preview_Request(referenceId: referenceId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3128,15 +3088,12 @@ class $ReferenceApiClient {
   ///  * [extract] for a method executing this request and parsing the response.
   ///  * [$extract_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $extract_Request({
-    required ReferenceApiExtractRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $extract_Request({required ReferenceApiExtractRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/references/extract';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3145,14 +3102,12 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3182,10 +3137,7 @@ class $ReferenceApiClient {
     required ReferenceApiExtractRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $extract_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $extract_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3226,7 +3178,7 @@ class $ReferenceApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3235,12 +3187,10 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3273,16 +3223,14 @@ class $ReferenceApiClient {
     required ReferenceApiExtractPublicRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $extractPublic_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $extractPublic_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $extractPublic_Serializer();
-    return _i1.ResponseConverter<ReferenceApiExtractPublicResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ReferenceApiExtractPublicResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$resolveOne_Request].
@@ -3311,10 +3259,7 @@ class $ReferenceApiClient {
   ///  * [resolveOne] for a method executing this request and parsing the response.
   ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $resolveOne_Request({
-    required String reference,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $resolveOne_Request({required String reference, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __reference = _$jsonSerializers.serialize(reference, specifiedType: const FullType(String));
     _parameters['reference'] = __reference;
@@ -3323,7 +3268,7 @@ class $ReferenceApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3332,14 +3277,12 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3366,10 +3309,7 @@ class $ReferenceApiClient {
     required String reference,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $resolveOne_Request(
-      reference: reference,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $resolveOne_Request(reference: reference, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3402,15 +3342,12 @@ class $ReferenceApiClient {
   ///  * [resolve] for a method executing this request and parsing the response.
   ///  * [$resolve_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $resolve_Request({
-    required ReferenceApiResolveRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $resolve_Request({required ReferenceApiResolveRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/references/resolve';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3419,14 +3356,12 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3456,10 +3391,7 @@ class $ReferenceApiClient {
     required ReferenceApiResolveRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $resolve_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $resolve_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3506,12 +3438,13 @@ class $ReferenceApiClient {
     final __sharingToken = _$jsonSerializers.serialize(sharingToken, specifiedType: const FullType(String));
     _parameters['sharingToken'] = __sharingToken;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/references/resolvePublic{?reference*,sharingToken*}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/references/resolvePublic{?reference*,sharingToken*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3520,12 +3453,10 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3563,8 +3494,9 @@ class $ReferenceApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resolveOnePublic_Serializer();
-    return _i1.ResponseConverter<ReferenceApiResolveOnePublicResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ReferenceApiResolveOnePublicResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$resolvePublic_Request].
@@ -3600,7 +3532,7 @@ class $ReferenceApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3609,12 +3541,10 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3647,16 +3577,14 @@ class $ReferenceApiClient {
     required ReferenceApiResolvePublicRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $resolvePublic_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $resolvePublic_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resolvePublic_Serializer();
-    return _i1.ResponseConverter<ReferenceApiResolvePublicResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ReferenceApiResolvePublicResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getProvidersInfo_Request].
@@ -3689,7 +3617,7 @@ class $ReferenceApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3698,14 +3626,12 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3730,15 +3656,14 @@ class $ReferenceApiClient {
   Future<_i1.DynamiteResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getProvidersInfo_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getProvidersInfo_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getProvidersInfo_Serializer();
-    return _i1.ResponseConverter<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$touchProvider_Request].
@@ -3780,7 +3705,7 @@ class $ReferenceApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3789,14 +3714,12 @@ class $ReferenceApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3838,17 +3761,14 @@ class $ReferenceApiClient {
     bool? oCSAPIRequest,
     ReferenceApiTouchProviderRequestApplicationJson? $body,
   }) async {
-    final _request = $touchProvider_Request(
-      providerId: providerId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $touchProvider_Request(providerId: providerId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $touchProvider_Serializer();
-    return _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -3888,7 +3808,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3897,12 +3817,10 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3927,15 +3845,14 @@ class $TaskProcessingApiClient {
   Future<_i1.DynamiteResponse<TaskProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $taskTypes_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $taskTypes_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $taskTypes_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiTaskTypesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiTaskTypesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$schedule_Request].
@@ -3967,15 +3884,12 @@ class $TaskProcessingApiClient {
   ///  * [schedule] for a method executing this request and parsing the response.
   ///  * [$schedule_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $schedule_Request({
-    required TaskProcessingApiScheduleRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $schedule_Request({required TaskProcessingApiScheduleRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/taskprocessing/schedule';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3984,12 +3898,10 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4026,16 +3938,14 @@ class $TaskProcessingApiClient {
     required TaskProcessingApiScheduleRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $schedule_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $schedule_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $schedule_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiScheduleResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiScheduleResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getTask_Request].
@@ -4068,10 +3978,7 @@ class $TaskProcessingApiClient {
   ///  * [getTask] for a method executing this request and parsing the response.
   ///  * [$getTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4080,7 +3987,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4089,12 +3996,10 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4125,10 +4030,7 @@ class $TaskProcessingApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4163,10 +4065,7 @@ class $TaskProcessingApiClient {
   ///  * [deleteTask] for a method executing this request and parsing the response.
   ///  * [$deleteTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4175,7 +4074,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4184,14 +4083,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4219,16 +4116,14 @@ class $TaskProcessingApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteTask_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiDeleteTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiDeleteTaskResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listTasksByApp_Request].
@@ -4259,11 +4154,7 @@ class $TaskProcessingApiClient {
   ///  * [listTasksByApp] for a method executing this request and parsing the response.
   ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listTasksByApp_Request({
-    required String appId,
-    String? customId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listTasksByApp_Request({required String appId, String? customId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
@@ -4275,7 +4166,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4284,14 +4175,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4321,17 +4210,14 @@ class $TaskProcessingApiClient {
     String? customId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listTasksByApp_Request(
-      appId: appId,
-      customId: customId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listTasksByApp_Request(appId: appId, customId: customId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasksByApp_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiListTasksByAppResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiListTasksByAppResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listTasks_Request].
@@ -4362,11 +4248,7 @@ class $TaskProcessingApiClient {
   ///  * [listTasks] for a method executing this request and parsing the response.
   ///  * [$listTasks_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listTasks_Request({
-    String? taskType,
-    String? customId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listTasks_Request({String? taskType, String? customId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __taskType = _$jsonSerializers.serialize(taskType, specifiedType: const FullType(String));
     _parameters['taskType'] = __taskType;
@@ -4378,7 +4260,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4387,14 +4269,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4424,17 +4304,14 @@ class $TaskProcessingApiClient {
     String? customId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listTasks_Request(
-      taskType: taskType,
-      customId: customId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listTasks_Request(taskType: taskType, customId: customId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasks_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiListTasksResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiListTasksResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getFileContents_Request].
@@ -4465,11 +4342,7 @@ class $TaskProcessingApiClient {
   ///  * [getFileContents] for a method executing this request and parsing the response.
   ///  * [$getFileContents_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getFileContents_Request({
-    required int taskId,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getFileContents_Request({required int taskId, required int fileId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
     _parameters['taskId'] = __taskId;
@@ -4481,7 +4354,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4490,14 +4363,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4528,11 +4399,7 @@ class $TaskProcessingApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getFileContents_Request(
-      taskId: taskId,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getFileContents_Request(taskId: taskId, fileId: fileId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4568,10 +4435,7 @@ class $TaskProcessingApiClient {
   ///  * [cancelTask] for a method executing this request and parsing the response.
   ///  * [$cancelTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $cancelTask_Request({
-    required int taskId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $cancelTask_Request({required int taskId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
     _parameters['taskId'] = __taskId;
@@ -4580,7 +4444,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4589,14 +4453,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4625,16 +4487,14 @@ class $TaskProcessingApiClient {
     required int taskId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $cancelTask_Request(
-      taskId: taskId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $cancelTask_Request(taskId: taskId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $cancelTask_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiCancelTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiCancelTaskResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getFileContentsExApp_Request].
@@ -4667,11 +4527,7 @@ class $TaskProcessingApiClient {
   ///  * [getFileContentsExApp] for a method executing this request and parsing the response.
   ///  * [$getFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getFileContentsExApp_Request({
-    required int taskId,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getFileContentsExApp_Request({required int taskId, required int fileId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
     _parameters['taskId'] = __taskId;
@@ -4679,12 +4535,13 @@ class $TaskProcessingApiClient {
     final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = __fileId;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/file/{fileId}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/file/{fileId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4693,14 +4550,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4733,11 +4588,7 @@ class $TaskProcessingApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getFileContentsExApp_Request(
-      taskId: taskId,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getFileContentsExApp_Request(taskId: taskId, fileId: fileId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4777,10 +4628,7 @@ class $TaskProcessingApiClient {
   ///  * [setFileContentsExApp] for a method executing this request and parsing the response.
   ///  * [$setFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $setFileContentsExApp_Request({
-    required int taskId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $setFileContentsExApp_Request({required int taskId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
     _parameters['taskId'] = __taskId;
@@ -4789,7 +4637,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4798,14 +4646,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4839,16 +4685,14 @@ class $TaskProcessingApiClient {
     required int taskId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setFileContentsExApp_Request(
-      taskId: taskId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $setFileContentsExApp_Request(taskId: taskId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setFileContentsExApp_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setProgress_Request].
@@ -4894,7 +4738,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4903,14 +4747,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4949,17 +4791,14 @@ class $TaskProcessingApiClient {
     required TaskProcessingApiSetProgressRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setProgress_Request(
-      taskId: taskId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setProgress_Request(taskId: taskId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setProgress_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiSetProgressResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiSetProgressResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setResult_Request].
@@ -5005,7 +4844,7 @@ class $TaskProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5014,14 +4853,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5067,17 +4904,14 @@ class $TaskProcessingApiClient {
     bool? oCSAPIRequest,
     TaskProcessingApiSetResultRequestApplicationJson? $body,
   }) async {
-    final _request = $setResult_Request(
-      taskId: taskId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setResult_Request(taskId: taskId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setResult_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiSetResultResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiSetResultResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getNextScheduledTask_Request].
@@ -5117,21 +4951,25 @@ class $TaskProcessingApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __providerIds =
-        _$jsonSerializers.serialize(providerIds, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final __providerIds = _$jsonSerializers.serialize(
+      providerIds,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
     _parameters['providerIds%5B%5D'] = __providerIds;
 
-    final __taskTypeIds =
-        _$jsonSerializers.serialize(taskTypeIds, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final __taskTypeIds = _$jsonSerializers.serialize(
+      taskTypeIds,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
     _parameters['taskTypeIds%5B%5D'] = __taskTypeIds;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/next{?providerIds%5B%5D*,taskTypeIds%5B%5D*}')
-            .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/taskprocessing/tasks_provider/next{?providerIds%5B%5D*,taskTypeIds%5B%5D*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5140,14 +4978,12 @@ class $TaskProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5190,8 +5026,9 @@ class $TaskProcessingApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNextScheduledTask_Serializer();
-    return _i1.ResponseConverter<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -5227,10 +5064,7 @@ class $TeamsApiClient {
   ///  * [resolveOne] for a method executing this request and parsing the response.
   ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $resolveOne_Request({
-    required String teamId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $resolveOne_Request({required String teamId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __teamId = _$jsonSerializers.serialize(teamId, specifiedType: const FullType(String));
     _parameters['teamId'] = __teamId;
@@ -5239,7 +5073,7 @@ class $TeamsApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5248,14 +5082,12 @@ class $TeamsApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5282,10 +5114,7 @@ class $TeamsApiClient {
     required String teamId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $resolveOne_Request(
-      teamId: teamId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $resolveOne_Request(teamId: teamId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5320,11 +5149,7 @@ class $TeamsApiClient {
   ///  * [listTeams] for a method executing this request and parsing the response.
   ///  * [$listTeams_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listTeams_Request({
-    required String providerId,
-    required String resourceId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listTeams_Request({required String providerId, required String resourceId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __providerId = _$jsonSerializers.serialize(providerId, specifiedType: const FullType(String));
     _parameters['providerId'] = __providerId;
@@ -5336,7 +5161,7 @@ class $TeamsApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5345,14 +5170,12 @@ class $TeamsApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5381,11 +5204,7 @@ class $TeamsApiClient {
     required String resourceId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listTeams_Request(
-      providerId: providerId,
-      resourceId: resourceId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listTeams_Request(providerId: providerId, resourceId: resourceId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5430,7 +5249,7 @@ class $TextProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5439,12 +5258,10 @@ class $TextProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5469,15 +5286,14 @@ class $TextProcessingApiClient {
   Future<_i1.DynamiteResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $taskTypes_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $taskTypes_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $taskTypes_Serializer();
-    return _i1.ResponseConverter<TextProcessingApiTaskTypesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextProcessingApiTaskTypesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$schedule_Request].
@@ -5508,15 +5324,12 @@ class $TextProcessingApiClient {
   ///  * [schedule] for a method executing this request and parsing the response.
   ///  * [$schedule_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $schedule_Request({
-    required TextProcessingApiScheduleRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $schedule_Request({required TextProcessingApiScheduleRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/textprocessing/schedule';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5525,12 +5338,10 @@ class $TextProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5566,16 +5377,14 @@ class $TextProcessingApiClient {
     required TextProcessingApiScheduleRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $schedule_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $schedule_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $schedule_Serializer();
-    return _i1.ResponseConverter<TextProcessingApiScheduleResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextProcessingApiScheduleResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getTask_Request].
@@ -5606,10 +5415,7 @@ class $TextProcessingApiClient {
   ///  * [getTask] for a method executing this request and parsing the response.
   ///  * [$getTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -5618,7 +5424,7 @@ class $TextProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5627,12 +5433,10 @@ class $TextProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5661,10 +5465,7 @@ class $TextProcessingApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5700,10 +5501,7 @@ class $TextProcessingApiClient {
   ///  * [deleteTask] for a method executing this request and parsing the response.
   ///  * [$deleteTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -5712,7 +5510,7 @@ class $TextProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5721,14 +5519,12 @@ class $TextProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5757,16 +5553,14 @@ class $TextProcessingApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteTask_Serializer();
-    return _i1.ResponseConverter<TextProcessingApiDeleteTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listTasksByApp_Request].
@@ -5797,11 +5591,7 @@ class $TextProcessingApiClient {
   ///  * [listTasksByApp] for a method executing this request and parsing the response.
   ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listTasksByApp_Request({
-    required String appId,
-    String? identifier,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listTasksByApp_Request({required String appId, String? identifier, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
@@ -5813,7 +5603,7 @@ class $TextProcessingApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5822,14 +5612,12 @@ class $TextProcessingApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5859,17 +5647,14 @@ class $TextProcessingApiClient {
     String? identifier,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listTasksByApp_Request(
-      appId: appId,
-      identifier: identifier,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listTasksByApp_Request(appId: appId, identifier: identifier, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasksByApp_Serializer();
-    return _i1.ResponseConverter<TextProcessingApiListTasksByAppResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -5909,7 +5694,7 @@ class $TextToImageApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5918,12 +5703,10 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5948,15 +5731,14 @@ class $TextToImageApiClient {
   Future<_i1.DynamiteResponse<TextToImageApiIsAvailableResponseApplicationJson, void>> isAvailable({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $isAvailable_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $isAvailable_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $isAvailable_Serializer();
-    return _i1.ResponseConverter<TextToImageApiIsAvailableResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextToImageApiIsAvailableResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$schedule_Request].
@@ -5986,15 +5768,12 @@ class $TextToImageApiClient {
   ///  * [schedule] for a method executing this request and parsing the response.
   ///  * [$schedule_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $schedule_Request({
-    required TextToImageApiScheduleRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $schedule_Request({required TextToImageApiScheduleRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/text2image/schedule';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6003,22 +5782,17 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(TextToImageApiScheduleRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TextToImageApiScheduleRequestApplicationJson)),
     );
     return _request;
   }
@@ -6043,10 +5817,7 @@ class $TextToImageApiClient {
     required TextToImageApiScheduleRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $schedule_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $schedule_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6082,10 +5853,7 @@ class $TextToImageApiClient {
   ///  * [getTask] for a method executing this request and parsing the response.
   ///  * [$getTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -6094,7 +5862,7 @@ class $TextToImageApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6103,12 +5871,10 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6137,10 +5903,7 @@ class $TextToImageApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6176,10 +5939,7 @@ class $TextToImageApiClient {
   ///  * [deleteTask] for a method executing this request and parsing the response.
   ///  * [$deleteTask_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteTask_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteTask_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -6188,7 +5948,7 @@ class $TextToImageApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6197,14 +5957,12 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6233,10 +5991,7 @@ class $TextToImageApiClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteTask_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteTask_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6272,11 +6027,7 @@ class $TextToImageApiClient {
   ///  * [getImage] for a method executing this request and parsing the response.
   ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getImage_Request({
-    required int id,
-    required int index,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getImage_Request({required int id, required int index, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -6288,7 +6039,7 @@ class $TextToImageApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6297,12 +6048,10 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6333,11 +6082,7 @@ class $TextToImageApiClient {
     required int index,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getImage_Request(
-      id: id,
-      index: index,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getImage_Request(id: id, index: index, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6373,11 +6118,7 @@ class $TextToImageApiClient {
   ///  * [listTasksByApp] for a method executing this request and parsing the response.
   ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listTasksByApp_Request({
-    required String appId,
-    String? identifier,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listTasksByApp_Request({required String appId, String? identifier, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
@@ -6389,7 +6130,7 @@ class $TextToImageApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6398,14 +6139,12 @@ class $TextToImageApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6435,17 +6174,14 @@ class $TextToImageApiClient {
     String? identifier,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $listTasksByApp_Request(
-      appId: appId,
-      identifier: identifier,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $listTasksByApp_Request(appId: appId, identifier: identifier, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasksByApp_Serializer();
-    return _i1.ResponseConverter<TextToImageApiListTasksByAppResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<TextToImageApiListTasksByAppResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -6485,7 +6221,7 @@ class $TranslationApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6494,12 +6230,10 @@ class $TranslationApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6524,9 +6258,7 @@ class $TranslationApiClient {
   Future<_i1.DynamiteResponse<TranslationApiLanguagesResponseApplicationJson, void>> languages({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $languages_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $languages_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6562,15 +6294,12 @@ class $TranslationApiClient {
   ///  * [translate] for a method executing this request and parsing the response.
   ///  * [$translate_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $translate_Request({
-    required TranslationApiTranslateRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $translate_Request({required TranslationApiTranslateRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/translation/translate';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6579,22 +6308,17 @@ class $TranslationApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(TranslationApiTranslateRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TranslationApiTranslateRequestApplicationJson)),
     );
     return _request;
   }
@@ -6620,15 +6344,284 @@ class $TranslationApiClient {
     required TranslationApiTranslateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $translate_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $translate_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $translate_Serializer();
     return _i1.ResponseConverter<TranslationApiTranslateResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+}
+
+class $TwoFactorApiClient {
+  /// Creates a new `DynamiteClient` for two_factor_api requests.
+  $TwoFactorApiClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$state_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiStateResponseApplicationJson, void> $state_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiStateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get two factor authentication provider states.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [state] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [user] system user id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [state] for a method executing this request and parsing the response.
+  ///  * [$state_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $state_Request({required String user, bool? oCSAPIRequest}) {
+    final _parameters = <String, Object?>{};
+    final __user = _$jsonSerializers.serialize(user, specifiedType: const FullType(String));
+    _parameters['user'] = __user;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/twofactor/state{?user*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get two factor authentication provider states.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [user] system user id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$state_Request] for the request send by this method.
+  ///  * [$state_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiStateResponseApplicationJson, void>> state({
+    required String user,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $state_Request(user: user, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $state_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiStateResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$enable_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiEnableResponseApplicationJson, void> $enable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiEnableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Enable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [enable] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [enable] for a method executing this request and parsing the response.
+  ///  * [$enable_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $enable_Request({required TwoFactorApiEnableRequestApplicationJson $body, bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/twofactor/enable';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TwoFactorApiEnableRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Enable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$enable_Request] for the request send by this method.
+  ///  * [$enable_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiEnableResponseApplicationJson, void>> enable({
+    required TwoFactorApiEnableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $enable_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $enable_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiEnableResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$disable_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiDisableResponseApplicationJson, void> $disable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiDisableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Disable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [disable] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [disable] for a method executing this request and parsing the response.
+  ///  * [$disable_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $disable_Request({required TwoFactorApiDisableRequestApplicationJson $body, bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/twofactor/disable';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TwoFactorApiDisableRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Disable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$disable_Request] for the request send by this method.
+  ///  * [$disable_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiDisableResponseApplicationJson, void>> disable({
+    required TwoFactorApiDisableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $disable_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $disable_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiDisableResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -6664,10 +6657,7 @@ class $UnifiedSearchClient {
   ///  * [getProviders] for a method executing this request and parsing the response.
   ///  * [$getProviders_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getProviders_Request({
-    String? from,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getProviders_Request({String? from, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     var __from = _$jsonSerializers.serialize(from, specifiedType: const FullType(String));
     __from ??= '';
@@ -6677,7 +6667,7 @@ class $UnifiedSearchClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6686,14 +6676,12 @@ class $UnifiedSearchClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6720,16 +6708,14 @@ class $UnifiedSearchClient {
     String? from,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getProviders_Request(
-      from: from,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getProviders_Request(from: from, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getProviders_Serializer();
-    return _i1.ResponseConverter<UnifiedSearchGetProvidersResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<UnifiedSearchGetProvidersResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$search_Request].
@@ -6796,13 +6782,13 @@ class $UnifiedSearchClient {
     __from ??= '';
     _parameters['from'] = __from;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
-            .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6811,14 +6797,12 @@ class $UnifiedSearchClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6911,7 +6895,7 @@ class $WhatsNewClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -6920,14 +6904,12 @@ class $WhatsNewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6951,9 +6933,7 @@ class $WhatsNewClient {
   ///  * [$$get_Request] for the request send by this method.
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({bool? oCSAPIRequest}) async {
-    final _request = $$get_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$get_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -6986,15 +6966,12 @@ class $WhatsNewClient {
   ///  * [dismiss] for a method executing this request and parsing the response.
   ///  * [$dismiss_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $dismiss_Request({
-    required WhatsNewDismissRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $dismiss_Request({required WhatsNewDismissRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/core/whatsnew';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7003,14 +6980,12 @@ class $WhatsNewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -7041,10 +7016,7 @@ class $WhatsNewClient {
     required WhatsNewDismissRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $dismiss_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $dismiss_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -7086,7 +7058,7 @@ class $WipeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7095,15 +7067,14 @@ class $WipeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(WipeCheckWipeRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(WipeCheckWipeRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -7122,9 +7093,7 @@ class $WipeClient {
   Future<_i1.DynamiteResponse<WipeCheckWipeResponseApplicationJson, void>> checkWipe({
     required WipeCheckWipeRequestApplicationJson $body,
   }) async {
-    final _request = $checkWipe_Request(
-      $body: $body,
-    );
+    final _request = $checkWipe_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -7159,7 +7128,7 @@ class $WipeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -7168,15 +7137,14 @@ class $WipeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(WipeWipeDoneRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(WipeWipeDoneRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -7193,9 +7161,7 @@ class $WipeClient {
   ///  * [$wipeDone_Request] for the request send by this method.
   ///  * [$wipeDone_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> wipeDone({required WipeWipeDoneRequestApplicationJson $body}) async {
-    final _request = $wipeDone_Request(
-      $body: $body,
-    );
+    final _request = $wipeDone_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -11849,7 +11815,7 @@ sealed class $CoreCapabilities_CoreInterface {
   @BuiltValueField(wireName: 'reference-regex')
   String get referenceRegex;
   @BuiltValueField(wireName: 'mod-rewrite-working')
-  bool? get modRewriteWorking;
+  bool get modRewriteWorking;
 
   /// Rebuilds the instance.
   ///
@@ -12196,6 +12162,10 @@ abstract class CommentsCapabilities
 sealed class $DavCapabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
+  @BuiltValueField(wireName: 'absence-supported')
+  bool? get absenceSupported;
+  @BuiltValueField(wireName: 'absence-replacement')
+  bool? get absenceReplacement;
 
   /// Rebuilds the instance.
   ///
@@ -12491,6 +12461,137 @@ abstract class DropAccountCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $FilesCapabilities_Files_ChunkedUploadInterface {
+  @BuiltValueField(wireName: 'max_size')
+  int get maxSize;
+  @BuiltValueField(wireName: 'max_parallel_count')
+  int get maxParallelCount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FilesCapabilities_Files_ChunkedUploadInterfaceBuilder].
+  $FilesCapabilities_Files_ChunkedUploadInterface rebuild(
+    void Function($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$FilesCapabilities_Files_ChunkedUploadInterfaceBuilder].
+  $FilesCapabilities_Files_ChunkedUploadInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder b) {}
+}
+
+abstract class FilesCapabilities_Files_ChunkedUpload
+    implements
+        $FilesCapabilities_Files_ChunkedUploadInterface,
+        Built<FilesCapabilities_Files_ChunkedUpload, FilesCapabilities_Files_ChunkedUploadBuilder> {
+  /// Creates a new FilesCapabilities_Files_ChunkedUpload object using the builder pattern.
+  factory FilesCapabilities_Files_ChunkedUpload([void Function(FilesCapabilities_Files_ChunkedUploadBuilder)? b]) =
+      _$FilesCapabilities_Files_ChunkedUpload;
+
+  // coverage:ignore-start
+  const FilesCapabilities_Files_ChunkedUpload._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FilesCapabilities_Files_ChunkedUpload.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FilesCapabilities_Files_ChunkedUpload.
+  static Serializer<FilesCapabilities_Files_ChunkedUpload> get serializer =>
+      _$filesCapabilitiesFilesChunkedUploadSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FilesCapabilities_Files_ChunkedUploadBuilder b) {
+    $FilesCapabilities_Files_ChunkedUploadInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FilesCapabilities_Files_ChunkedUploadBuilder b) {
+    $FilesCapabilities_Files_ChunkedUploadInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $FilesCapabilities_Files_FileConversionsInterface {
+  String get from;
+  String get to;
+  @BuiltValueField(wireName: 'extension')
+  String get $extension;
+  String get displayName;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FilesCapabilities_Files_FileConversionsInterfaceBuilder].
+  $FilesCapabilities_Files_FileConversionsInterface rebuild(
+    void Function($FilesCapabilities_Files_FileConversionsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$FilesCapabilities_Files_FileConversionsInterfaceBuilder].
+  $FilesCapabilities_Files_FileConversionsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FilesCapabilities_Files_FileConversionsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FilesCapabilities_Files_FileConversionsInterfaceBuilder b) {}
+}
+
+abstract class FilesCapabilities_Files_FileConversions
+    implements
+        $FilesCapabilities_Files_FileConversionsInterface,
+        Built<FilesCapabilities_Files_FileConversions, FilesCapabilities_Files_FileConversionsBuilder> {
+  /// Creates a new FilesCapabilities_Files_FileConversions object using the builder pattern.
+  factory FilesCapabilities_Files_FileConversions([void Function(FilesCapabilities_Files_FileConversionsBuilder)? b]) =
+      _$FilesCapabilities_Files_FileConversions;
+
+  // coverage:ignore-start
+  const FilesCapabilities_Files_FileConversions._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FilesCapabilities_Files_FileConversions.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FilesCapabilities_Files_FileConversions.
+  static Serializer<FilesCapabilities_Files_FileConversions> get serializer =>
+      _$filesCapabilitiesFilesFileConversionsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FilesCapabilities_Files_FileConversionsBuilder b) {
+    $FilesCapabilities_Files_FileConversionsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FilesCapabilities_Files_FileConversionsBuilder b) {
+    $FilesCapabilities_Files_FileConversionsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
@@ -12569,6 +12670,10 @@ sealed class $FilesCapabilities_FilesInterface {
   BuiltList<String> get forbiddenFilenameCharacters;
   @BuiltValueField(wireName: 'forbidden_filename_extensions')
   BuiltList<String> get forbiddenFilenameExtensions;
+  @BuiltValueField(wireName: 'chunked_upload')
+  FilesCapabilities_Files_ChunkedUpload? get chunkedUpload;
+  @BuiltValueField(wireName: 'file_conversions')
+  BuiltList<FilesCapabilities_Files_FileConversions>? get fileConversions;
   FilesCapabilities_Files_DirectEditing get directEditing;
 
   /// Rebuilds the instance.
@@ -12958,6 +13063,8 @@ sealed class $FilesSharingCapabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+  @BuiltValueField(wireName: 'custom_tokens')
+  bool? get customTokens;
 
   /// Rebuilds the instance.
   ///
@@ -13673,6 +13780,8 @@ abstract class FilesSharingCapabilities
 @BuiltValue(instantiable: false)
 sealed class $FilesTrashbinCapabilities_FilesInterface {
   bool get undelete;
+  @BuiltValueField(wireName: 'delete_from_trash')
+  bool? get deleteFromTrash;
 
   /// Rebuilds the instance.
   ///
@@ -14031,6 +14140,272 @@ abstract class NotificationsCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface {
+  String get generate;
+  String get validate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface rebuild(
+    void Function($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder b) {}
+}
+
+abstract class PasswordPolicyCapabilities_PasswordPolicy_Api
+    implements
+        $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface,
+        Built<PasswordPolicyCapabilities_PasswordPolicy_Api, PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder> {
+  /// Creates a new PasswordPolicyCapabilities_PasswordPolicy_Api object using the builder pattern.
+  factory PasswordPolicyCapabilities_PasswordPolicy_Api([
+    void Function(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder)? b,
+  ]) = _$PasswordPolicyCapabilities_PasswordPolicy_Api;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities_PasswordPolicy_Api._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities_PasswordPolicy_Api.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities_PasswordPolicy_Api.
+  static Serializer<PasswordPolicyCapabilities_PasswordPolicy_Api> get serializer =>
+      _$passwordPolicyCapabilitiesPasswordPolicyApiSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface {
+  int get minLength;
+  bool get enforceHaveIBeenPwned;
+  bool get enforceNonCommonPassword;
+  bool get enforceNumericCharacters;
+  bool get enforceSpecialCharacters;
+  bool get enforceUpperLowerCase;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface rebuild(
+    void Function($PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder b) {
+    _i5.checkNumber(b.minLength, 'minLength', minimum: 0);
+  }
+}
+
+abstract class PasswordPolicyCapabilities_PasswordPolicy_Policies
+    implements
+        $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface,
+        Built<PasswordPolicyCapabilities_PasswordPolicy_Policies,
+            PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder> {
+  /// Creates a new PasswordPolicyCapabilities_PasswordPolicy_Policies object using the builder pattern.
+  factory PasswordPolicyCapabilities_PasswordPolicy_Policies([
+    void Function(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder)? b,
+  ]) = _$PasswordPolicyCapabilities_PasswordPolicy_Policies;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities_PasswordPolicy_Policies._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities_PasswordPolicy_Policies.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities_PasswordPolicy_Policies.
+  static Serializer<PasswordPolicyCapabilities_PasswordPolicy_Policies> get serializer =>
+      _$passwordPolicyCapabilitiesPasswordPolicyPoliciesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilities_PasswordPolicyInterface {
+  PasswordPolicyCapabilities_PasswordPolicy_Api get api;
+  BuiltMap<String, PasswordPolicyCapabilities_PasswordPolicy_Policies> get policies;
+  int get minLength;
+  bool get enforceNonCommonPassword;
+  bool get enforceNumericCharacters;
+  bool get enforceSpecialCharacters;
+  bool get enforceUpperLowerCase;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicyInterface rebuild(
+    void Function($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder b) {
+    _i5.checkNumber(b.minLength, 'minLength', minimum: 0);
+  }
+}
+
+abstract class PasswordPolicyCapabilities_PasswordPolicy
+    implements
+        $PasswordPolicyCapabilities_PasswordPolicyInterface,
+        Built<PasswordPolicyCapabilities_PasswordPolicy, PasswordPolicyCapabilities_PasswordPolicyBuilder> {
+  /// Creates a new PasswordPolicyCapabilities_PasswordPolicy object using the builder pattern.
+  factory PasswordPolicyCapabilities_PasswordPolicy([
+    void Function(PasswordPolicyCapabilities_PasswordPolicyBuilder)? b,
+  ]) = _$PasswordPolicyCapabilities_PasswordPolicy;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities_PasswordPolicy._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities_PasswordPolicy.
+  static Serializer<PasswordPolicyCapabilities_PasswordPolicy> get serializer =>
+      _$passwordPolicyCapabilitiesPasswordPolicySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilities_PasswordPolicyBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicyInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilities_PasswordPolicyBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicyInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilitiesInterface {
+  @BuiltValueField(wireName: 'password_policy')
+  PasswordPolicyCapabilities_PasswordPolicy get passwordPolicy;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilitiesInterfaceBuilder].
+  $PasswordPolicyCapabilitiesInterface rebuild(void Function($PasswordPolicyCapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilitiesInterfaceBuilder].
+  $PasswordPolicyCapabilitiesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class PasswordPolicyCapabilities
+    implements
+        $PasswordPolicyCapabilitiesInterface,
+        Built<PasswordPolicyCapabilities, PasswordPolicyCapabilitiesBuilder> {
+  /// Creates a new PasswordPolicyCapabilities object using the builder pattern.
+  factory PasswordPolicyCapabilities([void Function(PasswordPolicyCapabilitiesBuilder)? b]) =
+      _$PasswordPolicyCapabilities;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities.
+  static Serializer<PasswordPolicyCapabilities> get serializer => _$passwordPolicyCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilitiesBuilder b) {
+    $PasswordPolicyCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilitiesBuilder b) {
+    $PasswordPolicyCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ProvisioningApiCapabilities_ProvisioningApiInterface {
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
@@ -14160,44 +14535,44 @@ abstract class ProvisioningApiCapabilities
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
+        $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14208,126 +14583,61 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailUploadFilesDropSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface {
-  bool get enabled;
-  bool get enforced;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-}
-
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
-    implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_Password object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
-
-  // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_Password._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_Password.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailPasswordSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
     implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
+        $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_Password object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14338,67 +14648,132 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailExpireDateSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_Password.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_SharebymailInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+  bool get enabled;
+  bool get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+}
+
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    implements
+        $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+
+  // coverage:ignore-start
+  const SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $SharebymailCapabilities_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
   @BuiltValueField(wireName: 'upload_files_drop')
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  SharebymailCapabilities0_FilesSharing_Sharebymail_Password get password;
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_SharebymailInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail
     implements
-        $SharebymailCapabilities0_FilesSharing_SharebymailInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail,
-            SharebymailCapabilities0_FilesSharing_SharebymailBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail([
-    void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail;
+        $SharebymailCapabilities_FilesSharing_SharebymailInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail,
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail([
+    void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14409,58 +14784,58 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_SharebymailBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_SharebymailInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_SharebymailBuilder b) {
+    $SharebymailCapabilities_FilesSharing_SharebymailInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_SharebymailBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_SharebymailInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_SharebymailBuilder b) {
+    $SharebymailCapabilities_FilesSharing_SharebymailInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharingInterface {
-  SharebymailCapabilities0_FilesSharing_Sharebymail get sharebymail;
+sealed class $SharebymailCapabilities_FilesSharingInterface {
+  SharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharingInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharingInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharingInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharingInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharingInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharingInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharingInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharingInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharingInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing
+abstract class SharebymailCapabilities_FilesSharing
     implements
-        $SharebymailCapabilities0_FilesSharingInterface,
-        Built<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing([void Function(SharebymailCapabilities0_FilesSharingBuilder)? b]) =
-      _$SharebymailCapabilities0_FilesSharing;
+        $SharebymailCapabilities_FilesSharingInterface,
+        Built<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing([void Function(SharebymailCapabilities_FilesSharingBuilder)? b]) =
+      _$SharebymailCapabilities_FilesSharing;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing._();
+  const SharebymailCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14471,54 +14846,54 @@ abstract class SharebymailCapabilities0_FilesSharing
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing.
-  static Serializer<SharebymailCapabilities0_FilesSharing> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing.
+  static Serializer<SharebymailCapabilities_FilesSharing> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharingBuilder b) {
-    $SharebymailCapabilities0_FilesSharingInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharingBuilder b) {
+    $SharebymailCapabilities_FilesSharingInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharingBuilder b) {
-    $SharebymailCapabilities0_FilesSharingInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharingBuilder b) {
+    $SharebymailCapabilities_FilesSharingInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0Interface {
+sealed class $SharebymailCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
-  SharebymailCapabilities0_FilesSharing get filesSharing;
+  SharebymailCapabilities_FilesSharing? get filesSharing;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0InterfaceBuilder].
-  $SharebymailCapabilities0Interface rebuild(void Function($SharebymailCapabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$SharebymailCapabilitiesInterfaceBuilder].
+  $SharebymailCapabilitiesInterface rebuild(void Function($SharebymailCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0InterfaceBuilder].
-  $SharebymailCapabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilitiesInterfaceBuilder].
+  $SharebymailCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0InterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0InterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0
-    implements $SharebymailCapabilities0Interface, Built<SharebymailCapabilities0, SharebymailCapabilities0Builder> {
-  /// Creates a new SharebymailCapabilities0 object using the builder pattern.
-  factory SharebymailCapabilities0([void Function(SharebymailCapabilities0Builder)? b]) = _$SharebymailCapabilities0;
+abstract class SharebymailCapabilities
+    implements $SharebymailCapabilitiesInterface, Built<SharebymailCapabilities, SharebymailCapabilitiesBuilder> {
+  /// Creates a new SharebymailCapabilities object using the builder pattern.
+  factory SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? b]) = _$SharebymailCapabilities;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0._();
+  const SharebymailCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14529,24 +14904,19 @@ abstract class SharebymailCapabilities0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0.
-  static Serializer<SharebymailCapabilities0> get serializer => _$sharebymailCapabilities0Serializer;
+  /// Serializer for SharebymailCapabilities.
+  static Serializer<SharebymailCapabilities> get serializer => _$sharebymailCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0Builder b) {
-    $SharebymailCapabilities0Interface._defaults(b);
+  static void _defaults(SharebymailCapabilitiesBuilder b) {
+    $SharebymailCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0Builder b) {
-    $SharebymailCapabilities0Interface._validate(b);
+  static void _validate(SharebymailCapabilitiesBuilder b) {
+    $SharebymailCapabilitiesInterface._validate(b);
   }
 }
-
-typedef SharebymailCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SharebymailCapabilities0? sharebymailCapabilities0
-});
 
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_Config_AttachmentsInterface {
@@ -14631,6 +15001,14 @@ sealed class $SpreedCapabilities_Config_CallInterface {
   bool get sipDialoutEnabled;
   @BuiltValueField(wireName: 'can-enable-sip')
   bool get canEnableSip;
+  @BuiltValueField(wireName: 'start-without-media')
+  bool? get startWithoutMedia;
+  @BuiltValueField(wireName: 'max-duration')
+  int? get maxDuration;
+  @BuiltValueField(wireName: 'blur-virtual-background')
+  bool? get blurVirtualBackground;
+  @BuiltValueField(wireName: 'end-to-end-encryption')
+  bool? get endToEndEncryption;
 
   /// Rebuilds the instance.
   ///
@@ -14697,8 +15075,12 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   int get readPrivacy;
   @BuiltValueField(wireName: 'has-translation-providers')
   bool get hasTranslationProviders;
+  @BuiltValueField(wireName: 'has-translation-task-providers')
+  bool? get hasTranslationTaskProviders;
   @BuiltValueField(wireName: 'typing-privacy')
   int get typingPrivacy;
+  @BuiltValueField(wireName: 'summary-threshold')
+  int? get summaryThreshold;
 
   /// Rebuilds the instance.
   ///
@@ -14713,7 +15095,9 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {
+    _i5.checkNumber(b.summaryThreshold, 'summaryThreshold', minimum: 1);
+  }
 }
 
 abstract class SpreedCapabilities_Config_Chat
@@ -14757,10 +15141,86 @@ abstract class SpreedCapabilities_Config_Chat
   }
 }
 
+class SpreedCapabilities_Config_Conversations_ListStyle extends EnumClass {
+  const SpreedCapabilities_Config_Conversations_ListStyle._(super.name);
+
+  /// `two-lines`
+  @BuiltValueEnumConst(wireName: 'two-lines')
+  static const SpreedCapabilities_Config_Conversations_ListStyle twoLines =
+      _$spreedCapabilitiesConfigConversationsListStyleTwoLines;
+
+  /// `compact`
+  static const SpreedCapabilities_Config_Conversations_ListStyle compact =
+      _$spreedCapabilitiesConfigConversationsListStyleCompact;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SpreedCapabilities_Config_Conversations_ListStyle> get values =>
+      _$spreedCapabilitiesConfigConversationsListStyleValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SpreedCapabilities_Config_Conversations_ListStyle valueOf(String name) =>
+      _$valueOfSpreedCapabilities_Config_Conversations_ListStyle(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SpreedCapabilities_Config_Conversations_ListStyle.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SpreedCapabilities_Config_Conversations_ListStyle> get serializer =>
+      const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+}
+
+class _$SpreedCapabilities_Config_Conversations_ListStyleSerializer
+    implements PrimitiveSerializer<SpreedCapabilities_Config_Conversations_ListStyle> {
+  const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+
+  static const Map<SpreedCapabilities_Config_Conversations_ListStyle, Object> _toWire =
+      <SpreedCapabilities_Config_Conversations_ListStyle, Object>{
+    SpreedCapabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+    SpreedCapabilities_Config_Conversations_ListStyle.compact: 'compact',
+  };
+
+  static const Map<Object, SpreedCapabilities_Config_Conversations_ListStyle> _fromWire =
+      <Object, SpreedCapabilities_Config_Conversations_ListStyle>{
+    'two-lines': SpreedCapabilities_Config_Conversations_ListStyle.twoLines,
+    'compact': SpreedCapabilities_Config_Conversations_ListStyle.compact,
+  };
+
+  @override
+  Iterable<Type> get types => const [SpreedCapabilities_Config_Conversations_ListStyle];
+
+  @override
+  String get wireName => 'SpreedCapabilities_Config_Conversations_ListStyle';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SpreedCapabilities_Config_Conversations_ListStyle object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SpreedCapabilities_Config_Conversations_ListStyle deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
+  @BuiltValueField(wireName: 'force-passwords')
+  bool? get forcePasswords;
+  @BuiltValueField(wireName: 'list-style')
+  SpreedCapabilities_Config_Conversations_ListStyle? get listStyle;
+  @BuiltValueField(wireName: 'description-length')
+  int? get descriptionLength;
 
   /// Rebuilds the instance.
   ///
@@ -14775,7 +15235,9 @@ sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {
+    _i5.checkNumber(b.descriptionLength, 'descriptionLength', minimum: 1);
+  }
 }
 
 abstract class SpreedCapabilities_Config_Conversations
@@ -15021,7 +15483,7 @@ sealed class $SpreedCapabilities_ConfigInterface {
   SpreedCapabilities_Config_Call get call;
   SpreedCapabilities_Config_Chat get chat;
   SpreedCapabilities_Config_Conversations get conversations;
-  SpreedCapabilities_Config_Federation? get federation;
+  SpreedCapabilities_Config_Federation get federation;
   SpreedCapabilities_Config_Previews get previews;
   SpreedCapabilities_Config_Signaling get signaling;
 
@@ -15140,37 +15602,37 @@ abstract class SpreedCapabilities
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SpreedPublicCapabilities0Interface {
-  SpreedCapabilities get spreed;
+sealed class $SpreedPublicCapabilitiesInterface {
+  SpreedCapabilities? get spreed;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0Interface rebuild(void Function($SpreedPublicCapabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterface rebuild(void Function($SpreedPublicCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _defaults($SpreedPublicCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _validate($SpreedPublicCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0
-    implements $SpreedPublicCapabilities0Interface, Built<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder> {
-  /// Creates a new SpreedPublicCapabilities0 object using the builder pattern.
-  factory SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? b]) = _$SpreedPublicCapabilities0;
+abstract class SpreedPublicCapabilities
+    implements $SpreedPublicCapabilitiesInterface, Built<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder> {
+  /// Creates a new SpreedPublicCapabilities object using the builder pattern.
+  factory SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? b]) = _$SpreedPublicCapabilities;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0._();
+  const SpreedPublicCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0.fromJson(Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15181,24 +15643,19 @@ abstract class SpreedPublicCapabilities0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0.
-  static Serializer<SpreedPublicCapabilities0> get serializer => _$spreedPublicCapabilities0Serializer;
+  /// Serializer for SpreedPublicCapabilities.
+  static Serializer<SpreedPublicCapabilities> get serializer => _$spreedPublicCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._defaults(b);
+  static void _defaults(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._validate(b);
+  static void _validate(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._validate(b);
   }
 }
-
-typedef SpreedPublicCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
 
 class SystemtagsCapabilities_Systemtags_Enabled extends EnumClass {
   const SystemtagsCapabilities_Systemtags_Enabled._(super.name);
@@ -15231,14 +15688,10 @@ class _$SystemtagsCapabilities_Systemtags_EnabledSerializer
   const _$SystemtagsCapabilities_Systemtags_EnabledSerializer();
 
   static const Map<SystemtagsCapabilities_Systemtags_Enabled, Object> _toWire =
-      <SystemtagsCapabilities_Systemtags_Enabled, Object>{
-    SystemtagsCapabilities_Systemtags_Enabled.$true: true,
-  };
+      <SystemtagsCapabilities_Systemtags_Enabled, Object>{SystemtagsCapabilities_Systemtags_Enabled.$true: true};
 
   static const Map<Object, SystemtagsCapabilities_Systemtags_Enabled> _fromWire =
-      <Object, SystemtagsCapabilities_Systemtags_Enabled>{
-    true: SystemtagsCapabilities_Systemtags_Enabled.$true,
-  };
+      <Object, SystemtagsCapabilities_Systemtags_Enabled>{true: SystemtagsCapabilities_Systemtags_Enabled.$true};
 
   @override
   Iterable<Type> get types => const [SystemtagsCapabilities_Systemtags_Enabled];
@@ -15386,6 +15839,7 @@ sealed class $TablesCapabilities_TablesInterface {
   String get version;
   BuiltList<String> get apiVersions;
   BuiltList<String> get features;
+  bool? get isCirclesEnabled;
   @BuiltValueField(wireName: 'column_types')
   BuiltList<String> get columnTypes;
 
@@ -16000,6 +16454,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   FilesVersionsCapabilities? filesVersionsCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
+  PasswordPolicyCapabilities? passwordPolicyCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedCapabilities? spreedCapabilities,
@@ -16008,7 +16463,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   TablesCapabilities? tablesCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
-  WeatherStatusCapabilities? weatherStatusCapabilities
+  WeatherStatusCapabilities? weatherStatusCapabilities,
 });
 
 @BuiltValue(instantiable: false)
@@ -16713,6 +17168,68 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
 }
 
 @BuiltValue(instantiable: false)
+sealed class $PreviewPreviewGetMimeIconUrlHeadersInterface {
+  String? get location;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder].
+  $PreviewPreviewGetMimeIconUrlHeadersInterface rebuild(
+    void Function($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder].
+  $PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder b) {}
+}
+
+abstract class PreviewPreviewGetMimeIconUrlHeaders
+    implements
+        $PreviewPreviewGetMimeIconUrlHeadersInterface,
+        Built<PreviewPreviewGetMimeIconUrlHeaders, PreviewPreviewGetMimeIconUrlHeadersBuilder> {
+  /// Creates a new PreviewPreviewGetMimeIconUrlHeaders object using the builder pattern.
+  factory PreviewPreviewGetMimeIconUrlHeaders([void Function(PreviewPreviewGetMimeIconUrlHeadersBuilder)? b]) =
+      _$PreviewPreviewGetMimeIconUrlHeaders;
+
+  // coverage:ignore-start
+  const PreviewPreviewGetMimeIconUrlHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreviewPreviewGetMimeIconUrlHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreviewPreviewGetMimeIconUrlHeaders.
+  static Serializer<PreviewPreviewGetMimeIconUrlHeaders> get serializer =>
+      _$previewPreviewGetMimeIconUrlHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreviewPreviewGetMimeIconUrlHeadersBuilder b) {
+    $PreviewPreviewGetMimeIconUrlHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreviewPreviewGetMimeIconUrlHeadersBuilder b) {
+    $PreviewPreviewGetMimeIconUrlHeadersInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ProfileApiSetVisibilityRequestApplicationJsonInterface {
   /// ID of the parameter.
   String get paramId;
@@ -16909,15 +17426,9 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ReferenceApiExtractRequestApplicationJsonInterface {
-  static final _$resolve = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$resolve = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$limit = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$limit = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
   /// Text to extract from.
   String get text;
@@ -17241,15 +17752,9 @@ abstract class ReferenceApiExtractResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ReferenceApiExtractPublicRequestApplicationJsonInterface {
-  static final _$resolve = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$resolve = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$limit = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$limit = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
   /// Text to extract from.
   String get text;
@@ -17713,10 +18218,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ReferenceApiResolveRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$limit = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
   /// References to resolve.
   BuiltList<String> get references;
@@ -18172,10 +18674,7 @@ abstract class ReferenceApiResolveOnePublicResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ReferenceApiResolvePublicRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$limit = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
   /// References to resolve.
   BuiltList<String> get references;
@@ -19341,16 +19840,16 @@ abstract class TaskProcessingTaskType_OptionalOutputShapeEnumValues
 sealed class $TaskProcessingTaskTypeInterface {
   String get name;
   String get description;
-  BuiltList<TaskProcessingShape> get inputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get inputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
   BuiltMap<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults;
-  BuiltList<TaskProcessingShape> get optionalInputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get optionalInputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
   BuiltMap<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults;
-  BuiltList<TaskProcessingShape> get outputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
-  BuiltList<TaskProcessingShape> get optionalOutputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get outputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get optionalOutputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
 
   /// Rebuilds the instance.
   ///
@@ -19599,10 +20098,7 @@ abstract class TaskProcessingApiTaskTypesResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $TaskProcessingApiScheduleRequestApplicationJsonInterface {
-  static final _$customId = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$customId = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Task's input parameters.
   BuiltMap<String, JsonObject> get input;
@@ -19791,6 +20287,9 @@ sealed class $TaskProcessingTaskInterface {
   String? get customId;
   int? get completionExpectedAt;
   double? get progress;
+  int? get scheduledAt;
+  int? get startedAt;
+  int? get endedAt;
 
   /// Rebuilds the instance.
   ///
@@ -22672,10 +23171,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $TextProcessingApiScheduleRequestApplicationJsonInterface {
-  static final _$identifier = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$identifier = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Input text.
   String get input;
@@ -23862,15 +24358,9 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $TextToImageApiScheduleRequestApplicationJsonInterface {
-  static final _$identifier = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$identifier = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$numberOfImages = _$jsonSerializers.deserialize(
-    8,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$numberOfImages = _$jsonSerializers.deserialize(8, specifiedType: const FullType(int))! as int;
 
   /// Input text.
   String get input;
@@ -25378,6 +25868,533 @@ abstract class TranslationApiTranslateResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(TranslationApiTranslateResponseApplicationJsonBuilder b) {
     $TranslationApiTranslateResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiStateResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiStateResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiStateResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiStateResponseApplicationJson_Ocs, TwoFactorApiStateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiStateResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiStateResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiStateResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiStateResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiStateResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiStateResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiStateResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiStateResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiStateResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiStateResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiStateResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiStateResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiStateResponseApplicationJsonInterface {
+  TwoFactorApiStateResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiStateResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiStateResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiStateResponseApplicationJson
+    implements
+        $TwoFactorApiStateResponseApplicationJsonInterface,
+        Built<TwoFactorApiStateResponseApplicationJson, TwoFactorApiStateResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiStateResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiStateResponseApplicationJson([
+    void Function(TwoFactorApiStateResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiStateResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiStateResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiStateResponseApplicationJson.
+  static Serializer<TwoFactorApiStateResponseApplicationJson> get serializer =>
+      _$twoFactorApiStateResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiStateResponseApplicationJsonBuilder b) {
+    $TwoFactorApiStateResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiStateResponseApplicationJsonBuilder b) {
+    $TwoFactorApiStateResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableRequestApplicationJsonInterface {
+  static final _$providers = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+
+  /// system user identifier.
+  String get user;
+
+  /// collection of TFA provider ids.
+  BuiltList<String> get providers;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableRequestApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder b) {
+    b.providers.replace(_$providers);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableRequestApplicationJson
+    implements
+        $TwoFactorApiEnableRequestApplicationJsonInterface,
+        Built<TwoFactorApiEnableRequestApplicationJson, TwoFactorApiEnableRequestApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiEnableRequestApplicationJson object using the builder pattern.
+  factory TwoFactorApiEnableRequestApplicationJson([
+    void Function(TwoFactorApiEnableRequestApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiEnableRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableRequestApplicationJson.
+  static Serializer<TwoFactorApiEnableRequestApplicationJson> get serializer =>
+      _$twoFactorApiEnableRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiEnableRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiEnableRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiEnableResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiEnableResponseApplicationJson_Ocs, TwoFactorApiEnableResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiEnableResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiEnableResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiEnableResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiEnableResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiEnableResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiEnableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableResponseApplicationJsonInterface {
+  TwoFactorApiEnableResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableResponseApplicationJson
+    implements
+        $TwoFactorApiEnableResponseApplicationJsonInterface,
+        Built<TwoFactorApiEnableResponseApplicationJson, TwoFactorApiEnableResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiEnableResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiEnableResponseApplicationJson([
+    void Function(TwoFactorApiEnableResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiEnableResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableResponseApplicationJson.
+  static Serializer<TwoFactorApiEnableResponseApplicationJson> get serializer =>
+      _$twoFactorApiEnableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableRequestApplicationJsonInterface {
+  static final _$providers = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+
+  /// system user identifier.
+  String get user;
+
+  /// collection of TFA provider ids.
+  BuiltList<String> get providers;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableRequestApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder b) {
+    b.providers.replace(_$providers);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableRequestApplicationJson
+    implements
+        $TwoFactorApiDisableRequestApplicationJsonInterface,
+        Built<TwoFactorApiDisableRequestApplicationJson, TwoFactorApiDisableRequestApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiDisableRequestApplicationJson object using the builder pattern.
+  factory TwoFactorApiDisableRequestApplicationJson([
+    void Function(TwoFactorApiDisableRequestApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiDisableRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableRequestApplicationJson.
+  static Serializer<TwoFactorApiDisableRequestApplicationJson> get serializer =>
+      _$twoFactorApiDisableRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiDisableRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiDisableRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiDisableResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiDisableResponseApplicationJson_Ocs, TwoFactorApiDisableResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiDisableResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiDisableResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiDisableResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiDisableResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiDisableResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiDisableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableResponseApplicationJsonInterface {
+  TwoFactorApiDisableResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableResponseApplicationJson
+    implements
+        $TwoFactorApiDisableResponseApplicationJsonInterface,
+        Built<TwoFactorApiDisableResponseApplicationJson, TwoFactorApiDisableResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiDisableResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiDisableResponseApplicationJson([
+    void Function(TwoFactorApiDisableResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiDisableResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableResponseApplicationJson.
+  static Serializer<TwoFactorApiDisableResponseApplicationJson> get serializer =>
+      _$twoFactorApiDisableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -27034,43 +28051,19 @@ extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
   static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `SharebymailCapabilities`.
-extension $SharebymailCapabilitiesExtension on SharebymailCapabilities {
-  /// Serializer for SharebymailCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SharebymailCapabilities> get serializer => $46564992d3ed3482aa6c1162698aac99Extension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static SharebymailCapabilities fromJson(Object? json) => $46564992d3ed3482aa6c1162698aac99Extension._fromJson(json);
-}
-
-/// Serialization extension for `SpreedPublicCapabilities`.
-extension $SpreedPublicCapabilitiesExtension on SpreedPublicCapabilities {
-  /// Serializer for SpreedPublicCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SpreedPublicCapabilities> get serializer => $06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static SpreedPublicCapabilities fromJson(Object? json) => $06c2e47196a84ebc3718dccf9eb4b29dExtension._fromJson(json);
-}
-
 /// Serialization extension for `OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities`.
 extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
     on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer;
+      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._fromJson(json);
+      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._fromJson(json);
 }
 
 /// Serialization extension for `TaskProcessingTaskType_InputShapeDefaults`.
@@ -27149,16 +28142,10 @@ extension $87e48e5649cd72b4d2947aaaea13ccd8Extension on _$87e48e5649cd72b4d2947a
   List<String> get _names => const ['autocompleteResultStatus0', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$87e48e5649cd72b4d2947aaaea13ccd8> get _serializer =>
       const _$87e48e5649cd72b4d2947aaaea13ccd8Serializer();
   static _$87e48e5649cd72b4d2947aaaea13ccd8 _fromJson(Object? json) =>
@@ -27194,7 +28181,7 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -27213,10 +28200,7 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (autocompleteResultStatus0: autocompleteResultStatus0, string: string);
   }
@@ -27231,16 +28215,10 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
@@ -27276,7 +28254,7 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -27288,193 +28266,17 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
   }) {
     int? $int;
     try {
-      $int = serializers.deserialize(
-        data,
-        specifiedType: const FullType(int),
-      )! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
 }
 
-typedef _$46564992d3ed3482aa6c1162698aac99 = ({
-  BuiltList<Never>? builtListNever,
-  SharebymailCapabilities0? sharebymailCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c1162698aac99 {
-  List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
-  List<String> get _names => const ['builtListNever', 'sharebymailCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$46564992d3ed3482aa6c1162698aac99> get _serializer =>
-      const _$46564992d3ed3482aa6c1162698aac99Serializer();
-  static _$46564992d3ed3482aa6c1162698aac99 _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$46564992d3ed3482aa6c1162698aac99Serializer implements PrimitiveSerializer<_$46564992d3ed3482aa6c1162698aac99> {
-  const _$46564992d3ed3482aa6c1162698aac99Serializer();
-
-  @override
-  Iterable<Type> get types => const [_$46564992d3ed3482aa6c1162698aac99];
-
-  @override
-  String get wireName => r'_$46564992d3ed3482aa6c1162698aac99';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$46564992d3ed3482aa6c1162698aac99 object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.sharebymailCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$46564992d3ed3482aa6c1162698aac99 deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    SharebymailCapabilities0? sharebymailCapabilities0;
-    try {
-      sharebymailCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities0),
-      )! as SharebymailCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, sharebymailCapabilities0: sharebymailCapabilities0);
-  }
-}
-
-typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
-  List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
-  List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$06c2e47196a84ebc3718dccf9eb4b29d> get _serializer =>
-      const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-  static _$06c2e47196a84ebc3718dccf9eb4b29d _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerializer<_$06c2e47196a84ebc3718dccf9eb4b29d> {
-  const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-
-  @override
-  Iterable<Type> get types => const [_$06c2e47196a84ebc3718dccf9eb4b29d];
-
-  @override
-  String get wireName => r'_$06c2e47196a84ebc3718dccf9eb4b29d';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$06c2e47196a84ebc3718dccf9eb4b29d object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.spreedPublicCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$06c2e47196a84ebc3718dccf9eb4b29d deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    SpreedPublicCapabilities0? spreedPublicCapabilities0;
-    try {
-      spreedPublicCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SpreedPublicCapabilities0),
-      )! as SpreedPublicCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, spreedPublicCapabilities0: spreedPublicCapabilities0);
-  }
-}
-
-typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
+typedef _$f800ec38bc53f35ef8f05fc4ee2dc2b1 = ({
   CommentsCapabilities? commentsCapabilities,
   CoreCapabilities? coreCapabilities,
   CorePublicCapabilities? corePublicCapabilities,
@@ -27486,6 +28288,7 @@ typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
   FilesVersionsCapabilities? filesVersionsCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
+  PasswordPolicyCapabilities? passwordPolicyCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedCapabilities? spreedCapabilities,
@@ -27494,12 +28297,12 @@ typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
   TablesCapabilities? tablesCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
-  WeatherStatusCapabilities? weatherStatusCapabilities
+  WeatherStatusCapabilities? weatherStatusCapabilities,
 });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18ba5aabd7f48 {
+extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05fc4ee2dc2b1 {
   List<dynamic> get _values => [
         commentsCapabilities,
         coreCapabilities,
@@ -27512,6 +28315,7 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
         filesVersionsCapabilities,
         notesCapabilities,
         notificationsCapabilities,
+        passwordPolicyCapabilities,
         provisioningApiCapabilities,
         sharebymailCapabilities,
         spreedCapabilities,
@@ -27534,6 +28338,7 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
         'filesVersionsCapabilities',
         'notesCapabilities',
         'notificationsCapabilities',
+        'passwordPolicyCapabilities',
         'provisioningApiCapabilities',
         'sharebymailCapabilities',
         'spreedCapabilities',
@@ -27546,19 +28351,13 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
       ];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> get _serializer =>
-      const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
-  static _$ff3cbb941adc0f0f38f18ba5aabd7f48 _fromJson(Object? json) =>
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
+  static Serializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> get _serializer =>
+      const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
+  static _$f800ec38bc53f35ef8f05fc4ee2dc2b1 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -27567,19 +28366,19 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> {
-  const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
+class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> {
+  const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
 
   @override
-  Iterable<Type> get types => const [_$ff3cbb941adc0f0f38f18ba5aabd7f48];
+  Iterable<Type> get types => const [_$f800ec38bc53f35ef8f05fc4ee2dc2b1];
 
   @override
-  String get wireName => r'_$ff3cbb941adc0f0f38f18ba5aabd7f48';
+  String get wireName => r'_$f800ec38bc53f35ef8f05fc4ee2dc2b1';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$ff3cbb941adc0f0f38f18ba5aabd7f48 object, {
+    _$f800ec38bc53f35ef8f05fc4ee2dc2b1 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -27627,6 +28426,10 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(NotificationsCapabilities))!;
     }
+    value = object.passwordPolicyCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(PasswordPolicyCapabilities))!;
+    }
     value = object.provisioningApiCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ProvisioningApiCapabilities))!;
@@ -27663,64 +28466,50 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(WeatherStatusCapabilities))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$ff3cbb941adc0f0f38f18ba5aabd7f48 deserialize(
+  _$f800ec38bc53f35ef8f05fc4ee2dc2b1 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
     CommentsCapabilities? commentsCapabilities;
     try {
-      commentsCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(CommentsCapabilities),
-      )! as CommentsCapabilities;
+      commentsCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))! as CommentsCapabilities;
     } catch (_) {}
     CoreCapabilities? coreCapabilities;
     try {
-      coreCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(CoreCapabilities),
-      )! as CoreCapabilities;
+      coreCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(CoreCapabilities))! as CoreCapabilities;
     } catch (_) {}
     CorePublicCapabilities? corePublicCapabilities;
     try {
-      corePublicCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(CorePublicCapabilities),
-      )! as CorePublicCapabilities;
+      corePublicCapabilities = serializers.deserialize(data, specifiedType: const FullType(CorePublicCapabilities))!
+          as CorePublicCapabilities;
     } catch (_) {}
     DavCapabilities? davCapabilities;
     try {
-      davCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(DavCapabilities),
-      )! as DavCapabilities;
+      davCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
     } catch (_) {}
     DropAccountCapabilities? dropAccountCapabilities;
     try {
-      dropAccountCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(DropAccountCapabilities),
-      )! as DropAccountCapabilities;
+      dropAccountCapabilities = serializers.deserialize(data, specifiedType: const FullType(DropAccountCapabilities))!
+          as DropAccountCapabilities;
     } catch (_) {}
     FilesCapabilities? filesCapabilities;
     try {
-      filesCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesCapabilities),
-      )! as FilesCapabilities;
+      filesCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
     } catch (_) {}
     FilesSharingCapabilities? filesSharingCapabilities;
     try {
-      filesSharingCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingCapabilities),
-      )! as FilesSharingCapabilities;
+      filesSharingCapabilities = serializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
+          as FilesSharingCapabilities;
     } catch (_) {}
     FilesTrashbinCapabilities? filesTrashbinCapabilities;
     try {
@@ -27738,10 +28527,8 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     NotesCapabilities? notesCapabilities;
     try {
-      notesCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(NotesCapabilities),
-      )! as NotesCapabilities;
+      notesCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
     } catch (_) {}
     NotificationsCapabilities? notificationsCapabilities;
     try {
@@ -27749,6 +28536,13 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
         data,
         specifiedType: const FullType(NotificationsCapabilities),
       )! as NotificationsCapabilities;
+    } catch (_) {}
+    PasswordPolicyCapabilities? passwordPolicyCapabilities;
+    try {
+      passwordPolicyCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(PasswordPolicyCapabilities),
+      )! as PasswordPolicyCapabilities;
     } catch (_) {}
     ProvisioningApiCapabilities? provisioningApiCapabilities;
     try {
@@ -27759,40 +28553,28 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = (serializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities),
-      )! as SharebymailCapabilities)
-        ..validateOneOf();
+      sharebymailCapabilities = serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
+          as SharebymailCapabilities;
     } catch (_) {}
     SpreedCapabilities? spreedCapabilities;
     try {
-      spreedCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SpreedCapabilities),
-      )! as SpreedCapabilities;
+      spreedCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(SpreedCapabilities))! as SpreedCapabilities;
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = (serializers.deserialize(
-        data,
-        specifiedType: const FullType(SpreedPublicCapabilities),
-      )! as SpreedPublicCapabilities)
-        ..validateOneOf();
+      spreedPublicCapabilities = serializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities))!
+          as SpreedPublicCapabilities;
     } catch (_) {}
     SystemtagsCapabilities? systemtagsCapabilities;
     try {
-      systemtagsCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SystemtagsCapabilities),
-      )! as SystemtagsCapabilities;
+      systemtagsCapabilities = serializers.deserialize(data, specifiedType: const FullType(SystemtagsCapabilities))!
+          as SystemtagsCapabilities;
     } catch (_) {}
     TablesCapabilities? tablesCapabilities;
     try {
-      tablesCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(TablesCapabilities),
-      )! as TablesCapabilities;
+      tablesCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(TablesCapabilities))! as TablesCapabilities;
     } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
@@ -27803,10 +28585,8 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     UserStatusCapabilities? userStatusCapabilities;
     try {
-      userStatusCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(UserStatusCapabilities),
-      )! as UserStatusCapabilities;
+      userStatusCapabilities = serializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
+          as UserStatusCapabilities;
     } catch (_) {}
     WeatherStatusCapabilities? weatherStatusCapabilities;
     try {
@@ -27827,6 +28607,7 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
       filesVersionsCapabilities: filesVersionsCapabilities,
       notesCapabilities: notesCapabilities,
       notificationsCapabilities: notificationsCapabilities,
+      passwordPolicyCapabilities: passwordPolicyCapabilities,
       provisioningApiCapabilities: provisioningApiCapabilities,
       sharebymailCapabilities: sharebymailCapabilities,
       spreedCapabilities: spreedCapabilities,
@@ -27835,7 +28616,7 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
       tablesCapabilities: tablesCapabilities,
       themingPublicCapabilities: themingPublicCapabilities,
       userStatusCapabilities: userStatusCapabilities,
-      weatherStatusCapabilities: weatherStatusCapabilities
+      weatherStatusCapabilities: weatherStatusCapabilities,
     );
   }
 }
@@ -27849,16 +28630,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   List<String> get _names => const [r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
@@ -27894,7 +28669,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -27906,17 +28681,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(
-        data,
-        specifiedType: const FullType(num),
-      )! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -27936,16 +28705,10 @@ extension $17b504aaa197cb55522acb1f128f183aExtension on _$17b504aaa197cb55522acb
   List<String> get _names => const ['builtListNum', 'builtListString', r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$17b504aaa197cb55522acb1f128f183a> get _serializer =>
       const _$17b504aaa197cb55522acb1f128f183aSerializer();
   static _$17b504aaa197cb55522acb1f128f183a _fromJson(Object? json) =>
@@ -27989,7 +28752,7 @@ class _$17b504aaa197cb55522acb1f128f183aSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -28001,31 +28764,21 @@ class _$17b504aaa197cb55522acb1f128f183aSerializer implements PrimitiveSerialize
   }) {
     BuiltList<num>? builtListNum;
     try {
-      builtListNum = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(num)]),
-      )! as BuiltList<num>;
+      builtListNum =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(num)]))! as BuiltList<num>;
     } catch (_) {}
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      )! as BuiltList<String>;
+      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
     } catch (_) {}
     num? $num;
     try {
-      $num = serializers.deserialize(
-        data,
-        specifiedType: const FullType(num),
-      )! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (builtListNum: builtListNum, builtListString: builtListString, $num: $num, string: string);
   }
@@ -28125,7 +28878,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AvatarGetAvatarDarkSize.serializer)
       ..add(AvatarGetAvatarDarkGuestFallback.serializer)
-      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
+      ..addBuilderFactory(
+        const FullType(AvatarAvatarGetAvatarDarkHeaders),
+        AvatarAvatarGetAvatarDarkHeadersBuilder.new,
+      )
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
       ..addBuilderFactory(const FullType(Header, [FullType.nullable(int)]), HeaderBuilder<int?>.new)
       ..add(Header.serializer)
@@ -28397,6 +29153,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(FilesCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(
+        const FullType(FilesCapabilities_Files_ChunkedUpload),
+        FilesCapabilities_Files_ChunkedUploadBuilder.new,
+      )
+      ..add(FilesCapabilities_Files_ChunkedUpload.serializer)
+      ..addBuilderFactory(
+        const FullType(FilesCapabilities_Files_FileConversions),
+        FilesCapabilities_Files_FileConversionsBuilder.new,
+      )
+      ..add(FilesCapabilities_Files_FileConversions.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)]),
+        ListBuilder<FilesCapabilities_Files_FileConversions>.new,
+      )
+      ..addBuilderFactory(
         const FullType(FilesCapabilities_Files_DirectEditing),
         FilesCapabilities_Files_DirectEditingBuilder.new,
       )
@@ -28475,11 +29245,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer)
       ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilitiesBuilder.new)
       ..add(FilesTrashbinCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities_Files), FilesTrashbinCapabilities_FilesBuilder.new)
+      ..addBuilderFactory(
+        const FullType(FilesTrashbinCapabilities_Files),
+        FilesTrashbinCapabilities_FilesBuilder.new,
+      )
       ..add(FilesTrashbinCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilitiesBuilder.new)
       ..add(FilesVersionsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesVersionsCapabilities_Files), FilesVersionsCapabilities_FilesBuilder.new)
+      ..addBuilderFactory(
+        const FullType(FilesVersionsCapabilities_Files),
+        FilesVersionsCapabilities_FilesBuilder.new,
+      )
       ..add(FilesVersionsCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
       ..add(NotificationsCapabilities.serializer)
@@ -28488,6 +29264,27 @@ final Serializers _$serializers = (Serializers().toBuilder()
         NotificationsCapabilities_NotificationsBuilder.new,
       )
       ..add(NotificationsCapabilities_Notifications.serializer)
+      ..addBuilderFactory(const FullType(PasswordPolicyCapabilities), PasswordPolicyCapabilitiesBuilder.new)
+      ..add(PasswordPolicyCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(PasswordPolicyCapabilities_PasswordPolicy),
+        PasswordPolicyCapabilities_PasswordPolicyBuilder.new,
+      )
+      ..add(PasswordPolicyCapabilities_PasswordPolicy.serializer)
+      ..addBuilderFactory(
+        const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api),
+        PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder.new,
+      )
+      ..add(PasswordPolicyCapabilities_PasswordPolicy_Api.serializer)
+      ..addBuilderFactory(
+        const FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies),
+        PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder.new,
+      )
+      ..add(PasswordPolicyCapabilities_PasswordPolicy_Policies.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies)]),
+        MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>.new,
+      )
       ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilitiesBuilder.new)
       ..add(ProvisioningApiCapabilities.serializer)
       ..addBuilderFactory(
@@ -28495,35 +29292,33 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
       )
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0Builder.new)
-      ..add(SharebymailCapabilities0.serializer)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
+      ..add(SharebymailCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing),
-        SharebymailCapabilities0_FilesSharingBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing),
+        SharebymailCapabilities_FilesSharingBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing.serializer)
+      ..add(SharebymailCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail),
-        SharebymailCapabilities0_FilesSharing_SharebymailBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
+        SharebymailCapabilities_FilesSharing_SharebymailBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
+        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_Password.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
+        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($46564992d3ed3482aa6c1162698aac99Extension._serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(SpreedCapabilities), SpreedCapabilitiesBuilder.new)
       ..add(SpreedCapabilities.serializer)
       ..addBuilderFactory(const FullType(SpreedCapabilities_Config), SpreedCapabilities_ConfigBuilder.new)
@@ -28542,6 +29337,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SpreedCapabilities_Config_ConversationsBuilder.new,
       )
       ..add(SpreedCapabilities_Config_Conversations.serializer)
+      ..add(SpreedCapabilities_Config_Conversations_ListStyle.serializer)
       ..addBuilderFactory(
         const FullType(SpreedCapabilities_Config_Federation),
         SpreedCapabilities_Config_FederationBuilder.new,
@@ -28564,9 +29360,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<String>>.new,
       )
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
-      ..add(SpreedPublicCapabilities0.serializer)
-      ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
+      ..add(SpreedPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
       ..add(SystemtagsCapabilities.serializer)
       ..addBuilderFactory(
@@ -28604,7 +29399,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer)
+      ..add($f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
       ..add(PreviewGetPreviewMode.serializer)
@@ -28613,6 +29408,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
       ..add(PreviewGetPreviewByFileIdMode.serializer)
       ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
+      ..addBuilderFactory(
+        const FullType(PreviewPreviewGetMimeIconUrlHeaders),
+        PreviewPreviewGetMimeIconUrlHeadersBuilder.new,
+      )
+      ..add(PreviewPreviewGetMimeIconUrlHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityRequestApplicationJson),
         ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
@@ -28756,7 +29556,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProviderBuilder.new)
       ..add(ReferenceProvider.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ReferenceProvider)]), ListBuilder<ReferenceProvider>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ReferenceProvider)]),
+        ListBuilder<ReferenceProvider>.new,
+      )
       ..addBuilderFactory(
         const FullType(ReferenceApiTouchProviderRequestApplicationJson),
         ReferenceApiTouchProviderRequestApplicationJsonBuilder.new,
@@ -28798,8 +29601,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TaskProcessingShape.serializer)
       ..add(TaskProcessingShape_Type.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingShape)]),
-        ListBuilder<TaskProcessingShape>.new,
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]),
+        MapBuilder<String, TaskProcessingShape>.new,
       )
       ..addBuilderFactory(
         const FullType(TaskProcessingTaskType_InputShapeEnumValues),
@@ -28811,10 +29614,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_InputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
       )
       ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
       ..addBuilderFactory(
@@ -28831,10 +29635,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OptionalInputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]),
@@ -28850,10 +29655,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OutputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues),
@@ -28865,10 +29671,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OptionalOutputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]),
@@ -29317,6 +30124,50 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(TwoFactorApiStateResponseApplicationJson),
+        TwoFactorApiStateResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiStateResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiStateResponseApplicationJson_Ocs),
+        TwoFactorApiStateResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiStateResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(bool)]),
+        MapBuilder<String, bool>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableRequestApplicationJson),
+        TwoFactorApiEnableRequestApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiEnableRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableResponseApplicationJson),
+        TwoFactorApiEnableResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiEnableResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs),
+        TwoFactorApiEnableResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiEnableResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableRequestApplicationJson),
+        TwoFactorApiDisableRequestApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiDisableRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableResponseApplicationJson),
+        TwoFactorApiDisableResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiDisableResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs),
+        TwoFactorApiDisableResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiDisableResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
         const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
         UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
       )
@@ -29430,9 +30281,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
           typesToLeaveAsList: const {
             _$87e48e5649cd72b4d2947aaaea13ccd8,
             _$b2c4857c0136baea42828d89c87c757d,
-            _$46564992d3ed3482aa6c1162698aac99,
-            _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$ff3cbb941adc0f0f38f18ba5aabd7f48,
+            _$f800ec38bc53f35ef8f05fc4ee2dc2b1,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,
           },

@@ -70,7 +70,8 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities() =>
                   ..referenceRegex = '[a-z]+'
                   ..referenceApi = true
                   ..pollinterval = 0
-                  ..webdavRoot = '',
+                  ..webdavRoot = ''
+                  ..modRewriteWorking = false,
               ),
           ),
           corePublicCapabilities: null,
@@ -82,6 +83,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities() =>
           filesVersionsCapabilities: null,
           notesCapabilities: null,
           notificationsCapabilities: null,
+          passwordPolicyCapabilities: null,
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
           spreedCapabilities: null,

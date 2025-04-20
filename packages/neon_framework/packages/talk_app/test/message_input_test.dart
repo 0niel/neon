@@ -41,11 +41,13 @@ Account mockTalkAccount() {
                   'id': 'id1',
                   'label': 'label1',
                   'source': 'groups',
+                  'mentionId': 'id1',
                 },
                 {
                   'id': 'id2',
                   'label': 'label2',
                   'source': 'users',
+                  'mentionId': 'id2',
                   'status': 'online',
                 },
               ],
@@ -263,6 +265,7 @@ void main() {
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage.markdown).thenReturn(false);
 
     replyTo.add(chatMessage);
     await tester.pumpAndSettle();
@@ -299,6 +302,7 @@ void main() {
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage.markdown).thenReturn(false);
 
     editing.add(chatMessage);
     await tester.pumpAndSettle();

@@ -36,19 +36,11 @@ part 'files_sharing.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DeletedShareapiClient deletedShareapi = $DeletedShareapiClient(this);
 
@@ -99,7 +91,7 @@ class $DeletedShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -108,14 +100,12 @@ class $DeletedShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -138,9 +128,7 @@ class $DeletedShareapiClient {
   ///  * [$index_Request] for the request send by this method.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DeletedShareapiIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
-    final _request = $index_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -175,10 +163,7 @@ class $DeletedShareapiClient {
   ///  * [undelete] for a method executing this request and parsing the response.
   ///  * [$undelete_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $undelete_Request({
-    required String id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $undelete_Request({required String id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
@@ -187,7 +172,7 @@ class $DeletedShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -196,14 +181,12 @@ class $DeletedShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -231,10 +214,7 @@ class $DeletedShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $undelete_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $undelete_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -285,7 +265,7 @@ class $PublicPreviewClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -294,12 +274,10 @@ class $PublicPreviewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -321,9 +299,7 @@ class $PublicPreviewClient {
   ///  * [$directLink_Request] for the request send by this method.
   ///  * [$directLink_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> directLink({required String token}) async {
-    final _request = $directLink_Request(
-      token: token,
-    );
+    final _request = $directLink_Request(token: token);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -362,13 +338,7 @@ class $PublicPreviewClient {
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({
-    required String token,
-    String? file,
-    int? x,
-    int? y,
-    PublicPreviewGetPreviewA? a,
-  }) {
+  _i3.Request $getPreview_Request({required String token, String? file, int? x, int? y, PublicPreviewGetPreviewA? a}) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = __token;
@@ -389,12 +359,13 @@ class $PublicPreviewClient {
     __a ??= 0;
     _parameters['a'] = __a;
 
-    final _path =
-        _i6.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -403,12 +374,10 @@ class $PublicPreviewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -440,13 +409,7 @@ class $PublicPreviewClient {
     int? y,
     PublicPreviewGetPreviewA? a,
   }) async {
-    final _request = $getPreview_Request(
-      token: token,
-      file: file,
-      x: x,
-      y: y,
-      a: a,
-    );
+    final _request = $getPreview_Request(token: token, file: file, x: x, y: y, a: a);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -491,7 +454,7 @@ class $RemoteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -500,14 +463,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -530,9 +491,7 @@ class $RemoteClient {
   ///  * [$getShares_Request] for the request send by this method.
   ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({bool? oCSAPIRequest}) async {
-    final _request = $getShares_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getShares_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -570,7 +529,7 @@ class $RemoteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -579,14 +538,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -611,9 +568,7 @@ class $RemoteClient {
   Future<_i1.DynamiteResponse<RemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getOpenShares_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getOpenShares_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -648,20 +603,18 @@ class $RemoteClient {
   ///  * [acceptShare] for a method executing this request and parsing the response.
   ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $acceptShare_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $acceptShare_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -670,14 +623,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -705,10 +656,7 @@ class $RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $acceptShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $acceptShare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -743,20 +691,18 @@ class $RemoteClient {
   ///  * [declineShare] for a method executing this request and parsing the response.
   ///  * [$declineShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $declineShare_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $declineShare_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -765,14 +711,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -800,10 +744,7 @@ class $RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $declineShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $declineShare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -837,10 +778,7 @@ class $RemoteClient {
   ///  * [getShare] for a method executing this request and parsing the response.
   ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getShare_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getShare_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -849,7 +787,7 @@ class $RemoteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -858,14 +796,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -893,10 +829,7 @@ class $RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getShare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -931,10 +864,7 @@ class $RemoteClient {
   ///  * [unshare] for a method executing this request and parsing the response.
   ///  * [$unshare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $unshare_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $unshare_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -943,7 +873,7 @@ class $RemoteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -952,14 +882,12 @@ class $RemoteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -988,10 +916,7 @@ class $RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $unshare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $unshare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1034,7 +959,7 @@ class $ShareInfoClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1043,15 +968,14 @@ class $ShareInfoClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ShareInfoInfoRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ShareInfoInfoRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -1069,9 +993,7 @@ class $ShareInfoClient {
   ///  * [$info_Request] for the request send by this method.
   ///  * [$info_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareInfo, void>> info({required ShareInfoInfoRequestApplicationJson $body}) async {
-    final _request = $info_Request(
-      $body: $body,
-    );
+    final _request = $info_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1152,7 +1074,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1161,14 +1083,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1247,15 +1167,12 @@ class $ShareapiClient {
   ///  * [createShare] for a method executing this request and parsing the response.
   ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $createShare_Request({
-    bool? oCSAPIRequest,
-    ShareapiCreateShareRequestApplicationJson? $body,
-  }) {
+  _i3.Request $createShare_Request({bool? oCSAPIRequest, ShareapiCreateShareRequestApplicationJson? $body}) {
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1264,14 +1181,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1314,10 +1229,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
     ShareapiCreateShareRequestApplicationJson? $body,
   }) async {
-    final _request = $createShare_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createShare_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1353,10 +1265,7 @@ class $ShareapiClient {
   ///  * [getInheritedShares] for a method executing this request and parsing the response.
   ///  * [$getInheritedShares_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getInheritedShares_Request({
-    required String path,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getInheritedShares_Request({required String path, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = __path;
@@ -1365,7 +1274,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1374,14 +1283,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1410,16 +1317,14 @@ class $ShareapiClient {
     required String path,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getInheritedShares_Request(
-      path: path,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getInheritedShares_Request(path: path, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getInheritedShares_Serializer();
-    return _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$pendingShares_Request].
@@ -1452,7 +1357,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1461,14 +1366,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1493,9 +1396,7 @@ class $ShareapiClient {
   Future<_i1.DynamiteResponse<ShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $pendingShares_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $pendingShares_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1531,26 +1432,25 @@ class $ShareapiClient {
   ///  * [getShare] for a method executing this request and parsing the response.
   ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getShare_Request({
-    required String id,
-    ShareapiGetShareIncludeTags? includeTags,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getShare_Request({required String id, ShareapiGetShareIncludeTags? includeTags, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
 
-    var __includeTags =
-        _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
+    var __includeTags = _$jsonSerializers.serialize(
+      includeTags,
+      specifiedType: const FullType(ShareapiGetShareIncludeTags),
+    );
     __includeTags ??= 0;
     _parameters['include_tags'] = __includeTags;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1559,14 +1459,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1596,11 +1494,7 @@ class $ShareapiClient {
     ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getShare_Request(
-      id: id,
-      includeTags: includeTags,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getShare_Request(id: id, includeTags: includeTags, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1650,7 +1544,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1659,14 +1553,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1711,11 +1603,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
     ShareapiUpdateShareRequestApplicationJson? $body,
   }) async {
-    final _request = $updateShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $updateShare_Request(id: id, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1751,10 +1639,7 @@ class $ShareapiClient {
   ///  * [deleteShare] for a method executing this request and parsing the response.
   ///  * [$deleteShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteShare_Request({
-    required String id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteShare_Request({required String id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
@@ -1763,7 +1648,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1772,14 +1657,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1808,10 +1691,7 @@ class $ShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteShare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1861,7 +1741,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1870,14 +1750,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1922,11 +1800,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
     ShareapiSendShareEmailRequestApplicationJson? $body,
   }) async {
-    final _request = $sendShareEmail_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $sendShareEmail_Request(id: id, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1962,10 +1836,7 @@ class $ShareapiClient {
   ///  * [acceptShare] for a method executing this request and parsing the response.
   ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $acceptShare_Request({
-    required String id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $acceptShare_Request({required String id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
@@ -1974,7 +1845,7 @@ class $ShareapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1983,14 +1854,12 @@ class $ShareapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2019,15 +1888,89 @@ class $ShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $acceptShare_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $acceptShare_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $acceptShare_Serializer();
     return _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$generateToken_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiGenerateTokenResponseApplicationJson, void> $generateToken_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiGenerateTokenResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get a unique share token.
+  ///
+  /// Returns a `DynamiteRequest` backing the [generateToken] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Token generated successfully
+  ///
+  /// See:
+  ///  * [generateToken] for a method executing this request and parsing the response.
+  ///  * [$generateToken_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $generateToken_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/token';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a unique share token.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Token generated successfully
+  ///
+  /// See:
+  ///  * [$generateToken_Request] for the request send by this method.
+  ///  * [$generateToken_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiGenerateTokenResponseApplicationJson, void>> generateToken({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $generateToken_Request(oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $generateToken_Serializer();
+    return _i1.ResponseConverter<ShareapiGenerateTokenResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -2094,8 +2037,10 @@ class $ShareesapiClient {
     __perPage ??= 200;
     _parameters['perPage'] = __perPage;
 
-    final __shareType =
-        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
+    final __shareType = _$jsonSerializers.serialize(
+      shareType,
+      specifiedType: const FullType(ShareesapiSearchShareType),
+    );
     _parameters['shareType'] = __shareType;
 
     var __lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(ShareesapiSearchLookup));
@@ -2108,7 +2053,7 @@ class $ShareesapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2117,14 +2062,12 @@ class $ShareesapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2216,16 +2159,19 @@ class $ShareesapiClient {
     final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
     _parameters['itemType'] = __itemType;
 
-    final __shareType =
-        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
+    final __shareType = _$jsonSerializers.serialize(
+      shareType,
+      specifiedType: const FullType(ShareesapiFindRecommendedShareType),
+    );
     _parameters['shareType'] = __shareType;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
-        .expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2234,14 +2180,12 @@ class $ShareesapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -2270,17 +2214,14 @@ class $ShareesapiClient {
     ShareesapiFindRecommendedShareType? shareType,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $findRecommended_Request(
-      itemType: itemType,
-      shareType: shareType,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $findRecommended_Request(itemType: itemType, shareType: shareType, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findRecommended_Serializer();
-    return _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -3580,10 +3521,7 @@ abstract class RemoteUnshareResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ShareInfoInfoRequestApplicationJsonInterface {
-  static final _$depth = _$jsonSerializers.deserialize(
-    -1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$depth = _$jsonSerializers.deserialize(-1, specifiedType: const FullType(int))! as int;
 
   /// Token of the share.
   String get t;
@@ -3829,11 +3767,7 @@ class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> 
   String get wireName => 'Share_ItemType';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    Share_ItemType object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, Share_ItemType object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -3892,11 +3826,7 @@ class _$Share_MailSendSerializer implements PrimitiveSerializer<Share_MailSend> 
   String get wireName => 'Share_MailSend';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    Share_MailSend object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, Share_MailSend object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -3987,6 +3917,8 @@ sealed class $ShareInterface {
   bool get hasPreview;
   @BuiltValueField(wireName: 'hide_download')
   Share_HideDownload get hideDownload;
+  @BuiltValueField(wireName: 'is-mount-root')
+  bool get isMountRoot;
   String get id;
   @BuiltValueField(wireName: 'item_mtime')
   int get itemMtime;
@@ -3998,10 +3930,12 @@ sealed class $ShareInterface {
   int get itemSource;
   @BuiltValueField(wireName: 'item_type')
   Share_ItemType get itemType;
-  String? get label;
+  String get label;
   @BuiltValueField(wireName: 'mail_send')
   Share_MailSend get mailSend;
   String get mimetype;
+  @BuiltValueField(wireName: 'mount-type')
+  String get mountType;
   String get note;
   JsonObject? get parent;
   String? get password;
@@ -4212,6 +4146,78 @@ abstract class ShareapiGetSharesResponseApplicationJson
   }
 }
 
+/// If public uploading is allowed (deprecated).
+class ShareapiCreateShareRequestApplicationJson_PublicUpload extends EnumClass {
+  const ShareapiCreateShareRequestApplicationJson_PublicUpload._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const ShareapiCreateShareRequestApplicationJson_PublicUpload $true =
+      _$shareapiCreateShareRequestApplicationJsonPublicUpload$true;
+
+  /// `false`
+  @BuiltValueEnumConst(wireName: 'false')
+  static const ShareapiCreateShareRequestApplicationJson_PublicUpload $false =
+      _$shareapiCreateShareRequestApplicationJsonPublicUpload$false;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ShareapiCreateShareRequestApplicationJson_PublicUpload> get values =>
+      _$shareapiCreateShareRequestApplicationJsonPublicUploadValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ShareapiCreateShareRequestApplicationJson_PublicUpload valueOf(String name) =>
+      _$valueOfShareapiCreateShareRequestApplicationJson_PublicUpload(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ShareapiCreateShareRequestApplicationJson_PublicUpload.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ShareapiCreateShareRequestApplicationJson_PublicUpload> get serializer =>
+      const _$ShareapiCreateShareRequestApplicationJson_PublicUploadSerializer();
+}
+
+class _$ShareapiCreateShareRequestApplicationJson_PublicUploadSerializer
+    implements PrimitiveSerializer<ShareapiCreateShareRequestApplicationJson_PublicUpload> {
+  const _$ShareapiCreateShareRequestApplicationJson_PublicUploadSerializer();
+
+  static const Map<ShareapiCreateShareRequestApplicationJson_PublicUpload, Object> _toWire =
+      <ShareapiCreateShareRequestApplicationJson_PublicUpload, Object>{
+    ShareapiCreateShareRequestApplicationJson_PublicUpload.$true: 'true',
+    ShareapiCreateShareRequestApplicationJson_PublicUpload.$false: 'false',
+  };
+
+  static const Map<Object, ShareapiCreateShareRequestApplicationJson_PublicUpload> _fromWire =
+      <Object, ShareapiCreateShareRequestApplicationJson_PublicUpload>{
+    'true': ShareapiCreateShareRequestApplicationJson_PublicUpload.$true,
+    'false': ShareapiCreateShareRequestApplicationJson_PublicUpload.$false,
+  };
+
+  @override
+  Iterable<Type> get types => const [ShareapiCreateShareRequestApplicationJson_PublicUpload];
+
+  @override
+  String get wireName => 'ShareapiCreateShareRequestApplicationJson_PublicUpload';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ShareapiCreateShareRequestApplicationJson_PublicUpload object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ShareapiCreateShareRequestApplicationJson_PublicUpload deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 /// Send a mail to the recipient.
 class ShareapiCreateShareRequestApplicationJson_SendMail extends EnumClass {
   const ShareapiCreateShareRequestApplicationJson_SendMail._(super.name);
@@ -4286,30 +4292,13 @@ class _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
-  static final _$shareType = _$jsonSerializers.deserialize(
-    -1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$shareType = _$jsonSerializers.deserialize(-1, specifiedType: const FullType(int))! as int;
 
-  static final _$publicUpload = _$jsonSerializers.deserialize(
-    'false',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$password = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$password = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$note = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$note = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  static final _$label = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$label = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Path of the share.
   String? get path;
@@ -4323,8 +4312,8 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   /// The entity this should be shared with.
   String? get shareWith;
 
-  /// If public uploading is allowed.
-  String get publicUpload;
+  /// If public uploading is allowed (deprecated).
+  ShareapiCreateShareRequestApplicationJson_PublicUpload? get publicUpload;
 
   /// Password for the share.
   String get password;
@@ -4360,7 +4349,6 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiCreateShareRequestApplicationJsonInterfaceBuilder b) {
     b.shareType = _$shareType;
-    b.publicUpload = _$publicUpload;
     b.password = _$password;
     b.note = _$note;
     b.label = _$label;
@@ -4863,7 +4851,7 @@ class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<Sha
 @BuiltValue(instantiable: false)
 sealed class $ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  Share get data;
+  BuiltList<Share> get data;
 
   /// Rebuilds the instance.
   ///
@@ -5017,6 +5005,9 @@ sealed class $ShareapiUpdateShareRequestApplicationJsonInterface {
 
   /// if the share should be send by mail. Considering the share already exists, no mail will be send after the share is updated. You will have to use the sendMail action to send the mail.
   String? get sendMail;
+
+  /// New token.
+  String? get token;
 
   /// Rebuilds the instance.
   ///
@@ -5333,10 +5324,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ShareapiSendShareEmailRequestApplicationJsonInterface {
-  static final _$password = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$password = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// the password to check against. Necessary for password protected shares.
   String get password;
@@ -5658,6 +5646,198 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   }
 }
 
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface {
+  String get token;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
+    implements
+        $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs_Data([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs
+    implements
+        $ShareapiGenerateTokenResponseApplicationJson_OcsInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs,
+            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson_Ocs.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJsonInterface {
+  ShareapiGenerateTokenResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson
+    implements
+        $ShareapiGenerateTokenResponseApplicationJsonInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson, ShareapiGenerateTokenResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson([
+    void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJsonBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJsonBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
 
 class ShareesapiSearchLookup extends EnumClass {
@@ -5725,7 +5905,6 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
 
 @BuiltValue(instantiable: false)
 sealed class $ShareeInterface {
-  int? get count;
   String get label;
 
   /// Rebuilds the instance.
@@ -6024,6 +6203,67 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareeGroupInterface implements $ShareeInterface {
+  ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeGroupInterfaceBuilder].
+  @override
+  $ShareeGroupInterface rebuild(void Function($ShareeGroupInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeGroupInterfaceBuilder].
+  @override
+  $ShareeGroupInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeGroupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeGroupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
+}
+
+abstract class ShareeGroup implements $ShareeGroupInterface, Built<ShareeGroup, ShareeGroupBuilder> {
+  /// Creates a new ShareeGroup object using the builder pattern.
+  factory ShareeGroup([void Function(ShareeGroupBuilder)? b]) = _$ShareeGroup;
+
+  // coverage:ignore-start
+  const ShareeGroup._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareeGroup.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareeGroup.
+  static Serializer<ShareeGroup> get serializer => _$shareeGroupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeGroupBuilder b) {
+    $ShareeGroupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeGroupBuilder b) {
+    $ShareeGroupInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
 
@@ -6278,6 +6518,67 @@ abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemot
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareeRoomInterface implements $ShareeInterface {
+  ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRoomInterfaceBuilder].
+  @override
+  $ShareeRoomInterface rebuild(void Function($ShareeRoomInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRoomInterfaceBuilder].
+  @override
+  $ShareeRoomInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRoomInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRoomInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
+}
+
+abstract class ShareeRoom implements $ShareeRoomInterface, Built<ShareeRoom, ShareeRoomBuilder> {
+  /// Creates a new ShareeRoom object using the builder pattern.
+  factory ShareeRoom([void Function(ShareeRoomBuilder)? b]) = _$ShareeRoom;
+
+  // coverage:ignore-start
+  const ShareeRoom._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareeRoom.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareeRoom.
+  static Serializer<ShareeRoom> get serializer => _$shareeRoomSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRoomBuilder b) {
+    $ShareeRoomInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRoomBuilder b) {
+    $ShareeRoomInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareeUser_StatusInterface {
   String get status;
   String get message;
@@ -6404,11 +6705,11 @@ abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, Sha
 sealed class $ShareesSearchResult_ExactInterface {
   BuiltList<ShareeCircle> get circles;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
-  BuiltList<Sharee> get rooms;
+  BuiltList<ShareeRoom> get rooms;
   BuiltList<ShareeUser> get users;
 
   /// Rebuilds the instance.
@@ -6715,12 +7016,12 @@ sealed class $ShareesSearchResultInterface {
   ShareesSearchResult_Exact get exact;
   BuiltList<ShareeCircle> get circles;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   BuiltList<ShareeLookup> get lookup;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
-  BuiltList<Sharee> get rooms;
+  BuiltList<ShareeRoom> get rooms;
   BuiltList<ShareeUser> get users;
   bool get lookupEnabled;
 
@@ -6968,7 +7269,7 @@ typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int
 @BuiltValue(instantiable: false)
 sealed class $ShareesRecommendedResult_ExactInterface {
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
@@ -7035,7 +7336,7 @@ abstract class ShareesRecommendedResult_Exact
 sealed class $ShareesRecommendedResultInterface {
   ShareesRecommendedResult_Exact get exact;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
@@ -7500,6 +7801,8 @@ sealed class $Capabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+  @BuiltValueField(wireName: 'custom_tokens')
+  bool? get customTokens;
 
   /// Rebuilds the instance.
   ///
@@ -8226,16 +8529,10 @@ extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f
   List<String> get _names => const ['builtListInt', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$07eaa0304017ba8abe7f9f20d6a736f3> get _serializer =>
       const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
   static _$07eaa0304017ba8abe7f9f20d6a736f3 _fromJson(Object? json) =>
@@ -8271,7 +8568,7 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -8283,17 +8580,12 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
   }) {
     BuiltList<int>? builtListInt;
     try {
-      builtListInt = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(int)]),
-      )! as BuiltList<int>;
+      builtListInt =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(
-        data,
-        specifiedType: const FullType(int),
-      )! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return (builtListInt: builtListInt, $int: $int);
   }
@@ -8436,6 +8728,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiCreateShareRequestApplicationJsonBuilder.new,
       )
       ..add(ShareapiCreateShareRequestApplicationJson.serializer)
+      ..add(ShareapiCreateShareRequestApplicationJson_PublicUpload.serializer)
       ..add(ShareapiCreateShareRequestApplicationJson_SendMail.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiCreateShareResponseApplicationJson),
@@ -8528,6 +8821,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson),
+        ShareapiGenerateTokenResponseApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
+        ShareapiGenerateTokenResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
+        ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
       ..add(ShareesapiSearchLookup.serializer)
@@ -8557,17 +8865,25 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeEmail), ShareeEmailBuilder.new)
       ..add(ShareeEmail.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeEmail)]), ListBuilder<ShareeEmail>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Sharee)]), ListBuilder<Sharee>.new)
+      ..addBuilderFactory(const FullType(ShareeGroup), ShareeGroupBuilder.new)
+      ..add(ShareeGroup.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeGroup)]), ListBuilder<ShareeGroup>.new)
       ..addBuilderFactory(const FullType(ShareeRemoteGroup), ShareeRemoteGroupBuilder.new)
       ..add(ShareeRemoteGroup.serializer)
       ..addBuilderFactory(const FullType(ShareeRemoteGroup_Value), ShareeRemoteGroup_ValueBuilder.new)
       ..add(ShareeRemoteGroup_Value.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemoteGroup)]), ListBuilder<ShareeRemoteGroup>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ShareeRemoteGroup)]),
+        ListBuilder<ShareeRemoteGroup>.new,
+      )
       ..addBuilderFactory(const FullType(ShareeRemote), ShareeRemoteBuilder.new)
       ..add(ShareeRemote.serializer)
       ..addBuilderFactory(const FullType(ShareeRemote_Value), ShareeRemote_ValueBuilder.new)
       ..add(ShareeRemote_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemote)]), ListBuilder<ShareeRemote>.new)
+      ..addBuilderFactory(const FullType(ShareeRoom), ShareeRoomBuilder.new)
+      ..add(ShareeRoom.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRoom)]), ListBuilder<ShareeRoom>.new)
       ..addBuilderFactory(const FullType(ShareeUser), ShareeUserBuilder.new)
       ..add(ShareeUser.serializer)
       ..addBuilderFactory(const FullType(ShareeUser_Status), ShareeUser_StatusBuilder.new)
@@ -8605,7 +8921,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
       ..add(Capabilities_FilesSharing.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing_Public), Capabilities_FilesSharing_PublicBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Capabilities_FilesSharing_Public),
+        Capabilities_FilesSharing_PublicBuilder.new,
+      )
       ..add(Capabilities_FilesSharing_Public.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities_FilesSharing_Public_Password),
@@ -8634,7 +8953,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Capabilities_FilesSharing_User_ExpireDateBuilder.new,
       )
       ..add(Capabilities_FilesSharing_User_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing_Group), Capabilities_FilesSharing_GroupBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Capabilities_FilesSharing_Group),
+        Capabilities_FilesSharing_GroupBuilder.new,
+      )
       ..add(Capabilities_FilesSharing_Group.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities_FilesSharing_Group_ExpireDate),
@@ -8656,7 +8978,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
       )
       ..add(Capabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing_Sharee), Capabilities_FilesSharing_ShareeBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Capabilities_FilesSharing_Sharee),
+        Capabilities_FilesSharing_ShareeBuilder.new,
+      )
       ..add(Capabilities_FilesSharing_Sharee.serializer))
     .build();
 
