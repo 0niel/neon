@@ -6,8 +6,28 @@ part of 'files_versions.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = const PreviewGetPreviewMimeFallback._('\$0');
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = const PreviewGetPreviewMimeFallback._('\$1');
+
+PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewMimeFallback$1;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
+    new BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
+  _$previewGetPreviewMimeFallback$0,
+  _$previewGetPreviewMimeFallback$1,
+]);
+
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = new _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 
 class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
@@ -33,7 +53,7 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   @override
   Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_FilesBuilder();
+    final result = new Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -77,7 +97,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -118,7 +138,7 @@ class _$Capabilities_Files extends Capabilities_Files {
   final bool versionDeletion;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
-      (Capabilities_FilesBuilder()..update(updates))._build();
+      (new Capabilities_FilesBuilder()..update(updates))._build();
 
   _$Capabilities_Files._({required this.versioning, required this.versionLabeling, required this.versionDeletion})
       : super._() {
@@ -132,7 +152,7 @@ class _$Capabilities_Files extends Capabilities_Files {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => new Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -211,7 +231,7 @@ class Capabilities_FilesBuilder
   _$Capabilities_Files _build() {
     Capabilities_Files._validate(this);
     final _$result = _$v ??
-        _$Capabilities_Files._(
+        new _$Capabilities_Files._(
           versioning: BuiltValueNullFieldError.checkNotNull(versioning, r'Capabilities_Files', 'versioning'),
           versionLabeling:
               BuiltValueNullFieldError.checkNotNull(versionLabeling, r'Capabilities_Files', 'versionLabeling'),
@@ -235,7 +255,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Files files;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.files}) : super._() {
     BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
@@ -245,7 +265,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -271,7 +291,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;
-  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
+  Capabilities_FilesBuilder get files => _$this._files ??= new Capabilities_FilesBuilder();
   set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
   CapabilitiesBuilder() {
@@ -306,7 +326,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             files: files.build(),
           );
     } catch (_) {
@@ -315,7 +335,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

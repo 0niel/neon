@@ -3,6 +3,9 @@
   "extends": [
     "config:best-practices"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "labels": [
     "dependencies"
   ],
@@ -46,6 +49,11 @@
         "patch"
       ],
       "matchCurrentVersion": "/^0/",
+      "enabled": false
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "matchUpdateTypes": ["digest"],
       "enabled": false
     },
     {

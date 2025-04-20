@@ -6,8 +6,8 @@ part of 'files_trashbin.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
-const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
+const PreviewGetPreviewA _$previewGetPreviewA$0 = const PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = const PreviewGetPreviewA._('\$1');
 
 PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
   switch (name) {
@@ -16,17 +16,18 @@ PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
     case '\$1':
       return _$previewGetPreviewA$1;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues =
+    new BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
   _$previewGetPreviewA$0,
   _$previewGetPreviewA$1,
 ]);
 
-Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = new _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 
 class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
@@ -41,14 +42,20 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       'undelete',
       serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.deleteFromTrash;
+    if (value != null) {
+      result
+        ..add('delete_from_trash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
   @override
   Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_FilesBuilder();
+    final result = new Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -58,6 +65,9 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       switch (key) {
         case 'undelete':
           result.undelete = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'delete_from_trash':
+          result.deleteFromTrash = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -86,7 +96,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -110,16 +120,21 @@ abstract mixin class $Capabilities_FilesInterfaceBuilder {
   void update(void Function($Capabilities_FilesInterfaceBuilder) updates);
   bool? get undelete;
   set undelete(bool? undelete);
+
+  bool? get deleteFromTrash;
+  set deleteFromTrash(bool? deleteFromTrash);
 }
 
 class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool undelete;
+  @override
+  final bool? deleteFromTrash;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
-      (Capabilities_FilesBuilder()..update(updates))._build();
+      (new Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$Capabilities_Files._({required this.undelete}) : super._() {
+  _$Capabilities_Files._({required this.undelete, this.deleteFromTrash}) : super._() {
     BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete');
   }
 
@@ -128,25 +143,29 @@ class _$Capabilities_Files extends Capabilities_Files {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => new Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_Files && undelete == other.undelete;
+    return other is Capabilities_Files && undelete == other.undelete && deleteFromTrash == other.deleteFromTrash;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, undelete.hashCode);
+    _$hash = $jc(_$hash, deleteFromTrash.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_Files')..add('undelete', undelete)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')
+          ..add('undelete', undelete)
+          ..add('deleteFromTrash', deleteFromTrash))
+        .toString();
   }
 }
 
@@ -158,6 +177,10 @@ class Capabilities_FilesBuilder
   bool? get undelete => _$this._undelete;
   set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
+  bool? _deleteFromTrash;
+  bool? get deleteFromTrash => _$this._deleteFromTrash;
+  set deleteFromTrash(covariant bool? deleteFromTrash) => _$this._deleteFromTrash = deleteFromTrash;
+
   Capabilities_FilesBuilder() {
     Capabilities_Files._defaults(this);
   }
@@ -166,6 +189,7 @@ class Capabilities_FilesBuilder
     final $v = _$v;
     if ($v != null) {
       _undelete = $v.undelete;
+      _deleteFromTrash = $v.deleteFromTrash;
       _$v = null;
     }
     return this;
@@ -188,8 +212,9 @@ class Capabilities_FilesBuilder
   _$Capabilities_Files _build() {
     Capabilities_Files._validate(this);
     final _$result = _$v ??
-        _$Capabilities_Files._(
+        new _$Capabilities_Files._(
           undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'),
+          deleteFromTrash: deleteFromTrash,
         );
     replace(_$result);
     return _$result;
@@ -208,7 +233,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Files files;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.files}) : super._() {
     BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
@@ -218,7 +243,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -244,7 +269,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;
-  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
+  Capabilities_FilesBuilder get files => _$this._files ??= new Capabilities_FilesBuilder();
   set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
   CapabilitiesBuilder() {
@@ -279,7 +304,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             files: files.build(),
           );
     } catch (_) {
@@ -288,7 +313,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }
