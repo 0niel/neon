@@ -9,7 +9,7 @@
 [submodule "external/nextcloud-spreed"]
 	path = external/nextcloud-spreed
 	url = https://github.com/nextcloud/spreed
-	branch = v21.0.3
+	branch = v21.0.4
 [submodule "external/nextcloud-news"]
 	path = external/nextcloud-news
 	url = https://github.com/nextcloud/news
@@ -33,7 +33,7 @@
 [submodule "external/nextcloud-tables"]
 	path = external/nextcloud-tables
 	url = https://github.com/nextcloud/tables
-	branch = v0.9.1
+	branch = v0.9.2
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
@@ -41,3 +41,7 @@
 	path = external/nextcloud-password_policy
 	url = https://github.com/nextcloud/password_policy.git
 	branch = v31.0.4
+[submodule "external/nextcloud-terms_of_service"]
+	path = external/nextcloud-terms_of_service
+	url = https://github.com/nextcloud/terms_of_service.git
+	branch = v4.4.0

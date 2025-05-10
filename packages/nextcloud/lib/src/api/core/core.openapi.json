@@ -232,15 +232,8 @@
                         "type": "string"
                     },
                     "order": {
-                        "oneOf": [
-                            {
-                                "type": "integer",
-                                "format": "int64"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
+                        "type": "integer",
+                        "format": "int64"
                     },
                     "href": {
                         "type": "string"
@@ -2160,6 +2153,32 @@
                     }
                 }
             },
+            "TermsOfServicePublicCapabilities": {
+                "type": "object",
+                "required": [
+                    "terms_of_service"
+                ],
+                "properties": {
+                    "terms_of_service": {
+                        "type": "object",
+                        "required": [
+                            "enabled",
+                            "term_uuid"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean",
+                                "enum": [
+                                    true
+                                ]
+                            },
+                            "term_uuid": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
             "ThemingPublicCapabilities": {
                 "type": "object",
                 "required": [
@@ -2179,6 +2198,7 @@
                             "color-element-dark",
                             "logo",
                             "background",
+                            "background-text",
                             "background-plain",
                             "background-default",
                             "logoheader",
@@ -4375,6 +4395,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/TablesCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/TermsOfServicePublicCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/ThemingPublicCapabilities"

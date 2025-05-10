@@ -11024,12 +11024,10 @@ class _$NavigationGetAppsNavigationAbsoluteSerializer
       _fromWire[serialized]!;
 }
 
-typedef NavigationEntry_Order = ({int? $int, String? string});
-
 @BuiltValue(instantiable: false)
 sealed class $NavigationEntryInterface {
   String get id;
-  NavigationEntry_Order? get order;
+  int? get order;
   String get href;
   String get icon;
   String get type;
@@ -11052,9 +11050,7 @@ sealed class $NavigationEntryInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NavigationEntryInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($NavigationEntryInterfaceBuilder b) {
-    b.order?.validateOneOf();
-  }
+  static void _validate($NavigationEntryInterfaceBuilder b) {}
 }
 
 abstract class NavigationEntry implements $NavigationEntryInterface, Built<NavigationEntry, NavigationEntryBuilder> {
@@ -15951,6 +15947,197 @@ abstract class TablesCapabilities
   }
 }
 
+class TermsOfServicePublicCapabilities_TermsOfService_Enabled extends EnumClass {
+  const TermsOfServicePublicCapabilities_TermsOfService_Enabled._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const TermsOfServicePublicCapabilities_TermsOfService_Enabled $true =
+      _$termsOfServicePublicCapabilitiesTermsOfServiceEnabled$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<TermsOfServicePublicCapabilities_TermsOfService_Enabled> get values =>
+      _$termsOfServicePublicCapabilitiesTermsOfServiceEnabledValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static TermsOfServicePublicCapabilities_TermsOfService_Enabled valueOf(String name) =>
+      _$valueOfTermsOfServicePublicCapabilities_TermsOfService_Enabled(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for TermsOfServicePublicCapabilities_TermsOfService_Enabled.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TermsOfServicePublicCapabilities_TermsOfService_Enabled> get serializer =>
+      const _$TermsOfServicePublicCapabilities_TermsOfService_EnabledSerializer();
+}
+
+class _$TermsOfServicePublicCapabilities_TermsOfService_EnabledSerializer
+    implements PrimitiveSerializer<TermsOfServicePublicCapabilities_TermsOfService_Enabled> {
+  const _$TermsOfServicePublicCapabilities_TermsOfService_EnabledSerializer();
+
+  static const Map<TermsOfServicePublicCapabilities_TermsOfService_Enabled, Object> _toWire =
+      <TermsOfServicePublicCapabilities_TermsOfService_Enabled, Object>{
+    TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true: true,
+  };
+
+  static const Map<Object, TermsOfServicePublicCapabilities_TermsOfService_Enabled> _fromWire =
+      <Object, TermsOfServicePublicCapabilities_TermsOfService_Enabled>{
+    true: TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [TermsOfServicePublicCapabilities_TermsOfService_Enabled];
+
+  @override
+  String get wireName => 'TermsOfServicePublicCapabilities_TermsOfService_Enabled';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TermsOfServicePublicCapabilities_TermsOfService_Enabled object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TermsOfServicePublicCapabilities_TermsOfService_Enabled deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TermsOfServicePublicCapabilities_TermsOfServiceInterface {
+  TermsOfServicePublicCapabilities_TermsOfService_Enabled get enabled;
+  @BuiltValueField(wireName: 'term_uuid')
+  String get termUuid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder].
+  $TermsOfServicePublicCapabilities_TermsOfServiceInterface rebuild(
+    void Function($TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder].
+  $TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder b) {}
+}
+
+abstract class TermsOfServicePublicCapabilities_TermsOfService
+    implements
+        $TermsOfServicePublicCapabilities_TermsOfServiceInterface,
+        Built<TermsOfServicePublicCapabilities_TermsOfService, TermsOfServicePublicCapabilities_TermsOfServiceBuilder> {
+  /// Creates a new TermsOfServicePublicCapabilities_TermsOfService object using the builder pattern.
+  factory TermsOfServicePublicCapabilities_TermsOfService([
+    void Function(TermsOfServicePublicCapabilities_TermsOfServiceBuilder)? b,
+  ]) = _$TermsOfServicePublicCapabilities_TermsOfService;
+
+  // coverage:ignore-start
+  const TermsOfServicePublicCapabilities_TermsOfService._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TermsOfServicePublicCapabilities_TermsOfService.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TermsOfServicePublicCapabilities_TermsOfService.
+  static Serializer<TermsOfServicePublicCapabilities_TermsOfService> get serializer =>
+      _$termsOfServicePublicCapabilitiesTermsOfServiceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TermsOfServicePublicCapabilities_TermsOfServiceBuilder b) {
+    $TermsOfServicePublicCapabilities_TermsOfServiceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TermsOfServicePublicCapabilities_TermsOfServiceBuilder b) {
+    $TermsOfServicePublicCapabilities_TermsOfServiceInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TermsOfServicePublicCapabilitiesInterface {
+  @BuiltValueField(wireName: 'terms_of_service')
+  TermsOfServicePublicCapabilities_TermsOfService get termsOfService;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TermsOfServicePublicCapabilitiesInterfaceBuilder].
+  $TermsOfServicePublicCapabilitiesInterface rebuild(
+    void Function($TermsOfServicePublicCapabilitiesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TermsOfServicePublicCapabilitiesInterfaceBuilder].
+  $TermsOfServicePublicCapabilitiesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TermsOfServicePublicCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TermsOfServicePublicCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class TermsOfServicePublicCapabilities
+    implements
+        $TermsOfServicePublicCapabilitiesInterface,
+        Built<TermsOfServicePublicCapabilities, TermsOfServicePublicCapabilitiesBuilder> {
+  /// Creates a new TermsOfServicePublicCapabilities object using the builder pattern.
+  factory TermsOfServicePublicCapabilities([void Function(TermsOfServicePublicCapabilitiesBuilder)? b]) =
+      _$TermsOfServicePublicCapabilities;
+
+  // coverage:ignore-start
+  const TermsOfServicePublicCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TermsOfServicePublicCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TermsOfServicePublicCapabilities.
+  static Serializer<TermsOfServicePublicCapabilities> get serializer => _$termsOfServicePublicCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TermsOfServicePublicCapabilitiesBuilder b) {
+    $TermsOfServicePublicCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TermsOfServicePublicCapabilitiesBuilder b) {
+    $TermsOfServicePublicCapabilitiesInterface._validate(b);
+  }
+}
+
 @BuiltValue(instantiable: false)
 sealed class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
@@ -15968,7 +16155,7 @@ sealed class $ThemingPublicCapabilities_ThemingInterface {
   String get logo;
   String get background;
   @BuiltValueField(wireName: 'background-text')
-  String? get backgroundText;
+  String get backgroundText;
   @BuiltValueField(wireName: 'background-plain')
   bool get backgroundPlain;
   @BuiltValueField(wireName: 'background-default')
@@ -16461,6 +16648,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
   TablesCapabilities? tablesCapabilities,
+  TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities,
@@ -28039,31 +28227,19 @@ extension $AutocompleteResult_StatusExtension on AutocompleteResult_Status {
   static AutocompleteResult_Status fromJson(Object? json) => $87e48e5649cd72b4d2947aaaea13ccd8Extension._fromJson(json);
 }
 
-/// Serialization extension for `NavigationEntry_Order`.
-extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
-  /// Serializer for NavigationEntry_Order.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NavigationEntry_Order> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
-}
-
 /// Serialization extension for `OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities`.
 extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
     on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer;
+      $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._fromJson(json);
+      $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._fromJson(json);
 }
 
 /// Serialization extension for `TaskProcessingTaskType_InputShapeDefaults`.
@@ -28206,77 +28382,7 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
-  List<dynamic> get _values => [$int, string];
-  List<String> get _names => const [r'$int', 'string'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(_values, _names);
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
-  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
-      const _$b2c4857c0136baea42828d89c87c757dSerializer();
-  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
-  const _$b2c4857c0136baea42828d89c87c757dSerializer();
-
-  @override
-  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
-
-  @override
-  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$b2c4857c0136baea42828d89c87c757d object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.$int;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(int))!;
-    }
-    value = object.string;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(String))!;
-    }
-    // Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$b2c4857c0136baea42828d89c87c757d deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    int? $int;
-    try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
-    } catch (_) {}
-    String? string;
-    try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
-    } catch (_) {}
-    return ($int: $int, string: string);
-  }
-}
-
-typedef _$f800ec38bc53f35ef8f05fc4ee2dc2b1 = ({
+typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 = ({
   CommentsCapabilities? commentsCapabilities,
   CoreCapabilities? coreCapabilities,
   CorePublicCapabilities? corePublicCapabilities,
@@ -28295,6 +28401,7 @@ typedef _$f800ec38bc53f35ef8f05fc4ee2dc2b1 = ({
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
   TablesCapabilities? tablesCapabilities,
+  TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities,
@@ -28302,7 +28409,7 @@ typedef _$f800ec38bc53f35ef8f05fc4ee2dc2b1 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05fc4ee2dc2b1 {
+extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 {
   List<dynamic> get _values => [
         commentsCapabilities,
         coreCapabilities,
@@ -28322,6 +28429,7 @@ extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05f
         spreedPublicCapabilities,
         systemtagsCapabilities,
         tablesCapabilities,
+        termsOfServicePublicCapabilities,
         themingPublicCapabilities,
         userStatusCapabilities,
         weatherStatusCapabilities,
@@ -28345,6 +28453,7 @@ extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05f
         'spreedPublicCapabilities',
         'systemtagsCapabilities',
         'tablesCapabilities',
+        'termsOfServicePublicCapabilities',
         'themingPublicCapabilities',
         'userStatusCapabilities',
         'weatherStatusCapabilities',
@@ -28355,9 +28464,9 @@ extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05f
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i5.validateAnyOf(_values, _names);
-  static Serializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> get _serializer =>
-      const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
-  static _$f800ec38bc53f35ef8f05fc4ee2dc2b1 _fromJson(Object? json) =>
+  static Serializer<_$d133a6ea76c2cb6bb2f7f6f4c3fdf958> get _serializer =>
+      const _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer();
+  static _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -28366,19 +28475,19 @@ extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05f
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> {
-  const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
+class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerializer<_$d133a6ea76c2cb6bb2f7f6f4c3fdf958> {
+  const _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer();
 
   @override
-  Iterable<Type> get types => const [_$f800ec38bc53f35ef8f05fc4ee2dc2b1];
+  Iterable<Type> get types => const [_$d133a6ea76c2cb6bb2f7f6f4c3fdf958];
 
   @override
-  String get wireName => r'_$f800ec38bc53f35ef8f05fc4ee2dc2b1';
+  String get wireName => r'_$d133a6ea76c2cb6bb2f7f6f4c3fdf958';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$f800ec38bc53f35ef8f05fc4ee2dc2b1 object, {
+    _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -28454,6 +28563,10 @@ class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(TablesCapabilities))!;
     }
+    value = object.termsOfServicePublicCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(TermsOfServicePublicCapabilities))!;
+    }
     value = object.themingPublicCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
@@ -28471,7 +28584,7 @@ class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$f800ec38bc53f35ef8f05fc4ee2dc2b1 deserialize(
+  _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -28576,6 +28689,13 @@ class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerialize
       tablesCapabilities =
           serializers.deserialize(data, specifiedType: const FullType(TablesCapabilities))! as TablesCapabilities;
     } catch (_) {}
+    TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities;
+    try {
+      termsOfServicePublicCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(TermsOfServicePublicCapabilities),
+      )! as TermsOfServicePublicCapabilities;
+    } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
       themingPublicCapabilities = serializers.deserialize(
@@ -28614,6 +28734,7 @@ class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerialize
       spreedPublicCapabilities: spreedPublicCapabilities,
       systemtagsCapabilities: systemtagsCapabilities,
       tablesCapabilities: tablesCapabilities,
+      termsOfServicePublicCapabilities: termsOfServicePublicCapabilities,
       themingPublicCapabilities: themingPublicCapabilities,
       userStatusCapabilities: userStatusCapabilities,
       weatherStatusCapabilities: weatherStatusCapabilities,
@@ -28781,6 +28902,76 @@ class _$17b504aaa197cb55522acb1f128f183aSerializer implements PrimitiveSerialize
       string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (builtListNum: builtListNum, builtListString: builtListString, $num: $num, string: string);
+  }
+}
+
+typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
+  List<dynamic> get _values => [$int, string];
+  List<String> get _names => const [r'$int', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
+  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
+      const _$b2c4857c0136baea42828d89c87c757dSerializer();
+  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
+  const _$b2c4857c0136baea42828d89c87c757dSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
+
+  @override
+  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$b2c4857c0136baea42828d89c87c757d object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$int;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+    // Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$b2c4857c0136baea42828d89c87c757d deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    int? $int;
+    try {
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return ($int: $int, string: string);
   }
 }
 
@@ -29056,7 +29247,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
       ..add(NavigationEntry.serializer)
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
       ..add(NavigationGetSettingsNavigationAbsolute.serializer)
       ..addBuilderFactory(
@@ -29374,6 +29564,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TablesCapabilities.serializer)
       ..addBuilderFactory(const FullType(TablesCapabilities_Tables), TablesCapabilities_TablesBuilder.new)
       ..add(TablesCapabilities_Tables.serializer)
+      ..addBuilderFactory(
+        const FullType(TermsOfServicePublicCapabilities),
+        TermsOfServicePublicCapabilitiesBuilder.new,
+      )
+      ..add(TermsOfServicePublicCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(TermsOfServicePublicCapabilities_TermsOfService),
+        TermsOfServicePublicCapabilities_TermsOfServiceBuilder.new,
+      )
+      ..add(TermsOfServicePublicCapabilities_TermsOfService.serializer)
+      ..add(TermsOfServicePublicCapabilities_TermsOfService_Enabled.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -29399,7 +29600,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer)
+      ..add($d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
       ..add(PreviewGetPreviewMode.serializer)
@@ -30187,6 +30388,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
         ListBuilder<UnifiedSearchProvider>.new,
       )
+      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
         UnifiedSearchSearchResponseApplicationJsonBuilder.new,
@@ -30280,10 +30482,10 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
         _i8.StandardJsonPlugin(
           typesToLeaveAsList: const {
             _$87e48e5649cd72b4d2947aaaea13ccd8,
-            _$b2c4857c0136baea42828d89c87c757d,
-            _$f800ec38bc53f35ef8f05fc4ee2dc2b1,
+            _$d133a6ea76c2cb6bb2f7f6f4c3fdf958,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,
+            _$b2c4857c0136baea42828d89c87c757d,
           },
         ),
       )
