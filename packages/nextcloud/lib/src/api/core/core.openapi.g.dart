@@ -250,6 +250,26 @@ final BuiltSet<SystemtagsCapabilities_Systemtags_Enabled> _$systemtagsCapabiliti
   _$systemtagsCapabilitiesSystemtagsEnabled$true,
 ]);
 
+const TermsOfServicePublicCapabilities_TermsOfService_Enabled
+    _$termsOfServicePublicCapabilitiesTermsOfServiceEnabled$true =
+    const TermsOfServicePublicCapabilities_TermsOfService_Enabled._('\$true');
+
+TermsOfServicePublicCapabilities_TermsOfService_Enabled
+    _$valueOfTermsOfServicePublicCapabilities_TermsOfService_Enabled(String name) {
+  switch (name) {
+    case '\$true':
+      return _$termsOfServicePublicCapabilitiesTermsOfServiceEnabled$true;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<TermsOfServicePublicCapabilities_TermsOfService_Enabled>
+    _$termsOfServicePublicCapabilitiesTermsOfServiceEnabledValues = new BuiltSet<
+        TermsOfServicePublicCapabilities_TermsOfService_Enabled>(const <TermsOfServicePublicCapabilities_TermsOfService_Enabled>[
+  _$termsOfServicePublicCapabilitiesTermsOfServiceEnabled$true,
+]);
+
 const PreviewGetPreviewA _$previewGetPreviewA$0 = const PreviewGetPreviewA._('\$0');
 const PreviewGetPreviewA _$previewGetPreviewA$1 = const PreviewGetPreviewA._('\$1');
 
@@ -970,6 +990,10 @@ Serializer<SystemtagsCapabilities> _$systemtagsCapabilitiesSerializer = new _$Sy
 Serializer<TablesCapabilities_Tables> _$tablesCapabilitiesTablesSerializer =
     new _$TablesCapabilities_TablesSerializer();
 Serializer<TablesCapabilities> _$tablesCapabilitiesSerializer = new _$TablesCapabilitiesSerializer();
+Serializer<TermsOfServicePublicCapabilities_TermsOfService> _$termsOfServicePublicCapabilitiesTermsOfServiceSerializer =
+    new _$TermsOfServicePublicCapabilities_TermsOfServiceSerializer();
+Serializer<TermsOfServicePublicCapabilities> _$termsOfServicePublicCapabilitiesSerializer =
+    new _$TermsOfServicePublicCapabilitiesSerializer();
 Serializer<ThemingPublicCapabilities_Theming> _$themingPublicCapabilitiesThemingSerializer =
     new _$ThemingPublicCapabilities_ThemingSerializer();
 Serializer<ThemingPublicCapabilities> _$themingPublicCapabilitiesSerializer =
@@ -4009,7 +4033,7 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
     if (value != null) {
       result
         ..add('order')
-        ..add(serializers.serialize(value, specifiedType: const FullType(NavigationEntry_Order)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.app;
     if (value != null) {
@@ -4041,8 +4065,7 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'order':
-          result.order = serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))
-              as NavigationEntry_Order?;
+          result.order = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'href':
           result.href = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -8007,6 +8030,97 @@ class _$TablesCapabilitiesSerializer implements StructuredSerializer<TablesCapab
   }
 }
 
+class _$TermsOfServicePublicCapabilities_TermsOfServiceSerializer
+    implements StructuredSerializer<TermsOfServicePublicCapabilities_TermsOfService> {
+  @override
+  final Iterable<Type> types = const [
+    TermsOfServicePublicCapabilities_TermsOfService,
+    _$TermsOfServicePublicCapabilities_TermsOfService
+  ];
+  @override
+  final String wireName = 'TermsOfServicePublicCapabilities_TermsOfService';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TermsOfServicePublicCapabilities_TermsOfService object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled,
+          specifiedType: const FullType(TermsOfServicePublicCapabilities_TermsOfService_Enabled)),
+      'term_uuid',
+      serializers.serialize(object.termUuid, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TermsOfServicePublicCapabilities_TermsOfService deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new TermsOfServicePublicCapabilities_TermsOfServiceBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value,
+                  specifiedType: const FullType(TermsOfServicePublicCapabilities_TermsOfService_Enabled))!
+              as TermsOfServicePublicCapabilities_TermsOfService_Enabled;
+          break;
+        case 'term_uuid':
+          result.termUuid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TermsOfServicePublicCapabilitiesSerializer implements StructuredSerializer<TermsOfServicePublicCapabilities> {
+  @override
+  final Iterable<Type> types = const [TermsOfServicePublicCapabilities, _$TermsOfServicePublicCapabilities];
+  @override
+  final String wireName = 'TermsOfServicePublicCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TermsOfServicePublicCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'terms_of_service',
+      serializers.serialize(object.termsOfService,
+          specifiedType: const FullType(TermsOfServicePublicCapabilities_TermsOfService)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TermsOfServicePublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new TermsOfServicePublicCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'terms_of_service':
+          result.termsOfService.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TermsOfServicePublicCapabilities_TermsOfService))!
+              as TermsOfServicePublicCapabilities_TermsOfService);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSerializer<ThemingPublicCapabilities_Theming> {
   @override
   final Iterable<Type> types = const [ThemingPublicCapabilities_Theming, _$ThemingPublicCapabilities_Theming];
@@ -8037,6 +8151,8 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
       serializers.serialize(object.logo, specifiedType: const FullType(String)),
       'background',
       serializers.serialize(object.background, specifiedType: const FullType(String)),
+      'background-text',
+      serializers.serialize(object.backgroundText, specifiedType: const FullType(String)),
       'background-plain',
       serializers.serialize(object.backgroundPlain, specifiedType: const FullType(bool)),
       'background-default',
@@ -8046,13 +8162,7 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
       'favicon',
       serializers.serialize(object.favicon, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.backgroundText;
-    if (value != null) {
-      result
-        ..add('background-text')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -8098,7 +8208,7 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
           result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-text':
-          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-plain':
           result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -23231,8 +23341,8 @@ abstract mixin class $NavigationEntryInterfaceBuilder {
   String? get id;
   set id(String? id);
 
-  NavigationEntry_Order? get order;
-  set order(NavigationEntry_Order? order);
+  int? get order;
+  set order(int? order);
 
   String? get href;
   set href(String? href);
@@ -23266,7 +23376,7 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   final String id;
   @override
-  final NavigationEntry_Order? order;
+  final int? order;
   @override
   final String href;
   @override
@@ -23321,10 +23431,9 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is NavigationEntry &&
         id == other.id &&
-        order == _$dynamicOther.order &&
+        order == other.order &&
         href == other.href &&
         icon == other.icon &&
         type == other.type &&
@@ -23380,9 +23489,9 @@ class NavigationEntryBuilder
   String? get id => _$this._id;
   set id(covariant String? id) => _$this._id = id;
 
-  NavigationEntry_Order? _order;
-  NavigationEntry_Order? get order => _$this._order;
-  set order(covariant NavigationEntry_Order? order) => _$this._order = order;
+  int? _order;
+  int? get order => _$this._order;
+  set order(covariant int? order) => _$this._order = order;
 
   String? _href;
   String? get href => _$this._href;
@@ -33357,6 +33466,231 @@ class TablesCapabilitiesBuilder
   }
 }
 
+abstract mixin class $TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder {
+  void replace($TermsOfServicePublicCapabilities_TermsOfServiceInterface other);
+  void update(void Function($TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder) updates);
+  TermsOfServicePublicCapabilities_TermsOfService_Enabled? get enabled;
+  set enabled(TermsOfServicePublicCapabilities_TermsOfService_Enabled? enabled);
+
+  String? get termUuid;
+  set termUuid(String? termUuid);
+}
+
+class _$TermsOfServicePublicCapabilities_TermsOfService extends TermsOfServicePublicCapabilities_TermsOfService {
+  @override
+  final TermsOfServicePublicCapabilities_TermsOfService_Enabled enabled;
+  @override
+  final String termUuid;
+
+  factory _$TermsOfServicePublicCapabilities_TermsOfService(
+          [void Function(TermsOfServicePublicCapabilities_TermsOfServiceBuilder)? updates]) =>
+      (new TermsOfServicePublicCapabilities_TermsOfServiceBuilder()..update(updates))._build();
+
+  _$TermsOfServicePublicCapabilities_TermsOfService._({required this.enabled, required this.termUuid}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'TermsOfServicePublicCapabilities_TermsOfService', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(termUuid, r'TermsOfServicePublicCapabilities_TermsOfService', 'termUuid');
+  }
+
+  @override
+  TermsOfServicePublicCapabilities_TermsOfService rebuild(
+          void Function(TermsOfServicePublicCapabilities_TermsOfServiceBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder toBuilder() =>
+      new TermsOfServicePublicCapabilities_TermsOfServiceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TermsOfServicePublicCapabilities_TermsOfService &&
+        enabled == other.enabled &&
+        termUuid == other.termUuid;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, termUuid.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TermsOfServicePublicCapabilities_TermsOfService')
+          ..add('enabled', enabled)
+          ..add('termUuid', termUuid))
+        .toString();
+  }
+}
+
+class TermsOfServicePublicCapabilities_TermsOfServiceBuilder
+    implements
+        Builder<TermsOfServicePublicCapabilities_TermsOfService,
+            TermsOfServicePublicCapabilities_TermsOfServiceBuilder>,
+        $TermsOfServicePublicCapabilities_TermsOfServiceInterfaceBuilder {
+  _$TermsOfServicePublicCapabilities_TermsOfService? _$v;
+
+  TermsOfServicePublicCapabilities_TermsOfService_Enabled? _enabled;
+  TermsOfServicePublicCapabilities_TermsOfService_Enabled? get enabled => _$this._enabled;
+  set enabled(covariant TermsOfServicePublicCapabilities_TermsOfService_Enabled? enabled) => _$this._enabled = enabled;
+
+  String? _termUuid;
+  String? get termUuid => _$this._termUuid;
+  set termUuid(covariant String? termUuid) => _$this._termUuid = termUuid;
+
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder() {
+    TermsOfServicePublicCapabilities_TermsOfService._defaults(this);
+  }
+
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _termUuid = $v.termUuid;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TermsOfServicePublicCapabilities_TermsOfService other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TermsOfServicePublicCapabilities_TermsOfService;
+  }
+
+  @override
+  void update(void Function(TermsOfServicePublicCapabilities_TermsOfServiceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TermsOfServicePublicCapabilities_TermsOfService build() => _build();
+
+  _$TermsOfServicePublicCapabilities_TermsOfService _build() {
+    TermsOfServicePublicCapabilities_TermsOfService._validate(this);
+    final _$result = _$v ??
+        new _$TermsOfServicePublicCapabilities_TermsOfService._(
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'TermsOfServicePublicCapabilities_TermsOfService', 'enabled'),
+          termUuid: BuiltValueNullFieldError.checkNotNull(
+              termUuid, r'TermsOfServicePublicCapabilities_TermsOfService', 'termUuid'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TermsOfServicePublicCapabilitiesInterfaceBuilder {
+  void replace($TermsOfServicePublicCapabilitiesInterface other);
+  void update(void Function($TermsOfServicePublicCapabilitiesInterfaceBuilder) updates);
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder get termsOfService;
+  set termsOfService(TermsOfServicePublicCapabilities_TermsOfServiceBuilder? termsOfService);
+}
+
+class _$TermsOfServicePublicCapabilities extends TermsOfServicePublicCapabilities {
+  @override
+  final TermsOfServicePublicCapabilities_TermsOfService termsOfService;
+
+  factory _$TermsOfServicePublicCapabilities([void Function(TermsOfServicePublicCapabilitiesBuilder)? updates]) =>
+      (new TermsOfServicePublicCapabilitiesBuilder()..update(updates))._build();
+
+  _$TermsOfServicePublicCapabilities._({required this.termsOfService}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(termsOfService, r'TermsOfServicePublicCapabilities', 'termsOfService');
+  }
+
+  @override
+  TermsOfServicePublicCapabilities rebuild(void Function(TermsOfServicePublicCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TermsOfServicePublicCapabilitiesBuilder toBuilder() => new TermsOfServicePublicCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TermsOfServicePublicCapabilities && termsOfService == other.termsOfService;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, termsOfService.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TermsOfServicePublicCapabilities')..add('termsOfService', termsOfService))
+        .toString();
+  }
+}
+
+class TermsOfServicePublicCapabilitiesBuilder
+    implements
+        Builder<TermsOfServicePublicCapabilities, TermsOfServicePublicCapabilitiesBuilder>,
+        $TermsOfServicePublicCapabilitiesInterfaceBuilder {
+  _$TermsOfServicePublicCapabilities? _$v;
+
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder? _termsOfService;
+  TermsOfServicePublicCapabilities_TermsOfServiceBuilder get termsOfService =>
+      _$this._termsOfService ??= new TermsOfServicePublicCapabilities_TermsOfServiceBuilder();
+  set termsOfService(covariant TermsOfServicePublicCapabilities_TermsOfServiceBuilder? termsOfService) =>
+      _$this._termsOfService = termsOfService;
+
+  TermsOfServicePublicCapabilitiesBuilder() {
+    TermsOfServicePublicCapabilities._defaults(this);
+  }
+
+  TermsOfServicePublicCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _termsOfService = $v.termsOfService.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TermsOfServicePublicCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TermsOfServicePublicCapabilities;
+  }
+
+  @override
+  void update(void Function(TermsOfServicePublicCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TermsOfServicePublicCapabilities build() => _build();
+
+  _$TermsOfServicePublicCapabilities _build() {
+    TermsOfServicePublicCapabilities._validate(this);
+    _$TermsOfServicePublicCapabilities _$result;
+    try {
+      _$result = _$v ??
+          new _$TermsOfServicePublicCapabilities._(
+            termsOfService: termsOfService.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'termsOfService';
+        termsOfService.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'TermsOfServicePublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ThemingPublicCapabilities_ThemingInterfaceBuilder {
   void replace($ThemingPublicCapabilities_ThemingInterface other);
   void update(void Function($ThemingPublicCapabilities_ThemingInterfaceBuilder) updates);
@@ -33428,7 +33762,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
   @override
   final String background;
   @override
-  final String? backgroundText;
+  final String backgroundText;
   @override
   final bool backgroundPlain;
   @override
@@ -33452,7 +33786,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
       required this.colorElementDark,
       required this.logo,
       required this.background,
-      this.backgroundText,
+      required this.backgroundText,
       required this.backgroundPlain,
       required this.backgroundDefault,
       required this.logoheader,
@@ -33469,6 +33803,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
     BuiltValueNullFieldError.checkNotNull(colorElementDark, r'ThemingPublicCapabilities_Theming', 'colorElementDark');
     BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo');
     BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background');
+    BuiltValueNullFieldError.checkNotNull(backgroundText, r'ThemingPublicCapabilities_Theming', 'backgroundText');
     BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain');
     BuiltValueNullFieldError.checkNotNull(backgroundDefault, r'ThemingPublicCapabilities_Theming', 'backgroundDefault');
     BuiltValueNullFieldError.checkNotNull(logoheader, r'ThemingPublicCapabilities_Theming', 'logoheader');
@@ -33673,7 +34008,8 @@ class ThemingPublicCapabilities_ThemingBuilder
           logo: BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo'),
           background:
               BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background'),
-          backgroundText: backgroundText,
+          backgroundText: BuiltValueNullFieldError.checkNotNull(
+              backgroundText, r'ThemingPublicCapabilities_Theming', 'backgroundText'),
           backgroundPlain: BuiltValueNullFieldError.checkNotNull(
               backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain'),
           backgroundDefault: BuiltValueNullFieldError.checkNotNull(
